@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+
 const config: Config = {
   darkMode: ["class"],
   content: [
@@ -7,6 +8,7 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
+  presets: [require("./lib/shadcn-preset")],
   theme: {
     extend: {
       colors: {

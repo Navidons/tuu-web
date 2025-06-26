@@ -1,72 +1,140 @@
 "use client"
 
-import { useState } from "react"
-import { Trash2, Plus, Minus, Calendar, Users, MapPin, Clock } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Trash2, Plus, Minus, Calendar, Users, MapPin, Clock, User, Mail, Phone, Globe, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 import Image from "next/image"
-
-interface CartItem {
-  id: number
-  title: string
-  location: string
-  duration: string
-  price: number
-  quantity: number
-  date: string
-  guests: number
-  image: string
-  category: string
-}
-
-const mockCartItems: CartItem[] = [
-  {
-    id: 1,
-    title: "Gorilla Trekking Adventure",
-    location: "Bwindi Impenetrable Forest",
-    duration: "3 Days",
-    price: 1200,
-    quantity: 2,
-    date: "2024-03-15",
-    guests: 2,
-    image: "/placeholder.svg?height=150&width=200",
-    category: "Wildlife",
-  },
-  {
-    id: 3,
-    title: "Cultural Heritage Experience",
-    location: "Kampala & Jinja",
-    duration: "2 Days",
-    price: 450,
-    quantity: 1,
-    date: "2024-03-20",
-    guests: 1,
-    image: "/placeholder.svg?height=150&width=200",
-    category: "Cultural",
-  },
-]
+import { toast } from "sonner"
+import type { CartItem, BookingFormData, BookingGuest } from "@/lib/bookings"
 
 export default function CartContent() {
-  const [cartItems, setCartItems] = useState<CartItem[]>(mockCartItems)
+  const [cartItems, setCartItems] = useState<CartItem[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [showCheckout, setShowCheckout] = useState(false)
+  const [bookingData, setBookingData] = useState<BookingFormData>({
+    customer_name: "",
+    customer_email: "",
+    customer_phone: "",
+    customer_country: "",
+    special_requests: "",
+    contact_method: "email",
+    preferred_contact_time: "",
+    guests: []
+  })
 
-  const updateQuantity = (id: number, newQuantity: number) => {
+  // Load cart from session storage
+  useEffect(() => {
+    const savedCart = sessionStorage.getItem('cart')
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart))
+    }
+  }, [])
+
+  // Update session storage when cart changes
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      sessionStorage.setItem('cart', JSON.stringify(cartItems))
+    } else {
+      sessionStorage.removeItem('cart')
+    }
+  }, [cartItems])
+
+  const updateQuantity = (tourId: number, travelDate: string, newQuantity: number) => {
     if (newQuantity === 0) {
-      removeItem(id)
+      removeItem(tourId, travelDate)
       return
     }
-    setCartItems((items) => items.map((item) => (item.id === id ? { ...item, quantity: newQuantity } : item)))
+    setCartItems((items) => 
+      items.map((item) => 
+        item.tour_id === tourId && item.travel_date === travelDate 
+          ? { ...item, number_of_guests: newQuantity, total_price: item.tour_price * newQuantity }
+          : item
+      )
+    )
   }
 
-  const removeItem = (id: number) => {
-    setCartItems((items) => items.filter((item) => item.id !== id))
+  const removeItem = (tourId: number, travelDate: string) => {
+    setCartItems((items) => 
+      items.filter((item) => !(item.tour_id === tourId && item.travel_date === travelDate))
+    )
   }
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const tax = subtotal * 0.1 // 10% tax
-  const total = subtotal + tax
+  const subtotal = cartItems.reduce((sum, item) => sum + item.total_price, 0)
+  const total = subtotal // No tax for now
+
+  const handleInputChange = (field: keyof BookingFormData, value: string) => {
+    setBookingData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!bookingData.customer_name || !bookingData.customer_email || !bookingData.customer_phone) {
+      toast.error("Please fill in all required fields")
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          bookingData,
+          cartItems
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        toast.success("Booking submitted successfully! You will receive a confirmation email shortly.")
+        
+        // Clear cart
+        setCartItems([])
+        sessionStorage.removeItem('cart')
+        
+        // Reset form
+        setBookingData({
+          customer_name: "",
+          customer_email: "",
+          customer_phone: "",
+          customer_country: "",
+          special_requests: "",
+          contact_method: "email",
+          preferred_contact_time: "",
+          guests: []
+        })
+        
+        setShowCheckout(false)
+        
+        // Redirect to success page or home
+        setTimeout(() => {
+          window.location.href = '/'
+        }, 2000)
+      } else {
+        toast.error(result.error || "Failed to submit booking")
+      }
+    } catch (error) {
+      console.error('Error submitting booking:', error)
+      toast.error("Failed to submit booking. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   if (cartItems.length === 0) {
     return (
@@ -88,72 +156,86 @@ export default function CartContent() {
   return (
     <div className="space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold text-earth-900">Shopping Cart</h1>
-        <p className="text-lg text-earth-600">Review your selected tours and proceed to booking</p>
+        <h1 className="text-4xl font-bold text-earth-900">
+          {showCheckout ? "Complete Your Booking" : "Shopping Cart"}
+        </h1>
+        <p className="text-lg text-earth-600">
+          {showCheckout 
+            ? "Please provide your contact information to complete your booking"
+            : "Review your selected tours and proceed to booking"
+          }
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cart Items */}
         <div className="lg:col-span-2 space-y-4">
-          {cartItems.map((item) => (
-            <Card key={item.id}>
+          {cartItems.map((item, index) => (
+            <Card key={`${item.tour_id}-${item.travel_date}`}>
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="relative">
                     <Image
-                      src={item.image || "/placeholder.svg"}
-                      alt={item.title}
+                      src={item.tour_image || "/placeholder.svg"}
+                      alt={item.tour_title}
                       width={200}
                       height={150}
                       className="w-full md:w-48 h-32 object-cover rounded-lg"
                     />
-                    <Badge className="absolute top-2 left-2 bg-forest-600">{item.category}</Badge>
                   </div>
 
                   <div className="flex-1 space-y-3">
                     <div>
-                      <h3 className="font-semibold text-lg text-earth-900">{item.title}</h3>
+                      <h3 className="font-semibold text-lg text-earth-900">{item.tour_title}</h3>
                       <div className="flex items-center text-sm text-earth-600 mt-1">
                         <MapPin className="h-4 w-4 mr-1" />
-                        {item.location}
+                        {item.tour_location || "Uganda"}
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
                       <div className="flex items-center">
                         <Clock className="h-4 w-4 mr-1 text-earth-500" />
-                        {item.duration}
+                        {item.tour_duration || "Multi-day"}
                       </div>
                       <div className="flex items-center">
                         <Calendar className="h-4 w-4 mr-1 text-earth-500" />
-                        {new Date(item.date).toLocaleDateString()}
+                        {new Date(item.travel_date).toLocaleDateString()}
                       </div>
                       <div className="flex items-center">
                         <Users className="h-4 w-4 mr-1 text-earth-500" />
-                        {item.guests} {item.guests === 1 ? "Guest" : "Guests"}
+                        {item.number_of_guests} {item.number_of_guests === 1 ? "Guest" : "Guests"}
                       </div>
                     </div>
 
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <Button variant="outline" size="sm" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => updateQuantity(item.tour_id, item.travel_date, item.number_of_guests - 1)}
+                        >
                           <Minus className="h-4 w-4" />
                         </Button>
-                        <span className="font-medium">{item.quantity}</span>
-                        <Button variant="outline" size="sm" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                        <span className="font-medium">{item.number_of_guests}</span>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => updateQuantity(item.tour_id, item.travel_date, item.number_of_guests + 1)}
+                        >
                           <Plus className="h-4 w-4" />
                         </Button>
                       </div>
 
                       <div className="flex items-center space-x-4">
                         <div className="text-right">
-                          <div className="text-lg font-bold text-forest-600">${item.price * item.quantity}</div>
-                          <div className="text-sm text-earth-600">${item.price} per person</div>
+                          <div className="text-lg font-bold text-forest-600">${item.total_price}</div>
+                          <div className="text-sm text-earth-600">${item.tour_price} per person</div>
                         </div>
                         <Button
                           variant="ghost"
                           size="sm"
-                          onClick={() => removeItem(item.id)}
+                          onClick={() => removeItem(item.tour_id, item.travel_date)}
                           className="text-red-600 hover:text-red-700 hover:bg-red-50"
                         >
                           <Trash2 className="h-4 w-4" />
@@ -167,7 +249,7 @@ export default function CartContent() {
           ))}
         </div>
 
-        {/* Order Summary */}
+        {/* Order Summary & Checkout */}
         <div className="lg:col-span-1">
           <Card className="sticky top-8">
             <CardHeader>
@@ -179,10 +261,6 @@ export default function CartContent() {
                   <span>Subtotal</span>
                   <span>${subtotal.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Tax (10%)</span>
-                  <span>${tax.toFixed(2)}</span>
-                </div>
                 <Separator />
                 <div className="flex justify-between font-semibold text-lg">
                   <span>Total</span>
@@ -190,20 +268,147 @@ export default function CartContent() {
                 </div>
               </div>
 
-              <div className="space-y-3 pt-4">
-                <Button className="w-full btn-primary" size="lg">
-                  Proceed to Checkout
-                </Button>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link href="/tours">Continue Shopping</Link>
-                </Button>
-              </div>
+              {!showCheckout ? (
+                <div className="space-y-3 pt-4">
+                  <Button 
+                    className="w-full btn-primary" 
+                    size="lg"
+                    onClick={() => setShowCheckout(true)}
+                  >
+                    Proceed to Checkout
+                  </Button>
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link href="/tours">Continue Shopping</Link>
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-earth-700 mb-2">
+                        Full Name *
+                      </label>
+                      <Input
+                        type="text"
+                        value={bookingData.customer_name}
+                        onChange={(e) => handleInputChange('customer_name', e.target.value)}
+                        placeholder="Enter your full name"
+                        required
+                      />
+                    </div>
 
-              <div className="pt-4 text-sm text-earth-600">
-                <p className="mb-2">✓ Free cancellation up to 24 hours before</p>
-                <p className="mb-2">✓ Secure payment processing</p>
-                <p>✓ 24/7 customer support</p>
-              </div>
+                    <div>
+                      <label className="block text-sm font-medium text-earth-700 mb-2">
+                        Email Address *
+                      </label>
+                      <Input
+                        type="email"
+                        value={bookingData.customer_email}
+                        onChange={(e) => handleInputChange('customer_email', e.target.value)}
+                        placeholder="Enter your email address"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-earth-700 mb-2">
+                        Phone Number *
+                      </label>
+                      <Input
+                        type="tel"
+                        value={bookingData.customer_phone}
+                        onChange={(e) => handleInputChange('customer_phone', e.target.value)}
+                        placeholder="Enter your phone number"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-earth-700 mb-2">
+                        Country
+                      </label>
+                      <Input
+                        type="text"
+                        value={bookingData.customer_country}
+                        onChange={(e) => handleInputChange('customer_country', e.target.value)}
+                        placeholder="Enter your country"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-earth-700 mb-2">
+                        Preferred Contact Method
+                      </label>
+                      <Select
+                        value={bookingData.contact_method}
+                        onValueChange={(value) => handleInputChange('contact_method', value)}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="email">Email</SelectItem>
+                          <SelectItem value="phone">Phone</SelectItem>
+                          <SelectItem value="whatsapp">WhatsApp</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-earth-700 mb-2">
+                        Preferred Contact Time
+                      </label>
+                      <Input
+                        type="text"
+                        value={bookingData.preferred_contact_time}
+                        onChange={(e) => handleInputChange('preferred_contact_time', e.target.value)}
+                        placeholder="e.g., Morning, Afternoon, Evening"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-earth-700 mb-2">
+                        Special Requests
+                      </label>
+                      <Textarea
+                        value={bookingData.special_requests}
+                        onChange={(e) => handleInputChange('special_requests', e.target.value)}
+                        placeholder="Any special requirements or requests..."
+                        rows={3}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 pt-4">
+                    <Button 
+                      type="submit" 
+                      className="w-full btn-primary" 
+                      size="lg"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? (
+                        <div className="flex items-center">
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Processing...
+                        </div>
+                      ) : (
+                        <>
+                          <MessageSquare className="h-5 w-5 mr-2" />
+                          Submit Booking
+                        </>
+                      )}
+                    </Button>
+                    <Button 
+                      type="button"
+                      variant="outline" 
+                      className="w-full"
+                      onClick={() => setShowCheckout(false)}
+                    >
+                      Back to Cart
+                    </Button>
+                  </div>
+                </form>
+              )}
             </CardContent>
           </Card>
         </div>

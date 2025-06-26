@@ -1,62 +1,98 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { createClient } from "@/lib/supabase"
+import { getAllTours } from "@/lib/tours"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Clock, Users, Star, MapPin } from "lucide-react"
+import LoadingSpinner from "@/components/ui/loading-spinner"
 
 interface Tour {
-  category: string
+  id: number
+  title: string
+  description: string
+  short_description: string
+  price: number
+  duration: string
+  max_group_size: number
+  rating: number
+  review_count: number
   location: string
+  featured_image: string | null
+  category: string
+  category_id: number
 }
 
 interface RelatedToursProps {
   currentTour: Tour
 }
 
-const relatedTours = [
-  {
-    id: 4,
-    title: "Cultural Heritage Experience",
-    description: "Immerse yourself in Uganda's rich cultural traditions with visits to local communities.",
-    image: "/placeholder.svg?height=400&width=600",
-    duration: "6 Days",
-    groupSize: "15 People",
-    rating: 4.6,
-    reviewCount: 73,
-    price: 650,
-    location: "Multiple Regions",
-    category: "Cultural Tours",
-  },
-  {
-    id: 5,
-    title: "Mount Elgon Adventure",
-    description: "Challenge yourself with a trek to the summit of Mount Elgon and explore its unique ecosystem.",
-    image: "/placeholder.svg?height=400&width=600",
-    duration: "7 Days",
-    groupSize: "8 People",
-    rating: 4.5,
-    reviewCount: 42,
-    price: 1100,
-    location: "Mount Elgon NP",
-    category: "Adventure Tours",
-  },
-  {
-    id: 6,
-    title: "Birding Paradise Tour",
-    description: "Discover Uganda's incredible bird diversity with expert guides in prime birding locations.",
-    image: "/placeholder.svg?height=400&width=600",
-    duration: "8 Days",
-    groupSize: "12 People",
-    rating: 4.8,
-    reviewCount: 34,
-    price: 1350,
-    location: "Multiple Parks",
-    category: "Bird Watching",
-  },
-]
-
 export default function RelatedTours({ currentTour }: RelatedToursProps) {
+  const [relatedTours, setRelatedTours] = useState<Tour[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchRelatedTours = async () => {
+      try {
+        const supabase = createClient()
+        const allTours = await getAllTours(supabase)
+        
+        // Filter out the current tour and get related tours based on category and location
+        const filteredTours = allTours.filter(tour => 
+          tour.id !== currentTour.id && 
+          (tour.category_id === currentTour.category_id || 
+           tour.location.toLowerCase().includes(currentTour.location.toLowerCase()) ||
+           currentTour.location.toLowerCase().includes(tour.location.toLowerCase()))
+        )
+
+        // Sort by relevance (same category first, then same location, then by rating)
+        const sortedTours = filteredTours.sort((a, b) => {
+          const aScore = (a.category_id === currentTour.category_id ? 3 : 0) + 
+                        (a.location.toLowerCase().includes(currentTour.location.toLowerCase()) ? 2 : 0) +
+                        (a.rating / 5)
+          const bScore = (b.category_id === currentTour.category_id ? 3 : 0) + 
+                        (b.location.toLowerCase().includes(currentTour.location.toLowerCase()) ? 2 : 0) +
+                        (b.rating / 5)
+          return bScore - aScore
+        })
+
+        // Take the first 3 related tours
+        setRelatedTours(sortedTours.slice(0, 3))
+      } catch (error) {
+        console.error("Error fetching related tours:", error)
+        setRelatedTours([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchRelatedTours()
+  }, [currentTour])
+
+  if (loading) {
+    return (
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="heading-secondary">You Might Also Like</h2>
+            <p className="text-lg text-earth-600">Discover more amazing adventures in Uganda</p>
+          </div>
+          <div className="flex justify-center">
+            <LoadingSpinner />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (relatedTours.length === 0) {
+    return null
+  }
+
   return (
     <section className="section-padding bg-white">
       <div className="container-max">
@@ -70,18 +106,20 @@ export default function RelatedTours({ currentTour }: RelatedToursProps) {
             <Card key={tour.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src={tour.image || "/placeholder.svg"}
+                  src={tour.featured_image || "/placeholder.svg?height=400&width=600"}
                   alt={tour.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
-                  <Badge className="bg-forest-600 text-white">{tour.category}</Badge>
+                  <Badge className="bg-forest-600 text-white">
+                    {typeof tour.category === 'object' ? tour.category?.name || 'General' : tour.category || 'General'}
+                  </Badge>
                 </div>
                 <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full">
                   <div className="flex items-center space-x-1">
                     <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                    <span className="text-sm font-semibold">{tour.rating}</span>
+                    <span className="text-sm font-semibold">{tour.rating || 4.5}</span>
                   </div>
                 </div>
               </div>
@@ -96,16 +134,16 @@ export default function RelatedTours({ currentTour }: RelatedToursProps) {
                   <Link href={`/tours/${tour.id}`}>{tour.title}</Link>
                 </h3>
 
-                <p className="text-earth-700 mb-4 line-clamp-2">{tour.description}</p>
+                <p className="text-earth-700 mb-4 line-clamp-2">{tour.short_description || tour.description}</p>
 
                 <div className="flex items-center justify-between text-sm text-earth-600 mb-4">
                   <div className="flex items-center space-x-1">
                     <Clock className="h-4 w-4" />
-                    <span>{tour.duration}</span>
+                    <span>{tour.duration} Days</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Users className="h-4 w-4" />
-                    <span>Max {tour.groupSize}</span>
+                    <span>Max {tour.max_group_size || 12} People</span>
                   </div>
                 </div>
 

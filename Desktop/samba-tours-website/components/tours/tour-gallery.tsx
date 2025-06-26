@@ -51,14 +51,24 @@ export default function TourGallery({ gallery, title }: TourGalleryProps) {
                 className="relative aspect-video overflow-hidden rounded-lg cursor-pointer group"
                 onClick={() => openLightbox(index)}
               >
-                <Image
-                  src={image || "/placeholder.svg"}
-                  alt={`${title} - Image ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Camera className="h-8 w-8 text-white" />
+                {/* Shiny border effect */}
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-yellow-400/50 via-orange-500/50 to-pink-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-tl from-blue-400/50 via-purple-500/50 to-pink-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                
+                {/* Inner container with padding for border effect */}
+                <div className="relative h-full w-full p-1 rounded-lg bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 bg-size-200 animate-shimmer">
+                  <div className="relative h-full w-full rounded-md overflow-hidden">
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`${title} - Image ${index + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Camera className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -111,6 +121,23 @@ export default function TourGallery({ gallery, title }: TourGalleryProps) {
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        @keyframes shimmer {
+          0% {
+            background-position: -200% 0;
+          }
+          100% {
+            background-position: 200% 0;
+          }
+        }
+        .animate-shimmer {
+          animation: shimmer 2s linear infinite;
+        }
+        .bg-size-200 {
+          background-size: 200% 100%;
+        }
+      `}</style>
     </>
   )
 }

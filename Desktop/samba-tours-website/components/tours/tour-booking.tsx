@@ -1,11 +1,14 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Users, DollarSign, Clock, Star, Shield, Phone, Mail } from "lucide-react"
+import { Users, DollarSign, Clock, Star, Shield, Phone, Mail, ShoppingCart } from "lucide-react"
+import { toast } from "sonner"
+import type { CartItem } from "@/lib/bookings"
 
 interface Tour {
   id: number
@@ -16,6 +19,8 @@ interface Tour {
   groupSize: string
   rating: number
   reviewCount: number
+  location?: string
+  featured_image?: string
 }
 
 interface TourBookingProps {
@@ -23,11 +28,89 @@ interface TourBookingProps {
 }
 
 export default function TourBooking({ tour }: TourBookingProps) {
+  const router = useRouter()
   const [selectedDate, setSelectedDate] = useState("")
   const [travelers, setTravelers] = useState(2)
+  const [isLoading, setIsLoading] = useState(false)
 
   const totalPrice = tour.price * travelers
   const savings = tour.originalPrice ? (tour.originalPrice - tour.price) * travelers : 0
+
+  const addToCart = () => {
+    if (!selectedDate) {
+      toast.error("Please select a travel date")
+      return
+    }
+
+    if (travelers < 1) {
+      toast.error("Please select at least 1 traveler")
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      // Create cart item
+      const cartItem: CartItem = {
+        tour_id: tour.id,
+        tour_title: tour.title,
+        tour_price: tour.price,
+        number_of_guests: travelers,
+        travel_date: selectedDate,
+        total_price: totalPrice,
+        tour_image: tour.featured_image,
+        tour_location: tour.location,
+        tour_duration: tour.duration
+      }
+
+      // Store in session storage (simulating cart)
+      const existingCart = sessionStorage.getItem('cart')
+      const cart = existingCart ? JSON.parse(existingCart) : []
+      
+      // Check if tour already exists in cart
+      const existingIndex = cart.findIndex((item: CartItem) => 
+        item.tour_id === tour.id && item.travel_date === selectedDate
+      )
+
+      if (existingIndex >= 0) {
+        // Update existing item
+        cart[existingIndex] = cartItem
+      } else {
+        // Add new item
+        cart.push(cartItem)
+      }
+
+      sessionStorage.setItem('cart', JSON.stringify(cart))
+      
+      toast.success("Tour added to cart! Redirecting to checkout...")
+      
+      // Redirect to cart/checkout
+      setTimeout(() => {
+        router.push('/cart')
+      }, 1000)
+
+    } catch (error) {
+      console.error('Error adding to cart:', error)
+      toast.error("Failed to add tour to cart")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const bookNow = () => {
+    if (!selectedDate) {
+      toast.error("Please select a travel date")
+      return
+    }
+
+    if (travelers < 1) {
+      toast.error("Please select at least 1 traveler")
+      return
+    }
+
+    // Add to cart and proceed to checkout
+    addToCart()
+  }
 
   return (
     <div className="space-y-6">
@@ -123,9 +206,23 @@ export default function TourBooking({ tour }: TourBookingProps) {
                 </div>
               </div>
 
-              <Button className="w-full btn-primary" size="lg" disabled={!selectedDate}>
-                <DollarSign className="h-5 w-5 mr-2" />
-                Book Now
+              <Button 
+                className="w-full btn-primary" 
+                size="lg" 
+                disabled={!selectedDate || isLoading}
+                onClick={bookNow}
+              >
+                {isLoading ? (
+                  <div className="flex items-center">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Processing...
+                  </div>
+                ) : (
+                  <>
+                    <DollarSign className="h-5 w-5 mr-2" />
+                    Book Now
+                  </>
+                )}
               </Button>
 
               <p className="text-xs text-earth-600 text-center">Free cancellation up to 24 hours before departure</p>

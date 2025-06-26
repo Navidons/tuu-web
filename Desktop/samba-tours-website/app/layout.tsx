@@ -2,9 +2,10 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import LiveChat from "@/components/ui/live-chat"
+import { ThemeProvider } from "@/components/theme-provider"
+import { AuthProvider } from "@/components/auth/auth-provider"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" })
@@ -29,13 +30,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
-      <body className="font-inter bg-background text-earth-900">
-        <ThemeProvider
-          defaultTheme="light"
-        >
-          {children}
-          <LiveChat />
-          <Toaster />
+      <body className="font-inter bg-cream-50 text-earth-900">
+        <ThemeProvider>
+          <AuthProvider>
+        {children}
+        <LiveChat />
+        <Toaster />
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

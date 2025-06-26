@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Separator } from "@/components/ui/separator"
-import { Eye, EyeOff, Mail, Lock, Chrome, Facebook, Apple } from "lucide-react"
 import Link from "next/link"
+import { Eye, EyeOff, Mail, Lock } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useAuth } from "@/components/auth/auth-provider"
 
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -21,51 +21,25 @@ export default function SignInForm() {
     rememberMe: false,
   })
   const router = useRouter()
+  const { login } = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    // Redirect to account page
-    router.push("/account")
+    try {
+      await login(formData.email, formData.password)
+      router.push("/admin") // Redirect to admin after successful login
+    } catch (error) {
+      console.error("Login failed:", error)
+      // You might want to show a toast or error message to the user here
+    } finally {
     setIsLoading(false)
   }
-
-  const handleSocialLogin = (provider: string) => {
-    console.log(`Signing in with ${provider}`)
-    // Implement social login
   }
 
   return (
     <div className="space-y-6">
-      {/* Social Login */}
-      <div className="space-y-3">
-        <Button variant="outline" className="w-full" onClick={() => handleSocialLogin("google")}>
-          <Chrome className="h-4 w-4 mr-2" />
-          Continue with Google
-        </Button>
-        <Button variant="outline" className="w-full" onClick={() => handleSocialLogin("facebook")}>
-          <Facebook className="h-4 w-4 mr-2" />
-          Continue with Facebook
-        </Button>
-        <Button variant="outline" className="w-full" onClick={() => handleSocialLogin("apple")}>
-          <Apple className="h-4 w-4 mr-2" />
-          Continue with Apple
-        </Button>
-      </div>
-
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <Separator />
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white text-earth-500">Or continue with email</span>
-        </div>
-      </div>
-
       {/* Email/Password Form */}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

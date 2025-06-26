@@ -1,44 +1,125 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Slider } from "@/components/ui/slider"
 import { Button } from "@/components/ui/button"
+import { createClient } from "@/lib/supabase"
+import { getAllTours } from "@/lib/tours"
 
-const categories = [
-  { id: "safari", label: "Wildlife Safari", count: 12 },
-  { id: "gorilla", label: "Gorilla Trekking", count: 8 },
-  { id: "cultural", label: "Cultural Tours", count: 15 },
-  { id: "adventure", label: "Adventure Tours", count: 10 },
-  { id: "birding", label: "Bird Watching", count: 6 },
-]
+interface TourFiltersProps {
+  onFiltersChange: (filters: any) => void
+}
 
-const durations = [
-  { id: "1-3", label: "1-3 Days", count: 18 },
-  { id: "4-7", label: "4-7 Days", count: 25 },
-  { id: "8-14", label: "8-14 Days", count: 12 },
-  { id: "15+", label: "15+ Days", count: 6 },
-]
+interface Category {
+  id: number
+  name: string
+  slug: string
+}
 
-export default function TourFilters() {
+export default function TourFilters({ onFiltersChange }: TourFiltersProps) {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  
   const [priceRange, setPriceRange] = useState([0, 2000])
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [selectedDurations, setSelectedDurations] = useState<string[]>([])
+  const [categories, setCategories] = useState<Category[]>([])
+  const [loading, setLoading] = useState(true)
+  const [isInitializing, setIsInitializing] = useState(true)
 
-  const handleCategoryChange = (categoryId: string, checked: boolean) => {
+  // URL alias mapping for user-friendly URLs
+  const categoryAliases: Record<string, string> = {
+    'birding': 'bird-watching',
+    'cultural': 'cultural-tours',
+    'adventure': 'adventure-tours',
+    'wildlife': 'wildlife-safari',
+    'gorilla': 'gorilla-trekking',
+    'nature': 'nature-walks'
+  }
+
+  // Load categories from Supabase
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const supabase = createClient()
+        const { data } = await supabase.from('tour_categories').select('*').order('name')
+        setCategories(data || [])
+      } catch (error) {
+        console.error('Error loading categories:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadCategories()
+  }, [])
+
+  // Initialize filters from URL parameters
+  useEffect(() => {
+    let category = searchParams.get('category')
+    const minPrice = searchParams.get('minPrice')
+    const maxPrice = searchParams.get('maxPrice')
+    const duration = searchParams.get('duration')
+
+    // Map URL alias to actual database slug
+    if (category && categoryAliases[category]) {
+      category = categoryAliases[category]
+    }
+
+    // Reset to default values if parameters don't exist
+    setSelectedCategories(category ? [category] : [])
+    setPriceRange(minPrice && maxPrice ? [parseInt(minPrice), parseInt(maxPrice)] : [0, 2000])
+    setSelectedDurations(duration ? [duration] : [])
+    
+    // Mark initialization as complete after a short delay
+    setTimeout(() => setIsInitializing(false), 100)
+  }, [searchParams])
+
+  // Update URL when filters change (but not during initialization)
+  useEffect(() => {
+    if (isInitializing) return
+    
+    const params = new URLSearchParams()
+    
+    if (selectedCategories.length > 0) {
+      params.set('category', selectedCategories[0])
+    }
+    if (priceRange[0] > 0 || priceRange[1] < 2000) {
+      params.set('minPrice', priceRange[0].toString())
+      params.set('maxPrice', priceRange[1].toString())
+    }
+    if (selectedDurations.length > 0) {
+      params.set('duration', selectedDurations[0])
+    }
+
+    const newUrl = params.toString() ? `/tours?${params.toString()}` : '/tours'
+    router.replace(newUrl, { scroll: false })
+  }, [selectedCategories, priceRange, selectedDurations, router, isInitializing])
+
+  // Notify parent component of filter changes (separate effect to avoid infinite loop)
+  useEffect(() => {
+    onFiltersChange({
+      categories: selectedCategories,
+      priceRange,
+      durations: selectedDurations
+    })
+  }, [selectedCategories, priceRange, selectedDurations, onFiltersChange])
+
+  const handleCategoryChange = (categorySlug: string, checked: boolean) => {
     if (checked) {
-      setSelectedCategories([...selectedCategories, categoryId])
+      setSelectedCategories([categorySlug])
     } else {
-      setSelectedCategories(selectedCategories.filter((id) => id !== categoryId))
+      setSelectedCategories([])
     }
   }
 
   const handleDurationChange = (durationId: string, checked: boolean) => {
     if (checked) {
-      setSelectedDurations([...selectedDurations, durationId])
+      setSelectedDurations([durationId])
     } else {
-      setSelectedDurations(selectedDurations.filter((id) => id !== durationId))
+      setSelectedDurations([])
     }
   }
 
@@ -46,6 +127,26 @@ export default function TourFilters() {
     setSelectedCategories([])
     setSelectedDurations([])
     setPriceRange([0, 2000])
+    router.replace('/tours', { scroll: false })
+  }
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Filter Tours</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="animate-pulse space-y-4">
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded"></div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
   }
 
   return (
@@ -74,14 +175,13 @@ export default function TourFilters() {
               {categories.map((category) => (
                 <div key={category.id} className="flex items-center space-x-2">
                   <Checkbox
-                    id={category.id}
-                    checked={selectedCategories.includes(category.id)}
-                    onCheckedChange={(checked) => handleCategoryChange(category.id, checked as boolean)}
+                    id={category.slug}
+                    checked={selectedCategories.includes(category.slug)}
+                    onCheckedChange={(checked) => handleCategoryChange(category.slug, checked as boolean)}
                   />
-                  <label htmlFor={category.id} className="text-sm flex-1 cursor-pointer">
-                    {category.label}
+                  <label htmlFor={category.slug} className="text-sm flex-1 cursor-pointer">
+                    {category.name}
                   </label>
-                  <span className="text-xs text-earth-500">({category.count})</span>
                 </div>
               ))}
             </div>
@@ -91,7 +191,12 @@ export default function TourFilters() {
           <div>
             <h3 className="font-semibold mb-3">Duration</h3>
             <div className="space-y-2">
-              {durations.map((duration) => (
+              {[
+                { id: "1-3", label: "1-3 Days" },
+                { id: "4-7", label: "4-7 Days" },
+                { id: "8-14", label: "8-14 Days" },
+                { id: "15+", label: "15+ Days" }
+              ].map((duration) => (
                 <div key={duration.id} className="flex items-center space-x-2">
                   <Checkbox
                     id={duration.id}
@@ -101,7 +206,6 @@ export default function TourFilters() {
                   <label htmlFor={duration.id} className="text-sm flex-1 cursor-pointer">
                     {duration.label}
                   </label>
-                  <span className="text-xs text-earth-500">({duration.count})</span>
                 </div>
               ))}
             </div>

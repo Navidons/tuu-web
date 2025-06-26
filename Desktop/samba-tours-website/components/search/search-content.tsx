@@ -8,74 +8,56 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
+import { createClient } from "@/lib/supabase"
+import { getAllTours } from "@/lib/tours"
+import type { Tour } from "@/lib/tours"
+import LoadingSpinner from "@/components/ui/loading-spinner"
 
 interface SearchContentProps {
   searchParams: { q?: string; category?: string; location?: string }
 }
 
-const mockTours = [
-  {
-    id: 1,
-    title: "Gorilla Trekking Adventure",
-    location: "Bwindi Impenetrable Forest",
-    duration: "3 Days",
-    price: 1200,
-    rating: 4.9,
-    reviews: 156,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Wildlife",
-    highlights: ["Mountain Gorillas", "Forest Hiking", "Local Culture"],
-  },
-  {
-    id: 2,
-    title: "Murchison Falls Safari",
-    location: "Murchison Falls National Park",
-    duration: "4 Days",
-    price: 950,
-    rating: 4.8,
-    reviews: 203,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Safari",
-    highlights: ["Big Five", "Nile River", "Boat Safari"],
-  },
-  {
-    id: 3,
-    title: "Cultural Heritage Experience",
-    location: "Kampala & Jinja",
-    duration: "2 Days",
-    price: 450,
-    rating: 4.7,
-    reviews: 89,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Cultural",
-    highlights: ["Local Markets", "Traditional Crafts", "Historical Sites"],
-  },
-  {
-    id: 4,
-    title: "Queen Elizabeth Wildlife Tour",
-    location: "Queen Elizabeth National Park",
-    duration: "5 Days",
-    price: 1100,
-    rating: 4.8,
-    reviews: 167,
-    image: "/placeholder.svg?height=200&width=300",
-    category: "Wildlife",
-    highlights: ["Tree Climbing Lions", "Kazinga Channel", "Crater Lakes"],
-  },
-]
-
-const categories = ["All", "Wildlife", "Safari", "Cultural", "Adventure", "Birding"]
-const locations = ["All Locations", "Bwindi", "Murchison Falls", "Queen Elizabeth", "Kampala", "Jinja"]
-
 export default function SearchContent({ searchParams }: SearchContentProps) {
   const [searchQuery, setSearchQuery] = useState(searchParams.q || "")
   const [selectedCategory, setSelectedCategory] = useState(searchParams.category || "All")
   const [selectedLocation, setSelectedLocation] = useState(searchParams.location || "All Locations")
-  const [filteredTours, setFilteredTours] = useState(mockTours)
+  const [allTours, setAllTours] = useState<Tour[]>([])
+  const [filteredTours, setFilteredTours] = useState<Tour[]>([])
   const [showFilters, setShowFilters] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [categories, setCategories] = useState<string[]>([])
+  const [locations, setLocations] = useState<string[]>([])
 
+  // Load all tours from Supabase
   useEffect(() => {
-    let filtered = mockTours
+    const loadTours = async () => {
+      try {
+        setLoading(true)
+        const supabase = createClient()
+        const tours = await getAllTours(supabase)
+        setAllTours(tours)
+        
+        // Extract unique categories and locations
+        const uniqueCategories = Array.from(new Set(tours.map(tour => 
+          typeof tour.category === 'object' ? tour.category?.name : tour.category
+        ).filter((cat): cat is string => Boolean(cat))))
+        const uniqueLocations = Array.from(new Set(tours.map(tour => tour.location).filter((loc): loc is string => Boolean(loc))))
+        
+        setCategories(['All', ...uniqueCategories])
+        setLocations(['All Locations', ...uniqueLocations])
+      } catch (error) {
+        console.error('Error loading tours:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    
+    loadTours()
+  }, [])
+
+  // Filter tours based on search criteria
+  useEffect(() => {
+    let filtered = [...allTours]
 
     // Filter by search query
     if (searchQuery) {
@@ -83,22 +65,39 @@ export default function SearchContent({ searchParams }: SearchContentProps) {
         (tour) =>
           tour.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           tour.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          tour.highlights.some((highlight) => highlight.toLowerCase().includes(searchQuery.toLowerCase())),
+          tour.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (tour.short_description && tour.short_description.toLowerCase().includes(searchQuery.toLowerCase())) ||
+          (tour.highlights && tour.highlights.some((highlight: { highlight: string }) => 
+            highlight.highlight.toLowerCase().includes(searchQuery.toLowerCase())
+          ))
       )
     }
 
     // Filter by category
     if (selectedCategory !== "All") {
-      filtered = filtered.filter((tour) => tour.category === selectedCategory)
+      filtered = filtered.filter((tour) => {
+        const tourCategory = typeof tour.category === 'object' ? tour.category?.name : tour.category
+        return tourCategory === selectedCategory
+      })
     }
 
     // Filter by location
     if (selectedLocation !== "All Locations") {
-      filtered = filtered.filter((tour) => tour.location.toLowerCase().includes(selectedLocation.toLowerCase()))
+      filtered = filtered.filter((tour) => 
+        tour.location.toLowerCase().includes(selectedLocation.toLowerCase())
+      )
     }
 
     setFilteredTours(filtered)
-  }, [searchQuery, selectedCategory, selectedLocation])
+  }, [searchQuery, selectedCategory, selectedLocation, allTours])
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <LoadingSpinner />
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-8">
@@ -192,13 +191,15 @@ export default function SearchContent({ searchParams }: SearchContentProps) {
               <Card key={tour.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <Image
-                    src={tour.image || "/placeholder.svg"}
+                    src={tour.featured_image || "/placeholder.svg?height=200&width=300"}
                     alt={tour.title}
                     width={300}
                     height={200}
                     className="w-full h-48 object-cover"
                   />
-                  <Badge className="absolute top-3 left-3 bg-forest-600">{tour.category}</Badge>
+                  <Badge className="absolute top-3 left-3 bg-forest-600">
+                    {typeof tour.category === 'object' ? tour.category?.name : tour.category || 'Tour'}
+                  </Badge>
                 </div>
                 <CardContent className="p-4">
                   <div className="space-y-3">
@@ -217,14 +218,14 @@ export default function SearchContent({ searchParams }: SearchContentProps) {
                       </div>
                       <div className="flex items-center">
                         <Star className="h-4 w-4 mr-1 text-yellow-500 fill-current" />
-                        {tour.rating} ({tour.reviews})
+                        {tour.rating} ({tour.review_count})
                       </div>
                     </div>
 
                     <div className="flex flex-wrap gap-1">
-                      {tour.highlights.slice(0, 2).map((highlight, index) => (
+                      {tour.highlights && tour.highlights.slice(0, 2).map((highlight: { highlight: string }, index: number) => (
                         <Badge key={index} variant="secondary" className="text-xs">
-                          {highlight}
+                          {highlight.highlight}
                         </Badge>
                       ))}
                     </div>
