@@ -29,7 +29,7 @@ interface Tour {
   max_group_size?: number | null
   featured_image?: string | null
   status: "active" | "draft" | "inactive"
-  location?: string
+  location: string
   difficulty?: string | null
   best_time?: string[] | null
   physical_requirements?: string[] | null
@@ -189,6 +189,14 @@ export default function NewTour() {
         const mergedFormData = {
           ...defaultFormDataShape,
           ...parsedData,
+          // Explicitly handle string fields to ensure they are strings
+          title: typeof parsedData.title === 'string' ? parsedData.title : '',
+          description: typeof parsedData.description === 'string' ? parsedData.description : '',
+          duration: typeof parsedData.duration === 'string' ? parsedData.duration : '',
+          location: typeof parsedData.location === 'string' ? parsedData.location : '',
+          // Handle optional string fields like difficulty
+          difficulty: typeof parsedData.difficulty === 'string' ? parsedData.difficulty : null,
+
           // Explicitly handle number fields to ensure they are number or null
           price: typeof parsedData.price === 'number' ? parsedData.price : 0,
           original_price: (typeof parsedData.original_price === 'number' || parsedData.original_price === null) ? parsedData.original_price : null,
@@ -242,25 +250,33 @@ export default function NewTour() {
           if (isNaN(newValue as number)) {
             newValue = 0;
           }
-        } else if (id === "original_price" || id === "max_group_size") { // For optional number fields
+        } else if (id === "original_price" || id === "max_group_size") {
           newValue = value === "" ? null : parseFloat(value);
-          if (isNaN(newValue as number) && newValue !== null) { // If parsing fails for a non-empty string, default to null
+          if (isNaN(newValue as number) && newValue !== null) {
             newValue = null;
           }
-        } else { // Fallback for any other number type inputs
+        } else {
+          // For any other number type inputs, ensure it's a number or null
           newValue = value === "" ? null : parseFloat(value);
           if (isNaN(newValue as number) && newValue !== null) {
             newValue = null;
           }
         }
       } else {
+        // For string inputs, ensure newValue is always a string (empty if input is cleared)
         newValue = value;
+      }
+
+      // Explicitly handle fields that are expected to be strings but might receive null/undefined
+      // This is a failsafe to ensure controlled inputs never get null.
+      if (typeof prevData[id as keyof typeof prevData] === 'string' && (newValue === null || newValue === undefined)) {
+        newValue = '';
       }
 
       return {
         ...prevData,
         [id]: newValue,
-      } as typeof prevData; // Cast to ensure correct type for setFormData
+      } as typeof prevData;
     });
   };
 

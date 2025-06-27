@@ -59,14 +59,14 @@ export default function TourGallery({ gallery, title }: TourGalleryProps) {
                 {/* Inner container with padding for border effect */}
                 <div className="relative h-full w-full p-1 rounded-lg bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 bg-size-200 animate-shimmer">
                   <div className="relative h-full w-full rounded-md overflow-hidden">
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={`${title} - Image ${index + 1}`}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Camera className="h-8 w-8 text-white" />
+                <Image
+                  src={image || "/placeholder.svg"}
+                  alt={`${title} - Image ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <Camera className="h-8 w-8 text-white" />
                     </div>
                   </div>
                 </div>

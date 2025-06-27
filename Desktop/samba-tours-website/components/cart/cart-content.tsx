@@ -14,7 +14,11 @@ import Image from "next/image"
 import { toast } from "sonner"
 import type { CartItem, BookingFormData, BookingGuest } from "@/lib/bookings"
 
-export default function CartContent() {
+interface CartContentProps {
+  onCheckoutSuccess?: () => void
+}
+
+export default function CartContent({ onCheckoutSuccess }: CartContentProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [showCheckout, setShowCheckout] = useState(false)
@@ -101,8 +105,38 @@ export default function CartContent() {
       const result = await response.json()
 
       if (result.success) {
-        toast.success("Booking submitted successfully! You will receive a confirmation email shortly.")
+        toast.success("Booking submitted successfully!")
         
+        // --- Trigger Confirmation Email ---
+        try {
+            const emailResponse = await fetch('/api/email/booking-confirmation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    customer_name: bookingData.customer_name,
+                    customer_email: bookingData.customer_email,
+                    booking_reference: result.booking.booking_reference,
+                    items: cartItems,
+                    total: total
+                })
+            });
+            if (!emailResponse.ok) {
+                // Log error but don't block user flow
+                console.error("Failed to send confirmation email. Status:", emailResponse.status);
+            }
+        } catch (error) {
+            console.error("Error sending confirmation email:", error);
+        }
+        // ------------------------------------
+        
+        // Save booking summary to localStorage for the confirmation page
+        const bookingSummary = {
+          items: cartItems,
+          total: total,
+          bookingReference: result.booking.booking_reference
+        }
+        localStorage.setItem('bookingSummary', JSON.stringify(bookingSummary));
+
         // Clear cart
         setCartItems([])
         sessionStorage.removeItem('cart')
@@ -121,10 +155,14 @@ export default function CartContent() {
         
         setShowCheckout(false)
         
-        // Redirect to success page or home
-        setTimeout(() => {
-          window.location.href = '/'
-        }, 2000)
+        // Redirect to confirmation page if callback provided
+        if (onCheckoutSuccess) {
+          onCheckoutSuccess()
+        } else {
+          setTimeout(() => {
+            window.location.href = '/'
+          }, 2000)
+        }
       } else {
         toast.error(result.error || "Failed to submit booking")
       }
@@ -269,17 +307,17 @@ export default function CartContent() {
               </div>
 
               {!showCheckout ? (
-                <div className="space-y-3 pt-4">
+              <div className="space-y-3 pt-4">
                   <Button 
                     className="w-full btn-primary" 
                     size="lg"
                     onClick={() => setShowCheckout(true)}
                   >
-                    Proceed to Checkout
-                  </Button>
-                  <Button variant="outline" className="w-full" asChild>
-                    <Link href="/tours">Continue Shopping</Link>
-                  </Button>
+                  Proceed to Checkout
+                </Button>
+                <Button variant="outline" className="w-full" asChild>
+                  <Link href="/tours">Continue Shopping</Link>
+                </Button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 pt-4">
@@ -377,7 +415,7 @@ export default function CartContent() {
                         rows={3}
                       />
                     </div>
-                  </div>
+              </div>
 
                   <div className="space-y-3 pt-4">
                     <Button 
@@ -406,7 +444,7 @@ export default function CartContent() {
                     >
                       Back to Cart
                     </Button>
-                  </div>
+              </div>
                 </form>
               )}
             </CardContent>

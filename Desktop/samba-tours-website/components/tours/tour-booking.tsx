@@ -219,8 +219,8 @@ export default function TourBooking({ tour }: TourBookingProps) {
                   </div>
                 ) : (
                   <>
-                    <DollarSign className="h-5 w-5 mr-2" />
-                    Book Now
+                <DollarSign className="h-5 w-5 mr-2" />
+                Book Now
                   </>
                 )}
               </Button>

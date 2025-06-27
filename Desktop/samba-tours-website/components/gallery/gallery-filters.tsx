@@ -1,37 +1,51 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Dispatch, SetStateAction } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Search, Filter, Grid, List } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
-const categories = [
-  { id: "all", label: "All", count: 2500 },
-  { id: "gorillas", label: "Gorilla Trekking", count: 450 },
-  { id: "wildlife", label: "Wildlife Safari", count: 680 },
-  { id: "landscapes", label: "Landscapes", count: 520 },
-  { id: "cultural", label: "Cultural", count: 380 },
-  { id: "adventure", label: "Adventure", count: 290 },
-  { id: "birds", label: "Bird Watching", count: 180 },
-]
+interface GalleryFiltersProps {
+  categories: { id: number; name: string; count: number }[];
+  locations: { id: number; name: string; count: number }[];
+  activeCategory: string | number;
+  setActiveCategory: Dispatch<SetStateAction<string | number>>;
+  activeLocation: string | number;
+  setActiveLocation: Dispatch<SetStateAction<string | number>>;
+  searchTerm: string;
+  setSearchTerm: Dispatch<SetStateAction<string>>;
+  viewMode: "grid" | "masonry";
+  setViewMode: Dispatch<SetStateAction<"grid" | "masonry">>;
+}
 
-const locations = [
-  { id: "all", label: "All Locations" },
-  { id: "bwindi", label: "Bwindi Forest" },
-  { id: "murchison", label: "Murchison Falls" },
-  { id: "queen-elizabeth", label: "Queen Elizabeth NP" },
-  { id: "kibale", label: "Kibale Forest" },
-  { id: "lake-mburo", label: "Lake Mburo" },
-  { id: "mount-elgon", label: "Mount Elgon" },
-]
+export default function GalleryFilters({
+  categories,
+  locations,
+  activeCategory,
+  setActiveCategory,
+  activeLocation,
+  setActiveLocation,
+  searchTerm,
+  setSearchTerm,
+  viewMode,
+  setViewMode,
+}: GalleryFiltersProps) {
+  console.log("GalleryFilters: Received categories prop:", categories);
+  console.log("GalleryFilters: Received locations prop:", locations);
 
-export default function GalleryFilters() {
-  const [activeCategory, setActiveCategory] = useState("all")
-  const [activeLocation, setActiveLocation] = useState("all")
-  const [searchTerm, setSearchTerm] = useState("")
-  const [viewMode, setViewMode] = useState<"grid" | "masonry">("masonry")
   const [showFilters, setShowFilters] = useState(false)
+
+  // Ensure 'All' has a string ID and other categories/locations have numbers
+  const categoryWithCounts = [
+    { id: "all", name: "All", count: categories.reduce((sum, cat) => sum + (cat.count || 0), 0) },
+    ...categories.map(cat => ({ ...cat, count: cat.count || 0 })) 
+  ];
+
+  const locationWithCounts = [
+    { id: "all", name: "All Locations", count: locations.reduce((sum, loc) => sum + (loc.count || 0), 0) },
+    ...locations.map(loc => ({ ...loc, count: loc.count || 0 }))
+  ];
 
   return (
     <div className="mb-8">
@@ -80,17 +94,17 @@ export default function GalleryFilters() {
         <div>
           <h3 className="font-semibold text-earth-900 mb-3">Categories</h3>
           <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
+            {categoryWithCounts.map((category) => (
               <Button
                 key={category.id}
-                variant={activeCategory === category.id ? "default" : "outline"}
+                variant={String(activeCategory) === String(category.id) ? "default" : "outline"}
                 size="sm"
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => setActiveCategory(category.id === "all" ? "all" : category.id.toString())}
                 className={`${
-                  activeCategory === category.id ? "bg-forest-600 hover:bg-forest-700 text-white" : "hover:bg-forest-50"
+                  String(activeCategory) === String(category.id) ? "bg-forest-600 hover:bg-forest-700 text-white" : "hover:bg-forest-50"
                 }`}
               >
-                {category.label}
+                {category.name}
                 <Badge variant="secondary" className="ml-2 text-xs">
                   {category.count}
                 </Badge>
@@ -103,17 +117,17 @@ export default function GalleryFilters() {
         <div>
           <h3 className="font-semibold text-earth-900 mb-3">Locations</h3>
           <div className="flex flex-wrap gap-2">
-            {locations.map((location) => (
+            {locationWithCounts.map((location) => (
               <Button
                 key={location.id}
-                variant={activeLocation === location.id ? "default" : "outline"}
+                variant={String(activeLocation) === String(location.id) ? "default" : "outline"}
                 size="sm"
-                onClick={() => setActiveLocation(location.id)}
+                onClick={() => setActiveLocation(location.id === "all" ? "all" : location.id.toString())}
                 className={`${
-                  activeLocation === location.id ? "bg-forest-600 hover:bg-forest-700 text-white" : "hover:bg-forest-50"
+                  String(activeLocation) === String(location.id) ? "bg-forest-600 hover:bg-forest-700 text-white" : "hover:bg-forest-50"
                 }`}
               >
-                {location.label}
+                {location.name}
               </Button>
             ))}
           </div>

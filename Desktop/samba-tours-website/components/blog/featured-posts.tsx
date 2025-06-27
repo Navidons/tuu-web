@@ -1,112 +1,119 @@
+"use client"
+
+import { useState, useEffect, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, User, Clock, TrendingUp } from "lucide-react"
-
-const featuredPosts = [
-  {
-    id: 2,
-    title: "Best Time to Visit Uganda: A Month-by-Month Guide",
-    excerpt:
-      "Plan your perfect Uganda adventure with our comprehensive guide to weather, wildlife, and seasonal highlights.",
-    image: "/placeholder.svg?height=400&width=600",
-    category: "Travel Planning",
-    author: "Sarah Namukasa",
-    date: "2024-03-18",
-    readTime: "8 min read",
-    views: 2450,
-    trending: true,
-  },
-  {
-    id: 3,
-    title: "Photography Tips for Your Uganda Safari",
-    excerpt: "Capture stunning wildlife photos with expert tips from our professional safari guides and photographers.",
-    image: "/placeholder.svg?height=400&width=600",
-    category: "Photography",
-    author: "Robert Tumusiime",
-    date: "2024-03-15",
-    readTime: "10 min read",
-    views: 1890,
-    trending: false,
-  },
-  {
-    id: 4,
-    title: "Cultural Etiquette: Respectful Travel in Uganda",
-    excerpt: "Learn about Ugandan customs, traditions, and how to be a respectful visitor to local communities.",
-    image: "/placeholder.svg?height=400&width=600",
-    category: "Culture",
-    author: "Mary Atuhaire",
-    date: "2024-03-12",
-    readTime: "6 min read",
-    views: 1650,
-    trending: true,
-  },
-]
+import { Button } from "@/components/ui/button"
+import { Calendar, User, Clock, Eye, TrendingUp } from "lucide-react"
+import { createClient } from "@/lib/supabase"
+import { BlogPost, getAllBlogPosts } from "@/lib/blog"
+import LoadingSpinner from "@/components/ui/loading-spinner"
 
 export default function FeaturedPosts() {
+  const [posts, setPosts] = useState<BlogPost[]>([])
+  const [loading, setLoading] = useState(true)
+  const supabase = useMemo(() => createClient(), [])
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        setLoading(true)
+        const allPosts = await getAllBlogPosts(supabase)
+        // Filter for featured posts and take the first 3
+        const featuredPosts = allPosts.filter(post => post.featured).slice(0, 3)
+        setPosts(featuredPosts)
+      } catch (error) {
+        console.error('Error loading featured posts:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    
+    loadPosts()
+  }, [supabase])
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-12">
+        <LoadingSpinner />
+      </div>
+    )
+  }
+
+  if (posts.length === 0) {
+    return null
+  }
+
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-gradient-to-br from-forest-50 to-cream-50">
       <div className="container-max">
-        <div className="flex items-center justify-between mb-12">
-          <div>
-            <h2 className="heading-secondary">Featured Stories</h2>
-            <p className="text-lg text-earth-600">
-              Hand-picked articles from our travel experts and experienced guides
-            </p>
-          </div>
-          <div className="hidden md:flex items-center space-x-2 text-sm text-earth-600">
-            <TrendingUp className="h-4 w-4" />
-            <span>Trending Now</span>
-          </div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-earth-900 mb-4">Featured Stories</h2>
+          <p className="text-lg text-earth-600 max-w-2xl mx-auto">
+            Discover our most popular and insightful articles about Uganda's wildlife, culture, and adventures
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredPosts.map((post) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {posts.map((post) => (
             <Card key={post.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src={post.image || "/placeholder.svg"}
+                  src={post.thumbnail || "/placeholder.svg"}
                   alt={post.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4 flex items-center space-x-2">
-                  <Badge className="bg-forest-600 text-white">{post.category}</Badge>
-                  {post.trending && (
-                    <Badge variant="destructive" className="bg-red-500 text-white">
-                      Trending
+                  <Badge className="bg-forest-600 text-white">{post.category?.name || 'Uncategorized'}</Badge>
+                  <Badge className="bg-yellow-500 text-white flex items-center gap-1">
+                    <TrendingUp className="h-3 w-3" />
+                    Featured
                     </Badge>
-                  )}
                 </div>
               </div>
 
               <CardContent className="p-6">
+                <div className="flex items-center justify-between text-sm text-earth-600 mb-3">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-1">
+                      <User className="h-4 w-4" />
+                      <span>{post.author?.name || 'Unknown Author'}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <Calendar className="h-4 w-4" />
+                      <span>
+                        {post.publish_date ? new Date(post.publish_date).toLocaleDateString() : 'Not published'}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Clock className="h-4 w-4" />
+                    <span>{post.read_time || '5 min read'}</span>
+                  </div>
+                </div>
+
                 <h3 className="font-bold text-xl text-earth-900 mb-3 group-hover:text-forest-600 transition-colors line-clamp-2">
-                  <Link href={`/blog/${post.id}`}>{post.title}</Link>
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
 
                 <p className="text-earth-700 mb-4 line-clamp-3">{post.excerpt}</p>
 
-                <div className="flex items-center justify-between text-sm text-earth-600 mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-1">
-                      <User className="h-4 w-4" />
-                      <span>{post.author}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="h-4 w-4" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-1 text-sm text-earth-500">
-                    <Calendar className="h-4 w-4" />
-                    <span>{new Date(post.date).toLocaleDateString()}</span>
+                  <div className="flex items-center space-x-4 text-sm text-earth-500">
+                    <div className="flex items-center space-x-1">
+                      <Eye className="h-4 w-4" />
+                      <span>{post.views || 0}</span>
+                    </div>
                   </div>
-                  <span className="text-sm text-earth-500">{post.views.toLocaleString()} views</span>
+
+                  <Button variant="ghost" size="sm" asChild className="text-forest-600 hover:text-forest-700">
+                    <Link href={`/blog/${post.slug}`}>
+                      Read More
+                    </Link>
+                  </Button>
                 </div>
               </CardContent>
             </Card>

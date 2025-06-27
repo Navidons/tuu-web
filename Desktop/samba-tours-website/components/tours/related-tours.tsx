@@ -23,7 +23,10 @@ interface Tour {
   review_count: number
   location: string
   featured_image: string | null
-  category: string
+  category: string | {
+    id: number
+    name: string
+  }
   category_id: number
 }
 
@@ -41,8 +44,17 @@ export default function RelatedTours({ currentTour }: RelatedToursProps) {
         const supabase = createClient()
         const allTours = await getAllTours(supabase)
         
+        // Convert imported tours to local Tour type
+        const convertedTours: Tour[] = allTours.map(tour => ({
+          ...tour,
+          max_group_size: tour.max_group_size ?? 12,
+          category: typeof tour.category === 'object' 
+            ? tour.category 
+            : tour.category || 'General'
+        }))
+        
         // Filter out the current tour and get related tours based on category and location
-        const filteredTours = allTours.filter(tour => 
+        const filteredTours = convertedTours.filter(tour => 
           tour.id !== currentTour.id && 
           (tour.category_id === currentTour.category_id || 
            tour.location.toLowerCase().includes(currentTour.location.toLowerCase()) ||
@@ -113,7 +125,9 @@ export default function RelatedTours({ currentTour }: RelatedToursProps) {
                 />
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-forest-600 text-white">
-                    {typeof tour.category === 'object' ? tour.category?.name || 'General' : tour.category || 'General'}
+                    {typeof tour.category === 'object' 
+                      ? tour.category.name 
+                      : tour.category || 'General'}
                   </Badge>
                 </div>
                 <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full">

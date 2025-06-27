@@ -5,8 +5,13 @@ import { Badge } from "@/components/ui/badge"
 import { Calendar, User, Clock, ArrowRight } from "lucide-react"
 
 interface BlogPost {
-  category: string
-  tags: string[]
+  category?: {
+    id: number
+    name: string
+    slug: string
+  }
+  tags: string[] | null
+  slug: string
 }
 
 interface RelatedPostsProps {
@@ -23,6 +28,7 @@ const relatedPosts = [
     author: "Grace Nakato",
     date: "2024-03-18",
     readTime: "8 min read",
+    slug: "preparing-for-your-first-gorilla-trek-a-beginners-checklist",
   },
   {
     id: 15,
@@ -33,6 +39,7 @@ const relatedPosts = [
     author: "Robert Tumusiime",
     date: "2024-03-16",
     readTime: "10 min read",
+    slug: "wildlife-photography-in-uganda-pro-tips-and-techniques",
   },
   {
     id: 16,
@@ -43,6 +50,7 @@ const relatedPosts = [
     author: "Mary Atuhaire",
     date: "2024-03-14",
     readTime: "12 min read",
+    slug: "conservation-success-stories-how-tourism-saves-gorillas",
   },
 ]
 
@@ -83,7 +91,7 @@ export default function RelatedPosts({ currentPost }: RelatedPostsProps) {
                 </div>
 
                 <h3 className="font-bold text-lg text-earth-900 mb-3 group-hover:text-forest-600 transition-colors line-clamp-2">
-                  <Link href={`/blog/${post.id}`}>{post.title}</Link>
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
 
                 <p className="text-earth-700 mb-4 line-clamp-3">{post.excerpt}</p>
@@ -95,7 +103,7 @@ export default function RelatedPosts({ currentPost }: RelatedPostsProps) {
                   </div>
 
                   <Link
-                    href={`/blog/${post.id}`}
+                    href={`/blog/${post.slug}`}
                     className="flex items-center space-x-1 text-forest-600 hover:text-forest-700 font-medium text-sm transition-colors"
                   >
                     <span>Read More</span>

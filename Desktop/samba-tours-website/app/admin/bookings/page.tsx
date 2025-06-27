@@ -288,6 +288,29 @@ const getPaymentStatusColor = (status: string) => {
         return
       }
 
+      // --- Trigger Confirmation Email on 'confirmed' status ---
+      const booking = bookings.find(b => b.id === bookingId);
+      if (booking && newStatus === 'confirmed') {
+        toast.info("Sending confirmation email...");
+        fetch('/api/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            to: booking.customer_email,
+            subject: `Your Booking is Confirmed! #${booking.booking_reference}`,
+            template: 'bookingConfirmed',
+            data: {
+              customerName: booking.customer_name,
+              bookingReference: booking.booking_reference,
+              bookingDate: new Date(booking.created_at!).toLocaleDateString(),
+            }
+          })
+        })
+        .then(res => { if(res.ok) toast.success("Confirmation email sent!")})
+        .catch(err => console.error("Failed to send confirmation email:", err));
+      }
+      // ---------------------------------------------------------
+
       setBookings(prev => prev.map(booking => 
         booking.id === bookingId ? { ...booking, status: newStatus } : booking
       ))
@@ -318,6 +341,30 @@ const getPaymentStatusColor = (status: string) => {
         toast.error(error.message || 'Failed to update payment status')
         return
       }
+
+      // --- Trigger Payment Confirmation Email on 'paid' status ---
+      const booking = bookings.find(b => b.id === bookingId);
+      if (booking && newPaymentStatus === 'paid') {
+        toast.info("Sending payment confirmation email...");
+        fetch('/api/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            to: booking.customer_email,
+            subject: `Payment Received for Booking #${booking.booking_reference}`,
+            template: 'paymentConfirmation',
+            data: {
+              customerName: booking.customer_name,
+              bookingReference: booking.booking_reference,
+              paymentDate: new Date().toLocaleDateString(),
+              paymentAmount: booking.total_amount,
+            }
+          })
+        })
+        .then(res => { if(res.ok) toast.success("Payment confirmation sent!")})
+        .catch(err => console.error("Failed to send payment confirmation email:", err));
+      }
+      // -----------------------------------------------------------
 
       setBookings(prev => prev.map(booking => 
         booking.id === bookingId ? { ...booking, payment_status: newPaymentStatus } : booking

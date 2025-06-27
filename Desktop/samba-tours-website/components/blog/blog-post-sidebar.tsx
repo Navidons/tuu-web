@@ -3,16 +3,7 @@ import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { User, MapPin, BookOpen } from "lucide-react"
-
-interface BlogPost {
-  author: {
-    name: string
-    role: string
-    image: string
-    bio: string
-  }
-  category: string
-}
+import { BlogPost } from "@/lib/blog"
 
 interface BlogPostSidebarProps {
   post: BlogPost
@@ -50,16 +41,18 @@ export default function BlogPostSidebar({ post }: BlogPostSidebarProps) {
           <div className="flex items-start space-x-4">
             <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
               <Image
-                src={post.author.image || "/placeholder.svg"}
-                alt={post.author.name}
+                src="/placeholder-user.jpg"
+                alt={post.author?.name || 'Author'}
                 fill
                 className="object-cover"
               />
             </div>
             <div>
-              <h4 className="font-semibold text-earth-900">{post.author.name}</h4>
-              <p className="text-sm text-forest-600 mb-2">{post.author.role}</p>
-              <p className="text-sm text-earth-700">{post.author.bio}</p>
+              <h4 className="font-semibold text-earth-900">{post.author?.name || 'Unknown Author'}</h4>
+              <p className="text-sm text-forest-600 mb-2">Travel Expert</p>
+              <p className="text-sm text-earth-700">
+                Experienced travel guide with deep knowledge of Uganda's wildlife and culture.
+              </p>
             </div>
           </div>
         </CardContent>

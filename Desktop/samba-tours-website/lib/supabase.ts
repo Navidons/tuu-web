@@ -1,4 +1,4 @@
-import { createClient as createSupabaseClient } from "@supabase/supabase-js"
+import { createClient as createSupabaseClient, SupabaseClient } from "@supabase/supabase-js"
 
 // Use environment variables or fallback to hardcoded values for development
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://enyqdavivjqrlflubutr.supabase.co"
@@ -14,17 +14,43 @@ if (!supabaseAnonKey) {
   throw new Error("Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable")
 }
 
-export function createClient() {
-  // Always create a new instance to ensure it picks up the latest session
-  const supabase = createSupabaseClient(supabaseUrl, supabaseAnonKey, {
-    // Add global configuration options
+let supabaseClient: SupabaseClient | null = null;
+
+export function createClient(): SupabaseClient {
+  if (!supabaseClient) {
+    supabaseClient = createSupabaseClient(supabaseUrl, supabaseAnonKey, {
     auth: {
       persistSession: true,
     },
   })
+  }
+  return supabaseClient;
+}
 
-  return supabase
+export function createServerClient(): SupabaseClient {
+  // For server-side operations, we don't persist the session in the same way
+  // as client-side, but rather use it for direct database queries.
+  return createSupabaseClient(supabaseUrl, supabaseAnonKey);
+}
+
+export async function uploadImageToSupabase(file: File, bucketName: string, path: string): Promise<string | null> {
+  const supabase = createClient();
+  const { data, error } = await supabase.storage
+    .from(bucketName)
+    .upload(path, file, { cacheControl: '3600', upsert: true });
+
+  if (error) {
+    console.error("Error uploading image:", error);
+    return null;
+  }
+
+  // Get public URL
+  const { data: publicUrlData } = supabase.storage
+    .from(bucketName)
+    .getPublicUrl(data.path);
+
+  return publicUrlData.publicUrl;
 }
 
 // Memoized client for server-side or client-side use
-export const supabase = createClient()
+// export const supabase = createClient()

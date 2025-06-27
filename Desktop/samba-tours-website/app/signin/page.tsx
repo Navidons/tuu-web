@@ -23,12 +23,6 @@ export default function SignInPage() {
           </div>
         </Link>
         <h2 className="mt-6 text-center text-3xl font-bold text-earth-900">Sign in to your account</h2>
-        <p className="mt-2 text-center text-sm text-earth-600">
-          Or{" "}
-          <Link href="/signup" className="font-medium text-forest-600 hover:text-forest-500">
-            create a new account
-          </Link>
-        </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">

@@ -15,6 +15,7 @@ const featuredPost = {
   date: "2024-03-20",
   readTime: "12 min read",
   featured: true,
+  slug: "the-ultimate-guide-to-gorilla-trekking-in-uganda-everything-you-need-to-know",
 }
 
 export default function BlogHero() {

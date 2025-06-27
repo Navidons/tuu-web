@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://your-domain.com"),
   title: "Samba Tours & Travel - Discover Uganda & East Africa",
   description:
     "Experience the beauty of Uganda and East Africa with our tailored and group travel packages. Book your adventure today!",

@@ -1,7 +1,7 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase'
+import React, { createContext, useContext, useEffect, useState, useMemo } from 'react'
+import { createClient } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 
 interface AuthContextType {
@@ -17,6 +17,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<any | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
+  const supabase = useMemo(() => createClient(), [])
 
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange(

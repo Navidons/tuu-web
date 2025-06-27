@@ -114,20 +114,20 @@ export default function BookingsContent() {
     return matchesSearch && booking.status === activeTab
   })
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "confirmed":
-        return "bg-green-100 text-green-800"
-      case "pending":
-        return "bg-yellow-100 text-yellow-800"
-      case "completed":
-        return "bg-blue-100 text-blue-800"
-      case "cancelled":
-        return "bg-red-100 text-red-800"
-      default:
-        return "bg-gray-100 text-gray-800"
-    }
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case "confirmed":
+      return "bg-green-100 text-green-800"
+    case "pending":
+      return "bg-yellow-100 text-yellow-800"
+    case "completed":
+      return "bg-blue-100 text-blue-800"
+    case "cancelled":
+      return "bg-red-100 text-red-800"
+    default:
+      return "bg-gray-100 text-gray-800"
   }
+}
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -153,7 +153,7 @@ export default function BookingsContent() {
   }
 
   if (error) {
-    return (
+  return (
       <div className="text-center py-16">
         <div className="max-w-md mx-auto">
           <XCircle className="h-16 w-16 text-red-400 mx-auto mb-4" />
@@ -176,8 +176,8 @@ export default function BookingsContent() {
           <p className="text-earth-600 mb-8">You haven't made any bookings yet. Start exploring our amazing tours!</p>
           <Button asChild className="btn-primary">
             <a href="/tours">Browse Tours</a>
-          </Button>
-        </div>
+            </Button>
+          </div>
       </div>
     )
   }
@@ -210,8 +210,8 @@ export default function BookingsContent() {
                   <Badge variant="outline" className="text-sm">
                     ${booking.total_amount}
                   </Badge>
-                </div>
-              </div>
+                              </div>
+                            </div>
             </CardHeader>
             
             <CardContent className="p-6">
@@ -238,8 +238,8 @@ export default function BookingsContent() {
                         <span>{booking.customer_country}</span>
                       </div>
                     )}
-                  </div>
-                  
+                          </div>
+
                   {booking.special_requests && (
                     <div className="mt-4">
                       <h4 className="font-medium text-earth-900 mb-2">Special Requests</h4>
@@ -248,7 +248,7 @@ export default function BookingsContent() {
                       </p>
                     </div>
                   )}
-                </div>
+                              </div>
 
                 {/* Tour Details */}
                 <div className="space-y-4">
@@ -277,8 +277,8 @@ export default function BookingsContent() {
                             </div>
                           </div>
                         </div>
-                      ))}
-                    </div>
+                                ))}
+                              </div>
                   ) : (
                     <p className="text-sm text-earth-600">No tour details available</p>
                   )}
@@ -296,8 +296,8 @@ export default function BookingsContent() {
                     <div>
                       <span className="font-medium text-earth-900">Preferred Time:</span>
                       <p className="text-earth-600">{booking.preferred_contact_time}</p>
-                    </div>
-                  )}
+                            </div>
+                          )}
                   <div>
                     <span className="font-medium text-earth-900">Payment Status:</span>
                     <Badge variant="outline" className="ml-2 capitalize">
@@ -305,24 +305,24 @@ export default function BookingsContent() {
                     </Badge>
                   </div>
                 </div>
-              </div>
+                        </div>
 
-              {/* Actions */}
+                        {/* Actions */}
               <div className="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-3">
                 <Button variant="outline" size="sm">
-                  View Details
-                </Button>
-                <Button variant="outline" size="sm">
+                              View Details
+                              </Button>
+                              <Button variant="outline" size="sm">
                   Contact Support
-                </Button>
+                              </Button>
                 {booking.status === 'pending' && (
                   <Button variant="outline" size="sm" className="text-red-600 hover:text-red-700">
                     Cancel Booking
-                  </Button>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+                            </Button>
+                          )}
+                  </div>
+                </CardContent>
+              </Card>
         ))}
       </div>
     </div>

@@ -382,30 +382,30 @@ export default function AdminTourDetails() {
       <div className="container mx-auto max-w-5xl px-4">
         {/* Header & Actions */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/admin/tours">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Tours
-              </Link>
-            </Button>
+            <div className="flex items-center gap-4">
+              <Button variant="outline" size="sm" asChild>
+                <Link href="/admin/tours">
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Back to Tours
+                </Link>
+              </Button>
             <h1 className="text-3xl font-bold text-earth-900">{tour.title}</h1>
             {category && <span className="ml-2"><span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">{category.name}</span></span>}
             <span className="ml-2"><span className={`inline-block text-xs px-2 py-1 rounded ${tour.status === 'active' ? 'bg-green-100 text-green-800' : tour.status === 'draft' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-200 text-gray-700'}`}>{tour.status}</span></span>
-          </div>
-          <div className="flex gap-2">
+            </div>
+            <div className="flex gap-2">
             <Button variant="outline" size="sm" asChild>
-              <Link href={`/admin/tours/${tour.id}/edit`}>
-                <Edit className="h-4 w-4 mr-2" />
-                Edit Tour
-              </Link>
-            </Button>
+                <Link href={`/admin/tours/${tour.id}/edit`}>
+                  <Edit className="h-4 w-4 mr-2" />
+                  Edit Tour
+                </Link>
+              </Button>
             <Button variant="destructive" size="sm" onClick={handleDeleteTour} disabled={deleting}>
-              <Trash2 className="h-4 w-4 mr-2" />
-              {deleting ? 'Deleting...' : 'Delete Tour'}
-            </Button>
+                <Trash2 className="h-4 w-4 mr-2" />
+                {deleting ? 'Deleting...' : 'Delete Tour'}
+              </Button>
+            </div>
           </div>
-        </div>
 
         {/* Main Info Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -434,7 +434,7 @@ export default function AdminTourDetails() {
                 <div className="py-2 flex justify-between">
                   <dt className="font-semibold">Status</dt>
                   <dd>{tour.status}</dd>
-                </div>
+                  </div>
               </dl>
             </CardContent>
           </Card>
@@ -447,15 +447,15 @@ export default function AdminTourDetails() {
                 <div className="py-2 flex justify-between">
                   <dt className="font-semibold">Price</dt>
                   <dd>${tour.price?.toFixed(2) || <span className="text-gray-400">N/A</span>}</dd>
-                </div>
+                  </div>
                 <div className="py-2 flex justify-between">
                   <dt className="font-semibold">Original Price</dt>
                   <dd>{tour.original_price !== undefined && tour.original_price !== null ? `$${tour.original_price.toFixed(2)}` : <span className="text-gray-400">N/A</span>}</dd>
-                </div>
+                  </div>
               </dl>
             </CardContent>
           </Card>
-        </div>
+              </div>
 
         {/* Description */}
         <Card className="mb-8">
@@ -475,11 +475,11 @@ export default function AdminTourDetails() {
             </CardHeader>
             <CardContent>
               {tour.highlights && tour.highlights.length > 0 ? (
-                <ul className="list-disc list-inside space-y-1">
-                  {tour.highlights.map((h, index) => (
-                    <li key={index}>{h.highlight}</li>
-                  ))}
-                </ul>
+                  <ul className="list-disc list-inside space-y-1">
+                    {tour.highlights.map((h, index) => (
+                      <li key={index}>{h.highlight}</li>
+                    ))}
+                  </ul>
               ) : <span className="text-gray-400">No highlights specified.</span>}
             </CardContent>
           </Card>
@@ -492,12 +492,12 @@ export default function AdminTourDetails() {
                 <ul className="list-disc list-inside space-y-1">
                   {tour.best_time.map((bt, index) => (
                     <li key={index}>{bt.best_time_item}</li>
-                  ))}
-                </ul>
+                          ))}
+                        </ul>
               ) : <span className="text-gray-400">No best time specified.</span>}
             </CardContent>
           </Card>
-        </div>
+                    </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <Card>
             <CardHeader>
@@ -519,7 +519,7 @@ export default function AdminTourDetails() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
+                  <div>
                   <h4 className="font-semibold mb-2">What's Included</h4>
                   {inclusions.length > 0 ? (
                     <ul className="space-y-2">
@@ -531,8 +531,8 @@ export default function AdminTourDetails() {
                       ))}
                     </ul>
                   ) : <span className="text-gray-400">No inclusions specified.</span>}
-                </div>
-                <div>
+                  </div>
+                  <div>
                   <h4 className="font-semibold mb-2">What's Excluded</h4>
                   {exclusions.length > 0 ? (
                     <ul className="space-y-2">
@@ -544,7 +544,7 @@ export default function AdminTourDetails() {
                       ))}
                     </ul>
                   ) : <span className="text-gray-400">No exclusions specified.</span>}
-                </div>
+                  </div>
               </div>
             </CardContent>
           </Card>
@@ -613,113 +613,113 @@ export default function AdminTourDetails() {
                       </dd>
                     </div>
                   </dl>
-                </div>
+      </div>
               ))
             ) : <span className="text-gray-400">No itinerary specified.</span>}
           </CardContent>
         </Card>
 
-        {/* Lightbox */}
-        {lightboxOpen && images.length > 0 && (
+      {/* Lightbox */}
+      {lightboxOpen && images.length > 0 && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+          onClick={closeLightbox}
+        >
           <div 
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
-            onClick={closeLightbox}
+            className="relative max-w-4xl max-h-[90vh] w-full h-full"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div 
-              className="relative max-w-4xl max-h-[90vh] w-full h-full"
-              onClick={(e) => e.stopPropagation()}
+            {/* Close Button */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="absolute top-4 right-4 z-60 text-white hover:bg-white/20"
+              onClick={closeLightbox}
             >
-              {/* Close Button */}
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="absolute top-4 right-4 z-60 text-white hover:bg-white/20"
-                onClick={closeLightbox}
-              >
-                <X className="h-6 w-6" />
-              </Button>
+              <X className="h-6 w-6" />
+            </Button>
 
-              {/* Navigation Buttons */}
-              {images.length > 1 && (
-                <>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="absolute top-1/2 left-4 -translate-y-1/2 z-60 text-white hover:bg-white/20"
-                    onClick={() => navigateLightbox('prev')}
-                  >
-                    <ChevronLeft className="h-8 w-8" />
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="absolute top-1/2 right-4 -translate-y-1/2 z-60 text-white hover:bg-white/20"
-                    onClick={() => navigateLightbox('next')}
-                  >
-                    <ChevronRight className="h-8 w-8" />
-                  </Button>
-                </>
-              )}
-
-              {/* Main Image */}
-              <div className="flex items-center justify-center h-full w-full">
-                <img 
-                  src={images[currentImageIndex].image_url} 
-                  alt={`Tour image ${currentImageIndex + 1}`} 
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-
-              {/* Image Actions */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
+            {/* Navigation Buttons */}
+            {images.length > 1 && (
+              <>
                 <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="bg-white/20 text-white hover:bg-white/30"
-                  onClick={() => handleDownload(images[currentImageIndex].image_url)}
+                  variant="ghost" 
+                  size="icon" 
+                  className="absolute top-1/2 left-4 -translate-y-1/2 z-60 text-white hover:bg-white/20"
+                  onClick={() => navigateLightbox('prev')}
                 >
-                  <Download className="h-4 w-4 mr-2" />
-                  Download
+                  <ChevronLeft className="h-8 w-8" />
                 </Button>
                 <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="bg-white/20 text-white hover:bg-white/30"
-                  onClick={() => {
-                    navigator.clipboard.writeText(images[currentImageIndex].image_url)
-                    toast.success('Image link copied to clipboard')
-                  }}
+                  variant="ghost" 
+                  size="icon" 
+                  className="absolute top-1/2 right-4 -translate-y-1/2 z-60 text-white hover:bg-white/20"
+                  onClick={() => navigateLightbox('next')}
                 >
-                  <Share2 className="h-4 w-4 mr-2" />
-                  Share
+                  <ChevronRight className="h-8 w-8" />
                 </Button>
-              </div>
+              </>
+            )}
 
-              {/* Thumbnail Strip */}
-              {images.length > 1 && (
-                <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2">
-                  {images.map((image, index) => (
-                    <div 
-                      key={image.id || index}
-                      className={`w-16 h-16 cursor-pointer rounded-md overflow-hidden border-2 ${
-                        index === currentImageIndex 
-                          ? 'border-white' 
-                          : 'border-transparent opacity-60 hover:opacity-80'
-                      }`}
-                      onClick={() => setCurrentImageIndex(index)}
-                    >
-                      <img 
-                        src={image.image_url} 
-                        alt={`Thumbnail ${index + 1}`} 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
+            {/* Main Image */}
+            <div className="flex items-center justify-center h-full w-full">
+              <img 
+                src={images[currentImageIndex].image_url} 
+                alt={`Tour image ${currentImageIndex + 1}`} 
+                className="max-w-full max-h-full object-contain"
+              />
             </div>
+
+            {/* Image Actions */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="bg-white/20 text-white hover:bg-white/30"
+                onClick={() => handleDownload(images[currentImageIndex].image_url)}
+              >
+                <Download className="h-4 w-4 mr-2" />
+                Download
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="bg-white/20 text-white hover:bg-white/30"
+                onClick={() => {
+                  navigator.clipboard.writeText(images[currentImageIndex].image_url)
+                  toast.success('Image link copied to clipboard')
+                }}
+              >
+                <Share2 className="h-4 w-4 mr-2" />
+                Share
+              </Button>
+            </div>
+
+            {/* Thumbnail Strip */}
+            {images.length > 1 && (
+              <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2">
+                {images.map((image, index) => (
+                  <div 
+                    key={image.id || index}
+                    className={`w-16 h-16 cursor-pointer rounded-md overflow-hidden border-2 ${
+                      index === currentImageIndex 
+                        ? 'border-white' 
+                        : 'border-transparent opacity-60 hover:opacity-80'
+                    }`}
+                    onClick={() => setCurrentImageIndex(index)}
+                  >
+                    <img 
+                      src={image.image_url} 
+                      alt={`Thumbnail ${index + 1}`} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        )}
+        </div>
+      )}
       </div>
     </main>
   )
