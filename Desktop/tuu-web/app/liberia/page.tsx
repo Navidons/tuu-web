@@ -25,6 +25,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { cn } from "@/lib/utils"
 import LiberiaNavbar from "@/components/liberia/liberia-navbar"
 import LiberiaFooter from "@/components/liberia/liberia-footer"
 
@@ -109,41 +110,23 @@ const AnimatedCounter = ({ end, duration = 2.5, suffix = "" }: { end: number; du
   )
 }
 
-// Enhanced Liberian flag component
-const LiberianFlag = ({ className = "h-8 w-12" }: { className?: string }) => {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
-  if (!isClient) {
-    return (
-      <div className={`${className} relative overflow-hidden rounded-sm shadow-lg border border-white/30`}>
-        <div className="h-full w-full liberian-flag-gradient"></div>
-        <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-          <Star className="h-3 w-3 text-white fill-white" />
-        </div>
-      </div>
-    )
-  }
-
+const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
   return (
-    <motion.div
-      className={`${className} relative overflow-hidden rounded-sm shadow-lg border border-white/30 animate-flag-wave`}
-      whileHover={{ scale: 1.1 }}
-      suppressHydrationWarning
+    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
     >
-      <div className="h-full w-full liberian-flag-gradient"></div>
+      {/* Stripes */}
+      <div className="liberian-flag-gradient w-full h-full" />
+
+      {/* Blue canton with white star */}
       <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
         >
-          <Star className="h-3 w-3 text-white fill-white liberian-star-glow" />
-        </motion.div>
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -194,29 +177,29 @@ export default function LiberiaHome() {
     {
       image: "/placeholder.svg?height=1080&width=1920",
       title: "Unity University Liberia",
-      subtitle: "The Love of Liberty Brought Us Here",
+      subtitle: "What Begins Here, Transforms Africa",
       description:
-        "Premier higher education institution in Monrovia, combining Liberian heritage with global academic excellence. Building tomorrow's leaders in the heart of West Africa.",
-      cta: "Join Our Legacy",
+        "A dynamic, vision-driven university founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. We are raising a new generation of leaders for the African continent through holistic human development.",
+      cta: "Transform Your Future",
       keywords: "premier university liberia, monrovia education, west africa",
     },
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "Innovation & Excellence in West Africa",
-      subtitle: "Leading Educational Innovation Since 2005",
+      title: "The Love of Liberty Brought Us Here",
+      subtitle: "Pioneering Excellence Since 2024",
       description:
-        "Pioneering research and development initiatives focused on Liberia's growth and prosperity. State-of-the-art facilities and world-class faculty preparing students for global success.",
-      cta: "Explore Innovation",
-      keywords: "innovation liberia, research university, educational excellence",
+        "Offering transformational educational experiences that develop you in ways you might not yet have dreamed of. We are one of the strongest universities in West Africa, making history every day through innovation and excellence.",
+      cta: "Join Our Legacy",
+      keywords: "liberian education, transformational learning, west africa university",
     },
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "Heritage Meets Progress",
-      subtitle: "Honoring Our Rich Liberian Heritage",
+      title: "Building Leaders for Africa",
+      subtitle: "University of Pan-African Excellence",
       description:
-        "Celebrating Liberian culture and values while preparing students for international opportunities. Where tradition meets transformation in higher education.",
-      cta: "Discover Heritage",
-      keywords: "liberian heritage, cultural education, traditional values",
+        "Our unique approach equips graduates with the skills, acuity and vision needed to succeed as ethical, entrepreneurial leaders. Our vibrant, Pan-African community promises life-long friendship and inspiration.",
+      cta: "Become a Leader",
+      keywords: "african leadership, pan-african education, ethical leaders",
     },
   ]
 
@@ -284,7 +267,7 @@ export default function LiberiaHome() {
           <p>
             Leading university in Liberia offering world-class education in Business Administration, Information
             Technology, Engineering, and Public Health. Located in Monrovia with modern facilities and expert faculty.
-            The Love of Liberty Brought Us Here - Apply now for 2024 admission.
+            The Love of Liberty Brought Us Here - Apply now for 2025-2026 admission.
           </p>
         </div>
 
@@ -328,7 +311,7 @@ export default function LiberiaHome() {
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
                     >
-                      <LiberianFlag className="h-10 w-16" />
+                      <LiberiaFlag className="h-10 w-16" />
                     </motion.div>
                     <motion.div
                       animate={{
@@ -379,7 +362,7 @@ export default function LiberiaHome() {
                     transition={{ delay: 1.6, duration: 0.8 }}
                   >
                     <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
-                      <Link href={`${base}/admissions/apply`}>
+                      <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                         <Button
                           size="lg"
                           className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-lg font-bold shadow-2xl border border-blue-500/30"
@@ -419,19 +402,19 @@ export default function LiberiaHome() {
                     {[
                       {
                         icon: GraduationCap,
-                        title: "30+ Programs",
-                        subtitle: "Comprehensive Education",
+                        title: "28 Programs",
+                        subtitle: "Across 4 Faculties",
                         keywords: "academic programs liberia",
                       },
                       {
                         icon: Users,
-                        title: "3,200+ Students",
+                        title: "1,500+ Students",
                         subtitle: "Thriving Community",
                         keywords: "student community liberia",
                       },
                       {
                         icon: Award,
-                        title: "18+ Years Excellence",
+                        title: "19 Years Excellence",
                         subtitle: "Proven Track Record",
                         keywords: "educational excellence liberia",
                       },
@@ -465,16 +448,18 @@ export default function LiberiaHome() {
               <div className="max-w-5xl">
                 <div className="mb-8 flex items-center space-x-6">
                   <Badge className="bg-blue-600 text-white px-8 py-4 text-lg font-bold">{heroSlides[0].subtitle}</Badge>
-                  <LiberianFlag className="h-10 w-16" />
+                  <LiberiaFlag className="h-10 w-16" />
                   <Star className="h-8 w-8 text-white fill-white" />
                 </div>
                 <h1 className="mb-8 text-5xl font-bold text-white md:text-7xl leading-tight">{heroSlides[0].title}</h1>
                 <p className="mb-12 text-xl text-white/95 max-w-4xl leading-relaxed">{heroSlides[0].description}</p>
                 <div className="flex flex-wrap gap-6">
-                  <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-lg font-bold">
-                    {heroSlides[0].cta}
-                    <ArrowRight className="ml-3 h-6 w-6" />
-                  </Button>
+                  <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+                    <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-lg font-bold">
+                      {heroSlides[0].cta}
+                      <ArrowRight className="ml-3 h-6 w-6" />
+                    </Button>
+                  </Link>
                   <Button
                     size="lg"
                     variant="outline"
@@ -529,92 +514,8 @@ export default function LiberiaHome() {
         )}
       </section>
 
-      {/* Enhanced Campus Locations Section */}
-      <motion.section
-        className="bg-gradient-to-r from-red-50 via-white to-blue-50 py-20 relative overflow-hidden"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
-        <div className="container mx-auto px-4">
-          <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our <span className="text-liberian-gradient">Campuses</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Modern facilities across Liberia, designed to provide world-class education in the heart of West Africa.
-            </p>
-          </motion.div>
-
-          <motion.div className="grid gap-8 md:grid-cols-2" variants={containerVariants}>
-            <motion.div
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                rotateY: 5,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-              }}
-              className="flex items-center space-x-6 rounded-2xl bg-white p-8 shadow-xl border-l-12 border-liberian-red backdrop-blur-sm card-hover-effect"
-            >
-              <motion.div
-                className="flex h-20 w-20 items-center justify-center rounded-full bg-red-100"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
-              >
-                <Building className="h-10 w-10 text-red-600" />
-              </motion.div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Main Campus</h3>
-                <p className="text-gray-600 text-lg mb-1">Monrovia, Montserrado County</p>
-                <p className="text-gray-500 text-sm">Premier educational facilities in the capital</p>
-                <div className="mt-3 flex items-center space-x-2">
-                  <Badge variant="secondary" className="text-xs">
-                    3,200+ Students
-                  </Badge>
-                  <Badge variant="secondary" className="text-xs">
-                    25+ Programs
-                  </Badge>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                rotateY: -5,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-              }}
-              className="flex items-center space-x-6 rounded-2xl bg-white p-8 shadow-xl border-l-12 border-liberian-blue backdrop-blur-sm card-hover-effect"
-            >
-              <motion.div
-                className="flex h-20 w-20 items-center justify-center rounded-full bg-blue-100"
-                whileHover={{ rotate: -360 }}
-                transition={{ duration: 0.6 }}
-              >
-                <MapPin className="h-10 w-10 text-blue-600" />
-              </motion.div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Extension Campus</h3>
-                <p className="text-gray-600 text-lg mb-1">Paynesville, Greater Monrovia</p>
-                <p className="text-gray-500 text-sm">Expanding access to quality education</p>
-                <div className="mt-3 flex items-center space-x-2">
-                  <Badge variant="secondary" className="text-xs">
-                    800+ Students
-                  </Badge>
-                  <Badge variant="secondary" className="text-xs">
-                    12+ Programs
-                  </Badge>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.section>
-
       {/* Enhanced About Section with Parallax */}
-      <ParallaxSection>
+      <ParallaxSection offset={100}>
         <section className="py-32 relative overflow-hidden">
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-red-50/50"
@@ -664,7 +565,7 @@ export default function LiberiaHome() {
 
                 <motion.div className="space-y-6 text-lg text-gray-600 leading-relaxed" variants={containerVariants}>
                   <motion.p variants={itemVariants}>
-                    Since establishing our Liberia campus in 2005, Unity University has been at the forefront of
+                    Since establishing our Liberia campus in mid-2024, Unity University has been at the forefront of
                     educational excellence in West Africa. Our institution embodies the spirit of Liberia - a nation
                     founded on the principles of freedom, democracy, and opportunity for all.
                   </motion.p>
@@ -735,7 +636,7 @@ export default function LiberiaHome() {
                     <h4 className="text-2xl font-bold mb-2">Monrovia Campus</h4>
                     <p className="text-white/90 text-lg">Modern facilities in the heart of Liberia</p>
                     <div className="mt-3 flex items-center space-x-2">
-                      <LiberianFlag className="h-6 w-10" />
+                      <LiberiaFlag className="h-6 w-10" />
                       <span className="text-sm font-medium">The Love of Liberty Brought Us Here</span>
                     </div>
                   </motion.div>
@@ -777,30 +678,30 @@ export default function LiberiaHome() {
           <motion.div className="grid grid-cols-2 gap-12 md:grid-cols-4" variants={containerVariants}>
             {[
               {
-                number: 3200,
+                number: 1500,
                 label: "Students Enrolled",
                 sublabel: "Active Learners",
                 icon: Users,
                 keywords: "student enrollment liberia",
               },
               {
-                number: 120,
+                number: 85,
                 label: "Faculty & Staff",
                 sublabel: "Expert Educators",
                 icon: Award,
                 keywords: "faculty staff liberia",
               },
               {
-                number: 30,
+                number: 28,
                 label: "Academic Programs",
                 sublabel: "Diverse Offerings",
                 icon: BookOpen,
                 keywords: "academic programs liberia",
               },
               {
-                number: 18,
-                label: "Years of Excellence",
-                sublabel: "Proven Track Record",
+                number: 1,
+                label: "Year of Excellence",
+                sublabel: "Growing Strong",
                 icon: Globe,
                 keywords: "educational excellence liberia",
               },
@@ -830,7 +731,7 @@ export default function LiberiaHome() {
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                 >
                   <AnimatedCounter end={stat.number} />
-                  <span>+</span>
+                  <span>{stat.number !== 1 ? "+" : ""}</span>
                 </motion.div>
                 <motion.div
                   className="text-gray-800 font-bold text-lg mb-1"
@@ -1078,7 +979,7 @@ export default function LiberiaHome() {
                     <h4 className="text-2xl font-bold mb-2">Liberian Heritage</h4>
                     <p className="text-white/90 text-lg mb-3">Celebrating our rich cultural legacy</p>
                     <div className="flex items-center space-x-2">
-                      <LiberianFlag className="h-6 w-10" />
+                      <LiberiaFlag className="h-6 w-10" />
                       <span className="text-sm font-medium">The Love of Liberty Brought Us Here</span>
                     </div>
                   </motion.div>
@@ -1206,7 +1107,7 @@ export default function LiberiaHome() {
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
               >
-                <LiberianFlag className="h-16 w-24" />
+                <LiberiaFlag className="h-16 w-24" />
               </motion.div>
             </motion.div>
 
@@ -1266,12 +1167,12 @@ export default function LiberiaHome() {
 
             <motion.div className="flex flex-wrap justify-center gap-6" variants={containerVariants}>
               <motion.div variants={itemVariants} whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
-                <Link href={`${base}/admissions/apply`}>
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
                     className="bg-white text-blue-700 hover:bg-gray-100 px-10 py-6 text-lg font-bold shadow-2xl"
                   >
-                    Apply Now - 2024 Admission
+                    Apply Now - 2025-2026 Admission
                     <GraduationCap className="ml-3 h-6 w-6" />
                   </Button>
                 </Link>

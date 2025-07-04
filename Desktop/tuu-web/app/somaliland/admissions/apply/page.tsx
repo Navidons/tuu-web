@@ -42,38 +42,34 @@ export default function ApplyPage() {
     { number: 2, title: "Academic Background", titleSo: "Asalka Waxbarasho", icon: GraduationCap },
     { number: 3, title: "Program Selection", titleSo: "Doorashada Barnaamijka", icon: FileText },
     { number: 4, title: "Documents Upload", titleSo: "Soo Gelinta Dukumentiyada", icon: Upload },
-    { number: 5, title: "Application Fee", titleSo: "Lacagta Codsiga", icon: CreditCard },
-    { number: 6, title: "Review & Submit", titleSo: "Dib u eeg & Gudbi", icon: Send },
+    { number: 5, title: "Review & Submit", titleSo: "Dib u eeg & Gudbi", icon: Send },
   ]
 
   const programs = {
     undergraduate: [
-      { id: "business", name: "Business Administration", nameSo: "Maamulka Ganacsiga", tuition: "$2,500/year" },
-      { id: "it", name: "Information Technology", nameSo: "Tignoolajiyada Macluumaadka", tuition: "$2,800/year" },
-      { id: "health", name: "Public Health", nameSo: "Caafimaadka Dadweynaha", tuition: "$3,000/year" },
-      { id: "engineering", name: "Civil Engineering", nameSo: "Injineerinta Dhismaha", tuition: "$3,200/year" },
-      { id: "education", name: "Education", nameSo: "Waxbarashada", tuition: "$2,200/year" },
-      { id: "agriculture", name: "Agriculture & Environment", nameSo: "Beeraha & Deegaanka", tuition: "$2,600/year" },
+      { id: "business", name: "Business Administration", nameSo: "Maamulka Ganacsiga" },
+      { id: "it", name: "Information Technology", nameSo: "Tignoolajiyada Macluumaadka" },
+      { id: "health", name: "Public Health", nameSo: "Caafimaadka Dadweynaha" },
+      { id: "engineering", name: "Civil Engineering", nameSo: "Injineerinta Dhismaha" },
+      { id: "education", name: "Education", nameSo: "Waxbarashada" },
+      { id: "agriculture", name: "Agriculture & Environment", nameSo: "Beeraha & Deegaanka" },
     ],
     graduate: [
       {
         id: "mba",
         name: "Master of Business Administration",
         nameSo: "Shahaadada Sare ee Maamulka Ganacsiga",
-        tuition: "$4,500/year",
       },
       {
         id: "mph",
         name: "Master of Public Health",
         nameSo: "Shahaadada Sare ee Caafimaadka Dadweynaha",
-        tuition: "$4,200/year",
       },
-      { id: "med", name: "Master of Education", nameSo: "Shahaadada Sare ee Waxbarashada", tuition: "$3,800/year" },
+      { id: "med", name: "Master of Education", nameSo: "Shahaadada Sare ee Waxbarashada" },
       {
         id: "meng",
         name: "Master of Engineering Management",
         nameSo: "Shahaadada Sare ee Maamulka Injineerinta",
-        tuition: "$4,800/year",
       },
     ],
     professional: [
@@ -81,28 +77,21 @@ export default function ApplyPage() {
         id: "digital-marketing",
         name: "Digital Marketing Certificate",
         nameSo: "Shahaadada Suuq-geynta Dijital-ka",
-        tuition: "$800",
       },
       {
         id: "project-management",
         name: "Project Management Professional",
         nameSo: "Maamulka Mashaariicda Xirfadeed",
-        tuition: "$1,200",
       },
       {
         id: "cybersecurity",
         name: "Cybersecurity Fundamentals",
         nameSo: "Aasaaska Amniga Cyber-ka",
-        tuition: "$1,100",
       },
     ],
   }
 
-  const applicationFees = {
-    undergraduate: 50,
-    graduate: 75,
-    professional: 25,
-  }
+
 
   const requiredDocuments = {
     undergraduate: [
@@ -455,18 +444,15 @@ export default function ApplyPage() {
                           <div className="grid gap-4">
                             {programList.map((program) => (
                               <div key={program.id} className="p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
-                                <div className="flex items-center justify-between">
-                                  <div className="flex items-center space-x-3">
-                                    <Checkbox id={program.id} />
-                                    <div>
-                                      <Label htmlFor={program.id} className="text-base font-semibold cursor-pointer">
-                                        {program.name}
-                                      </Label>
-                                      <p className="text-sm text-emerald-600">{program.nameSo}</p>
-                                    </div>
-                                  </div>
-                                  <Badge className="bg-emerald-100 text-emerald-800">{program.tuition}</Badge>
+                                                              <div className="flex items-center space-x-3">
+                                <Checkbox id={program.id} />
+                                <div>
+                                  <Label htmlFor={program.id} className="text-base font-semibold cursor-pointer">
+                                    {program.name}
+                                  </Label>
+                                  <p className="text-sm text-emerald-600">{program.nameSo}</p>
                                 </div>
+                              </div>
                               </div>
                             ))}
                           </div>
@@ -555,83 +541,8 @@ export default function ApplyPage() {
                   </motion.div>
                 )}
 
-                {/* Step 5: Application Fee */}
+                {/* Step 5: Review & Submit */}
                 {currentStep === 5 && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="space-y-6"
-                  >
-                    <div className="bg-emerald-50 p-6 rounded-lg">
-                      <h4 className="font-bold text-emerald-900 mb-4">Application Fee Payment</h4>
-                      <div className="grid gap-4 md:grid-cols-3">
-                        {Object.entries(applicationFees).map(([level, fee]) => (
-                          <div key={level} className="p-4 bg-white rounded-lg border">
-                            <h5 className="font-semibold capitalize mb-2">{level}</h5>
-                            <div className="text-2xl font-bold text-emerald-600">${fee}</div>
-                            <p className="text-sm text-gray-600">Application Fee</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label>Payment Method *</Label>
-                      <RadioGroup className="mt-3">
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="card" id="card" />
-                          <Label htmlFor="card">Credit/Debit Card</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="bank" id="bank" />
-                          <Label htmlFor="bank">Bank Transfer</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="mobile" id="mobile" />
-                          <Label htmlFor="mobile">Mobile Money (Zaad/eDahab)</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div className="p-4 border rounded-lg">
-                      <h5 className="font-semibold mb-3">Payment Information</h5>
-                      <div className="grid gap-4 md:grid-cols-2">
-                        <div>
-                          <Label htmlFor="cardNumber">Card Number</Label>
-                          <Input id="cardNumber" placeholder="1234 5678 9012 3456" className="mt-2" />
-                        </div>
-                        <div>
-                          <Label htmlFor="expiryDate">Expiry Date</Label>
-                          <Input id="expiryDate" placeholder="MM/YY" className="mt-2" />
-                        </div>
-                        <div>
-                          <Label htmlFor="cvv">CVV</Label>
-                          <Input id="cvv" placeholder="123" className="mt-2" />
-                        </div>
-                        <div>
-                          <Label htmlFor="cardName">Cardholder Name</Label>
-                          <Input id="cardName" placeholder="Name on card" className="mt-2" />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-yellow-50 p-4 rounded-lg">
-                      <div className="flex items-start space-x-3">
-                        <AlertCircle className="h-5 w-5 text-yellow-600 mt-0.5" />
-                        <div>
-                          <h4 className="font-semibold text-yellow-900">Payment Security</h4>
-                          <p className="text-sm text-yellow-700 mt-1">
-                            Your payment information is secure and encrypted. The application fee is non-refundable.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-
-                {/* Step 6: Review & Submit */}
-                {currentStep === 6 && (
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}

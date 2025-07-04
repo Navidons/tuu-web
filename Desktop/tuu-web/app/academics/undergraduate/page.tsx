@@ -55,224 +55,141 @@ export default function UndergraduatePage() {
 
   const programs = {
     business: {
-      name: "School of Business & Management",
+      name: "Faculty of Business and Management",
       programs: [
+        {
+          name: "Accounting and Finance",
+          duration: "3 years",
+          credits: 120,
+          description: "Comprehensive study of accounting principles, financial reporting, and corporate finance.",
+          careers: ["Accountant", "Financial Analyst", "Auditor", "Finance Manager"],
+        },
+        {
+          name: "Human Resource Management",
+          duration: "3 years",
+          credits: 120,
+          description: "Strategic HR planning, talent acquisition, and employee development.",
+          careers: ["HR Manager", "Recruitment Specialist", "Training Coordinator"],
+        },
         {
           name: "Business Administration",
-          duration: "4 years",
+          duration: "3 years",
           credits: 120,
-          description: "Comprehensive business education covering management, finance, marketing, and operations",
-          careers: ["Business Manager", "Consultant", "Entrepreneur", "Project Manager"],
-          tuition: "$8,000",
+          description: "Broad-based business education covering management, marketing, and operations.",
+          careers: ["Business Manager", "Entrepreneur", "Project Manager"],
         },
         {
-          name: "International Business",
-          duration: "4 years",
+          name: "Banking and Finance",
+          duration: "3 years",
           credits: 120,
-          description: "Global business practices with focus on cross-cultural management and international trade",
-          careers: ["International Trade Specialist", "Global Business Analyst", "Export Manager"],
-          tuition: "$8,000",
+          description: "Banking operations, risk management, and investment strategies.",
+          careers: ["Bank Officer", "Risk Analyst", "Investment Banker"],
         },
         {
-          name: "Entrepreneurship",
-          duration: "4 years",
+          name: "Procurement, Logistics and Supply Chain Management",
+          duration: "3 years",
           credits: 120,
-          description: "Innovation and startup development with practical business creation experience",
-          careers: ["Startup Founder", "Business Development Manager", "Innovation Consultant"],
-          tuition: "$8,000",
+          description: "End-to-end supply chain optimisation and logistics strategy.",
+          careers: ["Supply Chain Analyst", "Logistics Manager", "Procurement Officer"],
         },
         {
-          name: "Finance",
-          duration: "4 years",
+          name: "Marketing",
+          duration: "3 years",
           credits: 120,
-          description: "Financial analysis, investment management, and corporate finance principles",
-          careers: ["Financial Analyst", "Investment Banker", "Financial Planner", "Risk Manager"],
-          tuition: "$8,000",
-        },
-      ],
-    },
-    engineering: {
-      name: "School of Engineering & Technology",
-      programs: [
-        {
-          name: "Computer Science",
-          duration: "4 years",
-          credits: 128,
-          description: "Software development, algorithms, data structures, and emerging technologies",
-          careers: ["Software Engineer", "Data Scientist", "Systems Analyst", "Tech Lead"],
-          tuition: "$8,500",
-        },
-        {
-          name: "Civil Engineering",
-          duration: "4 years",
-          credits: 132,
-          description: "Infrastructure design, construction management, and sustainable development",
-          careers: ["Civil Engineer", "Project Manager", "Urban Planner", "Construction Manager"],
-          tuition: "$8,500",
-        },
-        {
-          name: "Electrical Engineering",
-          duration: "4 years",
-          credits: 130,
-          description: "Power systems, electronics, telecommunications, and renewable energy",
-          careers: ["Electrical Engineer", "Power Systems Engineer", "Electronics Designer"],
-          tuition: "$8,500",
-        },
-        {
-          name: "Software Engineering",
-          duration: "4 years",
-          credits: 128,
-          description: "Large-scale software systems design, development, and maintenance",
-          careers: ["Software Architect", "DevOps Engineer", "Quality Assurance Engineer"],
-          tuition: "$8,500",
-        },
-      ],
-    },
-    health: {
-      name: "School of Health Sciences",
-      programs: [
-        {
-          name: "Nursing",
-          duration: "4 years",
-          credits: 125,
-          description: "Patient care, health promotion, and clinical practice in diverse healthcare settings",
-          careers: ["Registered Nurse", "Nurse Practitioner", "Healthcare Administrator"],
-          tuition: "$9,000",
-        },
-        {
-          name: "Public Health",
-          duration: "4 years",
-          credits: 120,
-          description: "Community health, epidemiology, and health policy for population wellness",
-          careers: ["Public Health Specialist", "Health Educator", "Epidemiologist"],
-          tuition: "$8,500",
-        },
-        {
-          name: "Medical Technology",
-          duration: "4 years",
-          credits: 128,
-          description: "Laboratory sciences, diagnostic procedures, and medical equipment operation",
-          careers: ["Medical Technologist", "Lab Manager", "Clinical Research Associate"],
-          tuition: "$9,000",
-        },
-        {
-          name: "Health Administration",
-          duration: "4 years",
-          credits: 120,
-          description: "Healthcare management, policy, and organizational leadership",
-          careers: ["Healthcare Administrator", "Hospital Manager", "Health Policy Analyst"],
-          tuition: "$8,500",
-        },
-      ],
-    },
-    liberal: {
-      name: "School of Liberal Arts",
-      programs: [
-        {
-          name: "English Literature",
-          duration: "4 years",
-          credits: 120,
-          description: "Literary analysis, creative writing, and communication skills development",
-          careers: ["Writer", "Editor", "Teacher", "Communications Specialist"],
-          tuition: "$7,500",
-        },
-        {
-          name: "History",
-          duration: "4 years",
-          credits: 120,
-          description: "Historical research, analysis, and understanding of global civilizations",
-          careers: ["Historian", "Museum Curator", "Archivist", "Research Analyst"],
-          tuition: "$7,500",
-        },
-        {
-          name: "Philosophy",
-          duration: "4 years",
-          credits: 120,
-          description: "Critical thinking, ethics, and logical reasoning across cultures",
-          careers: ["Philosophy Professor", "Ethics Consultant", "Policy Analyst"],
-          tuition: "$7,500",
-        },
-        {
-          name: "Modern Languages",
-          duration: "4 years",
-          credits: 120,
-          description: "Multilingual communication and cross-cultural understanding",
-          careers: ["Translator", "International Relations Specialist", "Language Teacher"],
-          tuition: "$7,500",
+          description: "Consumer behaviour, brand management, and digital marketing techniques.",
+          careers: ["Marketing Manager", "Brand Strategist", "Digital Marketer"],
         },
       ],
     },
     social: {
-      name: "School of Social Sciences",
+      name: "Faculty of Social Sciences",
       programs: [
         {
-          name: "International Relations",
-          duration: "4 years",
+          name: "International Relations and Diplomatic Studies",
+          duration: "3 years",
           credits: 120,
-          description: "Global politics, diplomacy, and international cooperation",
-          careers: ["Diplomat", "International Analyst", "NGO Coordinator", "Policy Advisor"],
-          tuition: "$8,000",
+          description: "Global politics, diplomacy, and conflict resolution.",
+          careers: ["Diplomat", "Policy Analyst", "NGO Coordinator"],
         },
         {
-          name: "Psychology",
-          duration: "4 years",
+          name: "Public Administration and Management",
+          duration: "3 years",
           credits: 120,
-          description: "Human behavior, mental health, and psychological research methods",
-          careers: ["Psychologist", "Counselor", "Research Scientist", "HR Specialist"],
-          tuition: "$8,000",
+          description: "Public sector governance, policy formulation, and administrative law.",
+          careers: ["Public Administrator", "Policy Advisor", "City Manager"],
         },
         {
-          name: "Sociology",
-          duration: "4 years",
+          name: "Social Work and Social Administration",
+          duration: "3 years",
           credits: 120,
-          description: "Social structures, cultural dynamics, and community development",
-          careers: ["Social Worker", "Community Organizer", "Research Analyst"],
-          tuition: "$7,500",
+          description: "Community development, social welfare, and advocacy.",
+          careers: ["Social Worker", "Community Organizer", "Case Manager"],
         },
         {
-          name: "Economics",
-          duration: "4 years",
+          name: "Project Planning and Management",
+          duration: "3 years",
           credits: 120,
-          description: "Economic theory, policy analysis, and market dynamics",
-          careers: ["Economist", "Financial Analyst", "Policy Researcher", "Business Analyst"],
-          tuition: "$8,000",
+          description: "Project lifecycle management, monitoring, and evaluation.",
+          careers: ["Project Manager", "Program Coordinator", "Operations Analyst"],
+        },
+        {
+          name: "Public Relations and Media Management",
+          duration: "3 years",
+          credits: 120,
+          description: "Strategic communication, media relations, and reputation management.",
+          careers: ["PR Specialist", "Communications Manager", "Media Planner"],
         },
       ],
     },
-    agriculture: {
-      name: "School of Agriculture & Environment",
+    health: {
+      name: "Faculty of Allied Health Science",
       programs: [
         {
-          name: "Sustainable Agriculture",
-          duration: "4 years",
-          credits: 125,
-          description: "Modern farming techniques, crop science, and sustainable food production",
-          careers: ["Agricultural Scientist", "Farm Manager", "Agricultural Consultant"],
-          tuition: "$8,000",
-        },
-        {
-          name: "Environmental Science",
-          duration: "4 years",
-          credits: 128,
-          description: "Environmental protection, conservation, and sustainability practices",
-          careers: ["Environmental Scientist", "Conservation Specialist", "Environmental Consultant"],
-          tuition: "$8,000",
-        },
-        {
-          name: "Forestry",
-          duration: "4 years",
-          credits: 125,
-          description: "Forest management, conservation, and sustainable resource utilization",
-          careers: ["Forester", "Conservation Officer", "Environmental Manager"],
-          tuition: "$8,000",
-        },
-        {
-          name: "Climate Studies",
-          duration: "4 years",
+          name: "Public Health",
+          duration: "3 years",
           credits: 120,
-          description: "Climate science, environmental policy, and adaptation strategies",
-          careers: ["Climate Scientist", "Environmental Policy Analyst", "Sustainability Coordinator"],
-          tuition: "$8,000",
+          description: "Epidemiology, health promotion, and disease prevention.",
+          careers: ["Public Health Officer", "Health Educator", "Epidemiologist"],
+        },
+        {
+          name: "Nutrition and Food Science",
+          duration: "3 years",
+          credits: 120,
+          description: "Human nutrition, dietetics, and food safety.",
+          careers: ["Nutritionist", "Dietician", "Food Safety Inspector"],
+        },
+        {
+          name: "Health Service & Management",
+          duration: "3 years",
+          credits: 120,
+          description: "Healthcare systems, policy, and administration.",
+          careers: ["Health Services Manager", "Hospital Administrator", "Health Policy Analyst"],
+        },
+      ],
+    },
+    computing: {
+      name: "Faculty of Computing & Information Technology",
+      programs: [
+        {
+          name: "Software Engineering",
+          duration: "3 years",
+          credits: 128,
+          description: "Software development lifecycle, DevOps, and quality assurance.",
+          careers: ["Software Engineer", "DevOps Engineer", "QA Analyst"],
+        },
+        {
+          name: "Computer Science",
+          duration: "3 years",
+          credits: 128,
+          description: "Algorithms, data structures, and emerging technologies.",
+          careers: ["Systems Analyst", "Data Scientist", "Research Engineer"],
+        },
+        {
+          name: "Information Technology",
+          duration: "3 years",
+          credits: 128,
+          description: "Network administration, cybersecurity, and IT project management.",
+          careers: ["IT Manager", "Network Administrator", "Security Analyst"],
         },
       ],
     },
@@ -280,11 +197,9 @@ export default function UndergraduatePage() {
 
   const schools = [
     { id: "business", name: "Business & Management", icon: "💼", students: 1200 },
-    { id: "engineering", name: "Engineering & Technology", icon: "⚙️", students: 980 },
-    { id: "health", name: "Health Sciences", icon: "🏥", students: 850 },
-    { id: "liberal", name: "Liberal Arts", icon: "📚", students: 720 },
-    { id: "social", name: "Social Sciences", icon: "🌍", students: 680 },
-    { id: "agriculture", name: "Agriculture & Environment", icon: "🌱", students: 570 },
+    { id: "social", name: "Social Sciences", icon: "🌍", students: 800 },
+    { id: "health", name: "Allied Health Science", icon: "🏥", students: 650 },
+    { id: "computing", name: "Computing & IT", icon: "💻", students: 900 },
   ]
 
   const features = [
@@ -355,7 +270,7 @@ export default function UndergraduatePage() {
                 prepare you for success in the global marketplace.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg font-bold">
                     Apply Now
                     <ArrowRight className="ml-3 h-6 w-6" />
@@ -393,7 +308,7 @@ export default function UndergraduatePage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Undergraduate Programs", value: 25, suffix: "+", description: "Across 6 schools" },
+              { label: "Undergraduate Programs", value: 17, suffix: "+", description: "Across 4 faculties" },
               { label: "Undergraduate Students", value: 3200, suffix: "+", description: "Currently enrolled" },
               { label: "Graduate Employment Rate", value: 95, suffix: "%", description: "Within 6 months" },
               { label: "Average Class Size", value: 20, suffix: "", description: "Students per class" },
@@ -428,9 +343,9 @@ export default function UndergraduatePage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Choose Your School</h2>
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">Choose Your Faculty</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore undergraduate programs across our six specialized schools
+                Explore undergraduate programs across our four specialized faculties
               </p>
             </motion.div>
           </div>
@@ -481,7 +396,6 @@ export default function UndergraduatePage() {
                 >
                   <div className="flex items-center justify-between mb-6">
                     <h4 className="text-2xl font-bold text-gray-900">{program.name}</h4>
-                    <Badge className="bg-purple-100 text-purple-700">{program.tuition}/year</Badge>
                   </div>
 
                   <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
@@ -511,7 +425,7 @@ export default function UndergraduatePage() {
                   </div>
 
                   <div className="flex space-x-4">
-                    <Link href="/admissions/apply" className="flex-1">
+                    <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer" className="flex-1">
                       <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700">
                         Apply Now
                       </Button>
@@ -653,7 +567,7 @@ export default function UndergraduatePage() {
               starts here.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/admissions/apply">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4 text-lg font-bold"

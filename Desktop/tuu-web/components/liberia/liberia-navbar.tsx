@@ -8,18 +8,19 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence, Variants } from "framer-motion"
 
-// Enhanced waving Liberian flag component (matches main navbar design)
-const LiberianFlagIcon = ({ className = "h-4 w-6" }: { className?: string }) => {
+const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
   return (
-    <div
-      className={cn(
-        className,
-        "relative overflow-hidden rounded-sm border border-white/20 animate-flag-wave drop-shadow-sm",
-      )}
+    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
     >
+      {/* Stripes */}
       <div className="liberian-flag-gradient w-full h-full" />
+
+      {/* Blue canton with white star */}
       <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <svg viewBox="0 0 24 24" className="w-[6px] h-[6px] text-white fill-current">
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
+        >
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       </div>
@@ -62,55 +63,33 @@ export default function LiberiaNavbar() {
     }
   }
 
-  const base = "/liberia"
   const navLinks = [
-    { name: "Home", href: `${base}` },
+    { name: "Home", href: "/liberia" },
     {
       name: "Academics",
-      href: `${base}/academics`,
+      href: "/liberia/academics",
       dropdown: [
-        { name: "Undergraduate Programs", href: `${base}/academics/undergraduate` },
-        { name: "Graduate Programs", href: `${base}/academics/graduate` },
-        { name: "Professional Development", href: `${base}/academics/professional` },
-        { name: "Academic Calendar", href: `${base}/academics/calendar` },
+        { name: "Undergraduate Programs", href: "/liberia/academics/undergraduate" },
+        { name: "Graduate Programs", href: "/liberia/academics/graduate" },
+        { name: "Academic Calendar", href: "/liberia/academics/calendar" },
       ],
     },
     {
       name: "Admissions",
-      href: `${base}/admissions`,
+      href: "/liberia/admissions",
       dropdown: [
-        { name: "Apply Now", href: `${base}/admissions/apply` },
-        { name: "Tuition & Fees", href: `${base}/admissions/tuition` },
-        { name: "Financial Aid", href: `${base}/admissions/financial-aid` },
-        { name: "International Students", href: `${base}/admissions/international` },
-      ],
-    },
-    {
-      name: "Research",
-      href: `${base}/research`,
-      dropdown: [
-        { name: "Research Centers", href: `${base}/research/centers` },
-        { name: "Publications", href: `${base}/research/publications` },
-        { name: "Partnerships", href: `${base}/research/partnerships` },
-        { name: "Research Support", href: `${base}/research/support` },
-      ],
-    },
-    {
-      name: "Student Life",
-      href: `${base}/student-life`,
-      dropdown: [
-        { name: "Campus Activities", href: `${base}/student-life/activities` },
-        { name: "Student Organizations", href: `${base}/student-life/organizations` },
+        { name: "Apply Now", href: "/admissions/apply" },
+        { name: "International Students", href: "/liberia/admissions/international" },
       ],
     },
     {
       name: "About",
-      href: `${base}/about`,
+      href: "/liberia/about",
       dropdown: [
-        { name: "Our History", href: `${base}/about/history` },
-        { name: "Leadership", href: `${base}/about/leadership` },
-        { name: "Campus Map", href: `${base}/about/campus-map` },
-        { name: "Contact Us", href: `${base}/about/contact` },
+        { name: "Our History", href: "/liberia/about/history" },
+        { name: "Leadership", href: "/liberia/about/leadership" },
+        { name: "Contact Us", href: "/liberia/about/contact" },
+        { name: "Network", href: "/liberia/about/network" },
       ],
     },
   ]
@@ -188,7 +167,7 @@ export default function LiberiaNavbar() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <LiberianFlagIcon />
+              <LiberiaFlag />
               <span>The Love of Liberty Brought Us Here</span>
             </motion.div>
           </div>
@@ -206,7 +185,7 @@ export default function LiberiaNavbar() {
       >
         <div className="container mx-auto flex items-center justify-between px-4">
           <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-            <Link href="/" className="flex items-center space-x-3">
+            <Link href="/liberia" className="flex items-center space-x-3">
               <motion.div whileHover={{ scale: 1.05, rotate: 3 }} transition={{ duration: 0.3 }}>
                 <Image
                   src="/tuu-logo/tuu-logo.png"
@@ -287,6 +266,7 @@ export default function LiberiaNavbar() {
                               >
                                 <Link
                                   href={item.href}
+                                  {...(item.name === "Apply Now" && { target: "_blank", rel: "noopener noreferrer" })}
                                   className="block px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-red-50 hover:to-blue-50 hover:text-blue-700 transition-all duration-300 rounded-lg mx-2"
                                   onClick={() => setActiveDropdown(null)}
                                 >
@@ -320,7 +300,7 @@ export default function LiberiaNavbar() {
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/liberia/admissions/apply">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg transition-all duration-300 hover:shadow-xl px-6 py-3 font-bold">
                   Apply Now
                 </Button>
@@ -395,7 +375,7 @@ export default function LiberiaNavbar() {
                   <div className="flex items-center space-x-3 text-red-700 font-medium">
                     <MapPin className="h-5 w-5" />
                     <span>Monrovia, Liberia</span>
-                    <LiberianFlagIcon />
+                    <LiberiaFlag />
                   </div>
                   <a
                     href="mailto:liberia@tuu.university"
@@ -457,6 +437,7 @@ export default function LiberiaNavbar() {
                                     >
                                       <Link
                                         href={item.href}
+                                        {...(item.name === "Apply Now" && { target: "_blank", rel: "noopener noreferrer" })}
                                         className="block py-2 text-gray-600 hover:text-blue-700 transition-colors"
                                         onClick={() => setMobileMenuOpen(false)}
                                       >
@@ -491,7 +472,7 @@ export default function LiberiaNavbar() {
                   transition={{ delay: 0.4 }}
                 >
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Link href="/liberia/admissions/apply">
+                    <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg py-4 text-lg font-bold">
                         Apply Now - 2024 Admission
                       </Button>

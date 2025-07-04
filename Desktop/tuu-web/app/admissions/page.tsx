@@ -82,21 +82,18 @@ export default function AdmissionsPage() {
       level: "Undergraduate",
       duration: "4 years",
       programs: ["Business Administration", "Computer Science", "Engineering", "Health Sciences", "Liberal Arts"],
-      tuition: "$8,000",
       color: "from-purple-500 to-blue-600",
     },
     {
       level: "Graduate",
       duration: "2 years",
       programs: ["MBA", "Master of Engineering", "Master of Public Health", "Master of Education"],
-      tuition: "$12,000",
       color: "from-blue-500 to-emerald-600",
     },
     {
       level: "Doctoral",
       duration: "3-5 years",
       programs: ["PhD in Engineering", "PhD in Business", "PhD in Education", "PhD in Health Sciences"],
-      tuition: "$15,000",
       color: "from-emerald-500 to-purple-600",
     },
   ]
@@ -140,19 +137,19 @@ export default function AdmissionsPage() {
                 across our campuses in Liberia and Somaliland.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg font-bold">
                     Apply Now
                     <ArrowRight className="ml-3 h-6 w-6" />
                   </Button>
                 </Link>
-                <Link href="/admissions/tuition">
+                <Link href="/academics">
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold"
                   >
-                    View Tuition & Fees
+                    View Programs
                   </Button>
                 </Link>
               </div>
@@ -320,12 +317,7 @@ export default function AdmissionsPage() {
                     ))}
                   </div>
 
-                  <div className="text-center mb-8">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">{program.tuition}</div>
-                    <div className="text-gray-600">Annual tuition</div>
-                  </div>
-
-                  <Link href="/admissions/apply">
+                  <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                     <Button className={`w-full bg-gradient-to-r ${program.color} text-white hover:opacity-90`}>
                       Apply for {program.level}
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -385,6 +377,13 @@ export default function AdmissionsPage() {
                 icon: "🌍",
                 color: "from-purple-500 to-red-600",
               },
+              {
+                title: "Academic Programs",
+                description: "Explore our comprehensive degree offerings",
+                href: "/academics",
+                icon: "🎯",
+                color: "from-blue-500 to-emerald-600",
+              },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -395,7 +394,7 @@ export default function AdmissionsPage() {
                 whileHover={{ scale: 1.05, y: -10 }}
                 className="group"
               >
-                <Link href={item.href}>
+                <Link href={item.href} target={item.title === "Apply Now" ? "_blank" : undefined} rel={item.title === "Apply Now" ? "noopener noreferrer" : undefined}>
                   <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-100 p-8 cursor-pointer h-full">
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
@@ -449,12 +448,6 @@ export default function AdmissionsPage() {
                 title: "Regular Decision Deadline",
                 description: "Final deadline for fall semester applications",
                 type: "Deadline",
-              },
-              {
-                date: "June 1, 2024",
-                title: "Financial Aid Applications Due",
-                description: "Complete FAFSA and scholarship applications",
-                type: "Financial",
               },
               {
                 date: "July 15, 2024",
@@ -512,7 +505,7 @@ export default function AdmissionsPage() {
               of Africa.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/admissions/apply">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4 text-lg font-bold"

@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import EnhancedNavbar from "@/components/enhanced-navbar"
 import Link from "next/link"
 import { useInView } from "react-intersection-observer"
+import EnhancedFooter from "@/components/enhanced-footer"
 
 // Animated counter component
 const AnimatedCounter = ({ end, duration = 2 }: { end: number; duration?: number }) => {
@@ -83,8 +84,7 @@ export default function AboutPage() {
                 </span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Since our founding, Unity University has been at the forefront of educational excellence, bridging
-                cultures and creating opportunities across Africa with campuses in Liberia and Somaliland.
+                Since our founding in 2021, Unity University has rapidly established itself as a leader in African higher education, with our motto "What begins here, transforms Africa" guiding our mission across our campuses in Somaliland and Liberia.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <Link href="/about/history">
@@ -131,7 +131,7 @@ export default function AboutPage() {
                 icon: Target,
                 title: "Our Mission",
                 content:
-                  "To provide world-class education that empowers students to become leaders, innovators, and change-makers in their communities while fostering cross-cultural understanding and global citizenship.",
+                  "To contribute to the development and sustenance of the well-being of the people of Somaliland, Africa, and the world through the provision of flexible, innovative, entrepreneurial, inclusive programs of teaching, learning, research, and service.",
                 color: "from-purple-500 to-blue-600",
                 bgColor: "from-purple-50 to-blue-50",
               },
@@ -139,15 +139,15 @@ export default function AboutPage() {
                 icon: Eye,
                 title: "Our Vision",
                 content:
-                  "To be the premier educational institution connecting Africa to global opportunities through excellence, innovation, and transformative learning experiences that shape the leaders of tomorrow.",
+                  "To become a world-class University in leadership development in Africa.",
                 color: "from-blue-500 to-emerald-600",
                 bgColor: "from-blue-50 to-emerald-50",
               },
               {
                 icon: Heart,
-                title: "Our Values",
+                title: "Our Philosophy",
                 content:
-                  "Excellence in education, integrity in all endeavors, respect for diversity, commitment to innovation, service to community, and dedication to sustainable development across Africa.",
+                  "The Unity University believes that sustainable national and global development can be achieved through nurturing an intellectual culture that integrates theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.",
                 color: "from-emerald-500 to-purple-600",
                 bgColor: "from-emerald-50 to-purple-50",
               },
@@ -198,10 +198,10 @@ export default function AboutPage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Students Enrolled", value: 5300, suffix: "+", icon: Users },
-              { label: "Countries Represented", value: 45, suffix: "", icon: Globe },
-              { label: "Academic Programs", value: 45, suffix: "+", icon: BookOpen },
-              { label: "Years of Excellence", value: 19, suffix: "", icon: Award },
+              { label: "Students Enrolled", value: 4000, suffix: "+", icon: Users },
+              { label: "Countries Represented", value: 25, suffix: "", icon: Globe },
+              { label: "Academic Programs", value: 37, suffix: "+", icon: BookOpen },
+              { label: "Years of Excellence", value: 4, suffix: "", icon: Award },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -270,21 +270,20 @@ export default function AboutPage() {
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">Monrovia, Liberia</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Our flagship campus in Monrovia serves as the heart of West African higher education. Established in
-                2005, it combines rich Liberian heritage with cutting-edge academic facilities.
+                Our newest campus in Monrovia extends Unity University's reach across West Africa. Established in 2024, it represents our commitment to Pan-African education and rapid expansion.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">2,500+</div>
+                  <div className="text-2xl font-bold text-red-600">1,200+</div>
                   <div className="text-sm text-gray-600">Students</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">20+</div>
+                  <div className="text-2xl font-bold text-blue-600">18+</div>
                   <div className="text-sm text-gray-600">Programs</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">18</div>
-                  <div className="text-sm text-gray-600">Years</div>
+                  <div className="text-2xl font-bold text-red-600">1</div>
+                  <div className="text-sm text-gray-600">Year</div>
                 </div>
               </div>
               <Link href="/liberia">
@@ -325,8 +324,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">Hargeisa, Somaliland</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Our innovative campus in Hargeisa represents the spirit of resilience and progress. Since 2008, it has
-                been a beacon of educational excellence in the Horn of Africa.
+                Our flagship campus in Hargeisa represents the birthplace of Unity University. Since 2021, it has been a beacon of educational excellence in the Horn of Africa, embodying our motto "What begins here, transforms Africa."
               </p>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="text-center">
@@ -334,11 +332,11 @@ export default function AboutPage() {
                   <div className="text-sm text-gray-600">Students</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">25+</div>
+                  <div className="text-2xl font-bold text-red-600">19+</div>
                   <div className="text-sm text-gray-600">Programs</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600">15</div>
+                  <div className="text-2xl font-bold text-emerald-600">4</div>
                   <div className="text-sm text-gray-600">Years</div>
                 </div>
               </div>
@@ -467,6 +465,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+      <EnhancedFooter />
     </div>
   )
 }

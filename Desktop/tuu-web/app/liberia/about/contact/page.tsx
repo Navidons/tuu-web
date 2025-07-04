@@ -35,7 +35,7 @@ export default function LiberiaContactPage() {
       <section className="bg-gradient-to-r from-red-700 to-blue-700 text-white py-20 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
         <p className="text-lg md:text-2xl mx-auto max-w-2xl">
-          Have questions or need assistance? We're here to help you connect with Unity University Liberia.
+          Have questions or need assistance? We're here to help you connect with Unity University Liberia Campus - our newest expansion bringing Pan-African education to West Africa.
         </p>
       </section>
 
@@ -54,7 +54,7 @@ export default function LiberiaContactPage() {
               {
                 title: "Phone",
                 icon: Phone,
-                text: "+231 77 123 4567",
+                text: "+252 63 4210013",
                 color: "bg-blue-100 text-blue-600",
               },
               {

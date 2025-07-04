@@ -61,166 +61,63 @@ export default function AcademicsPage() {
 
   const academicPrograms = {
     undergraduate: [
-      {
-        title: "Business Administration",
-        titleSo: "Maamulka Ganacsiga",
-        duration: "4 Years",
-        credits: "120 Credits",
-        description:
-          "Comprehensive business education preparing future leaders and entrepreneurs for Somaliland's growing economy.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Entrepreneurship Focus", "Industry Partnerships", "Internship Programs", "Leadership Development"],
-        careers: ["Business Manager", "Entrepreneur", "Financial Analyst", "Marketing Specialist"],
-        requirements: ["High School Diploma", "English Proficiency", "Mathematics Background"],
-        tuition: "$2,500/year",
-      },
-      {
-        title: "Information Technology",
-        titleSo: "Tignoolajiyada Macluumaadka",
-        duration: "4 Years",
-        credits: "128 Credits",
-        description:
-          "Cutting-edge technology education covering software development, cybersecurity, and digital innovation.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Modern Curriculum", "Industry Certifications", "Innovation Labs", "Project-Based Learning"],
-        careers: ["Software Developer", "IT Consultant", "Cybersecurity Analyst", "Systems Administrator"],
-        requirements: ["High School Diploma", "Mathematics Proficiency", "Basic Computer Skills"],
-        tuition: "$2,800/year",
-      },
-      {
-        title: "Public Health",
-        titleSo: "Caafimaadka Dadweynaha",
-        duration: "4 Years",
-        credits: "130 Credits",
-        description: "Training healthcare professionals to address community health challenges and promote wellness.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Community Focus", "Clinical Training", "Research Opportunities", "Health Promotion"],
-        careers: ["Public Health Officer", "Health Educator", "Epidemiologist", "Community Health Worker"],
-        requirements: ["High School Diploma", "Science Background", "English Proficiency"],
-        tuition: "$3,000/year",
-      },
-      {
-        title: "Civil Engineering",
-        titleSo: "Injineerinta Dhismaha",
-        duration: "4 Years",
-        credits: "135 Credits",
-        description:
-          "Comprehensive engineering education focusing on infrastructure development and construction management.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Hands-on Learning", "Modern Equipment", "Industry Projects", "Sustainable Design"],
-        careers: ["Civil Engineer", "Project Manager", "Construction Supervisor", "Infrastructure Planner"],
-        requirements: ["High School Diploma", "Strong Mathematics", "Physics Background"],
-        tuition: "$3,200/year",
-      },
-      {
-        title: "Education",
-        titleSo: "Waxbarashada",
-        duration: "4 Years",
-        credits: "125 Credits",
-        description: "Preparing qualified teachers and educational leaders to transform the education sector.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Teaching Practice", "Educational Technology", "Curriculum Development", "Classroom Management"],
-        careers: ["Primary Teacher", "Secondary Teacher", "Education Administrator", "Curriculum Specialist"],
-        requirements: ["High School Diploma", "Communication Skills", "Subject Specialization"],
-        tuition: "$2,200/year",
-      },
-      {
-        title: "Agriculture & Environment",
-        titleSo: "Beeraha & Deegaanka",
-        duration: "4 Years",
-        credits: "132 Credits",
-        description:
-          "Sustainable agriculture and environmental management addressing food security and climate challenges.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Sustainable Practices", "Field Research", "Climate Adaptation", "Modern Farming Techniques"],
-        careers: ["Agricultural Specialist", "Environmental Consultant", "Farm Manager", "Research Scientist"],
-        requirements: ["High School Diploma", "Science Background", "Environmental Interest"],
-        tuition: "$2,600/year",
-      },
+      // Faculty of Social Sciences
+      { title: "Bachelor of International Relations and Diplomatic Studies", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Diplomacy", "Global Perspective"], description: "Global politics, diplomacy, and international cooperation." },
+      { title: "Bachelor of Arts in Public Administration and Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Policy", "Leadership"], description: "Governance, public policy, and administrative leadership." },
+      { title: "Bachelor of Arts in Social Works and Social Administration", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Community", "Advocacy"], description: "Community development, welfare services, and advocacy." },
+      { title: "Bachelor of Project Planning and Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Project Lifecycle", "PM Tools"], description: "Project lifecycle, monitoring, and evaluation." },
+      { title: "Bachelor of Arts in Public Relations and Media Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Media", "Brand Management"], description: "Strategic communication and reputation management." },
+
+      // Faculty of Business and Management
+      { title: "Bachelor of Accounting and Finance", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Accounting", "Finance"], description: "Financial reporting, auditing, and investment analysis." },
+      { title: "Bachelor of Human Resource Management", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["HR", "Recruitment"], description: "Talent acquisition, development, and employee relations." },
+      { title: "Bachelor of Business Administration", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Management", "Entrepreneurship"], description: "Comprehensive business studies across management, marketing, and finance." },
+      { title: "Bachelor of Banking and Finance", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Banking", "Risk Management"], description: "Bank operations, risk management, and investment banking." },
+      { title: "Bachelor of Procurement, Logistics and Supplies Chain Management", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Supply Chain", "Logistics"], description: "End-to-end supply chain optimisation and logistics strategy." },
+      { title: "Bachelor of Marketing", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Branding", "Digital Marketing"], description: "Consumer behaviour, brand management, and digital marketing." },
+
+      // Faculty of Allied Health Science
+      { title: "Bachelor of Public Health", faculty: "Allied Health Science", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Epidemiology", "Health Promotion"], description: "Community health, disease prevention, and health promotion." },
+      { title: "Bachelor of Nutrition and Food Science", faculty: "Allied Health Science", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Dietetics", "Food Safety"], description: "Human nutrition, dietetics, and food safety." },
+      { title: "Bachelor of Science in Health Service & Management", faculty: "Allied Health Science", duration: "3 Years", credits: "120 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Health Policy", "Administration"], description: "Healthcare systems, policy, and administration." },
+
+      // Faculty of Computing & IT
+      { title: "Bachelor of Science in Software Engineering", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Software Dev", "DevOps"], description: "Software development lifecycle, DevOps, and quality assurance." },
+      { title: "Bachelor of Science in Computer Science", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Algorithms", "Data Structures"], description: "Algorithms, data structures, and emerging technologies." },
+      { title: "Bachelor of Science in Information Technology", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Networking", "Cybersecurity"], description: "Network administration, cybersecurity, and IT project management." },
     ],
     graduate: [
-      {
-        title: "Master of Business Administration (MBA)",
-        titleSo: "Shahaadada Sare ee Maamulka Ganacsiga",
-        duration: "2 Years",
-        credits: "60 Credits",
-        description: "Advanced business education for experienced professionals seeking leadership roles.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Executive Education", "Strategic Management", "Global Perspective", "Research Projects"],
-        careers: ["CEO/Executive", "Business Consultant", "Strategic Planner", "Investment Manager"],
-        requirements: ["Bachelor's Degree", "Work Experience", "GMAT/GRE", "English Proficiency"],
-        tuition: "$4,500/year",
-      },
-      {
-        title: "Master of Public Health (MPH)",
-        titleSo: "Shahaadada Sare ee Caafimaadka Dadweynaha",
-        duration: "2 Years",
-        credits: "48 Credits",
-        description: "Advanced public health education focusing on policy, research, and community health leadership.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Policy Development", "Epidemiology", "Health Systems", "Community Engagement"],
-        careers: ["Health Policy Analyst", "Program Director", "Research Scientist", "Health Consultant"],
-        requirements: ["Bachelor's Degree", "Health Background", "Research Experience", "English Proficiency"],
-        tuition: "$4,200/year",
-      },
-      {
-        title: "Master of Education (M.Ed)",
-        titleSo: "Shahaadada Sare ee Waxbarashada",
-        duration: "2 Years",
-        credits: "45 Credits",
-        description: "Advanced education degree for teachers and administrators seeking leadership positions.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Educational Leadership", "Curriculum Design", "Assessment Methods", "Technology Integration"],
-        careers: ["School Principal", "Education Director", "Curriculum Coordinator", "Education Consultant"],
-        requirements: ["Bachelor's Degree", "Teaching Experience", "Education Background", "Leadership Potential"],
-        tuition: "$3,800/year",
-      },
-    ],
-    professional: [
-      {
-        title: "Digital Marketing Certificate",
-        titleSo: "Shahaadada Suuq-geynta Dijital-ka",
-        duration: "6 Months",
-        credits: "18 Credits",
-        description: "Intensive program covering modern digital marketing strategies and tools.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Social Media Marketing", "SEO/SEM", "Content Strategy", "Analytics"],
-        careers: ["Digital Marketer", "Social Media Manager", "Content Creator", "Marketing Analyst"],
-        requirements: ["High School Diploma", "Basic Computer Skills", "English Proficiency"],
-        tuition: "$800",
-      },
-      {
-        title: "Project Management Professional",
-        titleSo: "Maamulka Mashaariicda Xirfadeed",
-        duration: "4 Months",
-        credits: "12 Credits",
-        description: "Professional certification in project management methodologies and best practices.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["PMP Preparation", "Agile Methodologies", "Risk Management", "Leadership Skills"],
-        careers: ["Project Manager", "Program Coordinator", "Operations Manager", "Business Analyst"],
-        requirements: ["Bachelor's Degree", "Work Experience", "Professional Interest"],
-        tuition: "$1,200",
-      },
-      {
-        title: "Financial Management Certificate",
-        titleSo: "Shahaadada Maamulka Maaliyadeed",
-        duration: "8 Months",
-        credits: "24 Credits",
-        description: "Comprehensive financial management training for business professionals.",
-        image: "/placeholder.svg?height=300&width=400",
-        features: ["Financial Analysis", "Investment Planning", "Risk Assessment", "Budgeting"],
-        careers: ["Financial Manager", "Investment Advisor", "Budget Analyst", "Financial Consultant"],
-        requirements: ["Bachelor's Degree", "Mathematics Background", "Professional Experience"],
-        tuition: "$1,500",
-      },
+      // Faculty of Social Sciences
+      { title: "Master of Arts in International Relations and Diplomatic Studies", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Diplomacy", "Global Policy"], description: "Advanced study of international relations, diplomacy, and global policy." },
+      { title: "Master of Arts in Public Administration and Management", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Public Policy", "Leadership"], description: "Governance, public policy, and administrative leadership at the graduate level." },
+      { title: "Master of Arts in Development Studies", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Development", "Research"], description: "Development theory, research, and policy for social progress." },
+
+      // Faculty of Business and Management
+      { title: "Master of Human Resources Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["HR Strategy", "Talent Management"], description: "Advanced HR management, talent development, and organizational leadership." },
+      { title: "Master of Accounting & Finance", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Accounting", "Finance"], description: "Advanced accounting, auditing, and financial management." },
+      { title: "Master of Business Administration", faculty: "Business and Management", duration: "2 Years", credits: "60 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Leadership", "Strategy"], description: "Executive business education for future leaders." },
+      { title: "Master of Project Planning and Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Project Management", "Planning"], description: "Project lifecycle, monitoring, and evaluation at the graduate level." },
+      { title: "Master of Marketing Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Marketing", "Brand Management"], description: "Advanced marketing, branding, and digital strategy." },
+      { title: "Master of Procurement, Logistics and Supplies Chain Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Supply Chain", "Logistics"], description: "Advanced supply chain, procurement, and logistics management." },
+
+      // Faculty of Allied Health Sciences
+      { title: "Master of Public Health", faculty: "Allied Health Sciences", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Epidemiology", "Health Policy"], description: "Advanced public health, epidemiology, and health policy." },
+      { title: "Master of Nutrition and Food Science", faculty: "Allied Health Sciences", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Nutrition", "Food Science"], description: "Advanced nutrition, food safety, and dietetics." },
+
+      // Faculty of Education
+      { title: "Master of Education in Policy, Planning & Management", faculty: "Education", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Policy", "Planning"], description: "Education policy, planning, and management at the graduate level." },
+      { title: "Master of Education in Leadership and Management", faculty: "Education", duration: "2 Years", credits: "48 Credits", image: "/placeholder.svg?height=300&width=400", features: ["Leadership", "Management"], description: "Educational leadership and management for school administrators." },
+
+      // Faculty of Computing and Information Technology
+      { title: "Master of Science in Information Technology", faculty: "Computing & IT", duration: "2 Years", credits: "54 Credits", image: "/placeholder.svg?height=300&width=400", features: ["IT Management", "Cybersecurity"], description: "Advanced IT, cybersecurity, and information systems management." },
     ],
   }
 
   const academicStats = [
-    { number: 25, label: "Academic Programs", labelSo: "Barnaamijyada Waxbarasho", icon: BookOpen },
-    { number: 95, label: "Expert Faculty", labelSo: "Macallimiinta Khibradda leh", icon: Users },
+    { number: 37, label: "Academic Programs", labelSo: "Barnaamijyada Waxbarasho", icon: BookOpen },
+    { number: 150, label: "Expert Faculty", labelSo: "Macallimiinta Khibradda leh", icon: Users },
     { number: 2800, label: "Students Enrolled", labelSo: "Ardayda Diiwaan-gashan", icon: GraduationCap },
-    { number: 85, label: "Employment Rate", labelSo: "Heerka Shaqo-helida", icon: TrendingUp, suffix: "%" },
+    { number: 95, label: "Employment Rate", labelSo: "Heerka Shaqo-helida", icon: TrendingUp, suffix: "%" },
   ]
 
   const facilities = [
@@ -354,7 +251,7 @@ export default function AcademicsPage() {
           </motion.div>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-12 bg-gray-100 p-2 rounded-xl">
+            <TabsList className="grid w-full grid-cols-2 mb-12 bg-gray-100 p-2 rounded-xl">
               <TabsTrigger
                 value="undergraduate"
                 className="text-lg font-semibold py-3 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
@@ -366,12 +263,6 @@ export default function AcademicsPage() {
                 className="text-lg font-semibold py-3 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
               >
                 Graduate
-              </TabsTrigger>
-              <TabsTrigger
-                value="professional"
-                className="text-lg font-semibold py-3 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
-              >
-                Professional
               </TabsTrigger>
             </TabsList>
 
@@ -422,11 +313,7 @@ export default function AcademicsPage() {
                               </div>
                             </div>
 
-                            <div className="flex justify-between items-center pt-2 border-t border-gray-100">
-                              <div className="text-center">
-                                <div className="text-lg font-bold text-emerald-600">{program.tuition}</div>
-                                <div className="text-xs text-gray-500">Tuition</div>
-                              </div>
+                            <div className="flex justify-center items-center pt-2 border-t border-gray-100">
                               <div className="text-center">
                                 <div className="text-lg font-bold text-gray-900">{program.duration}</div>
                                 <div className="text-xs text-gray-500">Duration</div>
@@ -658,7 +545,7 @@ export default function AcademicsPage() {
 
             <div className="flex flex-wrap justify-center gap-6">
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
                     className="bg-white text-emerald-700 hover:bg-gray-100 px-8 py-4 text-lg font-bold shadow-2xl"

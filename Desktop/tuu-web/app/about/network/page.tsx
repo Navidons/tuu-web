@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import EnhancedNavbar from "@/components/enhanced-navbar"
 import Link from "next/link"
+import EnhancedFooter from "@/components/enhanced-footer"
 
 export default function NetworkPage() {
   const [mounted, setMounted] = useState(false)
@@ -17,64 +18,64 @@ export default function NetworkPage() {
 
   const partnerships = [
     {
-      name: "Oxford University",
-      country: "United Kingdom",
-      type: "Research Partnership",
+      name: "University of Nairobi",
+      country: "Kenya",
+      type: "Regional Partnership",
       description:
-        "Joint research initiatives in African development studies and sustainable agriculture, benefiting both the main campus and the Somaliland campus through shared resources and collaborative projects.",
+        "Pan-African educational initiatives and student mobility programs, fostering academic exchange and research opportunities across East Africa.",
       image: "/placeholder.svg?height=200&width=300",
-      established: "2020",
-      programs: ["Student Exchange", "Joint Research", "Faculty Development"],
+      established: "2022",
+      programs: ["Student Exchange", "Faculty Development", "Research Collaboration"],
     },
     {
-      name: "Harvard University",
-      country: "United States",
+      name: "Makerere University",
+      country: "Uganda",
       type: "Academic Collaboration",
       description:
-        "Collaborative programs in public health and educational leadership, with specific initiatives aimed at improving healthcare access and education quality in Somaliland.",
+        "Collaborative programs in public health and social sciences, with initiatives aimed at improving healthcare access and community development.",
       image: "/placeholder.svg?height=200&width=300",
-      established: "2019",
-      programs: ["Online Courses", "Research Grants", "Scholarship Programs"],
+      established: "2023",
+      programs: ["Joint Research", "Graduate Programs", "Faculty Exchange"],
     },
     {
       name: "University of Cape Town",
       country: "South Africa",
       type: "Regional Partnership",
       description:
-        "Pan-African educational initiatives and student mobility programs, fostering academic exchange and research opportunities for students and faculty from Somaliland.",
+        "Pan-African educational initiatives and student mobility programs, connecting Southern and Eastern Africa through education.",
       image: "/placeholder.svg?height=200&width=300",
-      established: "2018",
-      programs: ["Student Exchange", "Joint Degrees", "Research Collaboration"],
+      established: "2024",
+      programs: ["Student Exchange", "Research Collaboration", "Online Learning"],
     },
     {
-      name: "Sorbonne University",
-      country: "France",
-      type: "Cultural Exchange",
+      name: "University of Ghana",
+      country: "Ghana",
+      type: "Academic Partnership",
       description:
-        "Language programs and cultural exchange initiatives, promoting cross-cultural understanding and providing opportunities for Somaliland students to study abroad.",
+        "Collaborative programs in business and technology, promoting West-East African educational exchange through our Liberia campus.",
       image: "/placeholder.svg?height=200&width=300",
-      established: "2021",
-      programs: ["Language Studies", "Cultural Exchange", "Faculty Exchange"],
+      established: "2024",
+      programs: ["Business Programs", "Technology Transfer", "Cultural Exchange"],
     },
     {
-      name: "University of Tokyo",
-      country: "Japan",
-      type: "Technology Partnership",
+      name: "Addis Ababa University",
+      country: "Ethiopia",
+      type: "Regional Collaboration",
       description:
-        "Innovation in educational technology and digital learning platforms, enhancing the learning experience for students at both the main campus and the Somaliland campus.",
+        "Educational cooperation in the Horn of Africa, focusing on sustainable development and regional integration.",
       image: "/placeholder.svg?height=200&width=300",
-      established: "2022",
-      programs: ["Technology Transfer", "Digital Innovation", "STEM Programs"],
+      established: "2023",
+      programs: ["Development Studies", "Regional Research", "Student Exchange"],
     },
     {
-      name: "Australian National University",
-      country: "Australia",
-      type: "Research Collaboration",
+      name: "Al-Azhar University",
+      country: "Egypt",
+      type: "Islamic Studies Partnership",
       description:
-        "Climate change research and environmental sustainability programs, addressing critical environmental challenges and providing research opportunities for students from Somaliland.",
+        "Collaboration in Islamic studies and Arabic language programs, enhancing cultural and religious education opportunities.",
       image: "/placeholder.svg?height=200&width=300",
-      established: "2020",
-      programs: ["Environmental Research", "Climate Studies", "Sustainability"],
+      established: "2023",
+      programs: ["Islamic Studies", "Arabic Language", "Cultural Programs"],
     },
   ]
 
@@ -214,10 +215,10 @@ export default function NetworkPage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Globe, label: "Partner Universities", value: "25+", description: "Across 6 continents" },
-              { icon: Users, label: "International Students", value: "1,200+", description: "From 45 countries" },
-              { icon: BookOpen, label: "Exchange Programs", value: "15", description: "Active partnerships" },
-              { icon: Award, label: "Joint Degrees", value: "8", description: "Collaborative programs" },
+              { icon: Globe, label: "Partner Universities", value: "6+", description: "Across Africa & Middle East" },
+              { icon: Users, label: "International Students", value: "400+", description: "From 15 countries" },
+              { icon: BookOpen, label: "Exchange Programs", value: "6", description: "Active partnerships" },
+              { icon: Award, label: "Joint Programs", value: "3", description: "Collaborative initiatives" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -439,6 +440,7 @@ export default function NetworkPage() {
           </motion.div>
         </div>
       </section>
+      <EnhancedFooter />
     </div>
   )
 }

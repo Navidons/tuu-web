@@ -66,7 +66,6 @@ export default function SomalilandNavbar() {
       dropdown: [
         { name: "Undergraduate Programs", nameSo: "Barnaamijyada Koowaad", href: `${base}/academics/undergraduate` },
         { name: "Graduate Programs", nameSo: "Barnaamijyada Sare", href: `${base}/academics/graduate` },
-        { name: "Professional Development", nameSo: "Tababarka Xirfadeed", href: `${base}/academics/professional` },
         { name: "Academic Calendar", nameSo: "Jadwalka Waxbarasho", href: `${base}/academics/calendar` },
       ],
     },
@@ -75,10 +74,7 @@ export default function SomalilandNavbar() {
       nameSo: "Gelitaanka",
       href: `${base}/admissions`,
       dropdown: [
-        { name: "Apply Now", nameSo: "Hadda Codso", href: `${base}/admissions/apply` },
-        { name: "Tuition & Fees", nameSo: "Kharashka Waxbarasho", href: `${base}/admissions/tuition` },
-        { name: "Financial Aid", nameSo: "Caawimada Maaliyadeed", href: `${base}/admissions/financial-aid` },
-        { name: "International Students", nameSo: "Ardayda Dibadda", href: `${base}/admissions/international` },
+          { name: "Apply Now", nameSo: "Hadda Codso", href: "admissions/apply" },
       ],
     },
     {
@@ -99,7 +95,6 @@ export default function SomalilandNavbar() {
       dropdown: [
         { name: "Our History", nameSo: "Taariikheenna", href: `${base}/about/history` },
         { name: "Leadership", nameSo: "Hogaamiyayaasha", href: `${base}/about/leadership` },
-        { name: "Campus Map", nameSo: "Khariidadda Campus", href: `${base}/about/campus-map` },
         { name: "Contact Us", nameSo: "Nala Soo Xiriir", href: `${base}/about/contact` },
       ],
     },
@@ -323,7 +318,7 @@ export default function SomalilandNavbar() {
           </nav>
 
           <div className="hidden items-center space-x-3 lg:flex">
-            <Link href="somaliland/admissions/apply">
+            <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-md transition-all duration-300 hover:shadow-lg px-3 py-1 font-semibold text-xs">
                 Hadda Codso
               </Button>
@@ -443,7 +438,7 @@ export default function SomalilandNavbar() {
                   </nav>
 
                   <div className="mt-6">
-                    <Link href="somaliland/admissions/apply">
+                    <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-md py-2 text-sm font-bold">
                         Hadda Codso - Apply Now
                       </Button>

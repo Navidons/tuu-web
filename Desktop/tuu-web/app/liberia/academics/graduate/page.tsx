@@ -28,6 +28,7 @@ import {
   Brain,
   TrendingUp,
   Shield,
+  Heart,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -35,16 +36,24 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { cn } from "@/lib/utils"
 import LiberiaNavbar from "@/components/liberia/liberia-navbar"
 import LiberiaFooter from "@/components/liberia/liberia-footer"
 
-// Enhanced Liberian flag component
-const LiberianFlag = ({ className = "h-6 w-10" }: { className?: string }) => {
+const LiberiaFlag = ({ className = "h-6 w-10" }: { className?: string }) => {
   return (
-    <div className={`${className} relative overflow-hidden rounded-sm shadow-md border border-white/20`}>
-      <div className="h-full w-full liberian-flag-gradient"></div>
+    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}>
+      {/* Stripes */}
+      <div className="liberian-flag-gradient w-full h-full" />
+
+      {/* Blue canton with white star */}
       <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <Star className="h-2 w-2 text-white fill-white" />
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
       </div>
     </div>
   )
@@ -78,13 +87,144 @@ export default function GraduatePage() {
   }, [])
 
   const programs = [
+    // Faculty of Social Sciences Graduate Programs
+    {
+      id: "ma-international-relations",
+      title: "Master of Arts in International Relations and Diplomatic Studies",
+      category: "social",
+      duration: "2 Years",
+      credits: "60 Credits",
+      icon: Globe,
+      image: "/placeholder.svg?height=400&width=600",
+      description:
+        "Advanced program for professionals seeking expertise in international diplomacy, foreign policy analysis, and global governance for careers in diplomatic service and international organizations.",
+      highlights: [
+        "Advanced Diplomatic Theory",
+        "International Law & Organizations",
+        "Foreign Policy Analysis",
+        "Conflict Resolution",
+        "Global Governance",
+      ],
+      curriculum: [
+        "Advanced International Relations Theory",
+        "Diplomatic Practice and Protocol",
+        "International Law and Organizations",
+        "Foreign Policy Analysis",
+        "Conflict Resolution and Peacebuilding",
+        "Global Political Economy",
+        "Research Methods in International Relations",
+        "Thesis Project",
+      ],
+      careers: [
+        "Senior Diplomat",
+        "Foreign Policy Analyst",
+        "International Development Specialist",
+        "Conflict Resolution Specialist",
+        "International NGO Director",
+        "Embassy Official",
+      ],
+      requirements: {
+        academic: "Bachelor's degree in related field with minimum 3.0 GPA",
+        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
+        additional: "Research proposal and academic references",
+      },
+      accreditation: "Accredited by Liberia National Commission on Higher Education",
+      researchAreas: ["West African Regional Integration", "Post-Conflict Development", "International Trade Policy"],
+    },
+    {
+      id: "ma-public-administration",
+      title: "Master of Arts in Public Administration and Management",
+      category: "social",
+      duration: "2 Years",
+      credits: "60 Credits",
+      icon: Building,
+      image: "/placeholder.svg?height=400&width=600",
+      description:
+        "Advanced public administration program preparing leaders for senior positions in government, NGOs, and international development organizations.",
+      highlights: [
+        "Advanced Public Policy",
+        "Government Administration",
+        "Leadership Development",
+        "Public Finance Management",
+        "Governance and Ethics",
+      ],
+      curriculum: [
+        "Advanced Public Administration Theory",
+        "Public Policy Analysis and Evaluation",
+        "Public Financial Management",
+        "Leadership and Governance",
+        "Public Sector Reform",
+        "Development Administration",
+        "Research Methods",
+        "Capstone Project",
+      ],
+      careers: [
+        "Senior Government Administrator",
+        "Policy Director",
+        "Public Sector Consultant",
+        "International Development Manager",
+        "NGO Executive Director",
+        "Municipal Manager",
+      ],
+      requirements: {
+        academic: "Bachelor's degree with minimum 3.0 GPA and relevant work experience",
+        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
+        additional: "Professional experience and leadership potential",
+      },
+      accreditation: "Accredited by Liberia National Commission on Higher Education",
+      researchAreas: ["Public Sector Reform", "Decentralization", "E-governance"],
+    },
+    {
+      id: "ma-development-studies",
+      title: "Master of Arts in Development Studies",
+      category: "social",
+      duration: "2 Years",
+      credits: "60 Credits",
+      icon: Heart,
+      image: "/placeholder.svg?height=400&width=600",
+      description:
+        "Interdisciplinary program examining development challenges and solutions, preparing leaders for international development organizations and policy-making roles.",
+      highlights: [
+        "Development Theory & Practice",
+        "Project Management",
+        "Policy Analysis",
+        "Community Development",
+        "Sustainable Development",
+      ],
+      curriculum: [
+        "Development Theory and Practice",
+        "Development Economics",
+        "Project Planning and Management",
+        "Development Policy Analysis",
+        "Gender and Development",
+        "Environmental Development",
+        "Research Methodology",
+        "Thesis Research",
+      ],
+      careers: [
+        "Development Program Manager",
+        "International Development Consultant",
+        "Policy Analyst",
+        "Research Coordinator",
+        "NGO Program Director",
+        "Development Finance Officer",
+      ],
+      requirements: {
+        academic: "Bachelor's degree in social sciences or related field with minimum 3.0 GPA",
+        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
+        additional: "Development work experience preferred",
+      },
+      accreditation: "Accredited by Liberia National Commission on Higher Education",
+      researchAreas: ["Rural Development", "Poverty Reduction", "Sustainable Development"],
+    },
+
+    // Faculty of Business and Management Graduate Programs
     {
       id: "mba",
       title: "Master of Business Administration (MBA)",
       category: "business",
       duration: "2 Years",
       credits: "60 Credits",
-      tuition: "$4,800/year",
       icon: TrendingUp,
       image: "/placeholder.svg?height=400&width=600",
       description:
@@ -123,238 +263,361 @@ export default function GraduatePage() {
       researchAreas: ["Sustainable Business Practices", "African Market Development", "Digital Transformation"],
     },
     {
-      id: "ms-computer-science",
-      title: "Master of Science in Computer Science (MSc CS)",
-      category: "technology",
+      id: "mhrm",
+      title: "Master of Human Resources Management",
+      category: "business",
       duration: "2 Years",
-      credits: "48 Credits",
-      tuition: "$5,200/year",
-      icon: Code,
+      credits: "60 Credits",
+      icon: Users,
       image: "/placeholder.svg?height=400&width=600",
       description:
-        "Advanced computer science program focusing on cutting-edge technologies, research, and innovation to drive Liberia's digital transformation and technological advancement.",
+        "Advanced HR management program focusing on strategic human resource development, organizational psychology, and leadership in modern organizations.",
       highlights: [
-        "AI & Machine Learning Specialization",
-        "Research-Oriented Curriculum",
-        "Industry Collaboration Projects",
-        "Advanced Software Development",
-        "Cybersecurity & Data Science",
+        "Strategic HR Management",
+        "Organizational Development",
+        "Leadership Psychology",
+        "Talent Management",
+        "International HR Practices",
       ],
       curriculum: [
-        "Advanced Algorithms & Data Structures",
-        "Machine Learning & AI",
-        "Distributed Systems",
-        "Cybersecurity & Cryptography",
-        "Big Data Analytics",
-        "Software Engineering Principles",
-        "Research Methodology",
-        "Thesis Project",
+        "Strategic Human Resource Management",
+        "Advanced Organizational Behavior",
+        "Talent Development and Management",
+        "Compensation and Benefits Strategy",
+        "Employment Law and Relations",
+        "HR Analytics and Metrics",
+        "Change Management",
+        "Research Project",
       ],
       careers: [
-        "Senior Software Engineer",
-        "Data Scientist",
-        "AI/ML Engineer",
-        "Cybersecurity Specialist",
-        "Research Scientist",
-        "Technology Consultant",
+        "HR Director",
+        "Organizational Development Specialist",
+        "Talent Management Manager",
+        "HR Consultant",
+        "Training and Development Director",
+        "Chief People Officer",
       ],
       requirements: {
-        academic: "Bachelor's degree in Computer Science or related field with minimum 3.0 GPA",
+        academic: "Bachelor's degree with minimum 3.0 GPA",
         english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Programming portfolio and technical interview",
+        additional: "HR experience and professional references",
       },
       accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Artificial Intelligence", "Cybersecurity", "Mobile Computing", "Data Science"],
+      researchAreas: ["Employee Engagement", "Diversity & Inclusion", "HR Technology"],
     },
     {
+      id: "maf",
+      title: "Master of Accounting & Finance",
+      category: "business",
+      duration: "2 Years",
+      credits: "60 Credits",
+      icon: Calculator,
+      image: "/placeholder.svg?height=400&width=600",
+      description:
+        "Advanced accounting and finance program preparing professionals for senior financial management roles in both public and private sectors.",
+      highlights: [
+        "Advanced Financial Analysis",
+        "International Accounting Standards",
+        "Corporate Finance Strategy",
+        "Risk Management",
+        "Professional Certification Preparation",
+      ],
+      curriculum: [
+        "Advanced Financial Accounting",
+        "International Financial Reporting",
+        "Corporate Finance Strategy",
+        "Advanced Auditing",
+        "Financial Risk Management",
+        "Investment Analysis",
+        "Research Methods in Finance",
+        "Capstone Project",
+      ],
+      careers: [
+        "Chief Financial Officer",
+        "Financial Controller",
+        "Investment Manager",
+        "Risk Manager",
+        "Financial Consultant",
+        "Senior Auditor",
+      ],
+      requirements: {
+        academic: "Bachelor's degree in accounting, finance, or related field with minimum 3.0 GPA",
+        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
+        additional: "Professional accounting/finance experience preferred",
+      },
+      accreditation: "Accredited by Liberia National Commission on Higher Education",
+      researchAreas: ["Financial Markets Development", "Corporate Governance", "Islamic Finance"],
+    },
+    {
+      id: "mpm",
+      title: "Master of Project Planning and Management",
+      category: "business",
+      duration: "2 Years",
+      credits: "60 Credits",
+      icon: Building,
+      image: "/placeholder.svg?height=400&width=600",
+      description:
+        "Specialized program focusing on advanced project management methodologies, strategic planning, and leadership for complex development projects.",
+      highlights: [
+        "Advanced Project Management",
+        "Strategic Planning",
+        "Risk Assessment",
+        "Resource Optimization",
+        "International Development Focus",
+      ],
+      curriculum: [
+        "Advanced Project Management",
+        "Strategic Planning and Analysis",
+        "Project Risk Management",
+        "Resource Mobilization",
+        "Monitoring and Evaluation",
+        "Leadership in Project Management",
+        "Research Methods",
+        "Capstone Project",
+      ],
+      careers: [
+        "Senior Project Manager",
+        "Program Director",
+        "Development Consultant",
+        "Portfolio Manager",
+        "Strategic Planning Advisor",
+        "Project Management Consultant",
+      ],
+      requirements: {
+        academic: "Bachelor's degree with minimum 3.0 GPA",
+        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
+        additional: "Project management experience required",
+      },
+      accreditation: "Accredited by Liberia National Commission on Higher Education",
+      researchAreas: ["Development Project Management", "Infrastructure Projects", "Technology Projects"],
+    },
+    {
+      id: "mmm",
+      title: "Master of Marketing Management",
+      category: "business",
+      duration: "2 Years",
+      credits: "60 Credits",
+      icon: TrendingUp,
+      image: "/placeholder.svg?height=400&width=600",
+      description:
+        "Advanced marketing program focusing on strategic marketing management, digital marketing, and consumer behavior in emerging markets.",
+      highlights: [
+        "Strategic Marketing Leadership",
+        "Digital Marketing Innovation",
+        "Consumer Psychology",
+        "Brand Strategy",
+        "Market Research",
+      ],
+      curriculum: [
+        "Strategic Marketing Management",
+        "Advanced Consumer Behavior",
+        "Digital Marketing Strategy",
+        "Brand Management",
+        "Marketing Research Methods",
+        "International Marketing",
+        "Marketing Analytics",
+        "Marketing Strategy Project",
+      ],
+      careers: [
+        "Marketing Director",
+        "Brand Manager",
+        "Digital Marketing Manager",
+        "Marketing Research Manager",
+        "Product Manager",
+        "Marketing Consultant",
+      ],
+      requirements: {
+        academic: "Bachelor's degree with minimum 3.0 GPA",
+        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
+        additional: "Marketing experience and portfolio",
+      },
+      accreditation: "Accredited by Liberia National Commission on Higher Education",
+      researchAreas: ["Digital Marketing", "Consumer Behavior", "African Markets"],
+    },
+    {
+      id: "mplscm",
+      title: "Master of Procurement, Logistics and Supply Chain Management",
+      category: "business",
+      duration: "2 Years",
+      credits: "60 Credits",
+      icon: Building,
+      image: "/placeholder.svg?height=400&width=600",
+      description:
+        "Advanced program focusing on strategic supply chain management, procurement optimization, and logistics coordination for modern organizations.",
+      highlights: [
+        "Strategic Supply Chain Management",
+        "Advanced Procurement",
+        "Logistics Optimization",
+        "Vendor Management",
+        "International Trade",
+      ],
+      curriculum: [
+        "Strategic Supply Chain Management",
+        "Advanced Procurement Systems",
+        "Logistics and Distribution",
+        "Supply Chain Analytics",
+        "International Trade and Logistics",
+        "Vendor Relationship Management",
+        "Supply Chain Risk Management",
+        "Research Project",
+      ],
+      careers: [
+        "Supply Chain Director",
+        "Procurement Manager",
+        "Logistics Manager",
+        "Operations Manager",
+        "Supply Chain Consultant",
+        "Vendor Relations Manager",
+      ],
+      requirements: {
+        academic: "Bachelor's degree with minimum 3.0 GPA",
+        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
+        additional: "Supply chain or logistics experience preferred",
+      },
+      accreditation: "Accredited by Liberia National Commission on Higher Education",
+      researchAreas: ["Supply Chain Optimization", "Sustainable Logistics", "Procurement Innovation"],
+    },
+
+    // Faculty of Allied Health Sciences Graduate Programs
+    {
       id: "mph",
-      title: "Master of Public Health (MPH)",
+      title: "Master of Public Health",
       category: "health",
       duration: "2 Years",
-      credits: "54 Credits",
-      tuition: "$4,600/year",
+      credits: "60 Credits",
       icon: Stethoscope,
       image: "/placeholder.svg?height=400&width=600",
       description:
-        "Comprehensive public health program addressing critical health challenges in Liberia and West Africa, with emphasis on community health, epidemiology, and health policy.",
+        "Advanced public health program addressing critical health challenges in Liberia and West Africa, focusing on epidemiology, health policy, and community health leadership.",
       highlights: [
+        "Advanced Epidemiology",
+        "Health Policy Development",
+        "Global Health Focus",
         "Community Health Leadership",
-        "Epidemiology & Disease Control",
-        "Health Policy & Management",
-        "Global Health Perspectives",
-        "Field Experience in Rural Areas",
+        "Research Excellence",
       ],
       curriculum: [
         "Advanced Epidemiology",
-        "Biostatistics & Data Analysis",
-        "Health Policy & Systems",
+        "Health Policy and Systems",
+        "Biostatistics",
         "Environmental Health Sciences",
-        "Global Health & Development",
-        "Health Program Planning & Evaluation",
-        "Research Methods in Public Health",
-        "Capstone Field Experience",
+        "Global Health",
+        "Health Program Evaluation",
+        "Research Methods",
+        "Thesis Project",
       ],
       careers: [
         "Public Health Director",
         "Epidemiologist",
         "Health Policy Analyst",
         "Global Health Specialist",
-        "NGO Program Manager",
+        "Health Program Manager",
         "Health Research Coordinator",
       ],
       requirements: {
         academic: "Bachelor's degree in health sciences or related field with minimum 3.0 GPA",
         english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Public health experience and commitment to community service",
+        additional: "Public health experience and commitment to service",
       },
       accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Infectious Disease Control", "Maternal & Child Health", "Health Systems Strengthening"],
+      researchAreas: ["Infectious Disease Control", "Maternal Health", "Health Systems Strengthening"],
     },
     {
-      id: "ms-engineering",
-      title: "Master of Science in Civil Engineering (MSc CE)",
-      category: "engineering",
+      id: "mnfs",
+      title: "Master of Nutrition and Food Science",
+      category: "health",
       duration: "2 Years",
-      credits: "48 Credits",
-      tuition: "$5,400/year",
-      icon: Building,
+      credits: "60 Credits",
+      icon: Heart,
       image: "/placeholder.svg?height=400&width=600",
       description:
-        "Advanced engineering program focusing on infrastructure development, sustainable construction, and innovative solutions for Liberia's growing infrastructure needs.",
+        "Advanced program focusing on nutrition science, food security, and public nutrition policies for improving community health outcomes.",
       highlights: [
-        "Infrastructure Development Focus",
-        "Sustainable Engineering Practices",
-        "Advanced Design & Analysis",
-        "Project Management Skills",
-        "Research & Innovation",
+        "Advanced Nutrition Science",
+        "Food Security Analysis",
+        "Nutritional Epidemiology",
+        "Food Policy Development",
+        "Community Nutrition",
       ],
       curriculum: [
-        "Advanced Structural Analysis",
-        "Geotechnical Engineering",
-        "Transportation Systems",
-        "Water Resources Management",
-        "Construction Project Management",
-        "Sustainable Infrastructure Design",
-        "Engineering Research Methods",
-        "Master's Thesis Project",
+        "Advanced Human Nutrition",
+        "Nutritional Epidemiology",
+        "Food Security and Policy",
+        "Clinical Nutrition",
+        "Food Science and Technology",
+        "Community Nutrition",
+        "Research Methods",
+        "Thesis Project",
       ],
       careers: [
-        "Senior Civil Engineer",
-        "Project Manager",
-        "Infrastructure Consultant",
-        "Construction Manager",
-        "Engineering Researcher",
-        "Government Engineering Advisor",
+        "Senior Nutritionist",
+        "Food Policy Analyst",
+        "Public Health Nutritionist",
+        "Nutrition Program Manager",
+        "Food Security Specialist",
+        "Nutrition Researcher",
       ],
       requirements: {
-        academic: "Bachelor's degree in Civil Engineering with minimum 3.0 GPA",
+        academic: "Bachelor's degree in nutrition, food science, or related field with minimum 3.0 GPA",
         english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Professional engineering experience preferred",
+        additional: "Nutrition or food science background",
       },
       accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Sustainable Infrastructure", "Earthquake Engineering", "Water Management Systems"],
+      researchAreas: ["Malnutrition Prevention", "Food Security", "Nutrition Education"],
     },
+
+    // Faculty of Computing and Information Technology Graduate Programs
     {
-      id: "ma-development-studies",
-      title: "Master of Arts in Development Studies (MA DS)",
-      category: "social-sciences",
+      id: "msit",
+      title: "Master of Science in Information Technology",
+      category: "computing",
       duration: "2 Years",
-      credits: "48 Credits",
-      tuition: "$3,800/year",
-      icon: Globe,
+      credits: "60 Credits",
+      icon: Code,
       image: "/placeholder.svg?height=400&width=600",
       description:
-        "Interdisciplinary program examining development challenges and solutions in Liberia and Africa, preparing leaders for international development organizations and government agencies.",
+        "Advanced IT program focusing on emerging technologies, system administration, cybersecurity, and digital transformation for modern organizations.",
       highlights: [
-        "African Development Focus",
-        "Policy Analysis & Research",
-        "International Development Theory",
-        "Community Development Practice",
-        "Sustainable Development Goals",
+        "Advanced System Administration",
+        "Cybersecurity Specialization",
+        "Cloud Computing",
+        "Digital Transformation",
+        "IT Leadership",
       ],
       curriculum: [
-        "Development Theory & Practice",
-        "African Political Economy",
-        "Research Methods in Social Sciences",
-        "Development Policy Analysis",
-        "Gender & Development",
-        "Environmental & Sustainable Development",
-        "Conflict Resolution & Peacebuilding",
-        "Thesis Research Project",
+        "Advanced Information Systems",
+        "Cybersecurity and Risk Management",
+        "Cloud Computing and Virtualization",
+        "Database Administration",
+        "Network Security",
+        "IT Project Management",
+        "Research Methods",
+        "Capstone Project",
       ],
       careers: [
-        "Development Program Manager",
-        "Policy Analyst",
-        "International Development Consultant",
-        "NGO Director",
-        "Government Development Advisor",
-        "Research Analyst",
+        "IT Director",
+        "Systems Architect",
+        "Cybersecurity Manager",
+        "Cloud Solutions Architect",
+        "IT Consultant",
+        "Technology Manager",
       ],
       requirements: {
-        academic: "Bachelor's degree in social sciences or related field with minimum 3.0 GPA",
+        academic: "Bachelor's degree in IT, Computer Science, or related field with minimum 3.0 GPA",
         english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Development work experience and research proposal",
+        additional: "IT experience and technical portfolio",
       },
       accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Post-Conflict Development", "Rural Development", "Gender & Development"],
-    },
-    {
-      id: "ms-finance",
-      title: "Master of Science in Finance (MSc Finance)",
-      category: "business",
-      duration: "18 Months",
-      credits: "45 Credits",
-      tuition: "$5,000/year",
-      icon: Calculator,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Specialized finance program preparing professionals for leadership roles in banking, investment, and financial management in Liberia's growing financial sector.",
-      highlights: [
-        "Advanced Financial Analysis",
-        "Investment & Portfolio Management",
-        "Risk Management Strategies",
-        "Financial Technology Integration",
-        "Professional Certifications Prep",
-      ],
-      curriculum: [
-        "Corporate Finance",
-        "Investment Analysis & Portfolio Management",
-        "Financial Risk Management",
-        "International Finance",
-        "Financial Markets & Institutions",
-        "Quantitative Methods in Finance",
-        "Financial Technology & Innovation",
-        "Applied Finance Project",
-      ],
-      careers: [
-        "Investment Analyst",
-        "Financial Manager",
-        "Risk Manager",
-        "Portfolio Manager",
-        "Financial Consultant",
-        "Banking Executive",
-      ],
-      requirements: {
-        academic: "Bachelor's degree in finance, economics, or related field with minimum 3.0 GPA",
-        english: "TOEFL 90+ or IELTS 7.0+ (for international students)",
-        additional: "Quantitative aptitude and professional experience preferred",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Microfinance", "Financial Inclusion", "Capital Markets Development"],
+      researchAreas: ["Cybersecurity", "Cloud Computing", "Digital Innovation"],
     },
   ]
 
   const categories = [
     { value: "all", label: "All Programs", count: programs.length },
-    { value: "business", label: "Business", count: programs.filter((p) => p.category === "business").length },
-    { value: "technology", label: "Technology", count: programs.filter((p) => p.category === "technology").length },
-    { value: "health", label: "Health Sciences", count: programs.filter((p) => p.category === "health").length },
-    { value: "engineering", label: "Engineering", count: programs.filter((p) => p.category === "engineering").length },
-    {
-      value: "social-sciences",
-      label: "Social Sciences",
-      count: programs.filter((p) => p.category === "social-sciences").length,
-    },
+    { value: "social", label: "Social Sciences", count: programs.filter((p) => p.category === "social").length },
+    { value: "business", label: "Business & Management", count: programs.filter((p) => p.category === "business").length },
+    { value: "health", label: "Allied Health Sciences", count: programs.filter((p) => p.category === "health").length },
+    { value: "computing", label: "Computing & Information Technology", count: programs.filter((p) => p.category === "computing").length },
   ]
 
   const filteredPrograms = programs.filter((program) => {
@@ -416,7 +679,7 @@ export default function GraduatePage() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center space-x-4 mb-6">
-              <LiberianFlag className="h-8 w-12" />
+              <LiberiaFlag className="h-8 w-12" />
               <Badge className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 text-sm font-bold">
                 Advanced Graduate Education
               </Badge>
@@ -431,7 +694,7 @@ export default function GraduatePage() {
 
             <div className="flex flex-wrap gap-4">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
                     Apply for Graduate School
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -466,10 +729,10 @@ export default function GraduatePage() {
             variants={containerVariants}
           >
             {[
-              { icon: GraduationCap, number: "8+", label: "Master's Programs", sublabel: "Specialized Degrees" },
-              { icon: Users, number: "400+", label: "Graduate Students", sublabel: "Advanced Learners" },
-              { icon: Brain, number: "98%", label: "Career Advancement", sublabel: "Graduate Success" },
-              { icon: Clock, number: "18-24", label: "Months Duration", sublabel: "Flexible Timeline" },
+              { icon: GraduationCap, number: "12", label: "Master's Programs", sublabel: "Specialized Degrees" },
+              { icon: Users, number: "300+", label: "Graduate Students", sublabel: "Advanced Learners" },
+              { icon: Brain, number: "95%", label: "Career Advancement", sublabel: "Graduate Success" },
+              { icon: Clock, number: "24", label: "Months Duration", sublabel: "Standard Program" },
             ].map((stat, index) => (
               <motion.div key={index} variants={itemVariants} className="text-center bg-white rounded-xl p-6 shadow-lg">
                 <stat.icon className="h-8 w-8 text-blue-600 mx-auto mb-4" />
@@ -575,10 +838,6 @@ export default function GraduatePage() {
                           <Clock className="h-4 w-4 mr-1" />
                           {program.credits}
                         </span>
-                        <span className="flex items-center">
-                          <DollarSign className="h-4 w-4 mr-1" />
-                          {program.tuition}
-                        </span>
                       </div>
                     </CardHeader>
 
@@ -670,7 +929,6 @@ export default function GraduatePage() {
                         <div className="flex items-center space-x-4">
                           <Badge className="bg-white/20 backdrop-blur-sm text-white">{program.duration}</Badge>
                           <Badge className="bg-white/20 backdrop-blur-sm text-white">{program.credits}</Badge>
-                          <Badge className="bg-white/20 backdrop-blur-sm text-white">{program.tuition}</Badge>
                         </div>
                       </div>
                     </div>
@@ -791,16 +1049,10 @@ export default function GraduatePage() {
                             </div>
 
                             <div className="flex flex-wrap gap-4">
-                              <Link href="/admissions/apply">
+                              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                                 <Button className="bg-blue-600 text-white hover:bg-blue-700">
                                   Apply Now
                                   <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                              </Link>
-                              <Link href="/admissions/financial-aid">
-                                <Button variant="outline">
-                                  Financial Aid
-                                  <DollarSign className="ml-2 h-4 w-4" />
                                 </Button>
                               </Link>
                             </div>
@@ -918,7 +1170,7 @@ export default function GraduatePage() {
             viewport={{ once: true }}
           >
             <div className="flex justify-center mb-6">
-              <LiberianFlag className="h-12 w-20" />
+                                <LiberiaFlag className="h-12 w-20" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Advance Your Career?</h2>
             <p className="text-xl mb-8 opacity-90">
@@ -927,7 +1179,7 @@ export default function GraduatePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
                     Apply for Graduate School
                     <GraduationCap className="ml-2 h-5 w-5" />

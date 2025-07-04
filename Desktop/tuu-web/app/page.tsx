@@ -132,24 +132,24 @@ export default function UnityUniversityHome() {
   const heroSlides = [
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "Unity University",
-      subtitle: "Global Education Network",
-      description: "Transforming lives through excellence in education across Africa and beyond.",
-      cta: "Discover Our Campuses",
+      title: "The Unity University",
+      subtitle: "What begins here, transforms Africa",
+      description: "Africa's pioneer, non-profit, tuition-free accredited university dedicated to raising a new generation of leaders for the African continent. Growing every day since 2021.",
+      cta: "Discover Our Programs",
     },
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "Innovation & Excellence",
-      subtitle: "Leading the Future",
-      description: "Pioneering research and development initiatives that shape tomorrow's leaders.",
-      cta: "Explore Programs",
+      title: "Pan-African Excellence",
+      subtitle: "4 Years of Growth & Innovation",
+      description: "From our founding in 2021 to today, we've been pioneering excellence at the cutting edge of learning through holistic, human development and integrated learning curriculum.",
+      cta: "Explore Academics",
     },
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "Global Impact",
-      subtitle: "Local Roots, Global Reach",
-      description: "Building bridges between cultures while maintaining strong community connections.",
-      cta: "Join Our Community",
+      title: "Transform Your Future",
+      subtitle: "50% Scholarships Available",
+      description: "Excellent education within reach of all passionate and driven students. Join our rapidly growing community with comprehensive scholarship opportunities.",
+      cta: "Apply for Scholarship",
     },
   ]
 
@@ -239,13 +239,15 @@ export default function UnityUniversityHome() {
                     )}
                   </div>
                 </Button>
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-3 border-white text-white hover:bg-white/15 px-8 py-4 text-lg font-bold backdrop-blur-sm"
+                    className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-900 px-8 py-4 text-lg font-bold backdrop-blur-sm transition-all duration-300"
                 >
                   Apply Now
                 </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -367,29 +369,29 @@ export default function UnityUniversityHome() {
                     <div className="mb-6">
                       <h4 className="text-xl font-bold text-gray-900 mb-2">The Love of Liberty Brought Us Here</h4>
                       <p className="text-gray-600 leading-relaxed">
-                        Our flagship campus in Monrovia combines Liberian heritage with global academic excellence.
-                        Established in 2005, we have been leading higher education in West Africa.
+                        Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence.
+                        Established in mid-2024, we are rapidly growing and expanding our presence in West Africa.
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={2500} />+
+                          <AnimatedCounter end={1200} />+
                         </div>
                         <div className="text-sm text-gray-600">Students</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600">
-                          <AnimatedCounter end={20} />+
+                          <AnimatedCounter end={15} />+
                         </div>
                         <div className="text-sm text-gray-600">Programs</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={18} />
+                          <AnimatedCounter end={1} />
                         </div>
-                        <div className="text-sm text-gray-600">Years</div>
+                        <div className="text-sm text-gray-600">Year</div>
                       </div>
                     </div>
 
@@ -434,29 +436,29 @@ export default function UnityUniversityHome() {
                     <div className="mb-6">
                       <h4 className="text-xl font-bold text-gray-900 mb-2">The Love of Liberty Brought Us Here</h4>
                       <p className="text-gray-600 leading-relaxed">
-                        Our flagship campus in Monrovia combines Liberian heritage with global academic excellence.
-                        Established in 2005, we have been leading higher education in West Africa.
+                        Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence.
+                        Established in mid-2024, we are rapidly growing and expanding our presence in West Africa.
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={2500} />+
+                          <AnimatedCounter end={1200} />+
                         </div>
                         <div className="text-sm text-gray-600">Students</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600">
-                          <AnimatedCounter end={20} />+
+                          <AnimatedCounter end={15} />+
                         </div>
                         <div className="text-sm text-gray-600">Programs</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={18} />
+                          <AnimatedCounter end={1} />
                         </div>
-                        <div className="text-sm text-gray-600">Years</div>
+                        <div className="text-sm text-gray-600">Year</div>
                       </div>
                     </div>
 
@@ -507,11 +509,11 @@ export default function UnityUniversityHome() {
                   <div className="p-8">
                     <div className="mb-6">
                       <h4 className="text-xl font-bold text-gray-900 mb-2">
-                        Halkan wax ka bilaabmaan, Afrika way beddelaan
+                        What begins here, transforms Africa
                       </h4>
                       <p className="text-gray-600 leading-relaxed">
-                        Where dreams begin and Africa transforms. Our Hargeisa campus embodies the spirit of Somaliland
-                        - innovation, resilience, and academic excellence since 2008.
+                        Founded in 2021, our rapidly growing Hargeisa campus embodies the spirit of Somaliland
+                        - innovation, resilience, and academic excellence. Growing every day since inception.
                       </p>
                     </div>
 
@@ -530,7 +532,7 @@ export default function UnityUniversityHome() {
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={15} />
+                          <AnimatedCounter end={4} />
                         </div>
                         <div className="text-sm text-gray-600">Years</div>
                       </div>
@@ -576,11 +578,11 @@ export default function UnityUniversityHome() {
                   <div className="p-8">
                     <div className="mb-6">
                       <h4 className="text-xl font-bold text-gray-900 mb-2">
-                        Halkan wax ka bilaabmaan, Afrika way beddelaan
+                        What begins here, transforms Africa
                       </h4>
                       <p className="text-gray-600 leading-relaxed">
-                        Where dreams begin and Africa transforms. Our Hargeisa campus embodies the spirit of Somaliland
-                        - innovation, resilience, and academic excellence since 2008.
+                        Founded in 2021, our rapidly growing Hargeisa campus embodies the spirit of Somaliland
+                        - innovation, resilience, and academic excellence. Growing every day since inception.
                       </p>
                     </div>
 
@@ -599,7 +601,7 @@ export default function UnityUniversityHome() {
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={15} />
+                          <AnimatedCounter end={4} />
                         </div>
                         <div className="text-sm text-gray-600">Years</div>
                       </div>
@@ -621,7 +623,7 @@ export default function UnityUniversityHome() {
 
       {/* Mission & Vision Section */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900">
           {mounted && (
             <motion.div
               className="absolute inset-0 opacity-20"
@@ -649,28 +651,25 @@ export default function UnityUniversityHome() {
                 viewport={{ once: true }}
               >
                 <h2 className="text-5xl font-bold mb-8 leading-tight">
-                  Shaping Tomorrow's
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-                    Global Leaders
+                  Transforming Africa Through
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-red-400">
+                    Excellence in Education
                   </span>
                 </h2>
                 <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                  At Unity University, we believe education transcends borders. Our mission is to cultivate innovative
-                  minds that will drive positive change across Africa and beyond.
+                  Since our founding in 2021, Unity University has been growing every day, believing that sustainable national and global development can be achieved through nurturing an intellectual culture that integrates theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
                 </p>
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                    <h3 className="text-2xl font-bold mb-3 text-purple-300">Our Mission</h3>
+                    <h3 className="text-2xl font-bold mb-3 text-emerald-300">Our Mission</h3>
                     <p className="text-gray-300">
-                      To provide world-class education that empowers students to become leaders, innovators, and
-                      change-makers in their communities.
+                      To contribute to the development and sustenance of the well-being of the people of Somaliland, Africa, and the world through the provision of flexible, innovative, entrepreneurial, inclusive programs of teaching, learning, research, and service.
                     </p>
                   </div>
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                    <h3 className="text-2xl font-bold mb-3 text-blue-300">Our Vision</h3>
+                    <h3 className="text-2xl font-bold mb-3 text-red-300">Our Vision</h3>
                     <p className="text-gray-300">
-                      To be the premier educational institution connecting Africa to global opportunities through
-                      excellence and innovation.
+                      To become a world-class University in leadership development in Africa.
                     </p>
                   </div>
                 </div>
@@ -686,7 +685,7 @@ export default function UnityUniversityHome() {
                   viewport={{ once: true }}
                   className="relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-3xl blur-3xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/30 to-red-500/30 rounded-3xl blur-3xl"></div>
                   <Image
                     src="/placeholder.svg?height=600&width=800"
                     alt="Students collaborating"
@@ -700,10 +699,10 @@ export default function UnityUniversityHome() {
                     transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
                   >
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-purple-600">
-                        <AnimatedCounter end={95} />%
+                      <div className="text-3xl font-bold text-emerald-600">
+                        <AnimatedCounter end={98} />%
                       </div>
-                      <div className="text-sm text-gray-600">Graduate Success Rate</div>
+                      <div className="text-sm text-gray-600">Graduate Employability</div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -725,8 +724,7 @@ export default function UnityUniversityHome() {
             >
               <h2 className="text-5xl font-bold text-gray-900 mb-6">Academic Excellence</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover our comprehensive range of programs designed to prepare you for success in the global
-                marketplace.
+                Discover our comprehensive range of programs designed to prepare you for leadership roles in Africa and beyond.
               </p>
             </motion.div>
           </div>
@@ -736,42 +734,42 @@ export default function UnityUniversityHome() {
               {
                 title: "Business & Management",
                 icon: "💼",
-                programs: ["MBA", "International Business", "Entrepreneurship", "Finance"],
-                color: "from-blue-500 to-purple-600",
+                programs: ["Business Administration", "Accounting & Finance", "Human Resources", "Marketing Management", "Project Management"],
+                color: "from-blue-500 to-emerald-600",
                 students: 850,
               },
               {
-                title: "Engineering & Technology",
-                icon: "⚙️",
-                programs: ["Computer Science", "Civil Engineering", "Electrical Engineering", "Software Development"],
+                title: "Computing & IT",
+                icon: "💻",
+                programs: ["Computer Science", "Software Engineering", "Information Technology", "Web Development"],
                 color: "from-emerald-500 to-teal-600",
                 students: 720,
               },
               {
                 title: "Health Sciences",
                 icon: "🏥",
-                programs: ["Medicine", "Nursing", "Public Health", "Pharmacy"],
+                programs: ["Public Health", "Nutrition & Food Science", "Health Service Management"],
                 color: "from-red-500 to-pink-600",
                 students: 640,
               },
               {
-                title: "Liberal Arts",
-                icon: "📚",
-                programs: ["Literature", "History", "Philosophy", "Languages"],
-                color: "from-orange-500 to-yellow-600",
-                students: 480,
-              },
-              {
                 title: "Social Sciences",
                 icon: "🌍",
-                programs: ["International Relations", "Psychology", "Sociology", "Political Science"],
+                programs: ["International Relations", "Public Administration", "Development Studies", "Social Work"],
                 color: "from-purple-500 to-indigo-600",
                 students: 560,
               },
               {
-                title: "Agriculture & Environment",
-                icon: "🌱",
-                programs: ["Sustainable Agriculture", "Environmental Science", "Forestry", "Climate Studies"],
+                title: "Education",
+                icon: "📚",
+                programs: ["Educational Leadership", "Policy Planning & Management", "Curriculum Development"],
+                color: "from-orange-500 to-yellow-600",
+                students: 480,
+              },
+              {
+                title: "Media & Communications",
+                icon: "📺",
+                programs: ["Public Relations", "Media Management", "Digital Communications"],
                 color: "from-green-500 to-emerald-600",
                 students: 380,
               },
@@ -794,14 +792,14 @@ export default function UnityUniversityHome() {
                   <div className="space-y-2 mb-6">
                     {program.programs.map((prog) => (
                       <div key={prog} className="flex items-center text-gray-600">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                        <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3"></div>
                         {prog}
                       </div>
                     ))}
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <div className="text-sm text-gray-500">Students Enrolled</div>
-                    <div className="text-2xl font-bold text-purple-600">
+                    <div className="text-2xl font-bold text-emerald-600">
                       <AnimatedCounter end={program.students} />
                     </div>
                   </div>

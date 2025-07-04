@@ -3,14 +3,23 @@ import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone, MapPin, S
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
+import { cn } from "@/lib/utils"
 
-// Enhanced Liberian flag component for footer
-const LiberianFlagFooter = ({ className = "h-6 w-10" }: { className?: string }) => {
+const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
   return (
-    <div className={`${className} relative overflow-hidden rounded-sm shadow-md border border-white/20`}>
-      <div className="h-full w-full liberian-flag-gradient"></div>
+    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+    >
+      {/* Stripes */}
+      <div className="liberian-flag-gradient w-full h-full" />
+
+      {/* Blue canton with white star */}
       <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <Star className="h-2 w-2 text-white fill-white" />
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
       </div>
     </div>
   )
@@ -29,32 +38,22 @@ export default function LiberiaFooter() {
           {/* University Info */}
           <div className="lg:col-span-1">
             <div className="mb-6 flex items-center">
-              <div className="mr-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-red-600 to-blue-600 shadow-lg">
-                <svg viewBox="0 0 200 200" className="h-7 w-7 text-white">
-                  <path
-                    fill="currentColor"
-                    d="M102.5,10c-50.7,0-91.7,41-91.7,91.7s41,91.7,91.7,91.7s91.7-41,91.7-91.7S153.2,10,102.5,10z M159.7,148.5
-                    c-14.4,21.5-38.9,35.7-66.8,35.7c-44.3,0-80.2-35.9-80.2-80.2c0-44.3,35.9-80.2,80.2-80.2c27.9,0,52.4,14.2,66.8,35.7
-                    c-9.3-4.5-19.8-7-30.8-7c-39.5,0-71.5,32-71.5,71.5s32,71.5,71.5,71.5C139.9,155.5,150.4,153,159.7,148.5z"
-                  />
-                </svg>
-              </div>
+              <img src="/tuu-logo/tuu-logo.png" alt="Unity University Logo" className="h-12 w-12 object-contain mr-3" />
               <div>
                 <span className="text-xl font-bold">Unity University</span>
                 <div className="text-xs text-gray-400 flex items-center space-x-2">
                   <span>Liberia Campus</span>
-                  <LiberianFlagFooter className="h-4 w-6" />
+                  <LiberiaFlag className="h-4 w-6" />
                 </div>
               </div>
             </div>
             <p className="mb-6 text-gray-400 leading-relaxed">
-              The Love of Liberty Brought Us Here. Leading through innovation and academic excellence in Liberia since
-              2005. Building tomorrow's leaders in the heart of West Africa.
+              What begins here, transforms Africa. Unity University Liberia is a dynamic, vision-driven institution founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. Established in mid-2024 as part of our expansion across Africa.
             </p>
             <div className="mb-6">
-              <Badge className="bg-red-600/20 text-red-300 border border-red-600/30 mb-2">Premier Institution</Badge>
+              <Badge className="bg-red-600/20 text-red-300 border border-red-600/30 mb-2">Established 2024</Badge>
               <Badge className="bg-blue-600/20 text-blue-300 border border-blue-600/30 ml-2">
-                18+ Years Excellence
+                Pan-African Excellence
               </Badge>
             </div>
             <div className="flex space-x-4">
@@ -163,7 +162,9 @@ export default function LiberiaFooter() {
               </li>
               <li>
                 <Link
-                  href="/liberia/admissions/apply"
+                  href="/admissions/apply"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-400 transition-colors hover:text-white hover:pl-2 duration-200 flex items-center"
                 >
                   Apply Now
@@ -214,8 +215,8 @@ export default function LiberiaFooter() {
               </li>
               <li className="flex items-center">
                 <Phone className="mr-3 h-5 w-5 text-red-400 flex-shrink-0" />
-                <a href="tel:+23177123456" className="text-gray-400 hover:text-white transition-colors">
-                  +231 77 123 4567
+                <a href="tel:+231777123456" className="text-gray-400 hover:text-white transition-colors">
+                  +231 777 123 456
                 </a>
               </li>
               <li className="flex items-center">
@@ -248,10 +249,10 @@ export default function LiberiaFooter() {
           <div className="flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0">
             <div className="text-center md:text-left">
               <p className="text-sm text-gray-400 mb-2">
-                &copy; {new Date().getFullYear()} Unity University Liberia Campus. All rights reserved.
+                &copy; mid-2024-{new Date().getFullYear()} Unity University Liberia Campus. All rights reserved.
               </p>
               <div className="text-xs text-gray-500 italic flex items-center justify-center md:justify-start">
-                <LiberianFlagFooter className="h-4 w-6 mr-2" />
+                <LiberiaFlag className="h-4 w-6 mr-2" />
                 "The Love of Liberty Brought Us Here"
               </div>
             </div>

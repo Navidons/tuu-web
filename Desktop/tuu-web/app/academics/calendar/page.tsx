@@ -9,17 +9,21 @@ import { Button } from "@/components/ui/button"
 
 export default function AcademicCalendarPage() {
   const [mounted, setMounted] = useState(false)
-  const [selectedSemester, setSelectedSemester] = useState("fall2024")
+  const [selectedSemester, setSelectedSemester] = useState("semester1")
   const [selectedCategory, setSelectedCategory] = useState("all")
+
+  // Get current year dynamically
+  const currentYear = new Date().getFullYear()
+  const nextYear = currentYear + 1
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
   const semesters = [
-    { id: "fall2024", name: "Fall 2024", period: "September - December 2024" },
-    { id: "spring2025", name: "Spring 2025", period: "January - May 2025" },
-    { id: "summer2025", name: "Summer 2025", period: "June - August 2025" },
+    { id: "semester1", name: "First Semester", period: `September - December ${currentYear}` },
+    { id: "semester2", name: "Second Semester", period: `January - May ${nextYear}` },
+    { id: "semester3", name: "Third Semester", period: `June - August ${nextYear}` },
   ]
 
   const categories = [
@@ -32,33 +36,33 @@ export default function AcademicCalendarPage() {
   ]
 
   const events = {
-    fall2024: [
+    semester1: [
       {
-        date: "August 15-30, 2024",
-        title: "Fall Semester Registration",
+        date: `August 15-30, ${currentYear}`,
+        title: "First Semester Registration",
         category: "registration",
-        description: "Registration period for all Fall 2024 courses",
+        description: `Registration period for all First Semester ${currentYear} courses`,
         location: "Online Portal",
         type: "deadline",
       },
       {
-        date: "September 2, 2024",
-        title: "Fall Semester Begins",
+        date: `September 2, ${currentYear}`,
+        title: "First Semester Begins",
         category: "classes",
-        description: "First day of Fall 2024 classes",
+        description: `First day of First Semester ${currentYear} classes`,
         location: "All Campuses",
         type: "event",
       },
       {
-        date: "September 16, 2024",
+        date: `September 16, ${currentYear}`,
         title: "Independence Day Holiday",
         category: "holidays",
-        description: "University closed - National Holiday",
+        description: "University closed - Somaliland Independence Day",
         location: "All Campuses",
         type: "holiday",
       },
       {
-        date: "October 14-18, 2024",
+        date: `October 14-18, ${currentYear}`,
         title: "Mid-term Examinations",
         category: "exams",
         description: "Mid-semester examinations for all courses",
@@ -66,73 +70,57 @@ export default function AcademicCalendarPage() {
         type: "exam",
       },
       {
-        date: "November 11, 2024",
-        title: "Veterans Day Holiday",
+        date: `November 15, ${currentYear}`,
+        title: "Eid al-Fitr Holiday",
         category: "holidays",
-        description: "University closed - National Holiday",
+        description: "University closed - Islamic Holiday",
         location: "All Campuses",
         type: "holiday",
       },
       {
-        date: "November 25-29, 2024",
-        title: "Thanksgiving Break",
-        category: "holidays",
-        description: "Thanksgiving holiday break",
-        location: "All Campuses",
-        type: "holiday",
-      },
-      {
-        date: "December 9-20, 2024",
+        date: `December 9-20, ${currentYear}`,
         title: "Final Examinations",
         category: "exams",
-        description: "Final examinations for Fall 2024 semester",
+        description: `Final examinations for First Semester ${currentYear}`,
         location: "Examination Halls",
         type: "exam",
       },
       {
-        date: "December 21, 2024",
-        title: "Fall Graduation Ceremony",
+        date: `December 21, ${currentYear}`,
+        title: "First Semester Graduation Ceremony",
         category: "graduation",
-        description: "Commencement ceremony for Fall 2024 graduates",
+        description: `Commencement ceremony for First Semester ${currentYear} graduates`,
         location: "Unity Arena",
         type: "event",
       },
     ],
-    spring2025: [
+    semester2: [
       {
-        date: "December 1-15, 2024",
-        title: "Spring Semester Registration",
+        date: `December 1-15, ${currentYear}`,
+        title: "Second Semester Registration",
         category: "registration",
-        description: "Registration period for all Spring 2025 courses",
+        description: `Registration period for all Second Semester ${nextYear} courses`,
         location: "Online Portal",
         type: "deadline",
       },
       {
-        date: "January 13, 2025",
-        title: "Spring Semester Begins",
+        date: `January 13, ${nextYear}`,
+        title: "Second Semester Begins",
         category: "classes",
-        description: "First day of Spring 2025 classes",
+        description: `First day of Second Semester ${nextYear} classes`,
         location: "All Campuses",
         type: "event",
       },
       {
-        date: "January 20, 2025",
-        title: "Martin Luther King Jr. Day",
+        date: `February 14, ${nextYear}`,
+        title: "Ramadan Break",
         category: "holidays",
-        description: "University closed - National Holiday",
+        description: "University break for Ramadan observance",
         location: "All Campuses",
         type: "holiday",
       },
       {
-        date: "March 10-14, 2025",
-        title: "Spring Break",
-        category: "holidays",
-        description: "Spring break holiday",
-        location: "All Campuses",
-        type: "holiday",
-      },
-      {
-        date: "March 24-28, 2025",
+        date: `March 24-28, ${nextYear}`,
         title: "Mid-term Examinations",
         category: "exams",
         description: "Mid-semester examinations for all courses",
@@ -140,68 +128,76 @@ export default function AcademicCalendarPage() {
         type: "exam",
       },
       {
-        date: "May 5-16, 2025",
-        title: "Final Examinations",
-        category: "exams",
-        description: "Final examinations for Spring 2025 semester",
-        location: "Examination Halls",
-        type: "exam",
-      },
-      {
-        date: "May 24, 2025",
-        title: "Spring Graduation Ceremony",
-        category: "graduation",
-        description: "Commencement ceremony for Spring 2025 graduates",
-        location: "Unity Arena",
-        type: "event",
-      },
-    ],
-    summer2025: [
-      {
-        date: "April 15-30, 2025",
-        title: "Summer Session Registration",
-        category: "registration",
-        description: "Registration period for Summer 2025 courses",
-        location: "Online Portal",
-        type: "deadline",
-      },
-      {
-        date: "June 2, 2025",
-        title: "Summer Session Begins",
-        category: "classes",
-        description: "First day of Summer 2025 classes",
-        location: "All Campuses",
-        type: "event",
-      },
-      {
-        date: "July 4, 2025",
-        title: "Independence Day Holiday",
+        date: `April 22, ${nextYear}`,
+        title: "Eid al-Adha Holiday",
         category: "holidays",
-        description: "University closed - National Holiday",
+        description: "University closed - Islamic Holiday",
         location: "All Campuses",
         type: "holiday",
       },
       {
-        date: "July 14-18, 2025",
-        title: "Mid-term Examinations",
-        category: "exams",
-        description: "Mid-session examinations for summer courses",
-        location: "Examination Halls",
-        type: "exam",
-      },
-      {
-        date: "August 18-22, 2025",
+        date: `May 5-16, ${nextYear}`,
         title: "Final Examinations",
         category: "exams",
-        description: "Final examinations for Summer 2025 session",
+        description: `Final examinations for Second Semester ${nextYear}`,
         location: "Examination Halls",
         type: "exam",
       },
       {
-        date: "August 30, 2025",
-        title: "Summer Graduation Ceremony",
+        date: `May 24, ${nextYear}`,
+        title: "Second Semester Graduation Ceremony",
         category: "graduation",
-        description: "Commencement ceremony for Summer 2025 graduates",
+        description: `Commencement ceremony for Second Semester ${nextYear} graduates`,
+        location: "Unity Arena",
+        type: "event",
+      },
+    ],
+    semester3: [
+      {
+        date: `April 15-30, ${nextYear}`,
+        title: "Third Semester Registration",
+        category: "registration",
+        description: `Registration period for Third Semester ${nextYear} courses`,
+        location: "Online Portal",
+        type: "deadline",
+      },
+      {
+        date: `June 2, ${nextYear}`,
+        title: "Third Semester Begins",
+        category: "classes",
+        description: `First day of Third Semester ${nextYear} classes`,
+        location: "All Campuses",
+        type: "event",
+      },
+      {
+        date: `June 26, ${nextYear}`,
+        title: "Unity Day Holiday",
+        category: "holidays",
+        description: "University closed - Somaliland Unity Day",
+        location: "All Campuses",
+        type: "holiday",
+      },
+      {
+        date: `July 14-18, ${nextYear}`,
+        title: "Mid-term Examinations",
+        category: "exams",
+        description: "Mid-semester examinations for third semester courses",
+        location: "Examination Halls",
+        type: "exam",
+      },
+      {
+        date: `August 18-22, ${nextYear}`,
+        title: "Final Examinations",
+        category: "exams",
+        description: `Final examinations for Third Semester ${nextYear}`,
+        location: "Examination Halls",
+        type: "exam",
+      },
+      {
+        date: `August 30, ${nextYear}`,
+        title: "Third Semester Graduation Ceremony",
+        category: "graduation",
+        description: `Commencement ceremony for Third Semester ${nextYear} graduates`,
         location: "Unity Arena",
         type: "event",
       },

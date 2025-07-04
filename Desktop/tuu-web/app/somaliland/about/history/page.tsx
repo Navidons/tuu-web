@@ -10,170 +10,101 @@ import SomalilandFooter from "@/components/somaliland/somaliland-footer"
 
 const timelineEvents = [
   {
-    year: "2015",
+    year: "2021",
     title: "Foundation and Vision",
-    description: "Unity University was established with a vision to provide world-class education in Somaliland.",
+    description: "Unity University was established in Hargeisa, Somaliland with the motto 'What begins here, transforms Africa'.",
     details: [
-      "Founded by a consortium of Somaliland educators and international partners",
-      "Initial campus established in Hargeisa with 3 buildings",
-      "First cohort of 150 students enrolled across 4 programs",
-      "Partnership agreements signed with 3 international universities",
+      "Founded with a vision to become a world-class university in leadership development in Africa",
+      "Initial campus established at Jigjiga Yar Street near Masjid Jabir, Hargeisa",
+      "First cohort of students enrolled across multiple faculties",
+      "Established foundation programs and core academic offerings",
     ],
     milestone: "University Founded",
     icon: Building,
     color: "bg-green-100 text-green-800",
   },
   {
-    year: "2016",
-    title: "Academic Excellence Begins",
-    description: "Launch of comprehensive academic programs and establishment of research initiatives.",
+    year: "2022",
+    title: "Academic Programs Launch",
+    description: "Launch of comprehensive academic programs across five faculties with diverse offerings.",
     details: [
-      "Introduced 8 undergraduate programs across 3 faculties",
-      "Established the first research center - Horn of Africa Studies Institute",
-      "Recruited 45 faculty members from 12 countries",
-      "Launched the first community outreach programs",
+      "Established Faculty of Business and Management with multiple programs",
+      "Launched Faculty of Computing & Information Technology programs", 
+      "Founded Faculty of Allied Health Sciences programs",
+      "Created Faculty of Social Sciences with various specializations",
+      "Established Faculty of Education programs",
     ],
     milestone: "Academic Programs Launched",
     icon: BookOpen,
     color: "bg-blue-100 text-blue-800",
   },
   {
-    year: "2017",
-    title: "Research and Innovation",
-    description: "Expansion of research capabilities and establishment of innovation centers.",
+    year: "2023",
+    title: "Research and Innovation Growth",
+    description: "Expansion of research capabilities and establishment of graduate programs.",
     details: [
-      "Opened the Public Health Research Center",
-      "Secured first major research grant ($1.2M from WHO)",
-      "Launched the Innovation and Entrepreneurship Hub",
-      "Established partnerships with 5 regional universities",
+      "Launched Master's programs across multiple faculties",
+      "Established research initiatives in key areas",
+      "Implemented innovative teaching methodologies",
+      "Developed industry partnerships and collaborations",
     ],
-    milestone: "Research Centers Established",
+    milestone: "Graduate Programs Established",
     icon: Award,
     color: "bg-purple-100 text-purple-800",
   },
   {
-    year: "2018",
-    title: "International Recognition",
-    description: "Gained international accreditation and expanded global partnerships.",
+    year: "2024",
+    title: "Pan-African Expansion",
+    description: "Expanded operations with the establishment of Liberia campus, creating a Pan-African network.",
     details: [
-      "Received accreditation from East African University Council",
-      "Signed MOU with University of Oxford for collaborative research",
-      "Launched first graduate programs (Masters in Public Health and Business)",
-      "Student enrollment reached 800 across all programs",
+      "Opened second campus in Monrovia, Liberia",
+      "Extended reach across West and East Africa",
+      "Strengthened international partnerships",
+      "Enhanced student mobility and exchange programs",
     ],
-    milestone: "International Accreditation",
+    milestone: "Liberia Campus Opened",
     icon: Globe,
     color: "bg-red-100 text-red-800",
   },
   {
-    year: "2019",
-    title: "Campus Expansion",
-    description: "Major infrastructure development and facility expansion.",
+    year: "2025",
+    title: "Continued Excellence",
+    description: "Building on strong foundations to serve over 4,000 students across both campuses.",
     details: [
-      "Completed construction of the Medical Sciences Building",
-      "Opened the state-of-the-art library with 50,000 volumes",
-      "Established the Digital Innovation Lab",
-      "Launched distance learning programs for rural communities",
+      "Serving 4,000+ students across Somaliland and Liberia campuses",
+      "Expanding academic program offerings",
+      "Strengthening research and community engagement",
+      "Planning future growth and development initiatives",
     ],
-    milestone: "Campus Expansion",
-    icon: Building,
-    color: "bg-yellow-100 text-yellow-800",
-  },
-  {
-    year: "2020",
-    title: "Digital Transformation",
-    description: "Adaptation to digital learning and technological advancement during global challenges.",
-    details: [
-      "Implemented comprehensive online learning platform",
-      "Launched virtual laboratory simulations",
-      "Established 24/7 digital student support services",
-      "Maintained 95% student retention during pandemic",
-    ],
-    milestone: "Digital Innovation",
+    milestone: "Present Day",
     icon: TrendingUp,
     color: "bg-indigo-100 text-indigo-800",
-  },
-  {
-    year: "2021",
-    title: "Community Impact",
-    description: "Strengthened community engagement and social impact initiatives.",
-    details: [
-      "Launched the Business Innovation Hub",
-      "Established free healthcare clinic serving 10,000+ patients annually",
-      "Created 200+ jobs through graduate entrepreneurship programs",
-      "Partnered with USAID for $8.5M development initiative",
-    ],
-    milestone: "Community Engagement",
-    icon: Users,
-    color: "bg-green-100 text-green-800",
-  },
-  {
-    year: "2022",
-    title: "Research Excellence",
-    description: "Achieved significant research milestones and international collaborations.",
-    details: [
-      "Published 45+ peer-reviewed research papers",
-      "Secured $5.2M in research funding from international donors",
-      "Established partnerships with Microsoft Africa and other tech companies",
-      "Launched the Center for Sustainable Development",
-    ],
-    milestone: "Research Milestones",
-    icon: Star,
-    color: "bg-blue-100 text-blue-800",
-  },
-  {
-    year: "2023",
-    title: "Academic Growth",
-    description: "Continued expansion of academic offerings and student success.",
-    details: [
-      "Introduced 5 new undergraduate programs",
-      "Launched PhD programs in 3 disciplines",
-      "Achieved 90% graduate employment rate",
-      "Opened satellite campus in Berbera",
-    ],
-    milestone: "Academic Expansion",
-    icon: BookOpen,
-    color: "bg-purple-100 text-purple-800",
-  },
-  {
-    year: "2024",
-    title: "Future Vision",
-    description: "Continuing to build towards becoming the premier university in the Horn of Africa.",
-    details: [
-      "Planning new Engineering and Technology Faculty",
-      "Developing partnerships with Silicon Valley tech companies",
-      "Launching Africa's first Climate Change Research Institute",
-      "Targeting 3,000 students by 2025",
-    ],
-    milestone: "Future Planning",
-    icon: TrendingUp,
-    color: "bg-red-100 text-red-800",
   },
 ]
 
 const achievements = [
   {
-    title: "Students Graduated",
-    value: "2,500+",
-    description: "Successful graduates contributing to society",
+    title: "Students Enrolled",
+    value: "4,000+",
+    description: "Current students across both campuses",
     icon: Users,
   },
   {
-    title: "Research Publications",
-    value: "156",
-    description: "Peer-reviewed academic publications",
+    title: "Academic Programs",
+    value: "37",
+    description: "Undergraduate and graduate programs offered",
     icon: BookOpen,
   },
   {
-    title: "International Partnerships",
-    value: "24",
-    description: "Collaborations across 15 countries",
+    title: "Faculty Members",
+    value: "150+",
+    description: "Expert educators across all faculties",
     icon: Globe,
   },
   {
-    title: "Research Funding",
-    value: "$18.7M",
-    description: "Total research grants secured",
+    title: "Years of Excellence",
+    value: "4",
+    description: "Since our founding in 2021",
     icon: Award,
   },
 ]
@@ -226,16 +157,10 @@ export default function HistoryPage() {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-8">Our Founding Story</h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Unity University was born from a vision to transform education in Somaliland. Founded in 2015 by a
-                dedicated group of educators, community leaders, and international partners, our university emerged as a
-                beacon of hope and progress in the Horn of Africa. From humble beginnings with 150 students, we have
-                grown into a leading institution of higher learning, committed to academic excellence, research
-                innovation, and community service.
+                Unity University was born from a vision to transform education in Somaliland and Africa. Founded in 2021 by dedicated educators and community leaders, our university emerged with the motto "What begins here, transforms Africa" and a mission to become a world-class university in leadership development. From our beginnings in Hargeisa, we have grown into a leading institution committed to integrating theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Our name "Unity" reflects our core belief in bringing together diverse perspectives, cultures, and
-                knowledge systems to create a harmonious learning environment that serves not just Somaliland, but the
-                entire region and beyond.
+                Our name "Unity" reflects our core belief in bringing together diverse perspectives, cultures, and knowledge systems to create a harmonious learning environment that serves not just Somaliland, but the entire African continent through our Pan-African approach with campuses in both Somaliland and Liberia.
               </p>
             </div>
           </div>

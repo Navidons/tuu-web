@@ -28,16 +28,16 @@ import SomalilandFooter from "@/components/somaliland/somaliland-footer"
 
 const contactInfo = {
   main: {
-    address: "Unity University Campus, Ahmed Gurey Street, Hargeisa, Somaliland",
-    phone: "+252 63 421 0013",
-    email: "info@unity.edu.so",
-    website: "www.unity.edu.so",
-    hours: "Monday - Friday: 8:00 AM - 5:00 PM",
+    address: "Jigjiga Yar Street near Masjid Jabir, Hargeisa, Somaliland",
+    phone: "+252 63 4210013",
+    email: "info@tuu.university",
+    website: "www.tuu.university",
+    hours: "Sunday - Thursday: 8:00 AM - 5:00 PM",
   },
   emergency: {
-    security: "+252 63 999 0000",
-    medical: "+252 63 999 0001",
-    maintenance: "+252 63 999 0002",
+    security: "+252 637 235142",
+    medical: "+252 637 235143",
+    maintenance: "+252 634 679325",
   },
 }
 
@@ -46,76 +46,76 @@ const departments = [
     name: "Admissions Office",
     description: "Application process, requirements, and enrollment information",
     contact: {
-      email: "admissions@unity.edu.so",
-      phone: "+252 63 421 0100",
+      email: "info@tuu.university",
+      phone: "+252 63 4210013",
       office: "Administration Building, Ground Floor",
     },
-    hours: "Monday - Friday: 8:00 AM - 5:00 PM, Saturday: 9:00 AM - 1:00 PM",
+    hours: "Sunday - Thursday: 8:00 AM - 5:00 PM, Saturday: 9:00 AM - 1:00 PM",
     icon: GraduationCap,
   },
   {
-    name: "Student Services",
+    name: "Student Affairs",
     description: "Academic support, counseling, and student life activities",
     contact: {
-      email: "students@unity.edu.so",
-      phone: "+252 63 421 0200",
+      email: "students@tuu.university",
+      phone: "+252 637 235142",
       office: "Student Center, First Floor",
     },
-    hours: "Monday - Friday: 8:00 AM - 6:00 PM",
+    hours: "Sunday - Thursday: 8:00 AM - 6:00 PM",
     icon: Users,
   },
   {
     name: "Academic Affairs",
     description: "Curriculum, faculty, and academic program information",
     contact: {
-      email: "academic@unity.edu.so",
-      phone: "+252 63 421 0300",
+      email: "academics@tuu.university",
+      phone: "+252 637 235143",
       office: "Administration Building, Second Floor",
     },
-    hours: "Monday - Friday: 8:00 AM - 5:00 PM",
+    hours: "Sunday - Thursday: 8:00 AM - 5:00 PM",
     icon: Building,
   },
   {
     name: "Research Office",
     description: "Research opportunities, grants, and collaboration",
     contact: {
-      email: "research@unity.edu.so",
-      phone: "+252 63 421 0400",
+      email: "research@tuu.university",
+      phone: "+252 634 679325",
       office: "Research Centers Building",
     },
-    hours: "Monday - Friday: 8:00 AM - 5:00 PM",
+    hours: "Sunday - Thursday: 8:00 AM - 5:00 PM",
     icon: Globe,
   },
   {
-    name: "Finance Office",
-    description: "Tuition, fees, financial aid, and payment information",
+    name: "Student Services",
+    description: "Student welfare, accommodation, and campus life support",
     contact: {
-      email: "finance@unity.edu.so",
-      phone: "+252 63 421 0500",
-      office: "Administration Building, First Floor",
+      email: "info@tuu.university",
+      phone: "+252 637 707788",
+      office: "Student Center, Information Desk",
     },
-    hours: "Monday - Friday: 8:00 AM - 4:00 PM",
+    hours: "Sunday - Thursday: 8:00 AM - 6:00 PM",
     icon: Briefcase,
   },
   {
     name: "Health Services",
-    description: "Medical care, health insurance, and wellness programs",
+    description: "Medical care, health programs, and wellness initiatives",
     contact: {
-      email: "health@unity.edu.so",
-      phone: "+252 63 421 0600",
+      email: "health@tuu.university",
+      phone: "+252 63 4210013",
       office: "Student Center, Health Clinic",
     },
-    hours: "Monday - Friday: 8:00 AM - 6:00 PM, Emergency: 24/7",
+    hours: "Sunday - Thursday: 8:00 AM - 6:00 PM, Emergency: 24/7",
     icon: Heart,
   },
 ]
 
 const socialMedia = [
-  { name: "Facebook", handle: "@UnityUniversitySomaliland", url: "#" },
-  { name: "Twitter", handle: "@UnityUniSL", url: "#" },
-  { name: "LinkedIn", handle: "Unity University Somaliland", url: "#" },
-  { name: "Instagram", handle: "@unityuniversitysl", url: "#" },
-  { name: "YouTube", handle: "Unity University Somaliland", url: "#" },
+  { name: "Facebook", handle: "@theunityuniversity", url: "https://www.facebook.com/theunityuniversity/" },
+  { name: "Twitter", handle: "@ProfPLOLumumba", url: "https://x.com/ProfPLOLumumba/status/1605872680317616128?lang=en" },
+  { name: "LinkedIn", handle: "The Unity University", url: "https://www.linkedin.com/company/the-unity-university/?originalSubdomain=so" },
+  { name: "Instagram", handle: "@theunityuniversity", url: "https://www.instagram.com/p/Cmd3K5Oj1D1/?img_index=1" },
+  { name: "YouTube", handle: "Unity University", url: "https://www.youtube.com/watch?v=8vBnxHefYZs" },
 ]
 
 export default function ContactPage() {
@@ -434,16 +434,19 @@ export default function ContactPage() {
                 </p>
                 <div className="space-y-3">
                   {socialMedia.map((social, index) => (
-                    <div
+                    <a
                       key={index}
-                      className="flex items-center gap-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow"
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow cursor-pointer hover:bg-green-50"
                     >
                       <Globe className="h-5 w-5 text-green-600" />
                       <div>
                         <span className="font-medium">{social.name}</span>
                         <span className="text-gray-600 ml-2">{social.handle}</span>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>

@@ -56,8 +56,8 @@ export default function AcademicsPage() {
     {
       level: "Undergraduate",
       description: "Bachelor's degree programs designed to provide comprehensive foundation knowledge",
-      duration: "4 years",
-      programs: 25,
+      duration: "3 years",
+      programs: 18,
       students: 3200,
       href: "/academics/undergraduate",
       icon: BookOpen,
@@ -68,7 +68,7 @@ export default function AcademicsPage() {
       level: "Graduate",
       description: "Master's degree programs for advanced study and specialization",
       duration: "2 years",
-      programs: 18,
+      programs: 14,
       students: 1800,
       href: "/academics/graduate",
       icon: GraduationCap,
@@ -77,9 +77,9 @@ export default function AcademicsPage() {
     },
     {
       level: "Professional Development",
-      description: "Continuing education and professional certification programs",
+      description: "Foundation and continuing education programs",
       duration: "Flexible",
-      programs: 12,
+      programs: 5,
       students: 800,
       href: "/academics/professional",
       icon: Award,
@@ -90,58 +90,49 @@ export default function AcademicsPage() {
 
   const schools = [
     {
-      name: "School of Business & Management",
-      dean: "Dr. Sarah Johnson",
-      programs: ["Business Administration", "International Business", "Entrepreneurship", "Finance", "Marketing"],
-      students: 1200,
-      faculty: 45,
+      name: "Faculty of Business & Management",
+      dean: "Dr. Sarah Ahmed",
+      programs: ["Business Administration", "Accounting & Finance", "Human Resource Management", "Banking & Finance", "Marketing", "Procurement & Supply Chain"],
+      students: 1400,
+      faculty: 35,
       image: "/placeholder.svg?height=300&width=400",
       color: "from-blue-500 to-purple-600",
     },
     {
-      name: "School of Engineering & Technology",
+      name: "Faculty of Computing & Information Technology",
       dean: "Prof. Ahmed Hassan",
-      programs: ["Computer Science", "Civil Engineering", "Electrical Engineering", "Software Development"],
-      students: 980,
-      faculty: 38,
+      programs: ["Computer Science", "Software Engineering", "Information Technology"],
+      students: 850,
+      faculty: 28,
       image: "/placeholder.svg?height=300&width=400",
       color: "from-emerald-500 to-blue-600",
     },
     {
-      name: "School of Health Sciences",
+      name: "Faculty of Allied Health Sciences",
       dean: "Dr. Amina Kone",
-      programs: ["Medicine", "Nursing", "Public Health", "Pharmacy", "Medical Technology"],
-      students: 850,
-      faculty: 42,
+      programs: ["Public Health", "Nutrition and Food Science", "Health Service & Management"],
+      students: 720,
+      faculty: 32,
       image: "/placeholder.svg?height=300&width=400",
       color: "from-red-500 to-pink-600",
     },
     {
-      name: "School of Liberal Arts",
+      name: "Faculty of Social Sciences",
       dean: "Prof. Michael Osei",
-      programs: ["Literature", "History", "Philosophy", "Languages", "Cultural Studies"],
-      students: 720,
-      faculty: 35,
-      image: "/placeholder.svg?height=300&width=400",
-      color: "from-orange-500 to-yellow-600",
-    },
-    {
-      name: "School of Social Sciences",
-      dean: "Dr. Fatima Al-Rashid",
-      programs: ["International Relations", "Psychology", "Sociology", "Political Science", "Economics"],
-      students: 680,
-      faculty: 32,
+      programs: ["International Relations", "Public Administration", "Development Studies", "Social Work", "Public Relations & Media"],
+      students: 980,
+      faculty: 40,
       image: "/placeholder.svg?height=300&width=400",
       color: "from-purple-500 to-indigo-600",
     },
     {
-      name: "School of Agriculture & Environment",
-      dean: "Prof. James Koroma",
-      programs: ["Sustainable Agriculture", "Environmental Science", "Forestry", "Climate Studies"],
-      students: 570,
-      faculty: 28,
+      name: "Faculty of Education",
+      dean: "Dr. Fatima Al-Rashid",
+      programs: ["Education Policy & Planning", "Education Leadership & Management"],
+      students: 420,
+      faculty: 18,
       image: "/placeholder.svg?height=300&width=400",
-      color: "from-green-500 to-emerald-600",
+      color: "from-orange-500 to-yellow-600",
     },
   ]
 
@@ -251,9 +242,9 @@ export default function AcademicsPage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Academic Programs", value: 55, suffix: "+", description: "Across all levels" },
-              { label: "Faculty Members", value: 220, suffix: "+", description: "Expert educators" },
-              { label: "Research Projects", value: 150, suffix: "+", description: "Active research" },
+              { label: "Academic Programs", value: 37, suffix: "+", description: "Across all levels" },
+              { label: "Faculty Members", value: 153, suffix: "+", description: "Expert educators" },
+              { label: "Research Projects", value: 85, suffix: "+", description: "Active research" },
               { label: "Graduate Success Rate", value: 95, suffix: "%", description: "Career placement" },
             ].map((stat, index) => (
               <motion.div
@@ -675,7 +666,7 @@ export default function AcademicsPage() {
               perspective.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/admissions/apply">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
                   Apply Now
                   <ArrowRight className="ml-3 h-6 w-6" />

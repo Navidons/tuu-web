@@ -62,91 +62,158 @@ export default function GraduatePage() {
         credits: 60,
         format: "Full-time / Part-time",
         description: "Advanced business leadership and strategic management for senior executive roles",
-        specializations: ["Finance", "Marketing", "Operations", "International Business", "Entrepreneurship"],
+        specializations: ["Strategic Management", "Finance", "Marketing", "Operations", "International Business"],
         careers: ["CEO", "VP Operations", "Management Consultant", "Investment Manager"],
-        tuition: "$12,000",
-        requirements: ["Bachelor's degree", "3+ years work experience", "GMAT/GRE", "Letters of recommendation"],
+        requirements: ["Bachelor's degree", "3+ years work experience", "Letters of recommendation"],
       },
       {
-        name: "Master of Engineering (M.Eng)",
-        school: "Engineering & Technology",
-        duration: "2 years",
-        credits: 45,
-        format: "Full-time",
-        description: "Advanced engineering principles with focus on innovation and technology leadership",
-        specializations: ["Software Engineering", "Civil Engineering", "Electrical Engineering", "Systems Engineering"],
-        careers: ["Senior Engineer", "Technical Lead", "Engineering Manager", "R&D Director"],
-        tuition: "$13,000",
-        requirements: ["Engineering bachelor's degree", "GRE scores", "Research proposal", "Letters of recommendation"],
-      },
-      {
-        name: "Master of Public Health (MPH)",
-        school: "Health Sciences",
+        name: "Master of Human Resources Management",
+        school: "Business & Management",
         duration: "2 years",
         credits: 48,
         format: "Full-time / Part-time",
-        description: "Advanced public health practice focusing on population health and disease prevention",
+        description: "Advanced HR management, talent development, and organizational leadership",
+        specializations: ["HR Strategy", "Talent Management", "Organizational Development", "Employment Law"],
+        careers: ["HR Director", "Talent Manager", "Organizational Consultant", "Training Manager"],
+        requirements: ["Bachelor's degree", "HR experience preferred", "Letters of recommendation"],
+      },
+      {
+        name: "Master of Accounting & Finance",
+        school: "Business & Management",
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time",
+        description: "Advanced accounting, auditing, and financial management",
+        specializations: ["Financial Accounting", "Management Accounting", "Auditing", "Tax Planning"],
+        careers: ["Finance Director", "Chief Financial Officer", "Senior Accountant", "Financial Analyst"],
+        requirements: ["Bachelor's degree in related field", "Accounting experience preferred", "Letters of recommendation"],
+      },
+      {
+        name: "Master of Marketing Management",
+        school: "Business & Management",
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time / Part-time",
+        description: "Advanced marketing, branding, and digital strategy",
+        specializations: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Market Research"],
+        careers: ["Marketing Director", "Brand Manager", "Digital Marketing Manager", "Market Research Analyst"],
+        requirements: ["Bachelor's degree", "Marketing experience preferred", "Letters of recommendation"],
+      },
+      {
+        name: "Master of Project Planning and Management",
+        school: "Business & Management",
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time / Part-time",
+        description: "Project lifecycle, monitoring, and evaluation at the graduate level",
+        specializations: ["Project Management", "Program Management", "Risk Management", "Quality Management"],
+        careers: ["Project Director", "Program Manager", "PMO Lead", "Operations Manager"],
+        requirements: ["Bachelor's degree", "Project management experience", "Letters of recommendation"],
+      },
+      {
+        name: "Master of Procurement, Logistics and Supply Chain Management",
+        school: "Business & Management",
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time",
+        description: "Advanced supply chain, procurement, and logistics management",
+        specializations: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management"],
+        careers: ["Supply Chain Director", "Procurement Manager", "Logistics Manager", "Operations Director"],
+        requirements: ["Bachelor's degree", "Supply chain experience preferred", "Letters of recommendation"],
+      },
+      {
+        name: "Master of Public Health (MPH)",
+        school: "Allied Health Sciences",
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time / Part-time",
+        description: "Advanced public health, epidemiology, and health policy",
         specializations: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health"],
         careers: ["Public Health Director", "Epidemiologist", "Health Policy Analyst", "WHO Officer"],
-        tuition: "$11,500",
-        requirements: ["Bachelor's degree", "Healthcare experience preferred", "GRE scores", "Statement of purpose"],
+        requirements: ["Bachelor's degree", "Healthcare experience preferred", "Statement of purpose"],
       },
       {
-        name: "Master of International Relations (MIR)",
+        name: "Master of Nutrition and Food Science",
+        school: "Allied Health Sciences",
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time",
+        description: "Advanced nutrition, food safety, and dietetics",
+        specializations: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science"],
+        careers: ["Clinical Nutritionist", "Public Health Nutritionist", "Food Safety Manager", "Research Scientist"],
+        requirements: ["Bachelor's degree in related field", "Nutrition background preferred", "Statement of purpose"],
+      },
+      {
+        name: "Master of Arts in International Relations and Diplomatic Studies",
         school: "Social Sciences",
         duration: "2 years",
-        credits: 42,
+        credits: 48,
         format: "Full-time",
-        description: "Advanced study of global politics, diplomacy, and international cooperation",
+        description: "Advanced study of international relations, diplomacy, and global policy",
         specializations: ["Diplomacy", "International Security", "Development Studies", "Regional Studies"],
         careers: ["Diplomat", "International Analyst", "NGO Director", "Policy Advisor"],
-        tuition: "$10,500",
-        requirements: ["Bachelor's degree", "Language proficiency", "GRE scores", "Research proposal"],
-      },
-    ],
-    doctoral: [
-      {
-        name: "Doctor of Philosophy (Ph.D.) in Engineering",
-        school: "Engineering & Technology",
-        duration: "4-5 years",
-        credits: 72,
-        format: "Full-time",
-        description: "Original research in engineering with focus on innovation and technological advancement",
-        specializations: ["Computer Science", "Civil Engineering", "Electrical Engineering", "Biomedical Engineering"],
-        careers: ["Research Scientist", "University Professor", "R&D Director", "Chief Technology Officer"],
-        tuition: "$15,000",
-        requirements: ["Master's degree", "Research proposal", "GRE scores", "Publications preferred"],
+        requirements: ["Bachelor's degree", "Language proficiency", "Research proposal"],
       },
       {
-        name: "Doctor of Philosophy (Ph.D.) in Social Sciences",
+        name: "Master of Arts in Public Administration and Management",
         school: "Social Sciences",
-        duration: "4-6 years",
-        credits: 72,
-        format: "Full-time",
-        description: "Advanced research in social sciences contributing to knowledge and policy",
-        specializations: ["International Relations", "Psychology", "Sociology", "Political Science"],
-        careers: ["University Professor", "Research Director", "Policy Analyst", "Think Tank Researcher"],
-        tuition: "$14,000",
-        requirements: ["Master's degree", "Research proposal", "GRE scores", "Academic writing sample"],
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time / Part-time",
+        description: "Governance, public policy, and administrative leadership at the graduate level",
+        specializations: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership"],
+        careers: ["Government Official", "Public Policy Analyst", "Civil Service Manager", "NGO Administrator"],
+        requirements: ["Bachelor's degree", "Public sector experience preferred", "Statement of purpose"],
       },
       {
-        name: "Doctor of Business Administration (DBA)",
-        school: "Business & Management",
-        duration: "3-4 years",
-        credits: 60,
-        format: "Executive / Part-time",
-        description: "Applied research in business practice for senior executives and consultants",
-        specializations: ["Strategic Management", "Leadership", "Innovation", "Global Business"],
-        careers: ["CEO", "Senior Consultant", "Business School Professor", "Executive Coach"],
-        tuition: "$18,000",
-        requirements: ["Master's degree", "10+ years experience", "GMAT/GRE", "Executive recommendations"],
+        name: "Master of Arts in Development Studies",
+        school: "Social Sciences",
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time",
+        description: "Development theory, research, and policy for social progress",
+        specializations: ["International Development", "Community Development", "Development Policy", "Social Research"],
+        careers: ["Development Officer", "Program Manager", "Research Analyst", "Policy Consultant"],
+        requirements: ["Bachelor's degree", "Development experience preferred", "Research proposal"],
+      },
+      {
+        name: "Master of Education in Policy, Planning & Management",
+        school: "Education",
+        duration: "2 years",
+        credits: 48,
+        format: "Full-time / Part-time",
+        description: "Education policy, planning, and management at the graduate level",
+        specializations: ["Education Policy", "Educational Planning", "Curriculum Development", "Education Management"],
+        careers: ["Education Administrator", "Policy Analyst", "Curriculum Specialist", "Educational Consultant"],
+        requirements: ["Bachelor's degree", "Teaching experience preferred", "Statement of purpose"],
+      },
+      {
+        name: "Master of Education in Leadership and Management",
+        school: "Education",
+        duration: "2 years",
+        credits: 48,
+        format: "Part-time",
+        description: "Educational leadership and management for school administrators",
+        specializations: ["Educational Leadership", "School Management", "Educational Innovation", "Change Management"],
+        careers: ["School Principal", "Education Director", "Academic Dean", "Educational Leader"],
+        requirements: ["Bachelor's degree", "Educational leadership experience", "Letters of recommendation"],
+      },
+      {
+        name: "Master of Science in Information Technology",
+        school: "Computing & IT",
+        duration: "2 years",
+        credits: 54,
+        format: "Full-time",
+        description: "Advanced IT, cybersecurity, and information systems management",
+        specializations: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management"],
+        careers: ["IT Director", "Cybersecurity Specialist", "Data Scientist", "Systems Architect"],
+        requirements: ["Bachelor's degree in IT/related field", "Programming experience", "Technical portfolio"],
       },
     ],
   }
 
   const degreeTypes = [
-    { id: "masters", name: "Master's Programs", icon: GraduationCap, count: 4 },
-    { id: "doctoral", name: "Doctoral Programs", icon: Microscope, count: 3 },
+    { id: "masters", name: "Master's Programs", icon: GraduationCap, count: 14 },
   ]
 
   const features = [
@@ -214,10 +281,10 @@ export default function GraduatePage() {
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
                 Pursue advanced study and research opportunities that will position you as a leader in your field.
-                Master's and doctoral programs designed for academic and professional excellence.
+                Master's programs designed for academic and professional excellence.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg font-bold">
                     Apply Now
                     <ArrowRight className="ml-3 h-6 w-6" />
@@ -255,9 +322,9 @@ export default function GraduatePage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Graduate Programs", value: 18, suffix: "+", description: "Master's & Doctoral" },
+              { label: "Master's Programs", value: 14, suffix: "", description: "Across 5 faculties" },
               { label: "Graduate Students", value: 1800, suffix: "+", description: "Currently enrolled" },
-              { label: "Research Publications", value: 450, suffix: "+", description: "Annual output" },
+              { label: "Research Publications", value: 180, suffix: "+", description: "Annual output" },
               { label: "Faculty-Student Ratio", value: 12, suffix: ":1", description: "Personalized attention" },
             ].map((stat, index) => (
               <motion.div
@@ -340,7 +407,6 @@ export default function GraduatePage() {
                       <h4 className="text-2xl font-bold text-gray-900 mb-2">{program.name}</h4>
                       <Badge className="bg-blue-100 text-blue-700">{program.school}</Badge>
                     </div>
-                    <Badge className="bg-purple-100 text-purple-700">{program.tuition}/year</Badge>
                   </div>
 
                   <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
@@ -398,7 +464,7 @@ export default function GraduatePage() {
                   </div>
 
                   <div className="flex space-x-4">
-                    <Link href="/admissions/apply" className="flex-1">
+                    <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer" className="flex-1">
                       <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700">
                         Apply Now
                       </Button>
@@ -585,8 +651,8 @@ export default function GraduatePage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                name: "Dr. Amara Okafor",
-                program: "Ph.D. Engineering '21",
+                name: "Amara Okafor",
+                program: "MSc Information Technology '23",
                 achievement: "Lead AI Researcher at Microsoft",
                 story:
                   "The research opportunities and mentorship at Unity University prepared me to lead groundbreaking AI projects.",
@@ -601,8 +667,8 @@ export default function GraduatePage() {
                 image: "/placeholder.svg?height=200&width=200",
               },
               {
-                name: "Dr. James Kwame",
-                program: "MPH '20",
+                name: "James Kwame",
+                program: "MPH '24",
                 achievement: "WHO Regional Director",
                 story:
                   "Unity's global health perspective and research training prepared me for leadership in international health.",
@@ -653,7 +719,7 @@ export default function GraduatePage() {
               professional journey.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/admissions/apply">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
                   Apply for Graduate School
                   <ArrowRight className="ml-3 h-6 w-6" />

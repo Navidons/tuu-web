@@ -206,35 +206,35 @@ export default function HomePage() {
   const heroSlides = [
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "Unity University Somaliland - #1 Leading University in Hargeisa",
+      title: "Unity University Somaliland - Leading University in Hargeisa",
       titleSo: "Jaamacadda Unity Somaliland - Jaamacadda Ugu Horeysa Hargeisa",
-      subtitle: "Best Higher Education Institution in Somaliland | Halkan wax ka bilaabmaan, Afrika way beddelaan",
-      description: SEO_CONTENT.heroDescription,
-      cta: "Discover Excellence - Apply Now",
-      ctaSo: "Fiicanta Baadh - Hadda Codso",
+      subtitle: "What Begins Here, Transforms Africa | Halkan wax ka bilaabmaan, Afrika way beddelaan",
+      description: "Founded in 2021, Unity University is the premier higher education institution in Hargeisa, Somaliland. With our motto 'What Begins Here, Transforms Africa', we offer world-class undergraduate and graduate programs across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
+      cta: "Apply Now",
+      ctaSo: "Hadda Codso",
       keywords: "leading university hargeisa, best education somaliland, top university horn africa",
     },
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "World-Class Programs & Research Excellence in Somaliland",
-      titleSo: "Barnaamijyo Heer Caalami ah & Fiican Cilmi-baadhis Somaliland",
-      subtitle: "Accredited Degrees | Modern Facilities | Expert Faculty | 95% Job Placement",
+      title: "Transforming African Education Since 2021",
+      titleSo: "Waxbarashada Afrika waan beddelaynaa 2021 laga bilaabo",
+      subtitle: "4 Years of Excellence | Modern Facilities | Expert Faculty",
       description:
-        "Experience cutting-edge education at Unity University Somaliland. Our internationally accredited programs in Business, IT, Engineering, and Health Sciences prepare you for global career success. State-of-the-art facilities, research opportunities, and industry partnerships in the heart of Hargeisa.",
+        "Experience transformative education at Unity University Somaliland. Our 37+ academic programs across five faculties prepare you for leadership roles. Located at Jigjiga Yar Street near Masjid Jabir, Hargeisa, we serve 2,800+ students with cutting-edge facilities and Pan-African vision.",
       cta: "Explore Programs",
       ctaSo: "Barnaamijyada Baadh",
-      keywords: "accredited programs somaliland, modern facilities hargeisa, research university",
+      keywords: "academic programs somaliland, modern facilities hargeisa, research university",
     },
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "Transform Your Future at Somaliland's Premier University",
-      titleSo: "Mustaqbalkaaga Bedel Jaamacadda Ugu Fiican Somaliland",
-      subtitle: "25+ Programs | 2,800+ Students | International Standards | Local Impact",
+      title: "Join the Pan-African Educational Revolution",
+      titleSo: "Kala soo biir Isbeddelka Waxbarashada Afrika",
+      subtitle: "37+ Programs | 2,800+ Students | 150+ Faculty | Pan-African Network",
       description:
-        "Join 2,800+ students at Unity University Somaliland, where global academic standards meet local cultural values. Our graduates lead in business, government, and civil society across Somaliland and the Horn of Africa. Scholarships available for qualified students.",
+        "Be part of Unity University's mission to become a world-class university in leadership development in Africa. With campuses in Somaliland and Liberia, we integrate theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.",
       cta: "Join Our Community",
       ctaSo: "Bulshadeenna Ku Biir",
-      keywords: "premier university somaliland, international standards, scholarships available",
+      keywords: "pan-african university, leadership development, international standards",
     },
   ]
 
@@ -270,7 +270,7 @@ export default function HomePage() {
           Best university in Somaliland offering undergraduate, graduate, and professional programs. Located in Hargeisa
           with modern facilities, expert faculty, and international accreditation. Programs include Business
           Administration, Information Technology, Engineering, Public Health, Education, and Agriculture. Apply now for
-          2024 admission.
+          2025-2026 admission.
         </p>
         <div>
           <span>
@@ -364,7 +364,7 @@ export default function HomePage() {
             {/* CTA Buttons with tracking */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
                     className="bg-emerald-600 text-white hover:bg-emerald-700 px-8 py-4 text-lg font-bold shadow-2xl border border-emerald-500/30"
@@ -402,20 +402,20 @@ export default function HomePage() {
               {[
                 {
                   icon: GraduationCap,
-                  title: "25+ Accredited Programs",
-                  titleSo: "25+ Barnaamij Aqoonsi leh",
-                  keywords: "accredited programs somaliland",
+                  title: "37+ Academic Programs",
+                  titleSo: "37+ Barnaamij Waxbarasho",
+                  keywords: "academic programs somaliland",
                 },
                 {
                   icon: Users,
-                  title: "2,800+ Successful Students",
-                  titleSo: "2,800+ Arday Guulaysan",
+                  title: "2,800+ Students",
+                  titleSo: "2,800+ Arday",
                   keywords: "student success hargeisa",
                 },
                 {
                   icon: Award,
-                  title: "15 Years Excellence",
-                  titleSo: "15 Sano Fiican",
+                  title: "4 Years Excellence",
+                  titleSo: "4 Sano Fiican",
                   keywords: "educational excellence somaliland",
                 },
               ].map((feature, index) => (
@@ -999,13 +999,13 @@ export default function HomePage() {
             <p className="text-xl leading-relaxed mb-12 opacity-95">
               Join Unity University Somaliland and become part of a community dedicated to excellence, innovation, and
               positive impact. Your journey to success starts here in Hargeisa, at the leading higher education
-              institution in the Horn of Africa. Apply now for 2024 admission and transform your future.
+              institution in the Horn of Africa. Apply now for 2025-2026 admission and transform your future.
             </p>
 
             {/* SEO content for CTA section */}
             <div className="sr-only">
               <p>
-                Apply now Unity University Somaliland 2024 admission, best university Hargeisa application, leading
+                Apply now Unity University Somaliland 2025-2026 admission, best university Hargeisa application, leading
                 higher education Somaliland enrollment, premier university Horn of Africa admission process,
                 scholarships available qualified students, career success guaranteed graduates
               </p>
@@ -1056,13 +1056,13 @@ export default function HomePage() {
 
             <div className="flex flex-wrap justify-center gap-6">
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
                     className="bg-white text-emerald-700 hover:bg-gray-100 px-8 py-4 text-lg font-bold shadow-2xl"
                     data-program="application-cta"
                   >
-                    Apply Now - 2024 Admission Open
+                    Apply Now - 2025-2026 Admission Open
                     <Heart className="ml-3 h-5 w-5" />
                   </Button>
                 </Link>

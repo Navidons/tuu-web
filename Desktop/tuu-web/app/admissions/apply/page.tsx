@@ -39,7 +39,6 @@ export default function ApplyPage() {
     personalStatement: "",
 
     // Additional
-    financialAid: false,
     terms: false,
   })
 
@@ -544,19 +543,6 @@ export default function ApplyPage() {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-3">
                         <Checkbox
-                          id="financialAid"
-                          checked={formData.financialAid}
-                          onCheckedChange={(checked) =>
-                            setFormData((prev) => ({ ...prev, financialAid: checked as boolean }))
-                          }
-                        />
-                        <Label htmlFor="financialAid" className="text-gray-700">
-                          I am interested in financial aid and scholarship opportunities
-                        </Label>
-                      </div>
-
-                      <div className="flex items-center space-x-3">
-                        <Checkbox
                           id="terms"
                           checked={formData.terms}
                           onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, terms: checked as boolean }))}
@@ -646,15 +632,6 @@ export default function ApplyPage() {
                 <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
                   Contact Admissions
                   <Mail className="ml-3 h-6 w-6" />
-                </Button>
-              </Link>
-              <Link href="/admissions/financial-aid">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold"
-                >
-                  Financial Aid Info
                 </Button>
               </Link>
             </div>

@@ -6,6 +6,7 @@ import { ArrowRight, Mail, Linkedin, Award, BookOpen, Users } from "lucide-react
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import EnhancedNavbar from "@/components/enhanced-navbar"
+import EnhancedFooter from "@/components/enhanced-footer"
 import Link from "next/link"
 
 export default function LeadershipPage() {
@@ -17,88 +18,131 @@ export default function LeadershipPage() {
 
   const leadership = [
     {
-      name: "Dr. Amara Konneh",
-      title: "Chancellor & Founder",
+      name: "Prof. PLO Lumumba",
+      title: "Vice-Chancellor",
       image: "/placeholder.svg?height=400&width=400",
-      bio: "Dr. Konneh is a visionary educator with over 30 years of experience in higher education. She founded Unity University with the mission to provide world-class education across Africa.",
-      education: "PhD in Educational Leadership, Harvard University",
+      bio: "Prof. PLO Lumumba is the distinguished Vice-Chancellor of Unity University, bringing decades of experience in education, law, and African development.",
+      education: "LLB, LLM, PhD - University of Nairobi",
       achievements: [
-        "Founded Unity University in 2005",
-        "Former Minister of Education, Liberia",
-        "Author of 'Education for African Development'",
-        "Recipient of UNESCO Education Prize 2020",
+        "Former Director, Kenya Anti-Corruption Commission",
+        "Renowned Pan-African thought leader",
+        "Author and international speaker",
+        "Expert in constitutional law and governance",
       ],
-      quote: "Education is the most powerful weapon we can use to change Africa and the world.",
+      quote: "Discipline is the heart of who you are. No matter how educated you are; no matter how rich you are; if you do not have the gift of discipline, then you are a danger to the society.",
     },
     {
-      name: "Prof. Ahmed Hassan",
-      title: "Vice-Chancellor, Somaliland Campus",
+      name: "Dr. Katerega David",
+      title: "Deputy Vice-Chancellor",
       image: "/placeholder.svg?height=400&width=400",
-      bio: "Prof. Hassan leads our Somaliland operations with expertise in international development and cross-cultural education. He has been instrumental in expanding our reach across the Horn of Africa.",
-      education: "PhD in International Development, Oxford University",
+      bio: "Dr. Katerega David serves as the Deputy Vice-Chancellor, overseeing academic operations and strategic development across both campuses.",
+      education: "PhD in Educational Administration",
       achievements: [
-        "Established Somaliland Campus in 2008",
-        "Former UN Education Advisor for Horn of Africa",
-        "Published 50+ research papers on African development",
-        "Expert in sustainable development and cross-cultural education",
-        "Pioneer in educational innovation in Somaliland",
+        "20+ years in higher education leadership",
+        "Expert in academic quality assurance",
+        "Champion of Pan-African education",
+        "Strategic planning and institutional development",
       ],
-      quote:
-        "Unity in diversity is our strength, and education is our bridge to a prosperous future for all of Africa.",
+      quote: "Education is the foundation upon which we build the future of Africa.",
     },
     {
-      name: "Dr. Sarah Johnson",
-      title: "Vice-Chancellor, Liberia Campus",
+      name: "Dr. Zakaria",
+      title: "Project Manager",
       image: "/placeholder.svg?height=400&width=400",
-      bio: "Dr. Johnson brings extensive experience in academic administration and curriculum development. She has led the transformation of our Liberia campus into a center of excellence.",
-      education: "PhD in Curriculum and Instruction, Stanford University",
+      bio: "Dr. Zakaria leads strategic projects and initiatives that drive Unity University's growth and impact across the continent.",
+      education: "PhD in Project Management",
       achievements: [
-        "20+ years in academic leadership",
-        "Pioneered online learning initiatives",
-        "Champion of women in STEM",
-        "International education consultant",
+        "Expert in institutional project management",
+        "Led major campus development initiatives",
+        "International development consultant",
+        "Strategic partnerships coordinator",
       ],
-      quote: "Every student has the potential to change the world; our job is to unlock that potential.",
+      quote: "Every project we undertake is a step towards transforming African education.",
     },
     {
-      name: "Dr. Michael Osei",
-      title: "Provost & Chief Academic Officer",
+      name: "Kaggwa Robert Abubaker",
+      title: "Dean of Student Affairs",
       image: "/placeholder.svg?height=400&width=400",
-      bio: "Dr. Osei oversees all academic programs across both campuses, ensuring the highest standards of education and research excellence.",
-      education: "PhD in Higher Education Administration, Cambridge University",
+      bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across Unity University's campuses.",
+      education: "Master's in Student Affairs Administration",
       achievements: [
-        "Developed 25+ academic programs",
-        "Former Dean at University of Ghana",
-        "Expert in quality assurance",
-        "Published author on African education",
+        "Champion of student welfare and development",
+        "Expert in student leadership programs",
+        "Community engagement specialist",
+        "Holistic student development advocate",
       ],
-      quote: "Academic excellence is not a destination but a continuous journey of improvement.",
+      quote: "Students are at the heart of everything we do at Unity University.",
+    },
+  ]
+
+  const facultyDeans = [
+    {
+      name: "Ganja Martin",
+      title: "Dean, Faculty of Education",
+      description: "Leading educational innovation and teacher development programs",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Lutaaya Daniel",
+      title: "Dean, Faculty of Social Sciences",
+      description: "Advancing social research and community development initiatives",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Samson Kigozi",
+      title: "Dean, Faculty of Allied Health Sciences",
+      description: "Promoting health education and community wellness programs",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Leo Wamala",
+      title: "Dean, Faculty of Computing & Information Technology",
+      description: "Driving technological innovation and digital transformation",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Semakalu Ronald",
+      title: "Director, Foundation Programmes",
+      description: "Ensuring academic preparedness and foundational skills development",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Kirinya Robert",
+      title: "Director, Quality Assurance",
+      description: "Maintaining academic excellence and institutional standards",
+      image: "/placeholder.svg?height=300&width=300",
+    },
+    {
+      name: "Kavuma Yusuf Musa",
+      title: "Campus Director",
+      description: "Overseeing campus operations and strategic development",
+      image: "/placeholder.svg?height=300&width=300",
     },
   ]
 
   const boardMembers = [
     {
-      name: "Hon. Ellen Johnson Sirleaf",
-      title: "Board Chair",
-      description: "Former President of Liberia, Nobel Peace Prize Laureate",
+      name: "Prof. PLO Lumumba",
+      title: "Vice-Chancellor",
+      description: "Leading Unity University's mission across Africa",
       image: "/placeholder.svg?height=300&width=300",
     },
     {
-      name: "Dr. Akinwumi Adesina",
-      title: "Board Member",
-      description: "President, African Development Bank",
+      name: "Dr. Katerega David",
+      title: "Deputy Vice-Chancellor",
+      description: "Academic excellence and strategic development",
       image: "/placeholder.svg?height=300&width=300",
     },
     {
-      name: "Prof. Wangari Maathai",
-      title: "Board Member",
-      description: "Environmental Activist, Nobel Peace Prize Laureate",
+      name: "Dr. Zakaria",
+      title: "Project Manager",
+      description: "Strategic initiatives and institutional growth",
       image: "/placeholder.svg?height=300&width=300",
     },
     {
-      name: "Dr. Mo Ibrahim",
-      title: "Board Member",
-      description: "Founder, Mo Ibrahim Foundation",
+      name: "Kaggwa Robert Abubaker",
+      title: "Dean of Student Affairs",
+      description: "Student welfare and holistic development",
       image: "/placeholder.svg?height=300&width=300",
     },
   ]
@@ -239,7 +283,7 @@ export default function LeadershipPage() {
         </div>
       </section>
 
-      {/* Board of Directors */}
+      {/* Faculty Deans */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -249,15 +293,15 @@ export default function LeadershipPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Board of Directors</h2>
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">Faculty Deans & Directors</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Distinguished leaders from across Africa and the world who provide strategic guidance
+                Academic leaders driving excellence across our diverse faculties and programs
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {boardMembers.map((member, index) => (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {facultyDeans.map((member, index) => (
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 50 }}
@@ -277,8 +321,8 @@ export default function LeadershipPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                  <p className="text-purple-600 font-semibold mb-2">{member.title}</p>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{member.name}</h3>
+                  <p className="text-purple-600 font-semibold mb-2 text-sm">{member.title}</p>
                   <p className="text-gray-600 text-sm">{member.description}</p>
                 </div>
               </motion.div>
@@ -360,7 +404,7 @@ export default function LeadershipPage() {
               the next generation of African leaders.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/admissions/apply">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4 text-lg font-bold"
@@ -382,6 +426,7 @@ export default function LeadershipPage() {
           </motion.div>
         </div>
       </section>
+      <EnhancedFooter />
     </div>
   )
 }

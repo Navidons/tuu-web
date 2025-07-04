@@ -22,8 +22,7 @@ export default function LiberiaHistoryPage() {
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Our History</h1>
           <p className="max-w-2xl mx-auto text-lg text-white/90">
-            Tracing the journey of Unity University Liberia from humble beginnings in 2005 to a leading institution of
-            higher learning in West Africa.
+            Tracing the journey of Unity University from its founding in 2021 in Somaliland to the establishment of our Liberia campus in 2024, expanding our Pan-African mission across the continent.
           </p>
         </div>
       </section>
@@ -33,34 +32,34 @@ export default function LiberiaHistoryPage() {
         <div className="container mx-auto px-4">
           {[
             {
-              year: "2005",
-              title: "Founding Year",
+              year: "2021",
+              title: "Unity University Founded",
               description:
-                "Unity University Liberia opened its doors in Monrovia with a mission to provide accessible quality education.",
+                "Unity University was established in Hargeisa, Somaliland, with the motto 'What begins here, transforms Africa' and a vision to become a world-class university in leadership development.",
             },
             {
-              year: "2008",
-              title: "First Graduating Class",
+              year: "2022",
+              title: "Academic Programs Launched",
               description:
-                "Celebrated the graduation of our inaugural class, marking a milestone in our commitment to academic excellence.",
+                "Comprehensive academic programs established across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
             },
             {
-              year: "2015",
-              title: "Campus Expansion",
+              year: "2023",
+              title: "Research & Graduate Programs",
               description:
-                "Added new faculties and state-of-the-art facilities, supporting cutting-edge research and student life.",
-            },
-            {
-              year: "2020",
-              title: "Global Partnerships",
-              description:
-                "Forged strategic alliances with universities across Africa, Europe and North America to enhance research collaboration.",
+                "Master's programs launched across multiple faculties, establishing Unity University as a growing center for higher education and research in the Horn of Africa.",
             },
             {
               year: "2024",
-              title: "18 Years of Excellence",
+              title: "Liberia Campus Established",
               description:
-                "Celebrating nearly two decades of shaping leaders and innovators who drive positive change across Liberia and beyond.",
+                "Unity University expanded to West Africa with the opening of our Liberia campus in Monrovia, creating a truly Pan-African educational network serving both East and West Africa.",
+            },
+            {
+              year: "2025",
+              title: "Growing Excellence",
+              description:
+                "Continuing our mission with over 4,000 students across both campuses, Unity University remains committed to transforming Africa through quality education and leadership development.",
             },
           ].map((item, idx) => (
             <motion.div

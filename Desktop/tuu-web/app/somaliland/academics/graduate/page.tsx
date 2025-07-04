@@ -35,7 +35,6 @@ export default function GraduatePage() {
       titleSo: "Shahaadada Sare ee Maamulka Ganacsiga",
       duration: "2 Years",
       credits: "60 Credits",
-      tuition: "$4,500/year",
       description:
         "Our MBA program is designed for experienced professionals seeking to advance their careers in leadership and management. The curriculum combines advanced business theory with practical application, preparing graduates for executive roles in the rapidly growing East African economy.",
       image: "/placeholder.svg?height=400&width=600",
@@ -77,7 +76,6 @@ export default function GraduatePage() {
           "Executive Leadership Seminar",
           "Elective Course II",
           "Thesis Research",
-          "Professional Development",
         ],
       },
       specializations: [
@@ -122,7 +120,6 @@ export default function GraduatePage() {
       titleSo: "Shahaadada Sare ee Caafimaadka Dadweynaha",
       duration: "2 Years",
       credits: "48 Credits",
-      tuition: "$4,200/year",
       description:
         "Our MPH program addresses the critical public health challenges facing Somaliland and the Horn of Africa. Students develop expertise in epidemiology, health policy, and community health interventions while gaining practical experience through field placements and research projects.",
       image: "/placeholder.svg?height=400&width=600",
@@ -164,7 +161,6 @@ export default function GraduatePage() {
           "Health Leadership",
           "Specialization Course II",
           "Thesis Research",
-          "Professional Seminar",
         ],
       },
       specializations: [
@@ -209,7 +205,6 @@ export default function GraduatePage() {
       titleSo: "Shahaadada Sare ee Waxbarashada",
       duration: "2 Years",
       credits: "45 Credits",
-      tuition: "$3,800/year",
       description:
         "Our M.Ed program prepares educational leaders and advanced practitioners for the evolving needs of Somaliland's education system. The program emphasizes research-based practice, educational innovation, and leadership development for sustainable educational improvement.",
       image: "/placeholder.svg?height=400&width=600",
@@ -296,7 +291,6 @@ export default function GraduatePage() {
       titleSo: "Shahaadada Sare ee Maamulka Injineerinta",
       duration: "2 Years",
       credits: "54 Credits",
-      tuition: "$4,800/year",
       description:
         "This program bridges engineering and management, preparing technical professionals for leadership roles in engineering organizations. Students develop skills in project management, technology innovation, and strategic planning while maintaining technical expertise.",
       image: "/placeholder.svg?height=400&width=600",
@@ -338,7 +332,6 @@ export default function GraduatePage() {
           "Leadership in Engineering",
           "Specialization Course II",
           "Thesis Research",
-          "Professional Development",
         ],
       },
       specializations: [
@@ -424,7 +417,7 @@ export default function GraduatePage() {
                 Explore Programs
                 <ArrowRight className="ml-3 h-5 w-5" />
               </Button>
-              <Link href="/admissions/apply">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   variant="outline"
@@ -563,10 +556,6 @@ export default function GraduatePage() {
                           <BookOpen className="h-4 w-4 mr-2" />
                           {program.credits}
                         </Badge>
-                        <Badge className="bg-white/20 backdrop-blur-sm text-white">
-                          <DollarSign className="h-4 w-4 mr-2" />
-                          {program.tuition}
-                        </Badge>
                       </div>
                     </div>
                   </div>
@@ -654,10 +643,6 @@ export default function GraduatePage() {
                               <span className="text-gray-600">Credits:</span>
                               <span className="font-semibold">{program.credits}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Tuition:</span>
-                              <span className="font-semibold">{program.tuition}</span>
-                            </div>
                           </CardContent>
                         </Card>
 
@@ -728,7 +713,7 @@ export default function GraduatePage() {
                             <p className="text-sm text-gray-600 mb-4">
                               Take the next step in your career with our graduate programs.
                             </p>
-                            <Link href="/admissions/apply">
+                            <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                               <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700">
                                 Apply Now
                                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -766,7 +751,7 @@ export default function GraduatePage() {
 
             <div className="flex flex-wrap justify-center gap-6">
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
                     className="bg-white text-emerald-700 hover:bg-gray-100 px-8 py-4 text-lg font-bold shadow-2xl"

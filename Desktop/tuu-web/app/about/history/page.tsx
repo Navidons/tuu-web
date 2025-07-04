@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import EnhancedNavbar from "@/components/enhanced-navbar"
 import Link from "next/link"
+import EnhancedFooter from "@/components/enhanced-footer"
 
 export default function HistoryPage() {
   const [mounted, setMounted] = useState(false)
@@ -17,65 +18,49 @@ export default function HistoryPage() {
 
   const timelineEvents = [
     {
-      year: "2005",
-      title: "Foundation in Liberia",
+      year: "2021",
+      title: "Foundation in Hargeisa",
       description:
-        "Unity University was established in Monrovia, Liberia, with a vision to provide world-class education in West Africa.",
+        "Unity University was established in Hargeisa, Somaliland, with the motto 'What begins here, transforms Africa' and a vision to become a world-class university in leadership development.",
       image: "/placeholder.svg?height=300&width=400",
-      milestone: "First Campus Opened",
-      students: 150,
+      milestone: "University Founded",
+      students: 200,
     },
     {
-      year: "2008",
-      title: "Expansion to Somaliland",
+      year: "2022",
+      title: "First Academic Programs",
       description:
-        "Opened our second campus in Hargeisa, Somaliland, extending our reach to the Horn of Africa and establishing Unity University as a truly pan-African institution.",
+        "Launched comprehensive academic programs across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
       image: "/placeholder.svg?height=300&width=400",
-      milestone: "Somaliland Campus Established",
-      students: 500,
+      milestone: "Programs Established",
+      students: 850,
     },
     {
-      year: "2012",
-      title: "International Accreditation",
+      year: "2023",
+      title: "Research & Innovation",
       description:
-        "Received international accreditation, establishing Unity University as a globally recognized institution.",
-      image: "/placeholder.svg?height=300&width=400",
-      milestone: "Global Recognition",
-      students: 1200,
-    },
-    {
-      year: "2015",
-      title: "Research Excellence",
-      description: "Launched our first research centers, focusing on African development and sustainable solutions.",
+        "Established research centers and began implementing innovative teaching methods, integrating theory with practice to produce graduates with relevant knowledge and skills.",
       image: "/placeholder.svg?height=300&width=400",
       milestone: "Research Centers Opened",
-      students: 2500,
-    },
-    {
-      year: "2018",
-      title: "Digital Innovation",
-      description: "Pioneered online learning platforms and digital education initiatives across both campuses.",
-      image: "/placeholder.svg?height=300&width=400",
-      milestone: "Digital Transformation",
-      students: 3800,
-    },
-    {
-      year: "2020",
-      title: "Global Partnerships",
-      description:
-        "Established partnerships with leading universities worldwide, creating exchange programs and joint research initiatives.",
-      image: "/placeholder.svg?height=300&width=400",
-      milestone: "International Collaborations",
-      students: 4500,
+      students: 1800,
     },
     {
       year: "2024",
-      title: "Continued Excellence",
+      title: "Liberia Campus Expansion",
       description:
-        "Today, Unity University stands as a beacon of educational excellence, serving over 5,300 students from 45 countries.",
+        "Opened second campus in Monrovia, Liberia, extending Unity University's reach across West Africa and establishing a truly Pan-African educational network.",
+      image: "/placeholder.svg?height=300&width=400",
+      milestone: "Liberia Campus Opened",
+      students: 3500,
+    },
+    {
+      year: "2025",
+      title: "Continued Growth",
+      description:
+        "Today, Unity University serves over 4,000 students across both campuses, offering undergraduate and graduate programs with a commitment to holistic human development and leadership.",
       image: "/placeholder.svg?height=300&width=400",
       milestone: "Present Day",
-      students: 5300,
+      students: 4000,
     },
   ]
 
@@ -110,14 +95,13 @@ export default function HistoryPage() {
                 Our History
               </Badge>
               <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-                19 Years of
+                4 Years of
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   Educational Excellence
                 </span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                From a small institution in Monrovia to a global network spanning two countries, discover the remarkable
-                journey of Unity University.
+                Founded in 2021 in Hargeisa, Somaliland, Unity University has quickly established itself as a leading educational institution committed to transforming African higher education.
               </p>
             </motion.div>
           </div>
@@ -222,15 +206,11 @@ export default function HistoryPage() {
                   bridge the educational gap in Africa while maintaining the highest international standards.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Our founders recognized that Africa needed universities that could compete globally while remaining
-                  deeply rooted in African values and addressing African challenges. This vision led to the
-                  establishment of our first campus in Monrovia, Liberia, in 2005, followed by our second campus in
-                  Hargeisa, Somaliland. Both campuses play a unique role in fulfilling our mission to provide quality
-                  education and foster development across the continent.
+                  Founded in 2021 in Hargeisa, Somaliland, Unity University emerged with the motto "What begins here, transforms Africa" and a mission to contribute to the development of Somaliland, Africa, and the world. In 2024, we expanded to Liberia, establishing our second campus in Monrovia, creating a truly Pan-African educational network committed to excellence and leadership development.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
+                                  <div className="grid grid-cols-2 gap-6">
                   <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">2005</div>
+                    <div className="text-3xl font-bold text-purple-600 mb-2">2021</div>
                     <div className="text-gray-600">Founded</div>
                   </div>
                   <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-emerald-50">
@@ -345,6 +325,7 @@ export default function HistoryPage() {
           </motion.div>
         </div>
       </section>
+      <EnhancedFooter />
     </div>
   )
 }

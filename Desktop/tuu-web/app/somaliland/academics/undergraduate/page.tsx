@@ -25,433 +25,304 @@ import SomalilandNavbar from "@/components/somaliland/somaliland-navbar"
 import SomalilandFooter from "@/components/somaliland/somaliland-footer"
 
 export default function UndergraduatePage() {
-  const [selectedProgram, setSelectedProgram] = useState("business")
-
   const undergraduatePrograms = {
-    business: {
+    // Faculty of Social Sciences
+    international_relations: {
+      title: "Bachelor of International Relations and Diplomatic Studies",
+      titleSo: "Shahaadada Koowaad ee Xiriirka Caalamiga ah iyo Daraasaadka Dibloomaasiyadda",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Global politics, diplomacy, and international cooperation.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Diplomacy skills", "Global perspective"],
+      curriculum: {
+        "Year 1": ["Introduction to International Relations", "Political Science Basics", "Academic Writing", "African History"],
+        "Year 2": ["Diplomatic Practice", "Comparative Politics", "International Law", "Research Methods"],
+        "Year 3": ["Foreign Policy Analysis", "International Organizations", "Conflict Resolution", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    public_admin: {
+      title: "Bachelor of Arts in Public Administration and Management",
+      titleSo: "Shahaadada Koowaad ee Maamulka iyo Maareynta Dadweynaha",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Governance, public policy, and administrative leadership.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Policy design", "Leadership"],
+      curriculum: {
+        "Year 1": ["Introduction to Public Administration", "Political Science", "Microeconomics", "Communication Skills"],
+        "Year 2": ["Public Policy", "Organizational Behavior", "Public Finance", "Research Methods"],
+        "Year 3": ["Administrative Law", "Project Management", "Leadership in Public Sector", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    social_work: {
+      title: "Bachelor of Arts in Social Works and Social Administration",
+      titleSo: "Shahaadada Koowaad ee Shaqada Bulshada iyo Maamulka Bulshada",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Community development, welfare services, and advocacy.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Community engagement", "Advocacy"],
+      curriculum: {
+        "Year 1": ["Introduction to Social Work", "Sociology", "Psychology", "Community Development"],
+        "Year 2": ["Social Policy", "Counseling Skills", "Human Rights", "Research Methods"],
+        "Year 3": ["Social Work Practice", "Field Work", "Advocacy", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    project_planning: {
+      title: "Bachelor of Project Planning and Management",
+      titleSo: "Shahaadada Koowaad ee Qorsheynta iyo Maareynta Mashaariicda",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Project lifecycle, monitoring, and evaluation.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Project lifecycle", "PM tools"],
+      curriculum: {
+        "Year 1": ["Introduction to Project Management", "Statistics", "Economics", "ICT for Projects"],
+        "Year 2": ["Project Planning", "Monitoring & Evaluation", "Financial Management", "Research Methods"],
+        "Year 3": ["Risk Management", "Project Implementation", "Leadership", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    public_relations: {
+      title: "Bachelor of Arts in Public Relations and Media Management",
+      titleSo: "Shahaadada Koowaad ee Xiriirka Dadweynaha iyo Maareynta Warbaahinta",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Strategic communication and reputation management.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Media strategy", "Brand management"],
+      curriculum: {
+        "Year 1": ["Introduction to Public Relations", "Media Studies", "Writing for Media", "Communication Skills"],
+        "Year 2": ["Media Law", "Crisis Communication", "Brand Management", "Research Methods"],
+        "Year 3": ["Strategic Communication", "Digital Media", "Campaign Planning", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    // Faculty of Business and Management
+    accounting_finance: {
+      title: "Bachelor of Accounting and Finance",
+      titleSo: "Shahaadada Koowaad ee Xisaabaadka iyo Maaliyadda",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Financial reporting, auditing, and investment analysis.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Accounting", "Finance"],
+      curriculum: {
+        "Year 1": ["Principles of Accounting", "Business Mathematics", "Microeconomics", "Business Communication"],
+        "Year 2": ["Financial Accounting", "Corporate Finance", "Taxation", "Auditing"],
+        "Year 3": ["Management Accounting", "Investment Analysis", "Financial Reporting", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    hr_management: {
+      title: "Bachelor of Human Resource Management",
+      titleSo: "Shahaadada Koowaad ee Maareynta Kheyraadka Aadanaha",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Talent acquisition, development, and employee relations.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["HR", "Recruitment"],
+      curriculum: {
+        "Year 1": ["Introduction to HRM", "Organizational Behavior", "Business Law", "Communication Skills"],
+        "Year 2": ["Recruitment & Selection", "Training & Development", "Labor Relations", "Research Methods"],
+        "Year 3": ["Performance Management", "Compensation Management", "Strategic HRM", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    business_admin: {
       title: "Bachelor of Business Administration",
       titleSo: "Shahaadada Koowaad ee Maamulka Ganacsiga",
-      duration: "4 Years",
+      duration: "3 Years",
       credits: "120 Credits",
-      tuition: "$2,500/year",
-      description:
-        "Comprehensive business education preparing future leaders and entrepreneurs for Somaliland's growing economy. Our program combines theoretical knowledge with practical application through internships, case studies, and real-world projects.",
+      description: "Comprehensive business studies across management, marketing, and finance.",
       image: "/placeholder.svg?height=400&width=600",
-      objectives: [
-        "Develop strong leadership and management skills",
-        "Understand global business practices and local market dynamics",
-        "Master financial analysis and strategic planning",
-        "Build entrepreneurial mindset and innovation capabilities",
-      ],
+      objectives: ["Management", "Entrepreneurship"],
       curriculum: {
-        "Year 1": [
-          "Introduction to Business",
-          "Principles of Economics",
-          "Business Mathematics",
-          "Communication Skills",
-          "Computer Applications",
-          "Somali Business Culture",
-        ],
-        "Year 2": [
-          "Financial Accounting",
-          "Marketing Principles",
-          "Organizational Behavior",
-          "Business Statistics",
-          "Business Law",
-          "Microeconomics",
-        ],
-        "Year 3": [
-          "Strategic Management",
-          "International Business",
-          "Financial Management",
-          "Operations Management",
-          "Human Resource Management",
-          "Business Ethics",
-        ],
-        "Year 4": [
-          "Entrepreneurship",
-          "Project Management",
-          "Business Research Methods",
-          "Capstone Project",
-          "Internship",
-          "Graduation Thesis",
-        ],
+        "Year 1": ["Introduction to Business", "Principles of Management", "Business Mathematics", "Microeconomics"],
+        "Year 2": ["Marketing Principles", "Financial Accounting", "Business Law", "Organizational Behavior"],
+        "Year 3": ["Operations Management", "Entrepreneurship", "Strategic Management", "Capstone Project"]
       },
-      careers: [
-        "Business Manager",
-        "Entrepreneur",
-        "Financial Analyst",
-        "Marketing Specialist",
-        "Operations Manager",
-        "Business Consultant",
-      ],
-      requirements: [
-        "High School Diploma with minimum GPA of 3.0",
-        "English Language Proficiency Test",
-        "Mathematics Placement Test",
-        "Personal Statement",
-        "Two Letters of Recommendation",
-      ],
-      facilities: [
-        "Modern Business Simulation Lab",
-        "Bloomberg Terminal Access",
-        "Entrepreneurship Incubator",
-        "Case Study Discussion Rooms",
-      ],
+      careers: [],
+      requirements: [],
+      facilities: [],
     },
-    technology: {
-      title: "Bachelor of Information Technology",
-      titleSo: "Shahaadada Koowaad ee Tignoolajiyada Macluumaadka",
-      duration: "4 Years",
-      credits: "128 Credits",
-      tuition: "$2,800/year",
-      description:
-        "Cutting-edge technology education covering software development, cybersecurity, and digital innovation. Our program prepares students for the rapidly evolving tech industry with hands-on experience and industry partnerships.",
+    banking_finance: {
+      title: "Bachelor of Banking and Finance",
+      titleSo: "Shahaadada Koowaad ee Bangiyada iyo Maaliyadda",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Bank operations, risk management, and investment banking.",
       image: "/placeholder.svg?height=400&width=600",
-      objectives: [
-        "Master programming languages and software development",
-        "Understand cybersecurity principles and practices",
-        "Develop skills in database management and system analysis",
-        "Build expertise in emerging technologies like AI and IoT",
-      ],
+      objectives: ["Banking", "Risk management"],
       curriculum: {
-        "Year 1": [
-          "Introduction to Computing",
-          "Programming Fundamentals",
-          "Computer Mathematics",
-          "Digital Logic Design",
-          "Web Development Basics",
-          "IT Ethics",
-        ],
-        "Year 2": [
-          "Object-Oriented Programming",
-          "Database Systems",
-          "Computer Networks",
-          "Data Structures",
-          "Operating Systems",
-          "Software Engineering",
-        ],
-        "Year 3": [
-          "Cybersecurity Fundamentals",
-          "Mobile App Development",
-          "Artificial Intelligence",
-          "Cloud Computing",
-          "System Administration",
-          "IT Project Management",
-        ],
-        "Year 4": [
-          "Advanced Cybersecurity",
-          "Machine Learning",
-          "Capstone Project",
-          "Industry Internship",
-          "Emerging Technologies",
-          "Professional Certification Prep",
-        ],
+        "Year 1": ["Introduction to Banking", "Principles of Finance", "Business Mathematics", "Microeconomics"],
+        "Year 2": ["Bank Operations", "Risk Management", "Financial Markets", "Research Methods"],
+        "Year 3": ["Investment Banking", "Corporate Finance", "Bank Management", "Capstone Project"]
       },
-      careers: [
-        "Software Developer",
-        "IT Consultant",
-        "Cybersecurity Analyst",
-        "Systems Administrator",
-        "Database Administrator",
-        "Mobile App Developer",
-      ],
-      requirements: [
-        "High School Diploma with strong mathematics background",
-        "Basic Computer Skills Assessment",
-        "English Language Proficiency",
-        "Logical Reasoning Test",
-        "Personal Statement",
-      ],
-      facilities: [
-        "State-of-the-art Computer Labs",
-        "Cybersecurity Training Center",
-        "Mobile Development Studio",
-        "Cloud Computing Infrastructure",
-      ],
+      careers: [],
+      requirements: [],
+      facilities: [],
     },
-    health: {
+    procurement_supply: {
+      title: "Bachelor of Procurement, Logistics and Supplies Chain Management",
+      titleSo: "Shahaadada Koowaad ee Iibsiga, Saadka iyo Maareynta Silsiladda Sahaminta",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "End-to-end supply chain optimisation and logistics strategy.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Supply chain", "Logistics"],
+      curriculum: {
+        "Year 1": ["Introduction to Procurement", "Logistics Basics", "Business Mathematics", "Microeconomics"],
+        "Year 2": ["Supply Chain Management", "Inventory Management", "Purchasing", "Research Methods"],
+        "Year 3": ["Logistics Strategy", "Procurement Law", "Contract Management", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    marketing: {
+      title: "Bachelor of Marketing",
+      titleSo: "Shahaadada Koowaad ee Suuqgeynta",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Consumer behaviour, brand management, and digital marketing.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Branding", "Digital marketing"],
+      curriculum: {
+        "Year 1": ["Principles of Marketing", "Consumer Behavior", "Business Communication", "Microeconomics"],
+        "Year 2": ["Brand Management", "Digital Marketing", "Market Research", "Advertising"],
+        "Year 3": ["Sales Management", "Strategic Marketing", "Retail Management", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    // Faculty of Allied Health Science
+    public_health: {
       title: "Bachelor of Public Health",
       titleSo: "Shahaadada Koowaad ee Caafimaadka Dadweynaha",
-      duration: "4 Years",
-      credits: "130 Credits",
-      tuition: "$3,000/year",
-      description:
-        "Comprehensive public health education focusing on community health, disease prevention, and health promotion. Our program addresses the unique health challenges facing Somaliland and the broader Horn of Africa region.",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Community health, disease prevention, and health promotion.",
       image: "/placeholder.svg?height=400&width=600",
-      objectives: [
-        "Understand epidemiology and disease prevention strategies",
-        "Develop community health assessment and intervention skills",
-        "Master health policy analysis and program evaluation",
-        "Build cultural competency in health service delivery",
-      ],
+      objectives: ["Epidemiology", "Health promotion"],
       curriculum: {
-        "Year 1": [
-          "Introduction to Public Health",
-          "Human Anatomy & Physiology",
-          "Health Communication",
-          "Biostatistics",
-          "Environmental Health",
-          "Community Health Basics",
-        ],
-        "Year 2": [
-          "Epidemiology",
-          "Health Behavior",
-          "Maternal & Child Health",
-          "Nutrition",
-          "Health Education Methods",
-          "Research Methods",
-        ],
-        "Year 3": [
-          "Health Policy & Management",
-          "Global Health",
-          "Infectious Disease Control",
-          "Health Program Planning",
-          "Field Epidemiology",
-          "Health Economics",
-        ],
-        "Year 4": [
-          "Advanced Epidemiology",
-          "Health Systems Management",
-          "Capstone Project",
-          "Field Practicum",
-          "Health Emergency Preparedness",
-          "Professional Ethics",
-        ],
+        "Year 1": ["Introduction to Public Health", "Biology", "Chemistry", "Health Communication"],
+        "Year 2": ["Epidemiology", "Biostatistics", "Community Health", "Nutrition"],
+        "Year 3": ["Health Policy", "Environmental Health", "Disease Prevention", "Capstone Project"]
       },
-      careers: [
-        "Public Health Officer",
-        "Health Educator",
-        "Epidemiologist",
-        "Community Health Worker",
-        "Health Program Manager",
-        "Health Policy Analyst",
-      ],
-      requirements: [
-        "High School Diploma with science background",
-        "Biology and Chemistry prerequisites",
-        "English Language Proficiency",
-        "Health Service Volunteer Experience (preferred)",
-        "Personal Statement",
-      ],
-      facilities: [
-        "Public Health Laboratory",
-        "Community Health Training Center",
-        "Epidemiology Research Lab",
-        "Health Simulation Center",
-      ],
+      careers: [],
+      requirements: [],
+      facilities: [],
     },
-    engineering: {
-      title: "Bachelor of Civil Engineering",
-      titleSo: "Shahaadada Koowaad ee Injineerinta Dhismaha",
-      duration: "4 Years",
-      credits: "135 Credits",
-      tuition: "$3,200/year",
-      description:
-        "Comprehensive engineering education focusing on infrastructure development and construction management. Our program addresses Somaliland's growing infrastructure needs with emphasis on sustainable and resilient design.",
+    nutrition_food: {
+      title: "Bachelor of Nutrition and Food Science",
+      titleSo: "Shahaadada Koowaad ee Nafaqada iyo Cilmiga Cuntada",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Human nutrition, dietetics, and food safety.",
       image: "/placeholder.svg?height=400&width=600",
-      objectives: [
-        "Master structural analysis and design principles",
-        "Understand construction management and project planning",
-        "Develop expertise in sustainable engineering practices",
-        "Build skills in modern engineering software and tools",
-      ],
+      objectives: ["Dietetics", "Food safety"],
       curriculum: {
-        "Year 1": [
-          "Engineering Mathematics I",
-          "Physics for Engineers",
-          "Engineering Drawing",
-          "Introduction to Civil Engineering",
-          "Chemistry for Engineers",
-          "Computer Programming",
-        ],
-        "Year 2": [
-          "Engineering Mathematics II",
-          "Mechanics of Materials",
-          "Fluid Mechanics",
-          "Surveying",
-          "Engineering Geology",
-          "Construction Materials",
-        ],
-        "Year 3": [
-          "Structural Analysis",
-          "Concrete Design",
-          "Steel Design",
-          "Geotechnical Engineering",
-          "Transportation Engineering",
-          "Water Resources Engineering",
-        ],
-        "Year 4": [
-          "Advanced Structural Design",
-          "Construction Management",
-          "Environmental Engineering",
-          "Capstone Design Project",
-          "Professional Practice",
-          "Engineering Internship",
-        ],
+        "Year 1": ["Introduction to Nutrition", "Biology", "Chemistry", "Food Science"],
+        "Year 2": ["Dietetics", "Food Safety", "Community Nutrition", "Research Methods"],
+        "Year 3": ["Clinical Nutrition", "Public Health Nutrition", "Food Microbiology", "Capstone Project"]
       },
-      careers: [
-        "Civil Engineer",
-        "Project Manager",
-        "Construction Supervisor",
-        "Infrastructure Planner",
-        "Structural Designer",
-        "Construction Consultant",
-      ],
-      requirements: [
-        "High School Diploma with strong mathematics and physics",
-        "Mathematics Placement Test (Advanced Level)",
-        "Physics Proficiency Test",
-        "English Language Proficiency",
-        "Spatial Reasoning Assessment",
-      ],
-      facilities: [
-        "Structural Engineering Laboratory",
-        "Materials Testing Lab",
-        "Surveying Equipment Center",
-        "CAD Design Studio",
-      ],
+      careers: [],
+      requirements: [],
+      facilities: [],
     },
-    education: {
-      title: "Bachelor of Education",
-      titleSo: "Shahaadada Koowaad ee Waxbarashada",
-      duration: "4 Years",
-      credits: "125 Credits",
-      tuition: "$2,200/year",
-      description:
-        "Comprehensive teacher preparation program designed to develop qualified educators for Somaliland's schools. Our program combines pedagogical theory with extensive practical teaching experience.",
+    health_service_mgmt: {
+      title: "Bachelor of Science in Health Service & Management",
+      titleSo: "Shahaadada Koowaad ee Maamulka Adeegyada Caafimaadka",
+      duration: "3 Years",
+      credits: "120 Credits",
+      description: "Healthcare systems, policy, and administration.",
       image: "/placeholder.svg?height=400&width=600",
-      objectives: [
-        "Master effective teaching methodologies and strategies",
-        "Understand child development and learning psychology",
-        "Develop classroom management and assessment skills",
-        "Build cultural competency and inclusive education practices",
-      ],
+      objectives: ["Health policy", "Administration"],
       curriculum: {
-        "Year 1": [
-          "Introduction to Education",
-          "Child Development",
-          "Educational Psychology",
-          "Somali Language & Literature",
-          "Mathematics for Teachers",
-          "Communication Skills",
-        ],
-        "Year 2": [
-          "Curriculum Development",
-          "Teaching Methods",
-          "Classroom Management",
-          "Educational Technology",
-          "Assessment & Evaluation",
-          "Special Needs Education",
-        ],
-        "Year 3": [
-          "Subject Specialization",
-          "Practicum I",
-          "Educational Research",
-          "School Administration",
-          "Multicultural Education",
-          "Educational Philosophy",
-        ],
-        "Year 4": [
-          "Advanced Teaching Methods",
-          "Practicum II",
-          "Action Research Project",
-          "Professional Ethics",
-          "Educational Leadership",
-          "Student Teaching",
-        ],
+        "Year 1": ["Introduction to Health Services", "Biology", "Chemistry", "Health Communication"],
+        "Year 2": ["Health Policy", "Hospital Management", "Epidemiology", "Research Methods"],
+        "Year 3": ["Healthcare Administration", "Health Economics", "Quality Management", "Capstone Project"]
       },
-      careers: [
-        "Primary School Teacher",
-        "Secondary School Teacher",
-        "Education Administrator",
-        "Curriculum Specialist",
-        "Educational Consultant",
-        "Training Coordinator",
-      ],
-      requirements: [
-        "High School Diploma with good academic standing",
-        "Subject area specialization preference",
-        "English and Somali language proficiency",
-        "Teaching aptitude assessment",
-        "Character reference letters",
-      ],
-      facilities: [
-        "Teaching Practice Schools",
-        "Educational Technology Lab",
-        "Curriculum Resource Center",
-        "Microteaching Studios",
-      ],
+      careers: [],
+      requirements: [],
+      facilities: [],
     },
-    agriculture: {
-      title: "Bachelor of Agriculture & Environmental Science",
-      titleSo: "Shahaadada Koowaad ee Beeraha & Sayniska Deegaanka",
-      duration: "4 Years",
-      credits: "132 Credits",
-      tuition: "$2,600/year",
-      description:
-        "Comprehensive program addressing sustainable agriculture and environmental management. Our curriculum focuses on food security, climate adaptation, and sustainable farming practices relevant to Somaliland's arid and semi-arid conditions.",
+    // Faculty of Computing & IT
+    software_engineering: {
+      title: "Bachelor of Science in Software Engineering",
+      titleSo: "Shahaadada Koowaad ee Injineerinka Software-ka",
+      duration: "3 Years",
+      credits: "128 Credits",
+      description: "Software development lifecycle, DevOps, and quality assurance.",
       image: "/placeholder.svg?height=400&width=600",
-      objectives: [
-        "Master sustainable agriculture and farming techniques",
-        "Understand environmental conservation and management",
-        "Develop expertise in crop and livestock production",
-        "Build skills in agricultural technology and innovation",
-      ],
+      objectives: ["Software development", "DevOps"],
       curriculum: {
-        "Year 1": [
-          "Introduction to Agriculture",
-          "Plant Biology",
-          "Animal Science",
-          "Soil Science",
-          "Agricultural Chemistry",
-          "Environmental Science Basics",
-        ],
-        "Year 2": [
-          "Crop Production",
-          "Livestock Management",
-          "Agricultural Economics",
-          "Plant Pathology",
-          "Water Management",
-          "Agricultural Statistics",
-        ],
-        "Year 3": [
-          "Sustainable Agriculture",
-          "Climate Change Adaptation",
-          "Agricultural Technology",
-          "Food Science",
-          "Range Management",
-          "Agricultural Extension",
-        ],
-        "Year 4": [
-          "Advanced Crop Management",
-          "Agricultural Research Methods",
-          "Agribusiness Management",
-          "Capstone Project",
-          "Field Practicum",
-          "Agricultural Policy",
-        ],
+        "Year 1": ["Introduction to Programming", "Mathematics for Computing", "Computer Science Basics", "Web Development"],
+        "Year 2": ["Data Structures", "Algorithms", "Software Engineering", "Database Systems"],
+        "Year 3": ["Software Testing", "DevOps", "Project Management", "Capstone Project"]
       },
-      careers: [
-        "Agricultural Specialist",
-        "Environmental Consultant",
-        "Farm Manager",
-        "Agricultural Extension Officer",
-        "Research Scientist",
-        "Agribusiness Manager",
-      ],
-      requirements: [
-        "High School Diploma with science background",
-        "Biology and Chemistry prerequisites",
-        "Interest in agriculture and environment",
-        "Physical fitness for field work",
-        "English Language Proficiency",
-      ],
-      facilities: ["Experimental Farm", "Greenhouse Complex", "Soil & Plant Analysis Lab", "Livestock Research Center"],
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    computer_science: {
+      title: "Bachelor of Science in Computer Science",
+      titleSo: "Shahaadada Koowaad ee Cilmiga Kombiyuutarka",
+      duration: "3 Years",
+      credits: "128 Credits",
+      description: "Algorithms, data structures, and emerging technologies.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Algorithms", "Data structures"],
+      curriculum: {
+        "Year 1": ["Introduction to Computer Science", "Mathematics for Computing", "Programming Fundamentals", "Web Development"],
+        "Year 2": ["Data Structures", "Algorithms", "Operating Systems", "Database Systems"],
+        "Year 3": ["Artificial Intelligence", "Networks", "Software Engineering", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
+    },
+    information_technology: {
+      title: "Bachelor of Science in Information Technology",
+      titleSo: "Shahaadada Koowaad ee Tignoolajiyada Macluumaadka",
+      duration: "3 Years",
+      credits: "128 Credits",
+      description: "Network administration, cybersecurity, and IT project management.",
+      image: "/placeholder.svg?height=400&width=600",
+      objectives: ["Networking", "Cybersecurity"],
+      curriculum: {
+        "Year 1": ["Introduction to IT", "Mathematics for IT", "Programming Fundamentals", "Web Development"],
+        "Year 2": ["Networking", "Cybersecurity", "Database Systems", "Operating Systems"],
+        "Year 3": ["IT Project Management", "Cloud Computing", "System Administration", "Capstone Project"]
+      },
+      careers: [],
+      requirements: [],
+      facilities: [],
     },
   }
 
   const programKeys = Object.keys(undergraduatePrograms) as Array<keyof typeof undergraduatePrograms>
+  const [selectedProgram, setSelectedProgram] = useState(programKeys[0])
 
   return (
     <div className="min-h-screen bg-white">
@@ -488,7 +359,7 @@ export default function UndergraduatePage() {
                 Explore Programs
                 <ArrowRight className="ml-3 h-5 w-5" />
               </Button>
-              <Link href="/admissions/apply">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   variant="outline"
@@ -554,6 +425,7 @@ export default function UndergraduatePage() {
           >
             {(() => {
               const program = undergraduatePrograms[selectedProgram as keyof typeof undergraduatePrograms]
+              if (!program) return null
               return (
                 <>
                   {/* Program Header */}
@@ -576,10 +448,6 @@ export default function UndergraduatePage() {
                         <Badge className="bg-white/20 backdrop-blur-sm text-white">
                           <BookOpen className="h-4 w-4 mr-2" />
                           {program.credits}
-                        </Badge>
-                        <Badge className="bg-white/20 backdrop-blur-sm text-white">
-                          <DollarSign className="h-4 w-4 mr-2" />
-                          {program.tuition}
                         </Badge>
                       </div>
                     </div>
@@ -655,10 +523,6 @@ export default function UndergraduatePage() {
                               <span className="text-gray-600">Credits:</span>
                               <span className="font-semibold">{program.credits}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Tuition:</span>
-                              <span className="font-semibold">{program.tuition}</span>
-                            </div>
                           </CardContent>
                         </Card>
 
@@ -729,7 +593,7 @@ export default function UndergraduatePage() {
                             <p className="text-sm text-gray-600 mb-4">
                               Start your application today and take the first step towards your future.
                             </p>
-                            <Link href="/admissions/apply">
+                            <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                               <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700">
                                 Apply Now
                                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -767,7 +631,7 @@ export default function UndergraduatePage() {
 
             <div className="flex flex-wrap justify-center gap-6">
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/admissions/apply">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
                     className="bg-white text-emerald-700 hover:bg-gray-100 px-8 py-4 text-lg font-bold shadow-2xl"

@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import EnhancedNavbar from "@/components/enhanced-navbar"
+import EnhancedFooter from "@/components/enhanced-footer"
 import Link from "next/link"
 
 export default function ContactPage() {
@@ -40,48 +41,48 @@ export default function ContactPage() {
 
   const campusInfo = [
     {
+      name: "Somaliland Campus",
+      address: "Jigjiga Yar Street near Masjid Jabir, Hargeisa, Somaliland",
+      phone: "+252 634 210013",
+      email: "theunityuniversity@gmail.com",
+      hours: "Sunday - Thursday: 8:00 AM - 6:00 PM (GMT+3)",
+      image: "/placeholder.svg?height=300&width=400",
+      flag: "🏴",
+    },
+    {
       name: "Liberia Campus",
       address: "Unity University Drive, Monrovia, Montserrado County, Liberia",
-      phone: "+231 123 456 789",
+      phone: "+231 777 123 456",
       email: "liberia@tuu.university",
       hours: "Monday - Friday: 8:00 AM - 6:00 PM",
       image: "/placeholder.svg?height=300&width=400",
       flag: "🇱🇷",
-    },
-    {
-      name: "Somaliland Campus",
-      address: "University Road, Hargeisa, Maroodi Jeex Region, Somaliland",
-      phone: "+252 63 123 4567",
-      email: "somaliland@tuu.university",
-      hours: "Sunday - Thursday: 8:00 AM - 6:00 PM (GMT+3)",
-      image: "/placeholder.svg?height=300&width=400",
-      flag: "🏴",
     },
   ]
 
   const departments = [
     {
       name: "Admissions Office",
-      email: "admissions@tuu.university",
-      phone: "+1 234 567 890",
+      email: "theunityuniversity@gmail.com",
+      phone: "+252 634 210013",
       description: "Application process, requirements, and enrollment",
     },
     {
-      name: "Student Services",
+      name: "Student Affairs",
       email: "students@tuu.university",
-      phone: "+1 234 567 891",
+      phone: "+252 637 235142",
       description: "Student support, housing, and campus life",
     },
     {
       name: "Academic Affairs",
       email: "academics@tuu.university",
-      phone: "+1 234 567 892",
+      phone: "+252 637 235143",
       description: "Curriculum, programs, and academic policies",
     },
     {
       name: "International Office",
-      email: "international@tuu.university",
-      phone: "+1 234 567 893",
+      email: "info@tuu.university",
+      phone: "+252 634 679325",
       description: "Exchange programs and international partnerships",
     },
   ]
@@ -265,7 +266,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="font-semibold text-gray-900">General Inquiries</div>
-                      <div className="text-gray-600">info@tuu.university</div>
+                      <div className="text-gray-600">theunityuniversity@gmail.com</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -274,7 +275,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="font-semibold text-gray-900">Main Office</div>
-                      <div className="text-gray-600">+1 234 567 890</div>
+                      <div className="text-gray-600">+252 634 210013</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -494,6 +495,7 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
+      <EnhancedFooter />
     </div>
   )
 }

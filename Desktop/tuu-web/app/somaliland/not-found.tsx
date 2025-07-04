@@ -51,7 +51,7 @@ export default function NotFound() {
             <div className="pt-6 border-t">
               <h3 className="font-semibold text-gray-900 mb-4">Popular Pages</h3>
               <div className="grid grid-cols-2 gap-2 text-sm">
-                <Link href="/admissions/apply" className="text-green-600 hover:underline">
+                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline">
                   Apply Now
                 </Link>
                 <Link href="/research" className="text-green-600 hover:underline">

@@ -86,21 +86,21 @@ export default function EnhancedNavbar() {
       href: "/campuses",
       dropdown: [
         {
+          name: "Somaliland Campus",
+          href: "/somaliland",
+          description: "Hargeisa, Somaliland",
+          motto: "What begins here, transforms Africa",
+          established: "2021",
+          flag: SomalilandFlag,
+          external: true,
+        },
+        {
           name: "Liberia Campus",
           href: "/liberia",
           description: "Monrovia, Montserrado County",
           motto: "The Love of Liberty Brought Us Here",
-          established: "2005",
+          established: "mid-2024",
           flag: LiberiaFlag,
-          external: true,
-        },
-        {
-          name: "Somaliland Campus",
-          href: "/somaliland",
-          description: "Hargeisa, Maroodi Jeex Region",
-          motto: "Halkan wax ka bilaabmaan, Afrika way beddelaan",
-          established: "2008",
-          flag: SomalilandFlag,
           external: true,
         },
       ],
@@ -110,8 +110,7 @@ export default function EnhancedNavbar() {
       href: "/academics",
       dropdown: [
         { name: "Undergraduate Programs", href: "/academics/undergraduate" },
-        { name: "Graduate Programs", href: "/academics/graduate" },
-        { name: "Professional Development", href: "/academics/professional" },
+        {  name: "Graduate Programs", href: "/academics/graduate" },
         { name: "Academic Calendar", href: "/academics/calendar" },
       ] as DropdownItem[],
     },
@@ -120,8 +119,6 @@ export default function EnhancedNavbar() {
       href: "/admissions",
       dropdown: [
         { name: "Apply Now", href: "/admissions/apply" },
-        { name: "Tuition & Fees", href: "/admissions/tuition" },
-        { name: "Financial Aid", href: "/admissions/financial-aid" },
         { name: "International Students", href: "/admissions/international" },
       ],
     },
@@ -141,8 +138,6 @@ export default function EnhancedNavbar() {
       dropdown: [
         { name: "Campus Activities", href: "/student-life/activities" },
         { name: "Student Organizations", href: "/student-life/organizations" },
-        { name: "Housing", href: "/student-life/housing" },
-        { name: "Dining", href: "/student-life/dining" },
       ],
     },
     {
@@ -199,18 +194,18 @@ export default function EnhancedNavbar() {
         <div className="container mx-auto flex items-center justify-between px-4">
           <div className="flex items-center space-x-6 text-xs text-white">
             <a
-              href="mailto:info@tuu.university"
+              href="mailto:theunityuniversity@gmail.com"
               className="flex items-center hover:text-purple-100 transition-colors duration-300"
             >
               <Mail className="mr-1 h-3 w-3" />
-              info@tuu.university
+              theunityuniversity@gmail.com
             </a>
             <a
-              href="tel:+1234567890"
+              href="tel:+252634210013"
               className="flex items-center hover:text-purple-100 transition-colors duration-300"
             >
               <Phone className="mr-1 h-3 w-3" />
-              +1 234 567 890
+              +252 634 210013
             </a>
           </div>
           <div className="text-xs text-white font-bold flex items-center space-x-3">
@@ -343,8 +338,7 @@ export default function EnhancedNavbar() {
                                   // Regular Dropdown Items
                                   <Link
                                     href={item.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    {...(item.name === "Apply Now" && { target: "_blank", rel: "noopener noreferrer" })}
                                     className="block px-4 py-2 text-xs text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-blue-50 hover:text-purple-700 transition-all duration-300 rounded-lg mx-2"
                                     onClick={() => setActiveDropdown(null)}
                                   >
@@ -371,7 +365,7 @@ export default function EnhancedNavbar() {
           </nav>
 
           <div className="hidden items-center space-x-3 lg:flex">
-            <Link href="/admissions/apply">
+            <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-md transition-all duration-300 hover:shadow-lg px-3 py-1 font-semibold text-xs">
                 Apply Now
               </Button>
@@ -437,18 +431,18 @@ export default function EnhancedNavbar() {
                     </Link>
                   </div>
                   <a
-                    href="mailto:info@tuu.university"
+                    href="mailto:theunityuniversity@gmail.com"
                     className="flex items-center text-gray-600 hover:text-purple-700 transition-colors text-xs"
                   >
                     <Mail className="mr-2 h-3 w-3" />
-                    info@tuu.university
+                    theunityuniversity@gmail.com
                   </a>
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+252634210013"
                     className="flex items-center text-gray-600 hover:text-purple-700 transition-colors text-xs"
                   >
                     <Phone className="mr-2 h-3 w-3" />
-                    +1 234 567 890
+                    +252 634 210013
                   </a>
                 </div>
 
@@ -500,8 +494,7 @@ export default function EnhancedNavbar() {
                                       // Regular Mobile Menu Items
                                       <Link
                                         href={item.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        {...(item.name === "Apply Now" && { target: "_blank", rel: "noopener noreferrer" })}
                                         className="block py-1 text-gray-600 hover:text-purple-700 transition-colors text-xs pl-2"
                                         onClick={() => setMobileMenuOpen(false)}
                                       >
@@ -528,7 +521,7 @@ export default function EnhancedNavbar() {
                 </nav>
 
                 <div className="mt-6">
-                  <Link href="/admissions/apply">
+                  <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                     <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-md py-2 text-sm font-bold">
                       Apply Now
                     </Button>
