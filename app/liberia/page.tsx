@@ -544,7 +544,7 @@ export default function LiberiaHome() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  Unity University - Liberia Campus
+                  The Unity University - Liberia Campus
                 </motion.h2>
 
                 <motion.h3

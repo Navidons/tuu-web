@@ -120,14 +120,6 @@ export default function LiberiaFooter() {
               </li>
               <li>
                 <Link
-                  href="/liberia/academics/professional"
-                  className="text-gray-400 transition-colors hover:text-white hover:pl-2 duration-200"
-                >
-                  Professional Development
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/liberia/academics/calendar"
                   className="text-gray-400 transition-colors hover:text-white hover:pl-2 duration-200"
                 >
@@ -135,12 +127,6 @@ export default function LiberiaFooter() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/liberia/research"
-                  className="text-gray-400 transition-colors hover:text-white hover:pl-2 duration-200"
-                >
-                  Research Excellence
-                </Link>
               </li>
             </ul>
           </div>
@@ -172,28 +158,6 @@ export default function LiberiaFooter() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/liberia/admissions/tuition"
-                  className="text-gray-400 transition-colors hover:text-white hover:pl-2 duration-200"
-                >
-                  Tuition & Fees
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/liberia/admissions/financial-aid"
-                  className="text-gray-400 transition-colors hover:text-white hover:pl-2 duration-200"
-                >
-                  Financial Aid
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/liberia/admissions/international"
-                  className="text-gray-400 transition-colors hover:text-white hover:pl-2 duration-200"
-                >
-                  International Students
-                </Link>
               </li>
             </ul>
           </div>

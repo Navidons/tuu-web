@@ -73,6 +73,73 @@ const Breadcrumb = () => {
   )
 }
 
+// Program Card component for reusability
+const ProgramCard = ({ program, onClick }: { program: any; onClick: () => void }) => {
+  return (
+    <motion.div
+      whileHover={{ y: -10, scale: 1.02 }}
+      className="group cursor-pointer"
+      onClick={onClick}
+    >
+      <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl transition-all duration-300 hover:shadow-2xl">
+        <div className="relative h-48 overflow-hidden">
+          <Image
+            src={program.image || "/placeholder.svg"}
+            alt={program.title}
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute top-4 right-4">
+            <Badge className="bg-white/90 text-gray-900 font-bold">{program.duration}</Badge>
+          </div>
+          <div className="absolute bottom-4 left-4">
+            <program.icon className="h-8 w-8 text-white" />
+          </div>
+        </div>
+
+        <CardHeader className="pb-4">
+          <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+            {program.title}
+          </CardTitle>
+          <div className="flex items-center space-x-4 text-sm text-gray-600">
+            <span className="flex items-center">
+              <Clock className="h-4 w-4 mr-1" />
+              {program.credits}
+            </span>
+          </div>
+        </CardHeader>
+
+        <CardContent className="pb-6">
+          <p className="text-gray-600 mb-4 line-clamp-3">{program.description}</p>
+          <div className="space-y-2">
+            <h4 className="font-semibold text-gray-900 text-sm">Key Highlights:</h4>
+            <div className="flex flex-wrap gap-1">
+              {program.highlights.slice(0, 2).map((highlight: string, idx: number) => (
+                <Badge key={idx} variant="secondary" className="text-xs">
+                  {highlight}
+                </Badge>
+              ))}
+              {program.highlights.length > 2 && (
+                <Badge variant="secondary" className="text-xs">
+                  +{program.highlights.length - 2} more
+                </Badge>
+              )}
+            </div>
+          </div>
+        </CardContent>
+
+        <div className="px-6 pb-6">
+          <Button className="w-full group-hover:bg-blue-600 transition-colors">
+            Learn More
+            <ChevronRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </Card>
+    </motion.div>
+  )
+}
+
 export default function UndergraduatePage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -484,11 +551,11 @@ export default function UndergraduatePage() {
         </div>
       </section>
 
-      {/* Search and Filter Section */}
+      {/* Programs Section with Tabs */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
-            className="max-w-4xl mx-auto"
+            className="max-w-7xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -496,8 +563,10 @@ export default function UndergraduatePage() {
           >
             <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Find Your Perfect Program</h2>
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative">
+              
+              {/* Search Input */}
+              <div className="flex justify-center mb-8">
+                <div className="flex-1 max-w-md relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                   <Input
                     type="text"
@@ -507,119 +576,99 @@ export default function UndergraduatePage() {
                     className="pl-10 py-3 text-lg"
                   />
                 </div>
-                <div className="md:w-64">
-                  <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger className="py-3 text-lg">
-                      <Filter className="h-5 w-5 mr-2" />
-                      <SelectValue placeholder="Filter by category" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {categories.map((category) => (
-                        <SelectItem key={category.value} value={category.value}>
-                          {category.label} ({category.count})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
               </div>
+
+              {/* Tabs for Program Categories */}
+              <Tabs defaultValue="all" className="w-full">
+                <TabsList className="grid w-full grid-cols-5 mb-8">
+                  <TabsTrigger value="all" className="flex items-center gap-2">
+                    <span>All Programs</span>
+                    <Badge variant="secondary" className="text-xs">16</Badge>
+                  </TabsTrigger>
+                  <TabsTrigger value="social" className="flex items-center gap-2">
+                    <span>Social Sciences</span>
+                    <Badge variant="secondary" className="text-xs">5</Badge>
+                  </TabsTrigger>
+                  <TabsTrigger value="business" className="flex items-center gap-2">
+                    <span>Business</span>
+                    <Badge variant="secondary" className="text-xs">6</Badge>
+                  </TabsTrigger>
+                  <TabsTrigger value="health" className="flex items-center gap-2">
+                    <span>Health Sciences</span>
+                    <Badge variant="secondary" className="text-xs">3</Badge>
+                  </TabsTrigger>
+                  <TabsTrigger value="computing" className="flex items-center gap-2">
+                    <span>Computing & IT</span>
+                    <Badge variant="secondary" className="text-xs">3</Badge>
+                  </TabsTrigger>
+                </TabsList>
+
+                {/* All Programs Tab */}
+                <TabsContent value="all">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                      program.description.toLowerCase().includes(searchTerm.toLowerCase())
+                    ).map((program) => (
+                      <ProgramCard key={program.id} program={program} onClick={() => setSelectedProgram(program.id)} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Social Sciences Programs Tab */}
+                <TabsContent value="social">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.category === "social" &&
+                      (program.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       program.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                    ).map((program) => (
+                      <ProgramCard key={program.id} program={program} onClick={() => setSelectedProgram(program.id)} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Business Programs Tab */}
+                <TabsContent value="business">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.category === "business" &&
+                      (program.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       program.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                    ).map((program) => (
+                      <ProgramCard key={program.id} program={program} onClick={() => setSelectedProgram(program.id)} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Health Sciences Programs Tab */}
+                <TabsContent value="health">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.category === "health" &&
+                      (program.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       program.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                    ).map((program) => (
+                      <ProgramCard key={program.id} program={program} onClick={() => setSelectedProgram(program.id)} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Computing & IT Programs Tab */}
+                <TabsContent value="computing">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.category === "computing" &&
+                      (program.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       program.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                    ).map((program) => (
+                      <ProgramCard key={program.id} program={program} onClick={() => setSelectedProgram(program.id)} />
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Programs Grid */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
-            <AnimatePresence>
-              {filteredPrograms.map((program, index) => (
-                <motion.div
-                  key={program.id}
-                  variants={itemVariants}
-                  layout
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="group cursor-pointer"
-                  onClick={() => setSelectedProgram(program.id)}
-                >
-                  <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl transition-all duration-300 hover:shadow-2xl">
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={program.image || "/placeholder.svg"}
-                        alt={program.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute top-4 right-4">
-                        <Badge className="bg-white/90 text-gray-900 font-bold">{program.duration}</Badge>
-                      </div>
-                      <div className="absolute bottom-4 left-4">
-                        <program.icon className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-
-                    <CardHeader className="pb-4">
-                      <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {program.title}
-                      </CardTitle>
-                      <div className="flex items-center space-x-4 text-sm text-gray-600">
-                        <span className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1" />
-                          {program.credits}
-                        </span>
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="pb-6">
-                      <p className="text-gray-600 mb-4 line-clamp-3">{program.description}</p>
-                      <div className="space-y-2">
-                        <h4 className="font-semibold text-gray-900 text-sm">Key Highlights:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {program.highlights.slice(0, 2).map((highlight, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
-                              {highlight}
-                            </Badge>
-                          ))}
-                          {program.highlights.length > 2 && (
-                            <Badge variant="secondary" className="text-xs">
-                              +{program.highlights.length - 2} more
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    </CardContent>
-
-                    <div className="px-6 pb-6">
-                      <Button className="w-full group-hover:bg-blue-600 transition-colors">
-                        Learn More
-                        <ChevronRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-
-          {filteredPrograms.length === 0 && (
-            <motion.div
-              className="text-center py-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No programs found</h3>
-              <p className="text-gray-600">Try adjusting your search terms or filters.</p>
-            </motion.div>
-          )}
         </div>
       </section>
 
@@ -882,7 +931,7 @@ export default function UndergraduatePage() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
-                    Apply for 2024 Admission
+                    Apply for 2025 - 2026 Admission
                     <GraduationCap className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
