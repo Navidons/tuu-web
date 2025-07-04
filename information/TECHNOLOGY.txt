@@ -1,0 +1,95 @@
+THE UNITY UNIVERSITY
+FACULTY OF COMPUTING AND INFORMATION TECHNOLOGY
+YEAR ONE - SEMESTER ONE
+CU C.H Code Course Name Faculty
+01 3.0 FOU 111 Basic English Language CIT
+02 3.0 FOU 112 Academic Writing Skills CIT
+03 3.0 FOU 113 Communication Skills CIT
+04 3.0 FOU 114 Life Skills CIT
+YEAR ONE - SEMESTER TWO
+CU C.H Code Course Name Faculty
+01 3.0 FOU 125 Spoken English CIT
+02 3.0 FOU 126 Report Writing Skills CIT
+03 3.0 FOU 127 Fundamentals of Public Speaking CIT
+04 3.0 FOU 128 Critical Thinking CIT
+YEAR ONE - SEMESTER THREE
+CU C.H Code Course Name Faculty
+01 3.0 CSC 130 Introduction to Computer Fundamentals CIT
+02 3.0 BSE 131 Internet Technologies & Web Pages CIT
+03 3.0 BIT 132 Computer Applications CIT
+04 3.0 CSC 133 Computer Repair & Maintenance CIT
+05 3.0 ENG 134 English language Skills I CIT
+YEAR TWO - SEMESTER FOUR
+CU C.H Code Course Name Faculty
+01 3.0 CSC 210 Computer Organization & Architecture CIT
+02 3.0 BIT 211 System Analysis & Design CIT
+03 3.0 CSC 212 Database Design & Applications CIT
+04 3.0 BSE 213 Principles of Programming (C Language) CIT
+05 3.0 ENG 214 Oral Communication Skills CIT
+YEAR TWO - SEMESTER FIVE
+CU C.H Code Course Name Faculty
+01 3.0 BIT 225 Electronic Commerce CIT
+02 3.0 CSC 226 Computer Programming Methodology CIT
+03 3.0 BSE 227 Structured Programming (C++ Language) CIT
+04 3.0 BIT 229 Information Systems CIT
+05 3.0 ENG 228 English language Skills II CIT
+YEAR TWO - SEMESTER SIX
+CU C.H Code Course Name Faculty
+01 3.0 BIT 230 Data Communication & Networking CIT
+02 3.0 CSC 231 Artificial Intelligence CIT
+03 3.0 BSE 232 Object Oriented Programming (Java Language) CIT
+04 3.0 BBA 233 Basic Statistics CIT
+05 3.0 ENG 234 Speaking and Grammar CIT
+YEAR THREE - SEMESTER SEVEN
+CU C.H Code Course Name Faculty
+01 3.0 BSE 310 Web Programming & Administration CIT
+02 3.0 BSE 311 Programming in Python CIT
+03 3.0 CSC 312 Operating Systems CIT
+04 3.0 BBA 313 Digital Marketing & ICT Entrepreneurship CIT
+05 3.0 BIT 314 Research Methods CIT
+SPECIALISATION
+BACHELOR OF SCIENCE IN COMPUTER SCIENCE (BSCS)
+YEAR THREE - SEMESTER EIGHT
+CU C.H Code Course Name Faculty
+01 3.0 BIT 325 Cloud Computing and Internet of Things CIT
+02 3.0 CSC 326 Information and Cyber Security CIT
+03 3.0 BSE 327 Software Engineering Principles CIT
+04 3.0 CSC 328 Calculus 1 CIT
+05 3.0 BIT 329 IT Project Management CIT
+YEAR THREE - SEMESTER NINE
+CU C.H Code Course Name Faculty
+01 3.0 BIT 330 System Administration CIT
+02 3.0 BIT 331 Professional Ethics in Computing CIT
+03 3.0 CSC 332 Software Simulation and Modeling CIT
+04 3.0 CSC 333 Design and Analysis of Algorithms CIT
+05 3.0 CSC 334 Research Project CIT
+BACHELOR OF SCIENCE IN SOFTWARE ENGINEERING (BSE)
+YEAR THREE - SEMESTER EIGHT
+CU C.H Code Course Name Faculty
+01 3.0 BSE 325 Cloud Computing and Internet of Things CIT
+02 3.0 CSC 326 Information and Cyber Security CIT
+03 3.0 BSE 327 Software Engineering Principles CIT
+04 3.0 CSC 328 Calculus 1 CIT
+05 3.0 BSE 329 Algorithms and Data Structures CIT
+YEAR THREE - SEMESTER NINE
+CU C.H Code Course Name Faculty
+01 3.0 BSE 330 Software Project Management CIT
+02 3.0 BSE 331 Mobile App Development CIT
+03 3.0 CSC 332 Software Simulation and Modeling CIT
+04 3.0 BSE 333 Human Computer Interaction CIT
+05 3.0 BSE 334 Research Report CIT
+BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY (BSIT)
+YEAR THREE - SEMESTER EIGHT
+CU C.H Code Course Name Faculty
+01 3.0 BIT 325 Cloud Computing and Internet of Things CIT
+02 3.0 BIT 326 Information and Cyber Security CIT
+03 3.0 BSE 327 Software Engineering Principles CIT
+04 3.0 CSC 328 Management Information Systems (MIS) CIT
+05 3.0 BIT 329 IT Project Management CIT
+YEAR THREE - SEMESTER NINE
+CU C.H Code Course Name Faculty
+01 3.0 BIT 330 Systems Administration CIT
+02 3.0 BIT 331 Professional Ethics in Computing CIT
+03 3.0 CSC 332 Software Simulation and Modeling CIT
+04 3.0 BIT 333 Multimedia Technologies & Applications CIT
+05 3.0 BIT 334 Research Report CIT

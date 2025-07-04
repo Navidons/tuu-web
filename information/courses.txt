@@ -1,0 +1,65 @@
+COURSES OFFERED
+FACULTY OF SOCIAL SCIENCES
+Master of Arts in International Relations and Diplomatic Studies
+Master of Arts in Public Administration and Management
+Master of Arts in Development Studies
+
+FACULTY OF BUSINESS AND MANAGEME
+Master of Human Resources Management
+Master of Accounting & Finance
+Master of Business Administration
+Master of Project Planning and Management
+Master of Marketing Management
+Master of Procurement, Logistics and Supplies Chain Management
+
+FACULTY OF ALLIED HEALTH SCIENCES
+Master of Public Health
+Master of Nutrition and Food Science
+
+FACULTY OF EDUCATION
+Master of Education in Policy, Planning & Management Master of
+Education in Leadership and Management
+
+FACULTY OF COMPUTING AND INFORMATION TECHNOLOGY
+Master of Science in Information Technology
+
+FACULTY OF SOCIAL SCIENCES
+Bachelor of International Relations and Diplomatic Studies
+Bachelor of Arts in Public Administration and Management
+Bachelor of Arts in Social Works and Social Administration
+Bachelor of Project Planning and Management
+Bachelor of Arts in Public Relations and Media Management
+FACULTY OF BUSINESS AND MANAGEMENT
+Bachelor Accounting and Finance
+Bachelor of Human Resource Management
+Bachelor of Business Administration
+Bachelor of Banking and Finance
+Bachelor of Procurement, Logistics and Supplies Chain Management
+Bachelor of Marketing
+FACULTY OF ALLIED HEALTH SCIENCE
+Bachelor of Public Health
+Bachelor of Nutrition and Food Science
+Bachelor of Science in Health Service & Management
+FACULTY OF COMPUTING & INFORMATION TECHNOLOGY
+Bachelor of Science in Software Engineering
+Bachelor of Science in Computer Science
+Bachelor of Science in Information Technology
+
+
+FOUNDATION PROGRAMMES
+
+| No | Course Code | Course Name          |
+| -- | ----------- | -------------------- |
+| 01 | FOU 110     | Lugha Ya Kiswahili   |
+| 02 | FOU 111     | English Language     |
+| 03 | FOU 112     | Academic Writing     |
+| 04 | FOU 113     | Communication Skills |
+| 05 | FOU 114     | Life Skills          |
+
+| No | Course Code | Course Name                          |
+| -- | ----------- | ------------------------------------ |
+| 01 | FOU 125     | Spoken English                       |
+| 02 | FOU 126     | Report Writing Skills                |
+| 03 | FOU 127     | Fundamentals of Public Speaking      |
+| 04 | FOU 128     | Introduction to Critical Thinking    |
+| 05 | FOU 129     | Ethical Practice and Professionalism |
