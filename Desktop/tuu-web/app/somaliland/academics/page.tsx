@@ -1,0 +1,692 @@
+"use client"
+
+import React, { useState, useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { motion, useInView } from "framer-motion"
+import {
+  GraduationCap,
+  BookOpen,
+  Users,
+  ChevronRight,
+  Calendar,
+  CheckCircle,
+  ArrowRight,
+  MapPin,
+  TrendingUp,
+} from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import SomalilandNavbar from "@/components/somaliland/somaliland-navbar"
+import SomalilandFooter from "@/components/somaliland/somaliland-footer"
+
+// Animated counter component
+const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
+  const [count, setCount] = useState(0)
+  const [isClient, setIsClient] = useState(false)
+  const ref = React.useRef(null)
+  const isInView = useInView(ref, { once: true })
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (isClient && isInView) {
+      let startTime: number
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime
+        const progress = Math.min((currentTime - startTime) / (duration * 1000), 1)
+        setCount(Math.floor(progress * end))
+        if (progress < 1) {
+          requestAnimationFrame(animate)
+        }
+      }
+      requestAnimationFrame(animate)
+    }
+  }, [isClient, isInView, end, duration])
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  )
+}
+
+export default function AcademicsPage() {
+  const [activeTab, setActiveTab] = useState("overview")
+
+  const academicPrograms = {
+    undergraduate: [
+      {
+        title: "Business Administration",
+        titleSo: "Maamulka Ganacsiga",
+        duration: "4 Years",
+        credits: "120 Credits",
+        description:
+          "Comprehensive business education preparing future leaders and entrepreneurs for Somaliland's growing economy.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Entrepreneurship Focus", "Industry Partnerships", "Internship Programs", "Leadership Development"],
+        careers: ["Business Manager", "Entrepreneur", "Financial Analyst", "Marketing Specialist"],
+        requirements: ["High School Diploma", "English Proficiency", "Mathematics Background"],
+        tuition: "$2,500/year",
+      },
+      {
+        title: "Information Technology",
+        titleSo: "Tignoolajiyada Macluumaadka",
+        duration: "4 Years",
+        credits: "128 Credits",
+        description:
+          "Cutting-edge technology education covering software development, cybersecurity, and digital innovation.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Modern Curriculum", "Industry Certifications", "Innovation Labs", "Project-Based Learning"],
+        careers: ["Software Developer", "IT Consultant", "Cybersecurity Analyst", "Systems Administrator"],
+        requirements: ["High School Diploma", "Mathematics Proficiency", "Basic Computer Skills"],
+        tuition: "$2,800/year",
+      },
+      {
+        title: "Public Health",
+        titleSo: "Caafimaadka Dadweynaha",
+        duration: "4 Years",
+        credits: "130 Credits",
+        description: "Training healthcare professionals to address community health challenges and promote wellness.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Community Focus", "Clinical Training", "Research Opportunities", "Health Promotion"],
+        careers: ["Public Health Officer", "Health Educator", "Epidemiologist", "Community Health Worker"],
+        requirements: ["High School Diploma", "Science Background", "English Proficiency"],
+        tuition: "$3,000/year",
+      },
+      {
+        title: "Civil Engineering",
+        titleSo: "Injineerinta Dhismaha",
+        duration: "4 Years",
+        credits: "135 Credits",
+        description:
+          "Comprehensive engineering education focusing on infrastructure development and construction management.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Hands-on Learning", "Modern Equipment", "Industry Projects", "Sustainable Design"],
+        careers: ["Civil Engineer", "Project Manager", "Construction Supervisor", "Infrastructure Planner"],
+        requirements: ["High School Diploma", "Strong Mathematics", "Physics Background"],
+        tuition: "$3,200/year",
+      },
+      {
+        title: "Education",
+        titleSo: "Waxbarashada",
+        duration: "4 Years",
+        credits: "125 Credits",
+        description: "Preparing qualified teachers and educational leaders to transform the education sector.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Teaching Practice", "Educational Technology", "Curriculum Development", "Classroom Management"],
+        careers: ["Primary Teacher", "Secondary Teacher", "Education Administrator", "Curriculum Specialist"],
+        requirements: ["High School Diploma", "Communication Skills", "Subject Specialization"],
+        tuition: "$2,200/year",
+      },
+      {
+        title: "Agriculture & Environment",
+        titleSo: "Beeraha & Deegaanka",
+        duration: "4 Years",
+        credits: "132 Credits",
+        description:
+          "Sustainable agriculture and environmental management addressing food security and climate challenges.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Sustainable Practices", "Field Research", "Climate Adaptation", "Modern Farming Techniques"],
+        careers: ["Agricultural Specialist", "Environmental Consultant", "Farm Manager", "Research Scientist"],
+        requirements: ["High School Diploma", "Science Background", "Environmental Interest"],
+        tuition: "$2,600/year",
+      },
+    ],
+    graduate: [
+      {
+        title: "Master of Business Administration (MBA)",
+        titleSo: "Shahaadada Sare ee Maamulka Ganacsiga",
+        duration: "2 Years",
+        credits: "60 Credits",
+        description: "Advanced business education for experienced professionals seeking leadership roles.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Executive Education", "Strategic Management", "Global Perspective", "Research Projects"],
+        careers: ["CEO/Executive", "Business Consultant", "Strategic Planner", "Investment Manager"],
+        requirements: ["Bachelor's Degree", "Work Experience", "GMAT/GRE", "English Proficiency"],
+        tuition: "$4,500/year",
+      },
+      {
+        title: "Master of Public Health (MPH)",
+        titleSo: "Shahaadada Sare ee Caafimaadka Dadweynaha",
+        duration: "2 Years",
+        credits: "48 Credits",
+        description: "Advanced public health education focusing on policy, research, and community health leadership.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Policy Development", "Epidemiology", "Health Systems", "Community Engagement"],
+        careers: ["Health Policy Analyst", "Program Director", "Research Scientist", "Health Consultant"],
+        requirements: ["Bachelor's Degree", "Health Background", "Research Experience", "English Proficiency"],
+        tuition: "$4,200/year",
+      },
+      {
+        title: "Master of Education (M.Ed)",
+        titleSo: "Shahaadada Sare ee Waxbarashada",
+        duration: "2 Years",
+        credits: "45 Credits",
+        description: "Advanced education degree for teachers and administrators seeking leadership positions.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Educational Leadership", "Curriculum Design", "Assessment Methods", "Technology Integration"],
+        careers: ["School Principal", "Education Director", "Curriculum Coordinator", "Education Consultant"],
+        requirements: ["Bachelor's Degree", "Teaching Experience", "Education Background", "Leadership Potential"],
+        tuition: "$3,800/year",
+      },
+    ],
+    professional: [
+      {
+        title: "Digital Marketing Certificate",
+        titleSo: "Shahaadada Suuq-geynta Dijital-ka",
+        duration: "6 Months",
+        credits: "18 Credits",
+        description: "Intensive program covering modern digital marketing strategies and tools.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Social Media Marketing", "SEO/SEM", "Content Strategy", "Analytics"],
+        careers: ["Digital Marketer", "Social Media Manager", "Content Creator", "Marketing Analyst"],
+        requirements: ["High School Diploma", "Basic Computer Skills", "English Proficiency"],
+        tuition: "$800",
+      },
+      {
+        title: "Project Management Professional",
+        titleSo: "Maamulka Mashaariicda Xirfadeed",
+        duration: "4 Months",
+        credits: "12 Credits",
+        description: "Professional certification in project management methodologies and best practices.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["PMP Preparation", "Agile Methodologies", "Risk Management", "Leadership Skills"],
+        careers: ["Project Manager", "Program Coordinator", "Operations Manager", "Business Analyst"],
+        requirements: ["Bachelor's Degree", "Work Experience", "Professional Interest"],
+        tuition: "$1,200",
+      },
+      {
+        title: "Financial Management Certificate",
+        titleSo: "Shahaadada Maamulka Maaliyadeed",
+        duration: "8 Months",
+        credits: "24 Credits",
+        description: "Comprehensive financial management training for business professionals.",
+        image: "/placeholder.svg?height=300&width=400",
+        features: ["Financial Analysis", "Investment Planning", "Risk Assessment", "Budgeting"],
+        careers: ["Financial Manager", "Investment Advisor", "Budget Analyst", "Financial Consultant"],
+        requirements: ["Bachelor's Degree", "Mathematics Background", "Professional Experience"],
+        tuition: "$1,500",
+      },
+    ],
+  }
+
+  const academicStats = [
+    { number: 25, label: "Academic Programs", labelSo: "Barnaamijyada Waxbarasho", icon: BookOpen },
+    { number: 95, label: "Expert Faculty", labelSo: "Macallimiinta Khibradda leh", icon: Users },
+    { number: 2800, label: "Students Enrolled", labelSo: "Ardayda Diiwaan-gashan", icon: GraduationCap },
+    { number: 85, label: "Employment Rate", labelSo: "Heerka Shaqo-helida", icon: TrendingUp, suffix: "%" },
+  ]
+
+  const facilities = [
+    {
+      title: "Modern Lecture Halls",
+      titleSo: "Qolalka Casriga ah ee Casharka",
+      description: "State-of-the-art lecture halls equipped with modern audio-visual technology.",
+      image: "/placeholder.svg?height=300&width=400",
+      capacity: "50-200 students",
+    },
+    {
+      title: "Research Laboratories",
+      titleSo: "Makhadyada Cilmi-baadhista",
+      description: "Fully equipped laboratories for scientific research and practical learning.",
+      image: "/placeholder.svg?height=300&width=400",
+      capacity: "20-30 students",
+    },
+    {
+      title: "Digital Library",
+      titleSo: "Maktabadda Dijital-ka",
+      description: "Comprehensive digital and physical library with extensive academic resources.",
+      image: "/placeholder.svg?height=300&width=400",
+      capacity: "500+ students",
+    },
+    {
+      title: "Innovation Hub",
+      titleSo: "Xarunta Hal-abuurka",
+      description: "Collaborative spaces for innovation, entrepreneurship, and project development.",
+      image: "/placeholder.svg?height=300&width=400",
+      capacity: "100+ students",
+    },
+  ]
+
+  return (
+    <div className="min-h-screen bg-white">
+      <SomalilandNavbar />
+
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-r from-emerald-900 via-emerald-800 to-red-900 overflow-hidden">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            className="text-center text-white max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex justify-center mb-6">
+              <Badge className="bg-emerald-600/90 backdrop-blur-sm text-white px-6 py-3 text-lg font-bold">
+                Academic Excellence
+              </Badge>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Academic <span className="text-emerald-300">Programs</span>
+            </h1>
+            <h2 className="text-3xl font-semibold text-emerald-200 mb-8">Barnaamijyada Waxbarasho</h2>
+
+            <p className="text-xl leading-relaxed mb-12 opacity-95">
+              Discover world-class academic programs designed to prepare you for success in today's global economy. Our
+              comprehensive curriculum combines theoretical knowledge with practical application.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-6">
+              <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 px-8 py-4 text-lg font-bold">
+                Explore Programs
+                <ArrowRight className="ml-3 h-5 w-5" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold backdrop-blur-sm bg-transparent"
+              >
+                Download Brochure
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Academic Statistics */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {academicStats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center bg-white rounded-2xl p-6 shadow-lg"
+              >
+                <div className="flex justify-center mb-4">
+                  <stat.icon className="h-12 w-12 text-emerald-600" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">
+                  <AnimatedCounter end={stat.number} suffix={stat.suffix || "+"} />
+                </div>
+                <div className="space-y-1">
+                  <div className="text-gray-800 font-bold text-sm">{stat.label}</div>
+                  <div className="text-emerald-600 font-medium text-xs">{stat.labelSo}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Programs Tabs */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Our{" "}
+              <span className="bg-gradient-to-r from-emerald-600 to-red-600 bg-clip-text text-transparent">
+                Programs
+              </span>
+            </h2>
+            <h3 className="text-2xl font-semibold text-gray-700 mb-6">Barnaamijyadaenna</h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Choose from our comprehensive range of academic programs designed to meet your career goals and
+              aspirations.
+            </p>
+          </motion.div>
+
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="grid w-full grid-cols-3 mb-12 bg-gray-100 p-2 rounded-xl">
+              <TabsTrigger
+                value="undergraduate"
+                className="text-lg font-semibold py-3 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
+              >
+                Undergraduate
+              </TabsTrigger>
+              <TabsTrigger
+                value="graduate"
+                className="text-lg font-semibold py-3 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
+              >
+                Graduate
+              </TabsTrigger>
+              <TabsTrigger
+                value="professional"
+                className="text-lg font-semibold py-3 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
+              >
+                Professional
+              </TabsTrigger>
+            </TabsList>
+
+            {Object.entries(academicPrograms).map(([category, programs]) => (
+              <TabsContent key={category} value={category} className="mt-0">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  {programs.map((program, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="group"
+                    >
+                      <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-all duration-500">
+                        <div className="relative h-48 overflow-hidden">
+                          <Image
+                            src={program.image || "/placeholder.svg"}
+                            alt={program.title}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                          <div className="absolute top-4 right-4 flex space-x-2">
+                            <Badge className="bg-emerald-600/90 text-white text-xs">{program.duration}</Badge>
+                            <Badge className="bg-red-600/90 text-white text-xs">{program.credits}</Badge>
+                          </div>
+                          <div className="absolute bottom-4 left-4 text-white">
+                            <h4 className="text-lg font-bold mb-1">{program.title}</h4>
+                            <p className="text-white/90 text-sm">{program.titleSo}</p>
+                          </div>
+                        </div>
+
+                        <CardContent className="p-6">
+                          <p className="text-gray-600 leading-relaxed mb-4 text-sm">{program.description}</p>
+
+                          <div className="space-y-4">
+                            <div>
+                              <h5 className="font-semibold text-gray-900 text-sm mb-2">Key Features:</h5>
+                              <div className="grid grid-cols-1 gap-1">
+                                {program.features.slice(0, 3).map((feature, idx) => (
+                                  <div key={idx} className="flex items-center space-x-2">
+                                    <CheckCircle className="h-3 w-3 text-emerald-600" />
+                                    <span className="text-xs text-gray-600">{feature}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+                              <div className="text-center">
+                                <div className="text-lg font-bold text-emerald-600">{program.tuition}</div>
+                                <div className="text-xs text-gray-500">Tuition</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-lg font-bold text-gray-900">{program.duration}</div>
+                                <div className="text-xs text-gray-500">Duration</div>
+                              </div>
+                            </div>
+                          </div>
+                        </CardContent>
+
+                        <div className="p-6 pt-0">
+                          <Link href={`/academics/${category}`}>
+                            <Button
+                              variant="outline"
+                              className="w-full group-hover:bg-emerald-50 group-hover:border-emerald-600 group-hover:text-emerald-700 transition-colors duration-300 bg-transparent"
+                            >
+                              Learn More
+                              <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
+      </section>
+
+      {/* Academic Facilities */}
+      <section className="py-20 bg-gradient-to-br from-emerald-50 to-red-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              World-Class{" "}
+              <span className="bg-gradient-to-r from-emerald-600 to-red-600 bg-clip-text text-transparent">
+                Facilities
+              </span>
+            </h2>
+            <h3 className="text-2xl font-semibold text-gray-700 mb-6">Agabka Heer Caalami ah</h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our state-of-the-art facilities provide the perfect environment for learning, research, and innovation.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {facilities.map((facility, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <Card className="h-full overflow-hidden bg-white shadow-lg border-0 rounded-2xl hover:shadow-xl transition-all duration-500">
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={facility.image || "/placeholder.svg"}
+                      alt={facility.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h4 className="text-lg font-bold mb-1">{facility.title}</h4>
+                      <p className="text-white/90 text-sm">{facility.titleSo}</p>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-emerald-600/90 text-white text-xs">{facility.capacity}</Badge>
+                    </div>
+                  </div>
+
+                  <CardContent className="p-6">
+                    <p className="text-gray-600 leading-relaxed text-sm">{facility.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Calendar Preview */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Academic{" "}
+              <span className="bg-gradient-to-r from-emerald-600 to-red-600 bg-clip-text text-transparent">
+                Calendar
+              </span>
+            </h2>
+            <h3 className="text-2xl font-semibold text-gray-700 mb-6">Jadwalka Waxbarasho</h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Stay informed about important academic dates, deadlines, and events throughout the academic year.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Fall Semester 2024",
+                titleSo: "Semesterka Dayrta 2024",
+                dates: "September 15 - December 20",
+                events: [
+                  { date: "Sep 15", event: "Classes Begin", eventSo: "Fasalladaha Bilaabmaan" },
+                  { date: "Oct 10", event: "Mid-term Exams", eventSo: "Imtixaannada Dhexe" },
+                  { date: "Nov 25", event: "Registration Opens", eventSo: "Diiwaan-gelinta Furmaan" },
+                  { date: "Dec 20", event: "Final Exams", eventSo: "Imtixaannada Dhammaadka" },
+                ],
+                color: "emerald",
+              },
+              {
+                title: "Spring Semester 2025",
+                titleSo: "Semesterka Gu'ga 2025",
+                dates: "February 10 - May 25",
+                events: [
+                  { date: "Feb 10", event: "Classes Begin", eventSo: "Fasalladaha Bilaabmaan" },
+                  { date: "Mar 15", event: "Mid-term Exams", eventSo: "Imtixaannada Dhexe" },
+                  { date: "Apr 20", event: "Research Presentations", eventSo: "Bandhigga Cilmi-baadhista" },
+                  { date: "May 25", event: "Graduation", eventSo: "Qalin-jabinta" },
+                ],
+                color: "red",
+              },
+              {
+                title: "Summer Programs 2025",
+                titleSo: "Barnaamijyada Xagaaga 2025",
+                dates: "June 15 - August 30",
+                events: [
+                  { date: "Jun 15", event: "Summer Classes", eventSo: "Fasalladaha Xagaaga" },
+                  { date: "Jul 10", event: "Internship Program", eventSo: "Barnaamijka Tababarka" },
+                  { date: "Aug 15", event: "Research Projects", eventSo: "Mashaariicda Cilmi-baadhista" },
+                  { date: "Aug 30", event: "Summer Graduation", eventSo: "Qalin-jabinta Xagaaga" },
+                ],
+                color: "teal",
+              },
+            ].map((semester, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card
+                  className={`h-full bg-gradient-to-br from-${semester.color}-50 to-white border-l-4 border-${semester.color}-600 shadow-lg hover:shadow-xl transition-all duration-300`}
+                >
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center justify-between">
+                      <Calendar className={`h-8 w-8 text-${semester.color}-600`} />
+                      <Badge className={`bg-${semester.color}-600 text-white`}>{semester.dates}</Badge>
+                    </div>
+                    <CardTitle className="text-xl font-bold text-gray-900 mt-4">{semester.title}</CardTitle>
+                    <p className={`text-${semester.color}-700 font-semibold`}>{semester.titleSo}</p>
+                  </CardHeader>
+
+                  <CardContent>
+                    <div className="space-y-3">
+                      {semester.events.map((event, eventIndex) => (
+                        <div key={eventIndex} className="flex items-start space-x-3 p-3 bg-white/60 rounded-lg">
+                          <div className={`text-sm font-bold text-${semester.color}-600 min-w-[3rem]`}>
+                            {event.date}
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-gray-900">{event.event}</div>
+                            <div className={`text-xs text-${semester.color}-600`}>{event.eventSo}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Link href="/academics/calendar">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 px-8 py-4 text-lg font-bold shadow-xl"
+              >
+                View Full Calendar
+                <Calendar className="ml-3 h-5 w-5" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-gradient-to-r from-emerald-800 to-red-800 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            className="text-center text-white max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Begin Your Academic Journey?</h2>
+            <h3 className="text-2xl font-semibold text-emerald-200 mb-8">
+              Diyaar ma u tahay inaad Safarka Waxbarashadaada Bilowdo?
+            </h3>
+
+            <p className="text-xl leading-relaxed mb-12 opacity-95">
+              Take the first step towards your future. Explore our programs, meet our faculty, and discover how Unity
+              University Somaliland can help you achieve your goals.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-6">
+              <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                <Link href="/admissions/apply">
+                  <Button
+                    size="lg"
+                    className="bg-white text-emerald-700 hover:bg-gray-100 px-8 py-4 text-lg font-bold shadow-2xl"
+                  >
+                    Apply Now
+                    <ArrowRight className="ml-3 h-5 w-5" />
+                  </Button>
+                </Link>
+              </motion.div>
+
+              <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                <Link href="/about/contact">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold backdrop-blur-sm bg-transparent"
+                  >
+                    Schedule Campus Visit
+                    <MapPin className="ml-3 h-5 w-5" />
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <SomalilandFooter />
+    </div>
+  )
+}
