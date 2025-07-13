@@ -395,7 +395,7 @@ export default function UnityUniversityHome() {
                       </div>
                     </div>
 
-                    <Link href="/liberia">
+                    <Link href="/liberia" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg group">
                         Visit Liberia Campus
                         <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -462,7 +462,7 @@ export default function UnityUniversityHome() {
                       </div>
                     </div>
 
-                    <Link href="/liberia">
+                    <Link href="/liberia" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg group">
                         Visit Liberia Campus
                         <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -538,7 +538,7 @@ export default function UnityUniversityHome() {
                       </div>
                     </div>
 
-                    <Link href="/somaliland">
+                    <Link href="/somaliland" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-lg group">
                         Visit Somaliland Campus
                         <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -607,7 +607,7 @@ export default function UnityUniversityHome() {
                       </div>
                     </div>
 
-                    <Link href="/somaliland">
+                    <Link href="/somaliland" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-lg group">
                         Visit Somaliland Campus
                         <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
