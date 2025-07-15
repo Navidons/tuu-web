@@ -32,10 +32,10 @@ import SomalilandFooter from "@/components/somaliland/somaliland-footer"
 
 // SEO-optimized content constants
 const SEO_CONTENT = {
-  heroTitle: "Unity University Somaliland - #1 Leading University in Hargeisa",
+  heroTitle: "The Unity University Somaliland - #1 Leading University in Hargeisa",
   heroSubtitle: "Best Higher Education Institution in Somaliland | World-Class Programs",
   heroDescription:
-    "Discover excellence at Unity University Somaliland, the premier higher education institution in Hargeisa. Offering accredited undergraduate, graduate, and professional programs in Business Administration, Information Technology, Engineering, Health Sciences, and Education. Modern facilities, expert faculty, 95% job placement rate.",
+    "Discover excellence at The Unity University Somaliland, the premier higher education institution in Hargeisa. Offering accredited undergraduate, graduate, and professional programs in Business Administration, Information Technology, Engineering, Health Sciences, and Education. Modern facilities, expert faculty, 95% job placement rate.",
 
   // Location-specific content
   locationKeywords:
@@ -205,17 +205,17 @@ export default function HomePage() {
 
   const heroSlides = [
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/all-on-graduation-pic.jpg",
       title: "Unity University Somaliland - Leading University in Hargeisa",
       titleSo: "Jaamacadda Unity Somaliland - Jaamacadda Ugu Horeysa Hargeisa",
       subtitle: "What Begins Here, Transforms Africa | Halkan wax ka bilaabmaan, Afrika way beddelaan",
-      description: "Founded in 2021, Unity University is the premier higher education institution in Hargeisa, Somaliland. With our motto 'What Begins Here, Transforms Africa', we offer world-class undergraduate and graduate programs across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
+      description: "Founded in 2020, Unity University is the premier higher education institution in Hargeisa, Somaliland. With our motto 'What Begins Here, Transforms Africa', we offer world-class undergraduate and graduate programs across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
       cta: "Apply Now",
       ctaSo: "Hadda Codso",
       keywords: "leading university hargeisa, best education somaliland, top university horn africa",
     },
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/global-perspective.jpg",
       title: "Transforming African Education Since 2021",
       titleSo: "Waxbarashada Afrika waan beddelaynaa 2021 laga bilaabo",
       subtitle: "4 Years of Excellence | Modern Facilities | Expert Faculty",
@@ -226,7 +226,7 @@ export default function HomePage() {
       keywords: "academic programs somaliland, modern facilities hargeisa, research university",
     },
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/graduation-master-0.jpg",
       title: "Join the Pan-African Educational Revolution",
       titleSo: "Kala soo biir Isbeddelka Waxbarashada Afrika",
       subtitle: "37+ Programs | 2,800+ Students | 150+ Faculty | Pan-African Network",
@@ -265,7 +265,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       {/* SEO-optimized hidden content for search engines */}
       <div className="sr-only">
-        <h1>Unity University Somaliland - Leading Higher Education Institution in Hargeisa</h1>
+        <h1>The Unity University Somaliland - Leading Higher Education Institution in Hargeisa</h1>
         <p>
           Best university in Somaliland offering undergraduate, graduate, and professional programs. Located in Hargeisa
           with modern facilities, expert faculty, and international accreditation. Programs include Business
@@ -491,7 +491,7 @@ export default function HomePage() {
             </h2>
             <h3 className="text-2xl font-semibold text-gray-700 mb-6">Fiican Campus-ka Hargeisa</h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Experience state-of-the-art educational facilities at Unity University Somaliland's campuses in Hargeisa
+              Experience state-of-the-art educational facilities at The Unity University Somaliland's campuses in Hargeisa
               and Berbera. Our modern infrastructure, advanced laboratories, and innovative learning spaces provide the
               perfect environment for academic excellence and research innovation in the Horn of Africa.
             </p>
@@ -615,7 +615,7 @@ export default function HomePage() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Excellence in Numbers - Proven Success</h2>
             <h3 className="text-2xl font-semibold text-emerald-200 mb-6">Tirooyinka Fiicanta - Guul La Hubay</h3>
             <p className="text-lg text-white/90 max-w-3xl mx-auto">
-              Our achievements demonstrate Unity University Somaliland's commitment to academic excellence, student
+              Our achievements demonstrate The Unity University Somaliland's commitment to academic excellence, student
               success, and community impact across the Horn of Africa. These numbers reflect our position as the leading
               higher education institution in Somaliland.
             </p>
@@ -623,7 +623,7 @@ export default function HomePage() {
             {/* SEO content for statistics */}
             <div className="sr-only">
               <p>
-                Unity University Somaliland statistics: 2800+ students enrolled, 95+ expert faculty, 25+ academic
+                The Unity University Somaliland statistics: 2800+ students enrolled, 95+ expert faculty, 25+ academic
                 programs, 15 years of educational excellence, 85% graduate employment rate, 50+ research projects, 12+
                 international partnerships, 98% student satisfaction rate. Best university performance metrics
                 Somaliland.
@@ -743,7 +743,7 @@ export default function HomePage() {
               Barnaamijyada Waxbarasho ee Ugu Fiican Somaliland
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Choose from Unity University Somaliland's comprehensive range of internationally accredited academic
+              Choose from The Unity University Somaliland's comprehensive range of internationally accredited academic
               programs. Our curriculum combines global best practices with local relevance, preparing graduates for
               successful careers in Somaliland, the Horn of Africa, and beyond. All programs feature modern facilities,
               expert faculty, and strong industry connections.
@@ -900,7 +900,7 @@ export default function HomePage() {
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={program.image || "/placeholder.svg"}
-                      alt={`${program.title} - Unity University Somaliland`}
+                      alt={`${program.title} - The Unity University Somaliland`}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -997,7 +997,7 @@ export default function HomePage() {
             </h3>
 
             <p className="text-xl leading-relaxed mb-12 opacity-95">
-              Join Unity University Somaliland and become part of a community dedicated to excellence, innovation, and
+              Join The Unity University Somaliland and become part of a community dedicated to excellence, innovation, and
               positive impact. Your journey to success starts here in Hargeisa, at the leading higher education
               institution in the Horn of Africa. Apply now for 2025-2026 admission and transform your future.
             </p>
@@ -1005,7 +1005,7 @@ export default function HomePage() {
             {/* SEO content for CTA section */}
             <div className="sr-only">
               <p>
-                Apply now Unity University Somaliland 2025-2026 admission, best university Hargeisa application, leading
+                Apply now The Unity University Somaliland 2025-2026 admission, best university Hargeisa application, leading
                 higher education Somaliland enrollment, premier university Horn of Africa admission process,
                 scholarships available qualified students, career success guaranteed graduates
               </p>

@@ -7,21 +7,34 @@ import { cn } from "@/lib/utils"
 
 const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
   return (
-    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+    <svg
+      className={cn(className, "rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+      viewBox="0 0 60 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Liberia Flag"
     >
-      {/* Stripes */}
-      <div className="liberian-flag-gradient w-full h-full" />
-
-      {/* Blue canton with white star */}
-      <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <svg
-          viewBox="0 0 24 24"
-          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      </div>
-    </div>
+      {/* 11 stripes: 6 red, 5 white, starting and ending with red */}
+      {[...Array(11)].map((_, i) => (
+        <rect
+          key={i}
+          x="0"
+          y={(40 / 11) * i}
+          width="60"
+          height={40 / 11}
+          fill={i % 2 === 0 ? "#D21034" : "#fff"}
+        />
+      ))}
+      {/* Blue canton */}
+      <rect x="0" y="0" width={60 / 3} height={40 / 2} fill="#003893" />
+      {/* White star in canton */}
+      <g transform={`translate(${60 / 6},${40 / 4})`}>
+        <polygon
+          points="0,-7 2.05,-2.16 7, -2.16 3.09,0.83 4.18,5.67 0,2.8 -4.18,5.67 -3.09,0.83 -7,-2.16 -2.05,-2.16"
+          fill="#fff"
+        />
+      </g>
+    </svg>
   )
 }
 
@@ -38,9 +51,9 @@ export default function LiberiaFooter() {
           {/* University Info */}
           <div className="lg:col-span-1">
             <div className="mb-6 flex items-center">
-              <img src="/tuu-logo/tuu-logo.png" alt="Unity University Logo" className="h-12 w-12 object-contain mr-3" />
+              <img src="/tuu-logo/tuu-logo.png" alt="The Unity University Logo" className="h-12 w-12 object-contain mr-3" />
               <div>
-                <span className="text-xl font-bold">Unity University</span>
+                <span className="text-xl font-bold">The Unity University</span>
                 <div className="text-xs text-gray-400 flex items-center space-x-2">
                   <span>Liberia Campus</span>
                   <LiberiaFlag className="h-4 w-6" />
@@ -48,7 +61,7 @@ export default function LiberiaFooter() {
               </div>
             </div>
             <p className="mb-6 text-gray-400 leading-relaxed">
-              What begins here, transforms Africa. Unity University Liberia is a dynamic, vision-driven institution founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. Established in mid-2024 as part of our expansion across Africa.
+              What begins here, transforms Africa. The Unity University Liberia is a dynamic, vision-driven institution founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. Established in mid-2024 as part of our expansion across Africa.
             </p>
             <div className="mb-6">
               <Badge className="bg-red-600/20 text-red-300 border border-red-600/30 mb-2">Established 2024</Badge>
@@ -213,7 +226,7 @@ export default function LiberiaFooter() {
           <div className="flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0">
             <div className="text-center md:text-left">
               <p className="text-sm text-gray-400 mb-2">
-                &copy; mid-2024-{new Date().getFullYear()} Unity University Liberia Campus. All rights reserved.
+                &copy; mid-2024-{new Date().getFullYear()} The Unity University Liberia Campus. All rights reserved.
               </p>
               <div className="text-xs text-gray-500 italic flex items-center justify-center md:justify-start">
                 <LiberiaFlag className="h-4 w-6 mr-2" />
@@ -240,7 +253,7 @@ export default function LiberiaFooter() {
           {/* Additional info */}
           <div className="mt-6 pt-6 border-t border-gray-800/50 text-center">
             <p className="text-xs text-gray-500">
-              Unity University Liberia is committed to providing equal educational opportunities and fostering
+              The Unity University Liberia is committed to providing equal educational opportunities and fostering
               diversity, inclusion, and academic excellence in higher education across West Africa.
             </p>
           </div>

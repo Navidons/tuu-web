@@ -8,23 +8,38 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence, Variants } from "framer-motion"
 
+// Flag components for visual campus identification (realistic designs)
+
 const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
   return (
-    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+    <svg
+      className={cn(className, "rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+      viewBox="0 0 60 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Liberia Flag"
     >
-      {/* Stripes */}
-      <div className="liberian-flag-gradient w-full h-full" />
-
-      {/* Blue canton with white star */}
-      <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <svg
-          viewBox="0 0 24 24"
-          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      </div>
-    </div>
+      {/* 11 stripes: 6 red, 5 white, starting and ending with red */}
+      {[...Array(11)].map((_, i) => (
+        <rect
+          key={i}
+          x="0"
+          y={(40 / 11) * i}
+          width="60"
+          height={40 / 11}
+          fill={i % 2 === 0 ? "#D21034" : "#fff"}
+        />
+      ))}
+      {/* Blue canton */}
+      <rect x="0" y="0" width={60 / 3} height={40 / 2} fill="#003893" />
+      {/* White star in canton */}
+      <g transform={`translate(${60 / 6},${40 / 4})`}>
+        <polygon
+          points="0,-7 2.05,-2.16 7, -2.16 3.09,0.83 4.18,5.67 0,2.8 -4.18,5.67 -3.09,0.83 -7,-2.16 -2.05,-2.16"
+          fill="#fff"
+        />
+      </g>
+    </svg>
   )
 }
 
@@ -167,7 +182,7 @@ export default function LiberiaNavbar() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <LiberiaFlag />
+              <LiberiaFlag className="h-4 w-6" />
               <span>The Love of Liberty Brought Us Here</span>
             </motion.div>
           </div>
@@ -375,7 +390,7 @@ export default function LiberiaNavbar() {
                   <div className="flex items-center space-x-3 text-red-700 font-medium">
                     <MapPin className="h-5 w-5" />
                     <span>Monrovia, Liberia</span>
-                    <LiberiaFlag />
+                    <LiberiaFlag className="h-4 w-6" />
                   </div>
                   <a
                     href="mailto:liberia@tuu.university"

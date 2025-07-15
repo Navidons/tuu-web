@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'The Unity University',
   description: 'Official website of The Unity University',
-  generator: 'The Unity University',
+  generator: 'UgProJectHub.com',
 }
 
 export default function RootLayout({

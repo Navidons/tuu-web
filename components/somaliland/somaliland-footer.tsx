@@ -10,9 +10,9 @@ export default function SomalilandFooter() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="mb-4 flex items-center">
-              <img src="/tuu-logo/tuu-logo.png" alt="Unity University Logo" className="h-12 w-12 object-contain mr-3" />
+              <img src="/tuu-logo/tuu-logo.png" alt="The Unity University Logo" className="h-12 w-12 object-contain mr-3" />
               <div>
-                <span className="text-xl font-bold">Unity University</span>
+                <span className="text-xl font-bold">The Unity University</span>
                 <div className="text-xs text-gray-400">Somaliland Campus</div>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function SomalilandFooter() {
         <div className="mt-12 border-t border-gray-800 pt-8">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <p className="text-sm text-gray-400">
-              &copy; 2021-{new Date().getFullYear()} Unity University Somaliland Campus. Xuquuqda oo dhan way dhowran yihiin.
+              &copy; 2021-{new Date().getFullYear()} The Unity University Somaliland Campus. Xuquuqda oo dhan way dhowran yihiin.
             </p>
             <div className="flex space-x-6">
               <Link href="/somaliland/privacy" className="text-sm text-gray-400 transition-colors hover:text-white">

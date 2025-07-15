@@ -14,14 +14,14 @@ export default function EnhancedFooter() {
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <img src="/tuu-logo/tuu-logo.png" alt="Unity University Logo" className="h-10 w-10 object-contain mr-2" />
+                <img src="/tuu-logo/tuu-logo.png" alt="The Unity University Logo" className="h-10 w-10 object-contain mr-2" />
                 <div>
-                  <span className="text-xl font-bold">Unity University</span>
+                  <span className="text-xl font-bold">The Unity University</span>
                   <div className="text-sm text-gray-400">What begins here, transforms Africa</div>
                 </div>
               </div>
               <p className="text-gray-400 mb-6">
-                Africa's pioneer accredited university. Growing every day since 2021.
+                Africa's pioneer accredited university. Growing every day since 2020.
               </p>
               <div className="flex space-x-4">
                 <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors cursor-pointer">
@@ -62,7 +62,7 @@ export default function EnhancedFooter() {
                 <div>
                   <h4 className="font-medium text-white mb-1">Somaliland Campus</h4>
                   <p className="text-gray-400 text-sm">Hargeisa, Somaliland</p>
-                  <p className="text-gray-400 text-sm">Est. 2021 • +252 634 210013</p>
+                  <p className="text-gray-400 text-sm">Est. 2020 • +252 634 210013</p>
                 </div>
                 <div>
                   <h4 className="font-medium text-white mb-1">Liberia Campus</h4>
@@ -110,7 +110,7 @@ export default function EnhancedFooter() {
 
           <div className="border-t border-gray-800 mt-12 pt-8 text-center">
             <p className="text-gray-400">
-              © 2021-2025 Unity University. All rights reserved. | Privacy Policy | Terms of Service
+              © 2020-2025 The Unity University. All rights reserved. | Privacy Policy | Terms of Service
             </p>
           </div>
         </div>

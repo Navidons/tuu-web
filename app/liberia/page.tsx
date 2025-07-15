@@ -110,23 +110,37 @@ const AnimatedCounter = ({ end, duration = 2.5, suffix = "" }: { end: number; du
   )
 }
 
+// Replace LiberiaFlag with the new SVG-based, accurate design
 const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
   return (
-    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+    <svg
+      className={cn(className, "rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+      viewBox="0 0 60 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Liberia Flag"
     >
-      {/* Stripes */}
-      <div className="liberian-flag-gradient w-full h-full" />
-
-      {/* Blue canton with white star */}
-      <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <svg
-          viewBox="0 0 24 24"
-          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      </div>
-    </div>
+      {/* 11 stripes: 6 red, 5 white, starting and ending with red */}
+      {[...Array(11)].map((_, i) => (
+        <rect
+          key={i}
+          x="0"
+          y={(40 / 11) * i}
+          width="60"
+          height={40 / 11}
+          fill={i % 2 === 0 ? "#D21034" : "#fff"}
+        />
+      ))}
+      {/* Blue canton */}
+      <rect x="0" y="0" width={60 / 3} height={40 / 2} fill="#003893" />
+      {/* White star in canton */}
+      <g transform={`translate(${60 / 6},${40 / 4})`}>
+        <polygon
+          points="0,-7 2.05,-2.16 7, -2.16 3.09,0.83 4.18,5.67 0,2.8 -4.18,5.67 -3.09,0.83 -7,-2.16 -2.05,-2.16"
+          fill="#fff"
+        />
+      </g>
+    </svg>
   )
 }
 
@@ -176,7 +190,7 @@ export default function LiberiaHome() {
   const heroSlides = [
     {
       image: "/placeholder.svg?height=1080&width=1920",
-      title: "Unity University Liberia",
+      title: "The Unity University Liberia",
       subtitle: "What Begins Here, Transforms Africa",
       description:
         "A dynamic, vision-driven university founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. We are raising a new generation of leaders for the African continent through holistic human development.",
@@ -263,7 +277,7 @@ export default function LiberiaHome() {
 
         {/* SEO-optimized hidden content */}
         <div className="sr-only">
-          <h1>Unity University Liberia - Premier Higher Education Institution in Monrovia</h1>
+          <h1>The Unity University Liberia - Premier Higher Education Institution in Monrovia</h1>
           <p>
             Leading university in Liberia offering world-class education in Business Administration, Information
             Technology, Engineering, and Public Health. Located in Monrovia with modern facilities and expert faculty.
@@ -565,7 +579,7 @@ export default function LiberiaHome() {
 
                 <motion.div className="space-y-6 text-lg text-gray-600 leading-relaxed" variants={containerVariants}>
                   <motion.p variants={itemVariants}>
-                    Since establishing our Liberia campus in mid-2024, Unity University has been at the forefront of
+                    Since establishing our Liberia campus in mid-2024, The Unity University has been at the forefront of
                     educational excellence in West Africa. Our institution embodies the spirit of Liberia - a nation
                     founded on the principles of freedom, democracy, and opportunity for all.
                   </motion.p>
@@ -617,7 +631,7 @@ export default function LiberiaHome() {
                 <div className="relative h-[600px] overflow-hidden rounded-2xl shadow-2xl">
                   <Image
                     src="/placeholder.svg?height=1200&width=800"
-                    alt="Unity University Liberia Campus in Monrovia"
+                    alt="The Unity University Liberia Campus in Monrovia"
                     fill
                     className="object-cover"
                   />
@@ -670,7 +684,7 @@ export default function LiberiaHome() {
           <motion.div className="text-center mb-16" variants={itemVariants}>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Excellence in Numbers</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Our achievements demonstrate Unity University Liberia's commitment to academic excellence and community
+              Our achievements demonstrate The Unity University Liberia's commitment to academic excellence and community
               impact.
             </p>
           </motion.div>
@@ -846,7 +860,7 @@ export default function LiberiaHome() {
                     <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.6 }}>
                       <Image
                         src={program.image || "/placeholder.svg"}
-                        alt={`${program.title} - Unity University Liberia`}
+                        alt={`${program.title} - The Unity University Liberia`}
                         fill
                         className="object-cover"
                       />
@@ -1115,7 +1129,7 @@ export default function LiberiaHome() {
               Ready to Shape Your Future?
             </motion.h2>
             <motion.p className="mb-12 text-xl leading-relaxed opacity-95" variants={itemVariants}>
-              Join the Unity University Liberia family and become part of a community dedicated to excellence,
+              Join The Unity University Liberia family and become part of a community dedicated to excellence,
               innovation, and positive impact. Your journey to success starts here in Monrovia, where "The Love of
               Liberty Brought Us Here."
             </motion.p>

@@ -9,6 +9,28 @@ import EnhancedNavbar from "@/components/enhanced-navbar"
 import Link from "next/link"
 import { useInView } from "react-intersection-observer"
 import EnhancedFooter from "@/components/enhanced-footer"
+import { cn } from "@/lib/utils"
+
+// Liberia Flag component (copied from navbar)
+const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
+  return (
+    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+    >
+      {/* Stripes */}
+      <div className="liberian-flag-gradient w-full h-full" />
+
+      {/* Blue canton with white star */}
+      <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+    </div>
+  )
+}
 
 // Static particle positions to ensure consistent SSR/CSR rendering
 const PARTICLE_POSITIONS = [
@@ -131,21 +153,21 @@ export default function UnityUniversityHome() {
 
   const heroSlides = [
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/all-on-graduation-pic.jpg",
       title: "The Unity University",
       subtitle: "What begins here, transforms Africa",
-      description: "Africa's pioneer, non-profit, tuition-free accredited university dedicated to raising a new generation of leaders for the African continent. Growing every day since 2021.",
+      description: "Africa's pioneer, non-profit, tuition-free accredited university dedicated to raising a new generation of leaders for the African continent. Growing every day since 2020.",
       cta: "Discover Our Programs",
     },
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/global-perspective.jpg",
       title: "Pan-African Excellence",
-      subtitle: "4 Years of Growth & Innovation",
-      description: "From our founding in 2021 to today, we've been pioneering excellence at the cutting edge of learning through holistic, human development and integrated learning curriculum.",
+      subtitle: "5 Years of Growth & Innovation",
+      description: "From our founding in 2020 to today, we've been pioneering excellence at the cutting edge of learning through holistic, human development and integrated learning curriculum.",
       cta: "Explore Academics",
     },
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/graduation-day.jpg",
       title: "Transform Your Future",
       subtitle: "50% Scholarships Available",
       description: "Excellent education within reach of all passionate and driven students. Join our rapidly growing community with comprehensive scholarship opportunities.",
@@ -158,161 +180,73 @@ export default function UnityUniversityHome() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] overflow-hidden">
-        {/* Animated background gradient */}
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-purple-900/80"
-          suppressHydrationWarning
-        >
-          {mounted && (
-            <motion.div
-              className="absolute inset-0"
-              animate={{
-                background: [
-                  "linear-gradient(45deg, rgba(88, 28, 135, 0.8), rgba(30, 64, 175, 0.6), rgba(88, 28, 135, 0.8))",
-                  "linear-gradient(135deg, rgba(30, 64, 175, 0.8), rgba(88, 28, 135, 0.6), rgba(30, 64, 175, 0.8))",
-                  "linear-gradient(45deg, rgba(88, 28, 135, 0.8), rgba(30, 64, 175, 0.6), rgba(88, 28, 135, 0.8))",
-                ],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            />
-          )}
+      <section className="relative h-[80vh] flex items-center bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-purple-900/80 overflow-hidden">
+        {/* Hero Image with overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src={heroSlides[currentSlide].image}
+            alt={heroSlides[currentSlide].title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/40" />
         </div>
 
-        <div className="absolute inset-0" suppressHydrationWarning>
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${heroSlides[currentSlide].image})` }}
-          />
-
-          <div className="container relative z-10 mx-auto flex h-full items-center px-4">
-            <div className="max-w-4xl">
-              <div className="mb-6 flex items-center space-x-4">
-                <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl">
-                  {heroSlides[currentSlide].subtitle}
-                </Badge>
-                <div className="h-8 w-8 text-white drop-shadow-2xl">
-                  {mounted ? (
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 360],
-                      }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                    >
-                      <Globe className="h-8 w-8" />
-                    </motion.div>
-                  ) : (
-                    <Globe className="h-8 w-8" />
-                  )}
-                </div>
-              </div>
-
-              <h1 className="text-5xl font-bold text-white md:text-7xl leading-tight mb-6">
-                {heroSlides[currentSlide].title.split(" ").map((word, index) => (
-                  <span key={`${currentSlide}-${index}`} className="inline-block mr-4">
-                    {word}
-                  </span>
-                ))}
-              </h1>
-
-              <p className="mb-10 text-xl text-white/95 max-w-3xl leading-relaxed">
-                {heroSlides[currentSlide].description}
-              </p>
-
-              <div className="flex flex-wrap gap-6">
-                <Button
-                  size="lg"
-                  className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg font-bold shadow-2xl"
-                >
-                  {heroSlides[currentSlide].cta}
-                  <div className="ml-3">
-                    {mounted ? (
-                      <motion.div
-                        animate={{ x: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                      >
-                        <ArrowRight className="h-6 w-6" />
-                      </motion.div>
-                    ) : (
-                      <ArrowRight className="h-6 w-6" />
-                    )}
-                  </div>
-                </Button>
-                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+        {/* Content */}
+        <div className="container relative z-10 mx-auto flex flex-col md:flex-row items-center h-full px-4">
+          {/* Left: Text */}
+          <div className="w-full md:w-1/2 space-y-6">
+            <Badge className="bg-purple-600 text-white px-6 py-2 text-base font-semibold shadow-lg mb-2">
+              {heroSlides[currentSlide].subtitle}
+            </Badge>
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
+              {heroSlides[currentSlide].title}
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
+              {heroSlides[currentSlide].description}
+            </p>
+            <div className="flex gap-4">
+              <Button
+                size="lg"
+                className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg font-bold shadow-xl"
+              >
+                {heroSlides[currentSlide].cta}
+                <ArrowRight className="ml-3 h-6 w-6" />
+              </Button>
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   variant="outline"
-                    className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-900 px-8 py-4 text-lg font-bold backdrop-blur-sm transition-all duration-300"
+                  className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-900 px-8 py-4 text-lg font-bold backdrop-blur-sm transition-all duration-300"
                 >
                   Apply Now
                 </Button>
-                </Link>
-              </div>
+              </Link>
             </div>
+          </div>
+
+          {/* Right: Optional - Animated Globe or Illustration */}
+          <div className="hidden md:flex w-1/2 justify-center items-center">
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="rounded-full bg-white/10 p-8 shadow-2xl"
+            >
+              <Globe className="h-32 w-32 text-white" />
+            </motion.div>
           </div>
         </div>
 
-        {mounted && (
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, x: 1000 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -1000 }}
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 35 },
-                opacity: { duration: 0.4 },
-              }}
-              className="absolute inset-0 pointer-events-none"
-            >
-              <div className="container relative z-10 mx-auto flex h-full items-center px-4">
-                <motion.div
-                  className="max-w-4xl"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-                >
-                  <motion.div
-                    className="mb-6 flex items-center space-x-4"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
-                  >
-                    <motion.h1
-                      className="text-5xl font-bold text-white md:text-7xl leading-tight mb-6"
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-                    >
-                      {heroSlides[currentSlide].title.split(" ").map((word, index) => (
-                        <motion.span
-                          key={`motion-${currentSlide}-${index}`}
-                          className="inline-block mr-4"
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.8 + index * 0.1, duration: 0.6 }}
-                        >
-                          {word}
-                        </motion.span>
-                      ))}
-                    </motion.h1>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
-
-        {/* Slide indicators */}
-        <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center" suppressHydrationWarning>
-          <div className="flex space-x-4">
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center">
+          <div className="flex space-x-3">
             {heroSlides.map((_, index) => (
               <button
-                key={`indicator-${index}`}
+                key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-3 w-12 rounded-full transition-all duration-500 ${
-                  currentSlide === index ? "bg-white shadow-2xl" : "bg-white/40"
+                className={`h-2 w-8 rounded-full transition-all duration-500 ${
+                  currentSlide === index ? "bg-white shadow-lg" : "bg-white/40"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -341,7 +275,7 @@ export default function UnityUniversityHome() {
                 <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }} className="h-full">
                   <div className="relative h-64 overflow-hidden">
                     <Image
-                      src="/placeholder.svg?height=600&width=800"
+                      src="/graduation/master-of-education.jpg"
                       alt="Liberia Campus"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -349,13 +283,7 @@ export default function UnityUniversityHome() {
                     <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-blue-900/80" />
                     <div className="absolute top-6 left-6">
                       <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <div className="h-6 w-8 relative overflow-hidden rounded-sm">
-                          <div className="h-1/3 bg-red-600"></div>
-                          <div className="h-1/3 bg-white flex items-center justify-center">
-                            <Star className="h-2 w-2 text-blue-600 fill-blue-600" />
-                          </div>
-                          <div className="h-1/3 bg-blue-600"></div>
-                        </div>
+                        <LiberiaFlag className="h-6 w-8" />
                         <span className="text-white font-bold text-sm">Liberia</span>
                       </div>
                     </div>
@@ -408,7 +336,7 @@ export default function UnityUniversityHome() {
                 <div className="h-full">
                   <div className="relative h-64 overflow-hidden">
                     <Image
-                      src="/placeholder.svg?height=600&width=800"
+                      src="/hero-section/hero.png"
                       alt="Liberia Campus"
                       fill
                       className="object-cover"
@@ -416,13 +344,7 @@ export default function UnityUniversityHome() {
                     <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-blue-900/80" />
                     <div className="absolute top-6 left-6">
                       <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <div className="h-6 w-8 relative overflow-hidden rounded-sm">
-                          <div className="h-1/3 bg-red-600"></div>
-                          <div className="h-1/3 bg-white flex items-center justify-center">
-                            <Star className="h-2 w-2 text-blue-600 fill-blue-600" />
-                          </div>
-                          <div className="h-1/3 bg-blue-600"></div>
-                        </div>
+                        <LiberiaFlag className="h-6 w-8" />
                         <span className="text-white font-bold text-sm">Liberia</span>
                       </div>
                     </div>
@@ -482,7 +404,7 @@ export default function UnityUniversityHome() {
                 <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }} className="h-full">
                   <div className="relative h-64 overflow-hidden">
                     <Image
-                      src="/placeholder.svg?height=600&width=800"
+                      src="/hero-section/hero.png"
                       alt="Somaliland Campus"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -512,8 +434,7 @@ export default function UnityUniversityHome() {
                         What begins here, transforms Africa
                       </h4>
                       <p className="text-gray-600 leading-relaxed">
-                        Founded in 2021, our rapidly growing Hargeisa campus embodies the spirit of Somaliland
-                        - innovation, resilience, and academic excellence. Growing every day since inception.
+                        Founded in 2020, our Hargeisa campus has been here for 5 years, merging the best in the Horn of Africa. Our rapidly growing campus embodies the spirit of Somaliland – innovation, resilience, and academic excellence.
                       </p>
                     </div>
 
@@ -532,7 +453,7 @@ export default function UnityUniversityHome() {
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={4} />
+                          <AnimatedCounter end={5} />
                         </div>
                         <div className="text-sm text-gray-600">Years</div>
                       </div>
@@ -551,7 +472,7 @@ export default function UnityUniversityHome() {
                 <div className="h-full">
                   <div className="relative h-64 overflow-hidden">
                     <Image
-                      src="/placeholder.svg?height=600&width=800"
+                      src="/hero-section/hero.png"
                       alt="Somaliland Campus"
                       fill
                       className="object-cover"
@@ -581,8 +502,7 @@ export default function UnityUniversityHome() {
                         What begins here, transforms Africa
                       </h4>
                       <p className="text-gray-600 leading-relaxed">
-                        Founded in 2021, our rapidly growing Hargeisa campus embodies the spirit of Somaliland
-                        - innovation, resilience, and academic excellence. Growing every day since inception.
+                        Founded in 2020, our Hargeisa campus has been here for 5 years, merging the best in the Horn of Africa. Our rapidly growing campus embodies the spirit of Somaliland – innovation, resilience, and academic excellence.
                       </p>
                     </div>
 
@@ -601,7 +521,7 @@ export default function UnityUniversityHome() {
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={4} />
+                          <AnimatedCounter end={5} />
                         </div>
                         <div className="text-sm text-gray-600">Years</div>
                       </div>
@@ -628,7 +548,7 @@ export default function UnityUniversityHome() {
             <motion.div
               className="absolute inset-0 opacity-20"
               style={{
-                backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
+                backgroundImage: `url('/hero-section/hero.png')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -657,7 +577,7 @@ export default function UnityUniversityHome() {
                   </span>
                 </h2>
                 <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                  Since our founding in 2021, Unity University has been growing every day, believing that sustainable national and global development can be achieved through nurturing an intellectual culture that integrates theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
+                  Since our founding in 2020, The Unity University has been growing every day, believing that sustainable national and global development can be achieved through nurturing an intellectual culture that integrates theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
                 </p>
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
@@ -687,8 +607,8 @@ export default function UnityUniversityHome() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/30 to-red-500/30 rounded-3xl blur-3xl"></div>
                   <Image
-                    src="/placeholder.svg?height=600&width=800"
-                    alt="Students collaborating"
+                    src="/graduation/male-graduation.jpg"
+                    alt="Graduation Ceremony"
                     width={800}
                     height={600}
                     className="relative rounded-3xl shadow-2xl"
@@ -831,32 +751,60 @@ export default function UnityUniversityHome() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                title: "Student Organizations",
+                title: "Community Outreaches",
                 count: "50+",
-                description: "Active clubs and societies",
-                icon: "👥",
-                image: "/placeholder.svg?height=300&width=400",
+                description: "Impactful service and outreach programs",
+                icon: "🤝",
+                image: "/community-outreaches/health-community-outreach-01.jpg",
               },
               {
-                title: "Cultural Events",
+                title: "Student Lecturers Talk",
                 count: "100+",
-                description: "Annual celebrations",
-                icon: "🎭",
-                image: "/placeholder.svg?height=300&width=400",
+                description: "Inspiring talks and knowledge sharing by students and lecturers",
+                icon: "🎤",
+                image: "/student-life/student-lecturer-talks.jpg",
               },
               {
                 title: "Sports Teams",
                 count: "25+",
-                description: "Competitive athletics",
+                description: "Competitive athletics and team spirit",
                 icon: "🏆",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/sports/sports.png",
               },
               {
                 title: "Research Projects",
                 count: "200+",
-                description: "Student-led initiatives",
+                description: "Student-led research and innovation initiatives",
                 icon: "🔬",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/research/research-students.jpg",
+              },
+              {
+                title: "Events",
+                count: "30+",
+                description: "Annual celebrations, independence day, and campus events",
+                icon: "🎉",
+                image: "/events/the-unity-university-indipendence-day-somaliland-0.jpg",
+              },
+              {
+                title: "Labs",
+                count: "10+",
+                description: "Modern science and technology labs for hands-on learning",
+                icon: "🧪",
+                image: "/labs/health-science-student-in-lab.jpg",
+              },
+              {
+                title: "Student Life",
+                count: "1000+",
+                description: "A vibrant, diverse, and inclusive student community",
+                icon: "🎓",
+                image: "/student-life/smart-studentss.jpg",
+              },
+              {
+                title: "Health Awareness Campaigns",
+                count: "20+",
+                description: "Student-led health education and awareness drives in the community.",
+                icon: "🩺",
+                image: "/community-outreaches/health-science-family.JPG",
               },
             ].map((item, index) => (
               <motion.div
@@ -870,7 +818,7 @@ export default function UnityUniversityHome() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={item.image || "/placeholder.svg"}
+                    src={item.image || "/hero-section/hero.png"}
                     alt={item.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -960,15 +908,15 @@ export default function UnityUniversityHome() {
                       className="space-y-4"
                     >
                       <Image
-                        src="/placeholder.svg?height=250&width=300"
-                        alt="Research Lab"
+                        src="/labs/in-the-lab.jpg"
+                        alt="Research Lab 1"
                         width={300}
                         height={250}
                         className="rounded-2xl shadow-lg"
                       />
                       <Image
-                        src="/placeholder.svg?height=200&width=300"
-                        alt="Innovation Center"
+                        src="/labs/in-the-lab-01.jpg"
+                        alt="Research Lab 2"
                         width={300}
                         height={200}
                         className="rounded-2xl shadow-lg"
@@ -980,15 +928,15 @@ export default function UnityUniversityHome() {
                       className="space-y-4 mt-8"
                     >
                       <Image
-                        src="/placeholder.svg?height=200&width=300"
-                        alt="Student Research"
+                        src="/research/on-the-podium-0.jpg"
+                        alt="Research Podium 1"
                         width={300}
                         height={200}
                         className="rounded-2xl shadow-lg"
                       />
                       <Image
-                        src="/placeholder.svg?height=250&width=300"
-                        alt="Technology Lab"
+                        src="/research/on-the-podium-01.jpg"
+                        alt="Research Podium 2"
                         width={300}
                         height={250}
                         className="rounded-2xl shadow-lg"
@@ -998,105 +946,6 @@ export default function UnityUniversityHome() {
                 </motion.div>
               )}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* News & Events Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Latest News & Events</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Stay updated with the latest happenings, achievements, and upcoming events across our global campuses.
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "International Research Symposium 2024",
-                date: "March 15-17, 2024",
-                category: "Research",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Join leading researchers from around the world as they present groundbreaking findings...",
-              },
-              {
-                title: "New Partnership with Oxford University",
-                date: "February 28, 2024",
-                category: "Partnership",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Unity University announces strategic partnership for student exchange programs...",
-              },
-              {
-                title: "Student Innovation Challenge Winners",
-                date: "February 20, 2024",
-                category: "Achievement",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Celebrating our students' innovative solutions to real-world problems...",
-              },
-              {
-                title: "Campus Sustainability Initiative Launch",
-                date: "February 10, 2024",
-                category: "Sustainability",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "New green campus initiatives aim to reduce carbon footprint by 50%...",
-              },
-              {
-                title: "Alumni Success Story: Tech Entrepreneur",
-                date: "January 25, 2024",
-                category: "Alumni",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Graduate launches successful fintech startup serving African markets...",
-              },
-              {
-                title: "Cultural Festival 2024 Announcement",
-                date: "January 15, 2024",
-                category: "Culture",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Annual celebration of diversity featuring performances from both campuses...",
-              },
-            ].map((news, index) => (
-              <motion.div
-                key={news.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 cursor-pointer"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={news.image || "/placeholder.svg"}
-                    alt={news.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-purple-600 text-white">{news.category}</Badge>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="text-sm text-gray-500 mb-2">{news.date}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
-                    {news.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{news.excerpt}</p>
-                  <div className="flex items-center text-purple-600 font-medium">
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -1125,17 +974,17 @@ export default function UnityUniversityHome() {
                 name: "Dr. Amina Hassan",
                 title: "Chief Medical Officer",
                 company: "WHO Africa",
-                year: "Class of 2015",
-                image: "/placeholder.svg?height=300&width=300",
-                quote: "Unity University gave me the foundation to serve communities across Africa.",
+                year: "Class of 2021",
+                image: "/alumni/alumni-01.jpg",
+                quote: "The Unity University gave me the foundation to serve communities across Africa.",
                 achievement: "Leading COVID-19 response initiatives",
               },
               {
                 name: "James Koroma",
                 title: "Tech Entrepreneur",
                 company: "Founder, EduTech Solutions",
-                year: "Class of 2018",
-                image: "/placeholder.svg?height=300&width=300",
+                year: "Class of 2021",
+                image: "/alumni/alumni-02.jpg",
                 quote: "The global perspective I gained here shaped my vision for African education technology.",
                 achievement: "Serving 2M+ students across 15 countries",
               },
@@ -1143,8 +992,8 @@ export default function UnityUniversityHome() {
                 name: "Fatima Al-Rashid",
                 title: "Environmental Scientist",
                 company: "UN Climate Change",
-                year: "Class of 2016",
-                image: "/placeholder.svg?height=300&width=300",
+                year: "Class of 2021",
+                image: "/alumni/alumni-03.jpg",
                 quote: "My research on sustainable agriculture started in Unity's labs.",
                 achievement: "Published 25+ research papers",
               },
@@ -1161,7 +1010,7 @@ export default function UnityUniversityHome() {
                 <div className="text-center mb-6">
                   <div className="relative w-24 h-24 mx-auto mb-4">
                     <Image
-                      src={alumni.image || "/placeholder.svg"}
+                      src={alumni.image || "/hero-section/hero.png"}
                       alt={alumni.name}
                       fill
                       className="rounded-full object-cover"
@@ -1237,8 +1086,8 @@ export default function UnityUniversityHome() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-3xl blur-3xl"></div>
                   <Image
-                    src="/placeholder.svg?height=500&width=600"
-                    alt="Global Impact Map"
+                    src="/community-outreaches/health-science-faculty-community-out-reach-2.JPG"
+                    alt="Health Science Faculty Community Outreach"
                     width={600}
                     height={500}
                     className="relative rounded-3xl shadow-2xl"
