@@ -32,7 +32,7 @@ const activities = [
     time: "2:00 PM - 6:00 PM",
     location: "Sports Complex",
     participants: 120,
-    description: "Inter-campus basketball tournament with teams from all Unity University locations",
+    description: "Inter-campus basketball tournament with teams from all The Unity University locations",
     image: "/placeholder.svg?height=200&width=300",
     tags: ["Sports", "Competition", "Inter-campus"],
   },
@@ -148,7 +148,7 @@ export default function CampusActivitiesPage() {
               Campus Activities
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Discover exciting events, competitions, and activities happening across all Unity University campuses. Get
+              Discover exciting events, competitions, and activities happening across all The Unity University campuses. Get
               involved, make connections, and create unforgettable memories.
             </p>
           </motion.div>

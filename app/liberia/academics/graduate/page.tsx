@@ -516,7 +516,7 @@ export default function GraduatePage() {
 
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Graduate Programs</h1>
             <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl">
-              Advance your career with our world-class graduate programs at Unity University Liberia. Designed for
+              Advance your career with our world-class graduate programs at The Unity University Liberia. Designed for
               working professionals and recent graduates, our master's programs combine rigorous academics with
               practical application, preparing you for leadership roles in your field.
             </p>
@@ -886,7 +886,7 @@ export default function GraduatePage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Graduate School at Unity University?
+              Why Choose Graduate School at The Unity University?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Our graduate programs are designed for ambitious professionals ready to take their careers to the next
@@ -945,7 +945,7 @@ export default function GraduatePage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Advance Your Career?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Take the next step in your professional journey with a graduate degree from Unity University Liberia. Join
+              Take the next step in your professional journey with a graduate degree from The Unity University Liberia. Join
               our community of leaders, innovators, and change-makers who are shaping the future of Liberia and Africa.
             </p>
             <div className="flex flex-wrap justify-center gap-6">

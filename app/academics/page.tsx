@@ -430,7 +430,7 @@ export default function AcademicsPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Why Choose Unity University</h2>
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">Why Choose The Unity University</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Distinctive features that set our academic programs apart
               </p>
@@ -662,7 +662,7 @@ export default function AcademicsPage() {
           >
             <h2 className="text-5xl font-bold text-white mb-8">Ready to Begin Your Academic Journey?</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-              Join thousands of students who have chosen Unity University for their academic excellence and global
+              Join thousands of students who have chosen The Unity University for their academic excellence and global
               perspective.
             </p>
             <div className="flex flex-wrap justify-center gap-6">

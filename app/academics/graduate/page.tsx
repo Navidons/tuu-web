@@ -655,7 +655,7 @@ export default function GraduatePage() {
                 program: "MSc Information Technology '23",
                 achievement: "Lead AI Researcher at Microsoft",
                 story:
-                  "The research opportunities and mentorship at Unity University prepared me to lead groundbreaking AI projects.",
+                  "The research opportunities and mentorship at The Unity University prepared me to lead groundbreaking AI projects.",
                 image: "/placeholder.svg?height=200&width=200",
               },
               {
@@ -671,7 +671,7 @@ export default function GraduatePage() {
                 program: "MPH '24",
                 achievement: "WHO Regional Director",
                 story:
-                  "Unity's global health perspective and research training prepared me for leadership in international health.",
+                  "The Unity University's global health perspective and research training prepared me for leadership in international health.",
                 image: "/placeholder.svg?height=200&width=200",
               },
             ].map((story, index) => (

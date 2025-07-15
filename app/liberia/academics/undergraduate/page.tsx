@@ -493,7 +493,7 @@ export default function UndergraduatePage() {
 
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Undergraduate Programs</h1>
             <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl">
-              Launch your career with world-class undergraduate education at Unity University Liberia. Our comprehensive
+              Launch your career with world-class undergraduate education at The Unity University Liberia. Our comprehensive
               programs combine academic excellence with practical experience, preparing you for success in Liberia's
               growing economy and the global marketplace.
             </p>
@@ -824,7 +824,7 @@ export default function UndergraduatePage() {
         )}
       </AnimatePresence>
 
-      {/* Why Choose Unity University */}
+      {/* Why Choose The Unity University */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -834,7 +834,7 @@ export default function UndergraduatePage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Unity University Liberia?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose The Unity University Liberia?</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Experience world-class education with a distinctly Liberian perspective, preparing you for success in both
               local and global markets.
@@ -924,7 +924,7 @@ export default function UndergraduatePage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Join thousands of successful graduates who started their careers at Unity University Liberia. Your future
+              Join thousands of successful graduates who started their careers at The Unity University Liberia. Your future
               begins here, where "The Love of Liberty Brought Us Here."
             </p>
             <div className="flex flex-wrap justify-center gap-6">

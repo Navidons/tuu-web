@@ -75,7 +75,7 @@ export default function AboutPage() {
           <div className="text-center text-white">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
               <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
-                About Unity University
+                About The Unity University
               </Badge>
               <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
                 Transforming
@@ -84,7 +84,7 @@ export default function AboutPage() {
                 </span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Since our founding in 2021, Unity University has rapidly established itself as a leader in African higher education, with our motto "What begins here, transforms Africa" guiding our mission across our campuses in Somaliland and Liberia.
+                Since our founding in 2020, The Unity University has rapidly established itself as a leader in African higher education, with our motto "What begins here, transforms Africa" guiding our mission across our campuses in Somaliland and Liberia.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <Link href="/about/history">
@@ -270,7 +270,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">Monrovia, Liberia</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Our newest campus in Monrovia extends Unity University's reach across West Africa. Established in 2024, it represents our commitment to Pan-African education and rapid expansion.
+                Our newest campus in Monrovia extends The Unity University's reach across West Africa. Established in 2024, it represents our commitment to Pan-African education and rapid expansion.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="text-center">
@@ -324,7 +324,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">Hargeisa, Somaliland</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Our flagship campus in Hargeisa represents the birthplace of Unity University. Since 2021, it has been a beacon of educational excellence in the Horn of Africa, embodying our motto "What begins here, transforms Africa."
+                Our flagship campus in Hargeisa represents the birthplace of The Unity University. Since 2021, it has been a beacon of educational excellence in the Horn of Africa, embodying our motto "What begins here, transforms Africa."
               </p>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="text-center">
@@ -362,7 +362,7 @@ export default function AboutPage() {
             >
               <h2 className="text-5xl font-bold text-gray-900 mb-6">Learn More About Us</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover the people, history, and network that make Unity University exceptional
+                Discover the people, history, and network that make The Unity University exceptional
               </p>
             </motion.div>
           </div>

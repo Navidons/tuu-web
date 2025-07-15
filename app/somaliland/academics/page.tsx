@@ -293,7 +293,6 @@ export default function AcademicsPage() {
                           </div>
                           <div className="absolute bottom-4 left-4 text-white">
                             <h4 className="text-lg font-bold mb-1">{program.title}</h4>
-                            <p className="text-white/90 text-sm">{program.titleSo}</p>
                           </div>
                         </div>
 

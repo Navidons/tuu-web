@@ -125,7 +125,7 @@ const testimonials = [
     name: "Amina Hassan",
     program: "Computer Science, Somalia Campus",
     quote:
-      "The diversity at Unity University has broadened my perspective immensely. Working with students from different backgrounds has prepared me for the global tech industry.",
+      "The diversity at The Unity University has broadened my perspective immensely. Working with students from different backgrounds has prepared me for the global tech industry.",
     rating: 5,
   },
   {
@@ -162,7 +162,7 @@ export default function StudentLifePage() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
-              Student Life at Unity University
+              Student Life at The Unity University
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Experience a vibrant campus community where academic excellence meets cultural diversity, personal growth,
@@ -190,7 +190,7 @@ export default function StudentLifePage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Life at Unity University</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Life at The Unity University</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Our campuses offer a rich tapestry of experiences that foster personal growth, academic achievement, and
               global citizenship.
@@ -336,7 +336,7 @@ export default function StudentLifePage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Student Voices</h2>
-            <p className="text-lg text-gray-600">Hear from our students about their Unity University experience</p>
+            <p className="text-lg text-gray-600">Hear from our students about their The Unity University experience</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">

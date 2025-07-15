@@ -51,7 +51,7 @@ export default function ContactPage() {
     },
     {
       name: "Liberia Campus",
-      address: "Unity University Drive, Monrovia, Montserrado County, Liberia",
+      address: "The Unity University Drive, Monrovia, Montserrado County, Liberia",
       phone: "+231 777 123 456",
       email: "liberia@tuu.university",
       hours: "Monday - Friday: 8:00 AM - 6:00 PM",
@@ -123,7 +123,7 @@ export default function ContactPage() {
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
                 We're here to help you on your educational journey. Reach out to us with any questions or to learn more
-                about Unity University.
+                about The Unity University.
               </p>
             </motion.div>
           </div>
@@ -251,7 +251,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  We're here to help you with any questions about Unity University. Choose the best way to reach us
+                  We're here to help you with any questions about The Unity University. Choose the best way to reach us
                   below.
                 </p>
               </div>
@@ -405,7 +405,7 @@ export default function ContactPage() {
             >
               <h2 className="text-5xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Quick answers to common questions about Unity University
+                Quick answers to common questions about The Unity University
               </p>
             </motion.div>
           </div>
@@ -414,7 +414,7 @@ export default function ContactPage() {
             <div className="grid gap-6 md:grid-cols-2">
               {[
                 {
-                  question: "How do I apply to Unity University?",
+                  question: "How do I apply to The Unity University?",
                   answer:
                     "You can apply online through our admissions portal. Visit our Admissions page for detailed requirements and deadlines.",
                 },
@@ -472,7 +472,7 @@ export default function ContactPage() {
           >
             <h2 className="text-5xl font-bold text-white mb-8">Ready to Start Your Journey?</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-              Take the first step towards your future at Unity University. We're here to support you every step of the
+              Take the first step towards your future at The Unity University. We're here to support you every step of the
               way.
             </p>
             <div className="flex flex-wrap justify-center gap-6">

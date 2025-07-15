@@ -22,7 +22,7 @@ export default function LiberiaHistoryPage() {
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Our History</h1>
           <p className="max-w-2xl mx-auto text-lg text-white/90">
-            Tracing the journey of Unity University from its founding in 2021 in Somaliland to the establishment of our Liberia campus in 2024, expanding our Pan-African mission across the continent.
+            Tracing the journey of The Unity University from its founding in 2021 in Somaliland to the establishment of our Liberia campus in 2024, expanding our Pan-African mission across the continent.
           </p>
         </div>
       </section>
@@ -33,9 +33,9 @@ export default function LiberiaHistoryPage() {
           {[
             {
               year: "2021",
-              title: "Unity University Founded",
+              title: "The Unity University Founded",
               description:
-                "Unity University was established in Hargeisa, Somaliland, with the motto 'What begins here, transforms Africa' and a vision to become a world-class university in leadership development.",
+                "The Unity University was established in Hargeisa, Somaliland, with the motto 'What begins here, transforms Africa' and a vision to become a world-class university in leadership development.",
             },
             {
               year: "2022",
@@ -47,19 +47,19 @@ export default function LiberiaHistoryPage() {
               year: "2023",
               title: "Research & Graduate Programs",
               description:
-                "Master's programs launched across multiple faculties, establishing Unity University as a growing center for higher education and research in the Horn of Africa.",
+                "Master's programs launched across multiple faculties, establishing The Unity University as a growing center for higher education and research in the Horn of Africa.",
             },
             {
               year: "2024",
               title: "Liberia Campus Established",
               description:
-                "Unity University expanded to West Africa with the opening of our Liberia campus in Monrovia, creating a truly Pan-African educational network serving both East and West Africa.",
+                "The Unity University expanded to West Africa with the opening of our Liberia campus in Monrovia, creating a truly Pan-African educational network serving both East and West Africa.",
             },
             {
               year: "2025",
               title: "Growing Excellence",
               description:
-                "Continuing our mission with over 4,000 students across both campuses, Unity University remains committed to transforming Africa through quality education and leadership development.",
+                "Continuing our mission with over 4,000 students across both campuses, The Unity University remains committed to transforming Africa through quality education and leadership development.",
             },
           ].map((item, idx) => (
             <motion.div

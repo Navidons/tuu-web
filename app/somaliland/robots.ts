@@ -19,7 +19,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/", "/private/", "/internal/*"],
       },
     ],
-    sitemap: "https://unity.edu.so/sitemap.xml",
-    host: "https://unity.edu.so",
+    sitemap: "https://tuu.university/somaliland/sitemap.xml",
+    host: "https://tuu.university/somaliland",
   }
 }

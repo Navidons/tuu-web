@@ -16,20 +16,20 @@ const leadership = [
     position: "Vice-Chancellor",
     category: "Executive",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Prof. PLO Lumumba is the distinguished Vice-Chancellor of Unity University, bringing decades of experience in education, law, and African development. A renowned Pan-African thought leader and former Director of Kenya Anti-Corruption Commission.",
+    bio: "Prof. PLO Lumumba is the distinguished Vice-Chancellor of The Unity University, bringing decades of experience in education, law, and African development. A renowned Pan-African thought leader and former Director of Kenya Anti-Corruption Commission.",
     education: [
       "LLB, University of Nairobi",
       "LLM, University of Nairobi", 
       "PhD in Law, University of Nairobi",
     ],
     experience: [
-      "Vice-Chancellor, Unity University (2021-Present)",
+      "Vice-Chancellor, The Unity University (2021-Present)",
       "Former Director, Kenya Anti-Corruption Commission",
       "Renowned Pan-African thought leader and speaker",
       "Author and international legal expert",
     ],
     achievements: [
-      "Led Unity University from founding to international recognition",
+      "Led The Unity University from founding to international recognition",
       "Expert in constitutional law and governance",
       "Author of numerous publications on African development",
       "Recipient of multiple Pan-African leadership awards",
@@ -54,7 +54,7 @@ const leadership = [
       "Bachelor's in Education",
     ],
     experience: [
-      "Deputy Vice-Chancellor, Unity University (2021-Present)",
+      "Deputy Vice-Chancellor, The Unity University (2021-Present)",
       "20+ years in higher education leadership",
       "Expert in academic quality assurance",
       "Champion of Pan-African education initiatives",
@@ -78,14 +78,14 @@ const leadership = [
     position: "Project Manager",
     category: "Executive",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Dr. Zakaria leads strategic projects and initiatives that drive Unity University's growth and impact across the continent. He oversees major development projects and institutional partnerships.",
+    bio: "Dr. Zakaria leads strategic projects and initiatives that drive The Unity University's growth and impact across the continent. He oversees major development projects and institutional partnerships.",
     education: [
       "PhD in Project Management",
       "Master's in Development Studies",
       "Bachelor's in Management",
     ],
     experience: [
-      "Project Manager, Unity University (2021-Present)",
+      "Project Manager, The Unity University (2021-Present)",
       "Expert in institutional project management",
       "Led major campus development initiatives",
       "International development consultant",
@@ -109,14 +109,14 @@ const leadership = [
     position: "Dean of Student Affairs",
     category: "Academic",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across Unity University's campuses. He is dedicated to holistic student development and community engagement.",
+    bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across The Unity University's campuses. He is dedicated to holistic student development and community engagement.",
     education: [
       "Master's in Student Affairs Administration",
       "Bachelor's in Social Sciences",
       "Diploma in Youth Development",
     ],
     experience: [
-      "Dean of Student Affairs, Unity University (2021-Present)",
+      "Dean of Student Affairs, The Unity University (2021-Present)",
       "Champion of student welfare and development",
       "Expert in student leadership programs",
       "Community engagement specialist",
@@ -147,7 +147,7 @@ const leadership = [
       "Bachelor's in Education",
     ],
     experience: [
-      "Dean, Faculty of Education, Unity University (2021-Present)",
+      "Dean, Faculty of Education, The Unity University (2021-Present)",
       "Expert in teacher preparation and development",
       "Educational innovation specialist",
       "Community education advocate",
@@ -178,7 +178,7 @@ const leadership = [
       "Bachelor's in Social Work",
     ],
     experience: [
-      "Dean, Faculty of Social Sciences, Unity University (2021-Present)",
+      "Dean, Faculty of Social Sciences, The Unity University (2021-Present)",
       "Expert in social research and development",
       "Community development specialist",
       "Policy research and analysis expert",
@@ -209,7 +209,7 @@ const leadership = [
       "Bachelor's in Health Sciences",
     ],
     experience: [
-      "Dean, Faculty of Allied Health Sciences, Unity University (2021-Present)",
+      "Dean, Faculty of Allied Health Sciences, The Unity University (2021-Present)",
       "Expert in public health and community wellness",
       "Health education specialist",
       "Community health advocate",
@@ -233,14 +233,14 @@ const leadership = [
     position: "Dean, Faculty of Computing & Information Technology",
     category: "Academic",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Leo Wamala leads the Faculty of Computing & Information Technology, driving technological innovation and digital transformation initiatives that position Unity University at the forefront of technology education.",
+    bio: "Leo Wamala leads the Faculty of Computing & Information Technology, driving technological innovation and digital transformation initiatives that position The Unity University at the forefront of technology education.",
     education: [
       "PhD in Computer Science",
       "Master's in Information Technology",
       "Bachelor's in Computer Engineering",
     ],
     experience: [
-      "Dean, Faculty of Computing & IT, Unity University (2021-Present)",
+      "Dean, Faculty of Computing & IT, The Unity University (2021-Present)",
       "Expert in technological innovation and development",
       "Digital transformation specialist",
       "Technology education advocate",
@@ -264,14 +264,14 @@ const leadership = [
     position: "Director, Foundation Programmes",
     category: "Administration",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Semakalu Ronald directs the Foundation Programmes at Unity University, ensuring academic preparedness and foundational skills development for incoming students across all faculties.",
+    bio: "Semakalu Ronald directs the Foundation Programmes at The Unity University, ensuring academic preparedness and foundational skills development for incoming students across all faculties.",
     education: [
       "Master's in Educational Development",
       "Bachelor's in Education",
       "Diploma in Academic Support",
     ],
     experience: [
-      "Director, Foundation Programmes, Unity University (2021-Present)",
+      "Director, Foundation Programmes, The Unity University (2020-Present)",
       "Academic preparedness specialist",
       "Foundational skills development expert",
       "Student success advocate",
@@ -295,14 +295,14 @@ const leadership = [
     position: "Director, Quality Assurance",
     category: "Administration",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Kirinya Robert oversees quality assurance processes at Unity University, ensuring the maintenance of academic excellence and institutional standards across all programs and campuses.",
+    bio: "Kirinya Robert oversees quality assurance processes at The Unity University, ensuring the maintenance of academic excellence and institutional standards across all programs and campuses.",
     education: [
       "PhD in Quality Management",
       "Master's in Educational Assessment",
       "Bachelor's in Management",
     ],
     experience: [
-      "Director, Quality Assurance, Unity University (2021-Present)",
+      "Director, Quality Assurance, The Unity University (2021-Present)",
       "Expert in academic quality standards",
       "Institutional assessment specialist",
       "Continuous improvement advocate",
@@ -326,14 +326,14 @@ const leadership = [
     position: "Campus Director",
     category: "Administration",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Kavuma Yusuf Musa serves as Campus Director, overseeing campus operations and strategic development to ensure smooth functioning and growth of Unity University facilities and services.",
+    bio: "Kavuma Yusuf Musa serves as Campus Director, overseeing campus operations and strategic development to ensure smooth functioning and growth of The Unity University facilities and services.",
     education: [
       "Master's in Campus Management",
       "Bachelor's in Administration",
       "Diploma in Facilities Management",
     ],
     experience: [
-      "Campus Director, Unity University (2021-Present)",
+      "Campus Director, The Unity University (2021-Present)",
       "Campus operations specialist",
       "Strategic development expert",
       "Facilities management professional",
@@ -401,7 +401,7 @@ export default function LeadershipPage() {
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">Leadership</h1>
               <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
-                Meet the visionary leaders driving Unity University's mission of excellence
+                Meet the visionary leaders driving The Unity University's mission of excellence
               </p>
             </div>
           </div>
@@ -486,7 +486,7 @@ export default function LeadershipPage() {
             <h2 className="text-3xl font-bold text-center mb-12">Board of Trustees</h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-lg text-gray-700 text-center mb-8">
-                Our distinguished Board of Trustees provides strategic guidance and oversight, ensuring Unity University
+                Our distinguished Board of Trustees provides strategic guidance and oversight, ensuring The Unity University
                 maintains its commitment to excellence and serves the needs of Somaliland and the region.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -621,7 +621,7 @@ export default function LeadershipPage() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-4">Join Our Leadership Team</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Unity University is always seeking exceptional leaders to join our mission of educational excellence
+              The Unity University is always seeking exceptional leaders to join our mission of educational excellence
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary">

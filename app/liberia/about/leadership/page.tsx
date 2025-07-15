@@ -10,42 +10,42 @@ const leaders = [
   {
     name: "Prof. PLO Lumumba",
     title: "Vice-Chancellor",
-    bio: "Prof. PLO Lumumba is the distinguished Vice-Chancellor of Unity University, providing overall leadership across both Somaliland and Liberia campuses. A renowned Pan-African thought leader and former Director of Kenya Anti-Corruption Commission.",
+    bio: "Prof. PLO Lumumba is the distinguished Vice-Chancellor of The Unity University, providing overall leadership across both Somaliland and Liberia campuses. A renowned Pan-African thought leader and former Director of Kenya Anti-Corruption Commission.",
     img: "/placeholder-user.jpg",
     link: "#",
   },
   {
     name: "Dr. Katerega David",
     title: "Deputy Vice-Chancellor",
-    bio: "Dr. Katerega David oversees academic operations and strategic development across both campuses, ensuring Unity University maintains its commitment to academic excellence.",
+    bio: "Dr. Katerega David oversees academic operations and strategic development across both campuses, ensuring The Unity University maintains its commitment to academic excellence.",
     img: "/placeholder-user.jpg",
     link: "#",
   },
   {
     name: "Dr. Zakaria",
     title: "Project Manager",
-    bio: "Dr. Zakaria leads strategic projects and initiatives including the establishment and development of the Liberia campus, driving Unity University's Pan-African expansion.",
+    bio: "Dr. Zakaria leads strategic projects and initiatives including the establishment and development of the Liberia campus, driving The Unity University's Pan-African expansion.",
     img: "/placeholder-user.jpg",
     link: "#",
   },
   {
     name: "Kaggwa Robert Abubaker",
     title: "Dean of Student Affairs",
-    bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across Unity University's campuses, ensuring holistic student development.",
+    bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across The Unity University's campuses, ensuring holistic student development.",
     img: "/placeholder-user.jpg",
     link: "#",
   },
   {
     name: "Kavuma Yusuf Musa",
     title: "Campus Director",
-    bio: "Kavuma Yusuf Musa oversees campus operations and strategic development, ensuring smooth functioning and growth of Unity University facilities and services.",
+    bio: "Kavuma Yusuf Musa oversees campus operations and strategic development, ensuring smooth functioning and growth of The Unity University facilities and services.",
     img: "/placeholder-user.jpg",
     link: "#",
   },
   {
     name: "Kirinya Robert",
     title: "Director, Quality Assurance",
-    bio: "Kirinya Robert ensures the maintenance of academic excellence and institutional standards across all Unity University programs and campuses.",
+    bio: "Kirinya Robert ensures the maintenance of academic excellence and institutional standards across all The Unity University programs and campuses.",
     img: "/placeholder-user.jpg", 
     link: "#",
   },
@@ -72,7 +72,7 @@ export default function LiberiaLeadershipPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold mb-6 text-gray-900"
           >
-            Leading Unity University's Pan-African Vision
+            Leading The Unity University's Pan-African Vision
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ export default function LiberiaLeadershipPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-gray-600"
           >
-            Meet the dedicated leaders who guide Unity University's mission "What begins here, transforms Africa" across our Somaliland and Liberia campuses, driving academic excellence, innovation, and leadership development throughout Africa.
+            Meet the dedicated leaders who guide The Unity University's mission "What begins here, transforms Africa" across our Somaliland and Liberia campuses, driving academic excellence, innovation, and leadership development throughout Africa.
           </motion.p>
         </div>
       </section>

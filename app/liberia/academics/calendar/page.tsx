@@ -384,7 +384,7 @@ export default function CalendarPage() {
               Academic Calendar
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-4xl mx-auto">
-              Stay on track with your academic journey at Unity University Liberia. 
+              Stay on track with your academic journey at The Unity University Liberia. 
               Our comprehensive calendar keeps you informed of all important dates, 
               deadlines, and events throughout the year.
             </p>
@@ -764,7 +764,7 @@ export default function CalendarPage() {
             <LiberiaFlag className="h-12 w-20 mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Join Unity University Liberia and become part of our growing community of scholars and leaders.
+              Join The Unity University Liberia and become part of our growing community of scholars and leaders.
             </p>
             
             <div className="flex flex-wrap justify-center gap-6">

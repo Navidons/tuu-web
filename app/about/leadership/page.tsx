@@ -21,7 +21,7 @@ export default function LeadershipPage() {
       name: "Prof. PLO Lumumba",
       title: "Vice-Chancellor",
       image: "/placeholder.svg?height=400&width=400",
-      bio: "Prof. PLO Lumumba is the distinguished Vice-Chancellor of Unity University, bringing decades of experience in education, law, and African development.",
+      bio: "Prof. PLO Lumumba is the distinguished Vice-Chancellor of The Unity University, bringing decades of experience in education, law, and African development.",
       education: "LLB, LLM, PhD - University of Nairobi",
       achievements: [
         "Former Director, Kenya Anti-Corruption Commission",
@@ -49,7 +49,7 @@ export default function LeadershipPage() {
       name: "Dr. Zakaria",
       title: "Project Manager",
       image: "/placeholder.svg?height=400&width=400",
-      bio: "Dr. Zakaria leads strategic projects and initiatives that drive Unity University's growth and impact across the continent.",
+      bio: "Dr. Zakaria leads strategic projects and initiatives that drive The Unity University's growth and impact across the continent.",
       education: "PhD in Project Management",
       achievements: [
         "Expert in institutional project management",
@@ -63,7 +63,7 @@ export default function LeadershipPage() {
       name: "Kaggwa Robert Abubaker",
       title: "Dean of Student Affairs",
       image: "/placeholder.svg?height=400&width=400",
-      bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across Unity University's campuses.",
+      bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across The Unity University's campuses.",
       education: "Master's in Student Affairs Administration",
       achievements: [
         "Champion of student welfare and development",
@@ -71,7 +71,7 @@ export default function LeadershipPage() {
         "Community engagement specialist",
         "Holistic student development advocate",
       ],
-      quote: "Students are at the heart of everything we do at Unity University.",
+      quote: "Students are at the heart of everything we do at The Unity University.",
     },
   ]
 
@@ -124,7 +124,7 @@ export default function LeadershipPage() {
     {
       name: "Prof. PLO Lumumba",
       title: "Vice-Chancellor",
-      description: "Leading Unity University's mission across Africa",
+      description: "Leading The Unity University's mission across Africa",
       image: "/placeholder.svg?height=300&width=300",
     },
     {
@@ -184,7 +184,7 @@ export default function LeadershipPage() {
                 </span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Meet the exceptional individuals who guide Unity University's mission to transform education across
+                Meet the exceptional individuals who guide The Unity University's mission to transform education across
                 Africa and beyond.
               </p>
             </motion.div>

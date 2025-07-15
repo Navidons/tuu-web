@@ -504,7 +504,7 @@ export default function UndergraduatePage() {
                 name: "Sarah Mensah",
                 program: "Computer Science '23",
                 achievement: "Software Engineer at Google",
-                story: "The hands-on projects and mentorship at Unity University prepared me for the tech industry.",
+                story: "The hands-on projects and mentorship at The Unity University prepared me for the tech industry.",
                 image: "/placeholder.svg?height=200&width=200",
               },
               {
@@ -519,7 +519,7 @@ export default function UndergraduatePage() {
                 name: "Fatima Kone",
                 program: "International Relations '23",
                 achievement: "UN Development Programme",
-                story: "Unity's global perspective and internship opportunities opened doors to international careers.",
+                story: "The Unity University's global perspective and internship opportunities opened doors to international careers.",
                 image: "/placeholder.svg?height=200&width=200",
               },
             ].map((story, index) => (
@@ -563,7 +563,7 @@ export default function UndergraduatePage() {
           >
             <h2 className="text-5xl font-bold text-gray-900 mb-8">Ready to Start Your Undergraduate Journey?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              Join thousands of students who have chosen Unity University for their undergraduate education. Your future
+              Join thousands of students who have chosen The Unity University for their undergraduate education. Your future
               starts here.
             </p>
             <div className="flex flex-wrap justify-center gap-6">

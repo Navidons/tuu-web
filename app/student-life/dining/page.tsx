@@ -189,7 +189,7 @@ export default function DiningPage() {
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Experience diverse culinary traditions from around the world. Our dining services offer fresh, healthy,
-              and culturally authentic meals across all Unity University campuses.
+              and culturally authentic meals across all The Unity University campuses.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
@@ -389,7 +389,7 @@ export default function DiningPage() {
             className="mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">All Dining Locations</h2>
-            <p className="text-lg text-gray-600">Explore all dining options across Unity University campuses</p>
+            <p className="text-lg text-gray-600">Explore all dining options across The Unity University campuses</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

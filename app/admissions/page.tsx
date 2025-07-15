@@ -133,7 +133,7 @@ export default function AdmissionsPage() {
                 </span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Join a global community of scholars at Unity University. Discover world-class education opportunities
+                Join a global community of scholars at The Unity University. Discover world-class education opportunities
                 across our campuses in Liberia and Somaliland.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
@@ -342,7 +342,7 @@ export default function AdmissionsPage() {
             >
               <h2 className="text-5xl font-bold text-gray-900 mb-6">Admissions Resources</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Everything you need to know about joining Unity University
+                Everything you need to know about joining The Unity University
               </p>
             </motion.div>
           </div>
@@ -501,7 +501,7 @@ export default function AdmissionsPage() {
           >
             <h2 className="text-5xl font-bold text-gray-900 mb-8">Ready to Begin Your Journey?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              Join thousands of students who have chosen Unity University to transform their lives and shape the future
+              Join thousands of students who have chosen The Unity University to transform their lives and shape the future
               of Africa.
             </p>
             <div className="flex flex-wrap justify-center gap-6">

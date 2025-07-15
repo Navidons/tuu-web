@@ -21,7 +21,7 @@ export default function HistoryPage() {
       year: "2021",
       title: "Foundation in Hargeisa",
       description:
-        "Unity University was established in Hargeisa, Somaliland, with the motto 'What begins here, transforms Africa' and a vision to become a world-class university in leadership development.",
+        "The Unity University was established in Hargeisa, Somaliland, with the motto 'What begins here, transforms Africa' and a vision to become a world-class university in leadership development.",
       image: "/placeholder.svg?height=300&width=400",
       milestone: "University Founded",
       students: 200,
@@ -48,7 +48,7 @@ export default function HistoryPage() {
       year: "2024",
       title: "Liberia Campus Expansion",
       description:
-        "Opened second campus in Monrovia, Liberia, extending Unity University's reach across West Africa and establishing a truly Pan-African educational network.",
+        "Opened second campus in Monrovia, Liberia, extending The Unity University's reach across West Africa and establishing a truly Pan-African educational network.",
       image: "/placeholder.svg?height=300&width=400",
       milestone: "Liberia Campus Opened",
       students: 3500,
@@ -57,7 +57,7 @@ export default function HistoryPage() {
       year: "2025",
       title: "Continued Growth",
       description:
-        "Today, Unity University serves over 4,000 students across both campuses, offering undergraduate and graduate programs with a commitment to holistic human development and leadership.",
+        "Today, The Unity University serves over 4,000 students across both campuses, offering undergraduate and graduate programs with a commitment to holistic human development and leadership.",
       image: "/placeholder.svg?height=300&width=400",
       milestone: "Present Day",
       students: 4000,
@@ -101,7 +101,7 @@ export default function HistoryPage() {
                 </span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Founded in 2021 in Hargeisa, Somaliland, Unity University has quickly established itself as a leading educational institution committed to transforming African higher education.
+                Founded in 2021 in Hargeisa, Somaliland, The Unity University has quickly established itself as a leading educational institution committed to transforming African higher education.
               </p>
             </motion.div>
           </div>
@@ -120,7 +120,7 @@ export default function HistoryPage() {
             >
               <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Journey Through Time</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Key milestones that shaped Unity University into the institution it is today
+                Key milestones that shaped The Unity University into the institution it is today
               </p>
             </motion.div>
           </div>
@@ -202,11 +202,11 @@ export default function HistoryPage() {
                   </span>
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Unity University was born from a simple yet powerful vision: to create an institution that would
+                  The Unity University was born from a simple yet powerful vision: to create an institution that would
                   bridge the educational gap in Africa while maintaining the highest international standards.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Founded in 2021 in Hargeisa, Somaliland, Unity University emerged with the motto "What begins here, transforms Africa" and a mission to contribute to the development of Somaliland, Africa, and the world. In 2024, we expanded to Liberia, establishing our second campus in Monrovia, creating a truly Pan-African educational network committed to excellence and leadership development.
+                  Founded in 2021 in Hargeisa, Somaliland, The Unity University emerged with the motto "What begins here, transforms Africa" and a mission to contribute to the development of Somaliland, Africa, and the world. In 2024, we expanded to Liberia, establishing our second campus in Monrovia, creating a truly Pan-African educational network committed to excellence and leadership development.
                 </p>
                                   <div className="grid grid-cols-2 gap-6">
                   <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50">
@@ -299,7 +299,7 @@ export default function HistoryPage() {
           >
             <h2 className="text-5xl font-bold text-gray-900 mb-8">Be Part of Our Continuing Story</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              Join thousands of students who have chosen Unity University to shape their future and contribute to
+              Join thousands of students who have chosen The Unity University to shape their future and contribute to
               Africa's development.
             </p>
             <div className="flex flex-wrap justify-center gap-6">

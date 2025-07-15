@@ -144,7 +144,7 @@ export default function ApplyPage() {
                 </span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Take the first step towards your future at Unity University. Our streamlined application process makes
+                Take the first step towards your future at The Unity University. Our streamlined application process makes
                 it easy to apply.
               </p>
             </motion.div>
@@ -505,7 +505,7 @@ export default function ApplyPage() {
                         onChange={handleInputChange}
                         className="mt-2"
                         rows={8}
-                        placeholder="Write a 500-word essay about your goals, motivations, and why you want to study at Unity University..."
+                        placeholder="Write a 500-word essay about your goals, motivations, and why you want to study at The Unity University..."
                         required
                       />
                       <p className="text-sm text-gray-500 mt-2">{formData.personalStatement.length}/500 words</p>

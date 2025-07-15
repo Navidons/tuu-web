@@ -490,7 +490,7 @@ export default function PartnershipsPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl font-bold mb-6">Partner With Unity University</h2>
+            <h2 className="text-4xl font-bold mb-6">Partner With The Unity University</h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
               Join our global network of partners and create lasting impact through collaborative research and
               innovation

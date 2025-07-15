@@ -225,7 +225,7 @@ export default function HousingPage() {
               University Services
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Discover the comprehensive range of services and facilities available to Unity University students across
+              Discover the comprehensive range of services and facilities available to The Unity University students across
               all our campuses. From technology infrastructure to wellness programs, we provide everything you need for
               academic success.
             </p>
@@ -460,7 +460,7 @@ export default function HousingPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Application Process</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Getting housing at Unity University is simple. Follow these four easy steps to secure your spot.
+              Getting housing at The Unity University is simple. Follow these four easy steps to secure your spot.
             </p>
           </motion.div>
 

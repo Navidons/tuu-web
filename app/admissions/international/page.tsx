@@ -197,7 +197,7 @@ export default function InternationalPage() {
                 </span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Join students from over 45 countries at Unity University. We provide comprehensive support to help
+                Join students from over 45 countries at The Unity University. We provide comprehensive support to help
                 international students thrive academically and culturally.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
@@ -233,7 +233,7 @@ export default function InternationalPage() {
             >
               <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Global Community</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Unity University is home to a diverse international community
+                The Unity University is home to a diverse international community
               </p>
             </motion.div>
           </div>

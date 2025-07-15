@@ -135,7 +135,7 @@ export default function InternationalStudentsPage() {
       step: 1,
       title: "Admission Acceptance",
       titleSo: "Aqbalka Gelitaanka",
-      description: "Receive official acceptance letter from Unity University",
+      description: "Receive official acceptance letter from The Unity University",
       icon: GraduationCap,
       duration: "2-4 weeks",
     },
@@ -299,7 +299,7 @@ export default function InternationalStudentsPage() {
             <h2 className="text-3xl font-semibold text-emerald-200 mb-8">Ardayda Dibadda</h2>
 
             <p className="text-xl leading-relaxed mb-12 opacity-95">
-              Join our diverse global community at Unity University. We welcome students from around the world to
+              Join our diverse global community at The Unity University. We welcome students from around the world to
               experience quality education in the heart of Somaliland while building lifelong connections.
             </p>
 
@@ -366,7 +366,7 @@ export default function InternationalStudentsPage() {
             </h2>
             <h3 className="text-2xl font-semibold text-gray-700 mb-6">Bulshadeenna Caalamiga ah</h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Students from over 45 countries choose Unity University for their higher education journey.
+              Students from over 45 countries choose The Unity University for their higher education journey.
             </p>
           </motion.div>
 
