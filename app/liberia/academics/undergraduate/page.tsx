@@ -162,7 +162,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/international-relations.jpg",
       description: "Comprehensive program focusing on global politics, international diplomacy, and diplomatic studies. Students develop understanding of international law, foreign policy, and global governance structures.",
       highlights: ["International Law & Diplomacy", "Foreign Policy Analysis", "Global Governance", "Diplomatic Protocol", "International Organizations"],
       curriculum: ["Introduction to International Relations", "International Law", "Foreign Policy Analysis", "Diplomatic Protocol", "Comparative Politics", "International Organizations", "Global Security Studies", "Research Methods"],
@@ -177,7 +177,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/leadership-skills.jpg",
       description: "Designed to prepare students for leadership roles in public sector organizations, focusing on governance, public policy development, and administrative management.",
       highlights: ["Public Policy Development", "Government Administration", "Leadership Skills", "Organizational Management", "Policy Analysis"],
       curriculum: ["Principles of Public Administration", "Public Policy Analysis", "Government Finance", "Organizational Behavior", "Administrative Law", "Leadership and Management", "Public Sector Economics", "Research Methods"],
@@ -192,7 +192,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/community-outreaches/health-community-outreach-01.jpg",
       description: "Comprehensive program preparing students for professional social work practice, community development, and social service administration in various settings.",
       highlights: ["Community Development", "Social Service Delivery", "Counseling Skills", "Advocacy and Social Justice", "Case Management"],
       curriculum: ["Introduction to Social Sciences", "Community Development", "Guidance and Counselling", "Human Growth and Development", "Social Service Ethics", "Community Organization", "Research Methods", "Field Practice"],
@@ -207,7 +207,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/business-class.jpg",
       description: "Specialized program focusing on project lifecycle management, monitoring and evaluation, and strategic planning for development projects.",
       highlights: ["Project Lifecycle Management", "Monitoring & Evaluation", "Resource Mobilization", "Strategic Planning", "Risk Management"],
       curriculum: ["Project Planning Fundamentals", "Resource Mobilization", "Monitoring and Evaluation", "Risk Management", "Grant Writing", "Development Finance", "Research Methods", "Capstone Project"],
@@ -222,7 +222,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/public-speaking.jpg",
       description: "Comprehensive program combining public relations theory with practical media management skills for modern communication challenges.",
       highlights: ["Strategic Communication", "Media Production", "Digital Media Management", "Crisis Communication", "Brand Management"],
       curriculum: ["Introduction to Public Relations", "Media Writing", "Digital Media Management", "Crisis Communication", "Media Production", "Public Relations Campaigns", "Media Law and Ethics", "Research Project"],
@@ -239,7 +239,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Calculator,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/accounts.jpg",
       description: "Comprehensive program covering financial accounting, management accounting, auditing, and financial management principles for professional accounting practice.",
       highlights: ["Financial Accounting", "Management Accounting", "Auditing", "Taxation", "Financial Analysis"],
       curriculum: ["Fundamentals of Accounting", "Intermediate Accounting", "Cost Accounting", "Financial Management", "Auditing I & II", "Taxation I & II", "Investment Analysis", "Computerized Accounting"],
@@ -254,7 +254,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Users,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/human-resources.jpg",
       description: "Specialized program focusing on human resource development, organizational behavior, and strategic human resource management in modern organizations.",
       highlights: ["Talent Management", "Organizational Behavior", "HR Strategy", "Training & Development", "Employment Law"],
       curriculum: ["Principles of Management", "Organizational Behavior", "Human Resource Strategy", "Training and Development", "Employment Law", "Performance Management", "Compensation Management", "Research Methods"],
@@ -269,7 +269,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Briefcase,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/business-class.jpg",
       description: "Broad-based business program covering all major business functions including management, marketing, finance, and entrepreneurship for versatile business leadership.",
       highlights: ["Strategic Management", "Entrepreneurship", "Business Ethics", "International Business", "Leadership Development"],
       curriculum: ["Principles of Management", "Marketing Principles", "Entrepreneurship Development", "Strategic Management", "Business Ethics", "International Business", "Operations Management", "Business Research"],
@@ -284,7 +284,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Calculator,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/finance.jpg",
       description: "Specialized program focusing on banking operations, financial markets, and financial institution management for careers in the financial services sector.",
       highlights: ["Banking Operations", "Financial Markets", "Risk Management", "Investment Banking", "Financial Regulation"],
       curriculum: ["Principles of Banking", "Financial Markets", "Monetary Economics", "Bank Management", "Risk Management", "Investment Analysis", "Banking Law", "Financial Research"],
@@ -299,7 +299,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Building,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/business-class.jpg",
       description: "Comprehensive program covering procurement processes, logistics management, and supply chain optimization for modern business operations.",
       highlights: ["Supply Chain Management", "Procurement Processes", "Logistics Planning", "Inventory Management", "Vendor Management"],
       curriculum: ["Procurement Fundamentals", "Supply Chain Management", "Logistics Planning", "Inventory Management", "Purchasing Management", "Transportation Management", "Quality Management", "Research Project"],
@@ -314,7 +314,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: TrendingUp,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/business-class.jpg",
       description: "Specialized marketing program focusing on consumer behavior, digital marketing, brand management, and strategic marketing for modern markets.",
       highlights: ["Digital Marketing", "Brand Management", "Consumer Psychology", "Market Research", "Strategic Marketing"],
       curriculum: ["Principles of Marketing", "Consumer Behavior", "Digital Marketing", "Brand Management", "Market Research", "Advertising and Promotion", "Strategic Marketing", "Marketing Analytics"],
@@ -331,7 +331,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Stethoscope,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/health-sciences.jpg",
       description: "Comprehensive public health program focusing on disease prevention, health promotion, epidemiology, and community health management.",
       highlights: ["Epidemiology", "Health Promotion", "Community Health", "Health Policy", "Disease Prevention"],
       curriculum: ["Understanding Public Health", "Epidemiology", "Environmental Health", "Health Education", "Health Policy Planning", "Maternal and Child Health", "Community Health Ethics", "Research Methods"],
@@ -346,7 +346,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Heart,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/food-nutrition.png",
       description: "Specialized program focusing on human nutrition, food science, dietetics, and food safety for improving community health and nutrition.",
       highlights: ["Clinical Nutrition", "Food Science", "Dietetics", "Food Safety", "Nutritional Assessment"],
       curriculum: ["Food, Nutrition, and Health", "Clinical Nutrition", "Food Microbiology", "Food Service Management", "Nutrition Education", "Community Nutrition", "Food Quality Control", "Research Methods"],
@@ -361,7 +361,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Building,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/labs/health-science-student-in-lab.jpg",
       description: "Healthcare management program focusing on health systems administration, healthcare policy, and management of health service organizations.",
       highlights: ["Health Systems Management", "Healthcare Policy", "Hospital Administration", "Health Economics", "Quality Management"],
       curriculum: ["Health Service Management", "Health Policy Planning", "Health Economics", "Hospital Management", "Quality Systems", "Health Informatics", "Healthcare Leadership", "Research Methods"],
@@ -378,7 +378,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "128 Credits",
       icon: Code,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/software-engineering.jpg",
       description: "Comprehensive software engineering program focusing on software development lifecycle, programming methodologies, and modern software engineering practices.",
       highlights: ["Software Development", "Programming Languages", "Software Architecture", "Mobile App Development", "Project Management"],
       curriculum: ["Programming in C", "Object-Oriented Programming (Java)", "Web Programming", "Software Engineering Principles", "Mobile App Development", "Software Project Management", "Human Computer Interaction", "Research Project"],
@@ -393,7 +393,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "128 Credits",
       icon: Code,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/computer-science.jpg",
       description: "Comprehensive computer science program covering algorithms, data structures, artificial intelligence, and advanced computing concepts.",
       highlights: ["Data Structures & Algorithms", "Artificial Intelligence", "Computer Architecture", "Software Simulation", "Cybersecurity"],
       curriculum: ["Computer Fundamentals", "Programming Methodology", "Data Structures & Algorithms", "Operating Systems", "Artificial Intelligence", "Information Security", "Software Simulation", "Research Project"],
@@ -408,7 +408,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "128 Credits",
       icon: Globe,
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/courses/technology.jpg",
       description: "Practical IT program focusing on network administration, system management, cybersecurity, and enterprise technology solutions.",
       highlights: ["Network Administration", "Cybersecurity", "Cloud Computing", "IT Project Management", "System Administration"],
       curriculum: ["Computer Applications", "Database Applications", "Data Communication & Networking", "Information Systems", "Cloud Computing", "Information Security", "IT Project Management", "Research Project"],
@@ -463,19 +463,16 @@ export default function UndergraduatePage() {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-red-800 to-blue-800 py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          animate={{
-            backgroundImage: [
-              "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
-        />
-
+        <div className="absolute inset-0">
+          <Image
+            src="/in-class/masters/in-class-04.jpg"
+            alt="Undergraduate Excellence at Unity University Liberia"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumb />
           <motion.div

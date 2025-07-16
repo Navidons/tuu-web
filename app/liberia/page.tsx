@@ -164,8 +164,74 @@ const ParallaxSection = ({ children, offset = 30 }: { children: React.ReactNode;
   )
 }
 
+// Utility to get a random subset of images
+// (No longer needed globally)
+
 export default function LiberiaHome() {
   const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Hero section images pool
+  const heroImages = [
+    "/hero-section/hero.png",
+    "/hero-section/global-perspective.jpg",
+    "/hero-section/male-graduation.jpg",
+    "/hero-section/graduation-day.jpg",
+    "/hero-section/all-on-graduation-pic.jpg",
+    "/hero-section/master-of-education-and-planning.jpg",
+    "/graduation/bachelor-of-information-technology.jpg",
+    "/graduation/big-men-graduation-master-0.jpg",
+    "/graduation/master-of-accounting.jpg",
+    "/graduation/master-of-education-and-planning.jpg",
+    "/graduation/master-of-education.jpg",
+    "/graduation/master-of-human-resource.jpg",
+    "/graduation/all-on-graduation-pic.jpg",
+    "/graduation/graduation-day.jpg",
+  ];
+
+  // State for random hero images (client only)
+  const [randomHeroImages, setRandomHeroImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    function getRandomImages(images: string[], count: number): string[] {
+      const shuffled = [...images].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    setRandomHeroImages(getRandomImages(heroImages, 3));
+  }, []);
+
+  // Use random images if available, otherwise fallback to first 3 for SSR
+  const heroSlides = useMemo(() => {
+    const images = randomHeroImages.length === 3 ? randomHeroImages : heroImages.slice(0, 3);
+    return [
+      {
+        image: images[0],
+        title: "The Unity University Liberia",
+        subtitle: "What Begins Here, Transforms Africa",
+        description:
+          "A dynamic, vision-driven university founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. We are raising a new generation of leaders for the African continent through holistic human development.",
+        cta: "Transform Your Future",
+        keywords: "premier university liberia, monrovia education, west africa",
+      },
+      {
+        image: images[1],
+        title: "The Love of Liberty Brought Us Here",
+        subtitle: "Pioneering Excellence Since 2024",
+        description:
+          "Offering transformational educational experiences that develop you in ways you might not yet have dreamed of. We are one of the strongest universities in West Africa, making history every day through innovation and excellence.",
+        cta: "Join Our Legacy",
+        keywords: "liberian education, transformational learning, west africa university",
+      },
+      {
+        image: images[2],
+        title: "Building Leaders for Africa",
+        subtitle: "University of Pan-African Excellence",
+        description:
+          "Our unique approach equips graduates with the skills, acuity and vision needed to succeed as ethical, entrepreneurial leaders. Our vibrant, Pan-African community promises life-long friendship and inspiration.",
+        cta: "Become a Leader",
+        keywords: "african leadership, pan-african education, ethical leaders",
+      },
+    ];
+  }, [randomHeroImages]);
 
   const handleSlideChange = useCallback((index: number) => {
     setCurrentSlide(index)
@@ -179,36 +245,6 @@ export default function LiberiaHome() {
   }, [])
 
   const base = "/liberia"
-
-  const heroSlides = useMemo(() => [
-    {
-      image: "/placeholder.svg?height=1080&width=1920",
-      title: "The Unity University Liberia",
-      subtitle: "What Begins Here, Transforms Africa",
-      description:
-        "A dynamic, vision-driven university founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. We are raising a new generation of leaders for the African continent through holistic human development.",
-      cta: "Transform Your Future",
-      keywords: "premier university liberia, monrovia education, west africa",
-    },
-    {
-      image: "/placeholder.svg?height=1080&width=1920",
-      title: "The Love of Liberty Brought Us Here",
-      subtitle: "Pioneering Excellence Since 2024",
-      description:
-        "Offering transformational educational experiences that develop you in ways you might not yet have dreamed of. We are one of the strongest universities in West Africa, making history every day through innovation and excellence.",
-      cta: "Join Our Legacy",
-      keywords: "liberian education, transformational learning, west africa university",
-    },
-    {
-      image: "/placeholder.svg?height=1080&width=1920",
-      title: "Building Leaders for Africa",
-      subtitle: "University of Pan-African Excellence",
-      description:
-        "Our unique approach equips graduates with the skills, acuity and vision needed to succeed as ethical, entrepreneurial leaders. Our vibrant, Pan-African community promises life-long friendship and inspiration.",
-      cta: "Become a Leader",
-      keywords: "african leadership, pan-african education, ethical leaders",
-    },
-  ], [])
 
   const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
@@ -458,7 +494,7 @@ export default function LiberiaHome() {
               <motion.div variants={itemVariants} className="relative">
                 <div className="relative h-[500px] overflow-hidden rounded-2xl shadow-2xl">
                   <Image
-                    src="/placeholder.svg?height=1000&width=800"
+                    src="/graduation/master-of-education-and-planning.jpg"
                     alt="The Unity University Liberia Campus in Monrovia"
                     fill
                     className="object-cover"
@@ -552,21 +588,21 @@ export default function LiberiaHome() {
               {
                 title: "Business Administration",
                 description: "Developing business leaders for Liberia's growing economy and regional markets.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/courses/business-class.jpg",
                 features: ["Entrepreneurship Focus", "Industry Partnerships", "Practical Training"],
                 duration: "4 Years Bachelor / 2 Years Master",
               },
               {
                 title: "Information Technology",
                 description: "Building digital skills and technological solutions for Liberia's digital transformation.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/courses/technology.jpg",
                 features: ["Modern Curriculum", "Industry Certifications", "Innovation Labs"],
                 duration: "4 Years Bachelor / 2 Years Master",
               },
               {
                 title: "Public Health",
                 description: "Training healthcare professionals to serve Liberian communities with excellence.",
-                image: "/placeholder.svg?height=300&width=400",
+                image: "/courses/health-sciences.jpg",
                 features: ["Community Focus", "Clinical Training", "Research Opportunities"],
                 duration: "4 Years Bachelor / 2 Years Master",
               },
@@ -647,7 +683,7 @@ export default function LiberiaHome() {
               <motion.div variants={itemVariants} className="relative">
                 <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-2xl">
                   <Image
-                    src="/placeholder.svg?height=800&width=600"
+                    src="https://diplomaticwatch.com/wp-content/uploads/2024/07/Liberia-cultural-performance.jpg"
                     alt="Liberian Heritage and Culture"
                     fill
                     className="object-cover"

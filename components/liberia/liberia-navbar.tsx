@@ -98,7 +98,6 @@ export default function LiberiaNavbar() {
       dropdown: [
         { name: "Undergraduate Programs", href: "/liberia/academics/undergraduate" },
         { name: "Graduate Programs", href: "/liberia/academics/graduate" },
-        { name: "Academic Calendar", href: "/liberia/academics/calendar" },
       ],
     },
     {

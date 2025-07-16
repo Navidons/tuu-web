@@ -211,7 +211,7 @@ export default function GraduatePage() {
       specializations: ["Strategic Management", "Finance", "Marketing", "Operations", "International Business"],
       careers: ["CEO", "VP Operations", "Management Consultant", "Investment Manager"],
       requirements: ["Bachelor's degree", "3+ years work experience", "Letters of recommendation"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/business-class.jpg",
       accreditation: "AACSB International Accredited",
       curriculum: ["Strategic Management", "Financial Management", "Marketing Strategy", "Operations Management", "Leadership Development", "International Business"],
       researchAreas: ["Strategic Management", "Organizational Leadership", "Financial Markets", "Marketing Innovation"],
@@ -227,7 +227,7 @@ export default function GraduatePage() {
       specializations: ["HR Strategy", "Talent Management", "Organizational Development", "Employment Law"],
       careers: ["HR Director", "Talent Manager", "Organizational Consultant", "Training Manager"],
       requirements: ["Bachelor's degree", "HR experience preferred", "Letters of recommendation"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/human-resources.jpg",
       accreditation: "CIPD Recognized",
       curriculum: ["HR Strategy", "Talent Management", "Organizational Development", "Employment Law", "Performance Management", "Leadership Development"],
       researchAreas: ["HR Strategy", "Talent Management", "Organizational Behavior", "Employment Relations"],
@@ -243,7 +243,7 @@ export default function GraduatePage() {
       specializations: ["Financial Accounting", "Management Accounting", "Auditing", "Tax Planning"],
       careers: ["Finance Director", "Chief Financial Officer", "Senior Accountant", "Financial Analyst"],
       requirements: ["Bachelor's degree in related field", "Accounting experience preferred", "Letters of recommendation"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/accounts.jpg",
       accreditation: "ACCA Recognized",
       curriculum: ["Financial Accounting", "Management Accounting", "Auditing", "Tax Planning", "Financial Analysis", "Corporate Finance"],
       researchAreas: ["Financial Accounting", "Management Accounting", "Auditing", "Financial Analysis"],
@@ -259,7 +259,7 @@ export default function GraduatePage() {
       specializations: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Market Research"],
       careers: ["Marketing Director", "Brand Manager", "Digital Marketing Manager", "Market Research Analyst"],
       requirements: ["Bachelor's degree", "Marketing experience preferred", "Letters of recommendation"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/business-class.jpg",
       accreditation: "CIM Recognized",
       curriculum: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Market Research", "Marketing Strategy", "Marketing Analytics"],
       researchAreas: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Marketing Innovation"],
@@ -275,7 +275,7 @@ export default function GraduatePage() {
       specializations: ["Project Management", "Program Management", "Risk Management", "Quality Management"],
       careers: ["Project Director", "Program Manager", "PMO Lead", "Operations Manager"],
       requirements: ["Bachelor's degree", "Project management experience", "Letters of recommendation"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/business-class.jpg",
       accreditation: "PMI Recognized",
       curriculum: ["Project Management", "Program Management", "Risk Management", "Quality Management", "Project Leadership", "Project Finance"],
       researchAreas: ["Project Management", "Program Management", "Risk Management", "Quality Management"],
@@ -291,7 +291,7 @@ export default function GraduatePage() {
       specializations: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management"],
       careers: ["Supply Chain Director", "Procurement Manager", "Logistics Manager", "Operations Director"],
       requirements: ["Bachelor's degree", "Supply chain experience preferred", "Letters of recommendation"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/business-class.jpg",
       accreditation: "CIPS Recognized",
       curriculum: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management", "Supply Chain Finance", "Global Sourcing"],
       researchAreas: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management"],
@@ -307,7 +307,7 @@ export default function GraduatePage() {
       specializations: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health"],
       careers: ["Public Health Director", "Epidemiologist", "Health Policy Analyst", "WHO Officer"],
       requirements: ["Bachelor's degree", "Healthcare experience preferred", "Statement of purpose"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/health-sciences.jpg",
       accreditation: "CEPH Accredited",
       curriculum: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health", "Biostatistics", "Health Economics"],
       researchAreas: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health"],
@@ -323,7 +323,7 @@ export default function GraduatePage() {
       specializations: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science"],
       careers: ["Clinical Nutritionist", "Public Health Nutritionist", "Food Safety Manager", "Research Scientist"],
       requirements: ["Bachelor's degree in related field", "Nutrition background preferred", "Statement of purpose"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/food-nutrition.png",
       accreditation: "CDR Recognized",
       curriculum: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science", "Nutrition Research", "Food Policy"],
       researchAreas: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science"],
@@ -339,7 +339,7 @@ export default function GraduatePage() {
       specializations: ["Diplomacy", "International Security", "Development Studies", "Regional Studies"],
       careers: ["Diplomat", "International Analyst", "NGO Director", "Policy Advisor"],
       requirements: ["Bachelor's degree", "Language proficiency", "Research proposal"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/international-relations.jpg",
       accreditation: "Diplomatically Recognized",
       curriculum: ["Diplomacy", "International Security", "Development Studies", "Regional Studies", "International Law", "Global Governance"],
       researchAreas: ["Diplomacy", "International Security", "Development Studies", "Regional Studies"],
@@ -355,7 +355,7 @@ export default function GraduatePage() {
       specializations: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership"],
       careers: ["Government Official", "Public Policy Analyst", "Civil Service Manager", "NGO Administrator"],
       requirements: ["Bachelor's degree", "Public sector experience preferred", "Statement of purpose"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/leadership-skills.jpg",
       accreditation: "NASPAA Recognized",
       curriculum: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership", "Public Ethics", "Policy Analysis"],
       researchAreas: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership"],
@@ -371,7 +371,7 @@ export default function GraduatePage() {
       specializations: ["International Development", "Community Development", "Development Policy", "Social Research"],
       careers: ["Development Officer", "Program Manager", "Research Analyst", "Policy Consultant"],
       requirements: ["Bachelor's degree", "Development experience preferred", "Research proposal"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/research/research-students.jpg",
       accreditation: "DSA Recognized",
       curriculum: ["International Development", "Community Development", "Development Policy", "Social Research", "Development Economics", "Sustainable Development"],
       researchAreas: ["International Development", "Community Development", "Development Policy", "Social Research"],
@@ -387,7 +387,7 @@ export default function GraduatePage() {
       specializations: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management"],
       careers: ["IT Director", "Cybersecurity Specialist", "Data Scientist", "Systems Architect"],
       requirements: ["Bachelor's degree in IT/related field", "Programming experience", "Technical portfolio"],
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/courses/technology.jpg",
       accreditation: "ABET Accredited",
       curriculum: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management", "Software Engineering", "Database Management"],
       researchAreas: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management"],
@@ -486,7 +486,16 @@ export default function GraduatePage() {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-red-800 to-blue-800 py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0">
+          <Image
+            src="/graduation/master-of-education-and-planning.jpg"
+            alt="Graduate Excellence at Unity University Liberia"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
         <motion.div
           className="absolute inset-0 opacity-10"
           animate={{
@@ -498,7 +507,6 @@ export default function GraduatePage() {
           }}
           transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
         />
-
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumb />
           <motion.div

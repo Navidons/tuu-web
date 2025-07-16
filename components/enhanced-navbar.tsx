@@ -75,6 +75,15 @@ export default function EnhancedNavbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Prevent background scrolling when the mobile navigation drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+  }, [mobileMenuOpen])
+
   const toggleDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name)
   }
@@ -90,7 +99,7 @@ export default function EnhancedNavbar() {
           href: "/somaliland",
           description: "Hargeisa, Somaliland",
           motto: "What begins here, transforms Africa",
-          established: "2021",
+          established: "2020",
           flag: SomalilandFlag,
           external: true,
         },
@@ -135,10 +144,6 @@ export default function EnhancedNavbar() {
     {
       name: "Student Life",
       href: "/student-life",
-      dropdown: [
-        { name: "Campus Activities", href: "/student-life/activities" },
-        { name: "Student Organizations", href: "/student-life/organizations" },
-      ],
     },
     {
       name: "About",
@@ -243,9 +248,9 @@ export default function EnhancedNavbar() {
         <div className="container mx-auto flex items-center justify-between px-4">
           <div>
             <Link href="/" className="flex items-center space-x-3">
-              <Image src="/tuu-logo/tuu-logo.png" alt="The Unity University Logo" width={120} height={120} className="h-16 w-16 object-contain drop-shadow-lg" />
+              <Image src="/tuu-logo/tuu-logo.png" alt="The Unity University Logo" width={120} height={120} className="h-12 w-12 lg:h-16 lg:w-16 object-contain drop-shadow-lg" />
               <div>
-                <span className="text-base font-bold bg-gradient-to-r from-purple-700 to-blue-700 bg-clip-text text-transparent">
+                <span className="text-sm sm:text-base font-bold bg-gradient-to-r from-purple-700 to-blue-700 bg-clip-text text-transparent">
                   The Unity University
                 </span>
                 <div className="text-xs text-gray-500 font-medium">What begins here, Transforms Africa</div>
@@ -399,7 +404,7 @@ export default function EnhancedNavbar() {
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
-              className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl"
+              className="absolute right-0 top-0 h-full w-4/5 max-w-xs bg-white shadow-xl"
               variants={mobileMenuVariants}
               initial="hidden"
               animate="visible"
@@ -449,7 +454,7 @@ export default function EnhancedNavbar() {
                 <nav>
                   <ul className="space-y-2">
                     {navLinks.map((link) => (
-                      <li key={link.name} className="border-b border-gray-50 pb-2">
+                      <li key={link.name} className="border-b border-gray-50 pb-3">
                         {link.dropdown ? (
                           <div>
                             <button

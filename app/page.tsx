@@ -89,7 +89,7 @@ const FloatingParticles = () => {
                 scale: [0.3, 0.8, 0.3],
               }}
               transition={{
-                duration: 6 + (i % 4),
+                duration: 3 + (i % 2), // Reduced from 6 + (i % 4)
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
                 delay: particle.delay,
@@ -176,40 +176,44 @@ export default function UnityUniversityHome() {
   ]
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white overflow-hidden overflow-x-hidden">
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-purple-900/80 overflow-hidden">
+      <section className="relative min-h-[60vh] md:h-[80vh] flex items-center bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-purple-900/80 overflow-hidden max-w-full">
         {/* Hero Image with overlay */}
         <div className="absolute inset-0">
-          <Image
-            src={heroSlides[currentSlide].image}
-            alt={heroSlides[currentSlide].title}
-            fill
-            className="object-cover"
-            priority
-          />
+          {heroSlides.map((slide, index) => (
+            <Image
+              key={slide.image} // Use image path as a stable key
+              src={slide.image}
+              alt={slide.title}
+              fill
+              className="object-cover transition-opacity duration-1000 ease-in-out"
+              style={{ opacity: currentSlide === index ? 1 : 0 }}
+              priority={index === 0} // Only prioritize the first image
+            />
+          ))}
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/40" />
         </div>
 
         {/* Content */}
-        <div className="container relative z-10 mx-auto flex flex-col md:flex-row items-center h-full px-4">
+        <div className="relative z-10 mx-auto w-full flex flex-col md:flex-row items-center h-full pb-16">
           {/* Left: Text */}
-          <div className="w-full md:w-1/2 space-y-6">
+          <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
             <Badge className="bg-purple-600 text-white px-6 py-2 text-base font-semibold shadow-lg mb-2">
               {heroSlides[currentSlide].subtitle}
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
               {heroSlides[currentSlide].title}
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
+            <p className="text-base md:text-lg text-white/90 mb-8">
               {heroSlides[currentSlide].description}
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <Button
                 size="lg"
-                className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg font-bold shadow-xl"
+                className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg font-bold shadow-xl"
               >
                 {heroSlides[currentSlide].cta}
                 <ArrowRight className="ml-3 h-6 w-6" />
@@ -218,7 +222,7 @@ export default function UnityUniversityHome() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-900 px-8 py-4 text-lg font-bold backdrop-blur-sm transition-all duration-300"
+                  className="w-full sm:w-auto border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-900 px-8 py-4 text-lg font-bold backdrop-blur-sm transition-all duration-300"
                 >
                   Apply Now
                 </Button>
@@ -230,7 +234,7 @@ export default function UnityUniversityHome() {
           <div className="hidden md:flex w-1/2 justify-center items-center">
             <motion.div
               animate={{ rotate: [0, 360] }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }} // Reduced from 20
               className="rounded-full bg-white/10 p-8 shadow-2xl"
             >
               <Globe className="h-32 w-32 text-white" />
@@ -239,7 +243,7 @@ export default function UnityUniversityHome() {
         </div>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center">
+        <div className="absolute bottom-4 left-0 right-0 z-30 flex justify-center">
           <div className="flex space-x-3">
             {heroSlides.map((_, index) => (
               <button
@@ -256,11 +260,11 @@ export default function UnityUniversityHome() {
       </section>
 
       {/* Campus Showcase Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-50 via-white to-blue-50">
+      <section className="py-16 md:py-20 bg-gradient-to-r from-purple-50 via-white to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Global Campuses</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Global Campuses</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Excellence in education across two dynamic locations, each with its unique culture and opportunities.
             </p>
           </div>
@@ -542,7 +546,7 @@ export default function UnityUniversityHome() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -556,7 +560,7 @@ export default function UnityUniversityHome() {
                 scale: [1, 1.1, 1],
                 opacity: [0.2, 0.3, 0.2],
               }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
+              transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY }} // Reduced from 20
             />
           )}
         </div>
@@ -567,28 +571,28 @@ export default function UnityUniversityHome() {
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.6 }} // Reduced from 0.8
                 viewport={{ once: true }}
               >
-                <h2 className="text-5xl font-bold mb-8 leading-tight">
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6 md:mb-8 leading-tight">
                   Transforming Africa Through
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-red-400">
                     Excellence in Education
                   </span>
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-base md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
                   Since our founding in 2020, The Unity University has been growing every day, believing that sustainable national and global development can be achieved through nurturing an intellectual culture that integrates theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
                 </p>
-                <div className="grid gap-6 sm:grid-cols-2">
+                <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                    <h3 className="text-2xl font-bold mb-3 text-emerald-300">Our Mission</h3>
-                    <p className="text-gray-300">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-emerald-300">Our Mission</h3>
+                    <p className="text-sm md:text-base text-gray-300">
                       To contribute to the development and sustenance of the well-being of the people of Somaliland, Africa, and the world through the provision of flexible, innovative, entrepreneurial, inclusive programs of teaching, learning, research, and service.
                     </p>
                   </div>
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                    <h3 className="text-2xl font-bold mb-3 text-red-300">Our Vision</h3>
-                    <p className="text-gray-300">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-red-300">Our Vision</h3>
+                    <p className="text-sm md:text-base text-gray-300">
                       To become a world-class University in leadership development in Africa.
                     </p>
                   </div>
@@ -616,7 +620,7 @@ export default function UnityUniversityHome() {
                   <motion.div
                     className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-2xl"
                     animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }} // Reduced from 3
                   >
                     <div className="text-center">
                       <div className="text-3xl font-bold text-emerald-600">
@@ -633,23 +637,23 @@ export default function UnityUniversityHome() {
       </section>
 
       {/* Academic Excellence Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }} // Reduced from 0.8
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Academic Excellence</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Academic Excellence</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Discover our comprehensive range of programs designed to prepare you for leadership roles in Africa and beyond.
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 title: "Business & Management",
@@ -698,7 +702,7 @@ export default function UnityUniversityHome() {
                 key={program.title}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }} // Reduced from 0.6, delay from 0.1
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -10 }}
                 className="group relative overflow-hidden rounded-3xl bg-white shadow-xl border-0 cursor-pointer"
@@ -731,24 +735,24 @@ export default function UnityUniversityHome() {
       </section>
 
       {/* Student Life Section */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }} // Reduced from 0.8
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-white mb-6">Vibrant Student Life</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Vibrant Student Life</h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Experience a rich campus culture that celebrates diversity, fosters growth, and creates lifelong
                 connections.
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 title: "Community Outreaches",
@@ -811,7 +815,7 @@ export default function UnityUniversityHome() {
                 key={item.title}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }} // Reduced from 0.6, delay from 0.1
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
                 className="group relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md border border-white/20"
@@ -840,23 +844,23 @@ export default function UnityUniversityHome() {
       </section>
 
       {/* Research & Innovation Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
+          <div className="grid gap-12 md:gap-16 lg:grid-cols-2 items-center">
             <div>
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.6 }} // Reduced from 0.8
                 viewport={{ once: true }}
               >
-                <h2 className="text-5xl font-bold text-gray-900 mb-8">
+                <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 md:mb-8">
                   Research &
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
                     Innovation Hub
                   </span>
                 </h2>
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                <p className="text-base md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
                   Our cutting-edge research facilities and partnerships with global institutions drive innovation that
                   addresses real-world challenges across Africa and beyond.
                 </p>
@@ -872,7 +876,7 @@ export default function UnityUniversityHome() {
                       key={stat.label}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }} // Reduced from 0.6, delay from 0.1
                       viewport={{ once: true }}
                       className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100"
                     >
@@ -897,14 +901,14 @@ export default function UnityUniversityHome() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 0.8 }} // Reduced from 1
                   viewport={{ once: true }}
                   className="relative"
                 >
-                  <div className="grid gap-4 grid-cols-2">
+                  <div className="grid gap-4 grid-cols-2 lg:grid-cols-2">
                     <motion.div
                       animate={{ y: [0, -20, 0] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 0 }}
+                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0 }} // Reduced from 4
                       className="space-y-4"
                     >
                       <Image
@@ -912,19 +916,19 @@ export default function UnityUniversityHome() {
                         alt="Research Lab 1"
                         width={300}
                         height={250}
-                        className="rounded-2xl shadow-lg"
+                        className="rounded-2xl shadow-lg w-full h-auto"
                       />
                       <Image
                         src="/labs/in-the-lab-01.jpg"
                         alt="Research Lab 2"
                         width={300}
                         height={200}
-                        className="rounded-2xl shadow-lg"
+                        className="rounded-2xl shadow-lg w-full h-auto"
                       />
                     </motion.div>
                     <motion.div
                       animate={{ y: [0, 20, 0] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
+                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 1 }} // Reduced from 4, delay from 2
                       className="space-y-4 mt-8"
                     >
                       <Image
@@ -932,14 +936,14 @@ export default function UnityUniversityHome() {
                         alt="Research Podium 1"
                         width={300}
                         height={200}
-                        className="rounded-2xl shadow-lg"
+                        className="rounded-2xl shadow-lg w-full h-auto"
                       />
                       <Image
                         src="/research/on-the-podium-01.jpg"
                         alt="Research Podium 2"
                         width={300}
                         height={250}
-                        className="rounded-2xl shadow-lg"
+                        className="rounded-2xl shadow-lg w-full h-auto"
                       />
                     </motion.div>
                   </div>
@@ -951,30 +955,30 @@ export default function UnityUniversityHome() {
       </section>
 
       {/* Alumni Success Stories Section */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }} // Reduced from 0.8
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-white mb-6">Alumni Success Stories</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Alumni Success Stories</h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Our graduates are making a difference across industries and continents, leading change and innovation
                 worldwide.
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: "Dr. Amina Hassan",
                 title: "Chief Medical Officer",
                 company: "WHO Africa",
-                year: "Class of 2021",
+                year: "Class of 2020",
                 image: "/alumni/alumni-01.jpg",
                 quote: "The Unity University gave me the foundation to serve communities across Africa.",
                 achievement: "Leading COVID-19 response initiatives",
@@ -983,7 +987,7 @@ export default function UnityUniversityHome() {
                 name: "James Koroma",
                 title: "Tech Entrepreneur",
                 company: "Founder, EduTech Solutions",
-                year: "Class of 2021",
+                year: "Class of 2020",
                 image: "/alumni/alumni-02.jpg",
                 quote: "The global perspective I gained here shaped my vision for African education technology.",
                 achievement: "Serving 2M+ students across 15 countries",
@@ -992,7 +996,7 @@ export default function UnityUniversityHome() {
                 name: "Fatima Al-Rashid",
                 title: "Environmental Scientist",
                 company: "UN Climate Change",
-                year: "Class of 2021",
+                year: "Class of 2020",
                 image: "/alumni/alumni-03.jpg",
                 quote: "My research on sustainable agriculture started in Unity's labs.",
                 achievement: "Published 25+ research papers",
@@ -1002,7 +1006,7 @@ export default function UnityUniversityHome() {
                 key={alumni.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }} // Reduced from 0.6, delay from 0.1
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
                 className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20"
@@ -1032,25 +1036,25 @@ export default function UnityUniversityHome() {
       </section>
 
       {/* Global Impact Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }} // Reduced from 0.8
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Global Impact</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Global Impact</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Our reach extends far beyond our campuses, creating positive change in communities worldwide.
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
+          <div className="grid gap-12 sm:grid-cols-1 lg:grid-cols-2 items-center">
             <div>
-              <div className="grid gap-8 sm:grid-cols-2">
+              <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
                 {[
                   { label: "Countries Reached", value: 45, icon: "🌍" },
                   { label: "Community Projects", value: 120, icon: "🤝" },
@@ -1061,7 +1065,7 @@ export default function UnityUniversityHome() {
                     key={impact.label}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }} // Reduced from 0.6, delay from 0.1
                     viewport={{ once: true }}
                     className="text-center p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100"
                   >
@@ -1080,7 +1084,7 @@ export default function UnityUniversityHome() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 0.8 }} // Reduced from 1
                   viewport={{ once: true }}
                   className="relative"
                 >
@@ -1096,17 +1100,17 @@ export default function UnityUniversityHome() {
                   <motion.div
                     className="absolute top-1/4 left-1/3 w-4 h-4 bg-purple-500 rounded-full"
                     animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                    transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }} // Reduced from 2
                   />
                   <motion.div
                     className="absolute top-1/2 right-1/4 w-4 h-4 bg-blue-500 rounded-full"
                     animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
+                    transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, delay: 0.25 }} // Reduced from 2, delay from 0.5
                   />
                   <motion.div
                     className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-emerald-500 rounded-full"
                     animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
+                    transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }} // Reduced from 2, delay from 1
                   />
                 </motion.div>
               )}

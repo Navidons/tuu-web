@@ -11,10 +11,10 @@ export default function EnhancedFooter() {
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <div className="flex items-center space-x-3 mb-6">
-                <img src="/tuu-logo/tuu-logo.png" alt="The Unity University Logo" className="h-10 w-10 object-contain mr-2" />
+          <div className="grid gap-12 text-center md:text-left md:grid-cols-2 lg:grid-cols-4">
+            <div className="text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start space-x-3 mb-6">
+                <img src="/tuu-logo/tuu-logo.png" alt="The Unity University Logo" className="h-8 w-8 md:h-10 md:w-10 object-contain mr-2" />
                 <div>
                   <span className="text-xl font-bold">The Unity University</span>
                   <div className="text-sm text-gray-400">What begins here, transforms Africa</div>
@@ -36,7 +36,7 @@ export default function EnhancedFooter() {
               </div>
             </div>
 
-            <div>
+            <div className="text-center md:text-left">
               <h3 className="text-lg font-bold mb-6">Quick Links</h3>
               <ul className="space-y-3">
                 {[
@@ -56,7 +56,7 @@ export default function EnhancedFooter() {
               </ul>
             </div>
 
-            <div>
+            <div className="text-center md:text-left">
               <h3 className="text-lg font-bold mb-6">Our Campuses</h3>
               <div className="space-y-4">
                 <div>
@@ -72,7 +72,7 @@ export default function EnhancedFooter() {
               </div>
             </div>
 
-            <div>
+            <div className="text-center md:text-left">
               <h3 className="text-lg font-bold mb-6">Contact Info</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">

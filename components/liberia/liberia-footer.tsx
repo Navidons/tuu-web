@@ -131,16 +131,6 @@ export default function LiberiaFooter() {
                   Graduate Programs
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/liberia/academics/calendar"
-                  className="text-gray-400 transition-colors hover:text-white hover:pl-2 duration-200"
-                >
-                  Academic Calendar
-                </Link>
-              </li>
-              <li>
-              </li>
             </ul>
           </div>
 

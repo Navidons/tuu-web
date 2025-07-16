@@ -20,7 +20,7 @@ export default function LeadershipPage() {
     {
       name: "Prof. PLO Lumumba",
       title: "Vice-Chancellor",
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/lecturers/plo-lumumba.jpeg",
       bio: "Prof. PLO Lumumba is the distinguished Vice-Chancellor of The Unity University, bringing decades of experience in education, law, and African development.",
       education: "LLB, LLM, PhD - University of Nairobi",
       achievements: [
@@ -34,7 +34,7 @@ export default function LeadershipPage() {
     {
       name: "Dr. Katerega David",
       title: "Deputy Vice-Chancellor",
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/graduation/dr.katerega-dvc-graduation.jpg",
       bio: "Dr. Katerega David serves as the Deputy Vice-Chancellor, overseeing academic operations and strategic development across both campuses.",
       education: "PhD in Educational Administration",
       achievements: [
@@ -48,7 +48,7 @@ export default function LeadershipPage() {
     {
       name: "Dr. Zakaria",
       title: "Project Manager",
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/lecturers/dr.ndimbo-micheal-balonzi-head-of-research.jpg",
       bio: "Dr. Zakaria leads strategic projects and initiatives that drive The Unity University's growth and impact across the continent.",
       education: "PhD in Project Management",
       achievements: [
@@ -62,7 +62,7 @@ export default function LeadershipPage() {
     {
       name: "Kaggwa Robert Abubaker",
       title: "Dean of Student Affairs",
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/lecturers/Mr.Kaggwa-Robert-Dean-of-Students.jpg",
       bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across The Unity University's campuses.",
       education: "Master's in Student Affairs Administration",
       achievements: [
@@ -86,7 +86,7 @@ export default function LeadershipPage() {
       name: "Lutaaya Daniel",
       title: "Dean, Faculty of Social Sciences",
       description: "Advancing social research and community development initiatives",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/lecturers/social-sciences/Mr.Lutaaya-Daniel-Dean-Social-Sciences.jpg",
     },
     {
       name: "Samson Kigozi",
@@ -98,7 +98,7 @@ export default function LeadershipPage() {
       name: "Leo Wamala",
       title: "Dean, Faculty of Computing & Information Technology",
       description: "Driving technological innovation and digital transformation",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/lecturers/IT/Jackson-Kisuule(Dean IT).jpg",
     },
     {
       name: "Semakalu Ronald",
@@ -116,7 +116,7 @@ export default function LeadershipPage() {
       name: "Kavuma Yusuf Musa",
       title: "Campus Director",
       description: "Overseeing campus operations and strategic development",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/lecturers/kavuma-yusuf-musa-campas-director.png",
     },
   ]
 
@@ -125,25 +125,25 @@ export default function LeadershipPage() {
       name: "Prof. PLO Lumumba",
       title: "Vice-Chancellor",
       description: "Leading The Unity University's mission across Africa",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/lecturers/plo-lumumba.jpeg",
     },
     {
       name: "Dr. Katerega David",
       title: "Deputy Vice-Chancellor",
       description: "Academic excellence and strategic development",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/graduation/dr.katerega-dvc-graduation.jpg",
     },
     {
       name: "Dr. Zakaria",
       title: "Project Manager",
       description: "Strategic initiatives and institutional growth",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/lecturers/dr.ndimbo-micheal-balonzi-head-of-research.jpg",
     },
     {
       name: "Kaggwa Robert Abubaker",
       title: "Dean of Student Affairs",
       description: "Student welfare and holistic development",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/lecturers/Mr.Kaggwa-Robert-Dean-of-Students.jpg",
     },
   ]
 
