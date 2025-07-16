@@ -590,24 +590,24 @@ export default function LiberiaHome() {
                 description: "Developing business leaders for Liberia's growing economy and regional markets.",
                 image: "/courses/business-class.jpg",
                 features: ["Entrepreneurship Focus", "Industry Partnerships", "Practical Training"],
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
               },
               {
                 title: "Information Technology",
                 description: "Building digital skills and technological solutions for Liberia's digital transformation.",
                 image: "/courses/technology.jpg",
                 features: ["Modern Curriculum", "Industry Certifications", "Innovation Labs"],
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
               },
               {
                 title: "Public Health",
                 description: "Training healthcare professionals to serve Liberian communities with excellence.",
                 image: "/courses/health-sciences.jpg",
                 features: ["Community Focus", "Clinical Training", "Research Opportunities"],
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
               },
             ].map((program, index) => (
-              <motion.div key={index} variants={itemVariants} className="group">
+              <motion.div key={`program-${program.title.replace(/\s+/g, '-').toLowerCase()}`} variants={itemVariants} className="group">
                 <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-shadow duration-300">
                   <div className="relative h-48 w-full overflow-hidden">
                       <Image
@@ -629,8 +629,8 @@ export default function LiberiaHome() {
                     <div className="space-y-2">
                       <h5 className="font-semibold text-gray-900 text-sm">Key Features:</h5>
                       <div className="flex flex-wrap gap-2">
-                        {program.features.map((feature, idx) => (
-                          <Badge key={idx} variant="secondary" className="text-xs">
+                        {program.features.map((feature) => (
+                          <Badge key={`feature-${feature.replace(/\s+/g, '-').toLowerCase()}`} variant="secondary" className="text-xs">
                             {feature}
                           </Badge>
                         ))}
@@ -725,8 +725,8 @@ export default function LiberiaHome() {
                       description: "Fostering a spirit of service and giving back to Liberian communities through education, research, and outreach programs.",
                       icon: Users,
                     },
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-4 p-4 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                  ].map((item) => (
+                    <div key={`heritage-${item.title.replace(/\s+/g, '-').toLowerCase()}`} className="flex items-start space-x-4 p-4 rounded-xl hover:bg-white/50 transition-colors duration-200">
                       <div className="mt-1 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center">
                         <item.icon className="h-5 w-5 text-white" />
                       </div>
@@ -781,9 +781,9 @@ export default function LiberiaHome() {
                 { icon: Phone, title: "Call Us", info: "+231 77 123 4567", action: "tel:+23177123456" },
                 { icon: Mail, title: "Email Us", info: "liberia@tuu.university", action: "mailto:liberia@tuu.university" },
                 { icon: MapPin, title: "Visit Us", info: "Monrovia, Liberia", action: `${base}/about/contact` },
-              ].map((contact, index) => (
+              ].map((contact) => (
                 <motion.a
-                  key={index}
+                  key={`contact-${contact.title.replace(/\s+/g, '-').toLowerCase()}`}
                   href={contact.action}
                   variants={itemVariants}
                   className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-colors duration-200"

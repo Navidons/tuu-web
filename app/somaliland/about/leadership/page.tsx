@@ -23,7 +23,7 @@ const leadership = [
       "PhD in Law, University of Nairobi",
     ],
     experience: [
-      "Vice-Chancellor, The Unity University (2021-Present)",
+      "Vice-Chancellor, The Unity University (2020-Present)",
       "Former Director, Kenya Anti-Corruption Commission",
       "Renowned Pan-African thought leader and speaker",
       "Author and international legal expert",
@@ -54,7 +54,7 @@ const leadership = [
       "Bachelor's in Education",
     ],
     experience: [
-      "Deputy Vice-Chancellor, The Unity University (2021-Present)",
+      "Deputy Vice-Chancellor, The Unity University (2020-Present)",
       "20+ years in higher education leadership",
       "Expert in academic quality assurance",
       "Champion of Pan-African education initiatives",
@@ -85,7 +85,7 @@ const leadership = [
       "Bachelor's in Management",
     ],
     experience: [
-      "Project Manager, The Unity University (2021-Present)",
+      "Project Manager, The Unity University (2020-Present)",
       "Expert in institutional project management",
       "Led major campus development initiatives",
       "International development consultant",
@@ -116,7 +116,7 @@ const leadership = [
       "Diploma in Youth Development",
     ],
     experience: [
-      "Dean of Student Affairs, The Unity University (2021-Present)",
+      "Dean of Student Affairs, The Unity University (2020-Present)",
       "Champion of student welfare and development",
       "Expert in student leadership programs",
       "Community engagement specialist",
@@ -147,7 +147,7 @@ const leadership = [
       "Bachelor's in Education",
     ],
     experience: [
-      "Dean, Faculty of Education, The Unity University (2021-Present)",
+      "Dean, Faculty of Education, The Unity University (2020-Present)",
       "Expert in teacher preparation and development",
       "Educational innovation specialist",
       "Community education advocate",
@@ -178,7 +178,7 @@ const leadership = [
       "Bachelor's in Social Work",
     ],
     experience: [
-      "Dean, Faculty of Social Sciences, The Unity University (2021-Present)",
+      "Dean, Faculty of Social Sciences, The Unity University (2020-Present)",
       "Expert in social research and development",
       "Community development specialist",
       "Policy research and analysis expert",
@@ -209,7 +209,7 @@ const leadership = [
       "Bachelor's in Health Sciences",
     ],
     experience: [
-      "Dean, Faculty of Allied Health Sciences, The Unity University (2021-Present)",
+      "Dean, Faculty of Allied Health Sciences, The Unity University (2020-Present)",
       "Expert in public health and community wellness",
       "Health education specialist",
       "Community health advocate",
@@ -240,7 +240,7 @@ const leadership = [
       "Bachelor's in Computer Engineering",
     ],
     experience: [
-      "Dean, Faculty of Computing & IT, The Unity University (2021-Present)",
+      "Dean, Faculty of Computing & IT, The Unity University (2020-Present)",
       "Expert in technological innovation and development",
       "Digital transformation specialist",
       "Technology education advocate",
@@ -302,7 +302,7 @@ const leadership = [
       "Bachelor's in Management",
     ],
     experience: [
-      "Director, Quality Assurance, The Unity University (2021-Present)",
+      "Director, Quality Assurance, The Unity University (2020-Present)",
       "Expert in academic quality standards",
       "Institutional assessment specialist",
       "Continuous improvement advocate",
@@ -333,7 +333,7 @@ const leadership = [
       "Diploma in Facilities Management",
     ],
     experience: [
-      "Campus Director, The Unity University (2021-Present)",
+      "Campus Director, The Unity University (2020-Present)",
       "Campus operations specialist",
       "Strategic development expert",
       "Facilities management professional",

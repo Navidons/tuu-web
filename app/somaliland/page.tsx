@@ -216,9 +216,9 @@ export default function HomePage() {
     },
     {
       image: "/hero-section/global-perspective.jpg",
-      title: "Transforming African Education Since 2021",
-      titleSo: "Waxbarashada Afrika waan beddelaynaa 2021 laga bilaabo",
-      subtitle: "4 Years of Excellence | Modern Facilities | Expert Faculty",
+      title: "Transforming African Education Since 2020",
+      titleSo: "Waxbarashada Afrika waan beddelaynaa 2020 laga bilaabo",
+      subtitle: "5 Years of Excellence | Modern Facilities | Expert Faculty",
       description:
         "Experience transformative education at Unity University Somaliland. Our 37+ academic programs across five faculties prepare you for leadership roles. Located at Jigjiga Yar Street near Masjid Jabir, Hargeisa, we serve 2,800+ students with cutting-edge facilities and Pan-African vision.",
       cta: "Explore Programs",
@@ -414,8 +414,8 @@ export default function HomePage() {
                 },
                 {
                   icon: Award,
-                  title: "4 Years Excellence",
-                  titleSo: "4 Sano Fiican",
+                  title: "5 Years Excellence",
+                  titleSo: "5 Sano Fiican",
                   keywords: "educational excellence somaliland",
                 },
               ].map((feature, index) => (
@@ -783,7 +783,7 @@ export default function HomePage() {
                   "Meel-marinta Shaqada",
                 ],
                 gradient: "from-emerald-600 to-emerald-800",
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
                 keywords: "business administration somaliland, entrepreneurship hargeisa, business degree",
               },
               {
@@ -802,7 +802,7 @@ export default function HomePage() {
                   "Iskaashiga Tignoolajiyada",
                 ],
                 gradient: "from-blue-600 to-blue-800",
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
                 keywords: "information technology hargeisa, IT courses somaliland, computer science degree",
               },
               {
@@ -821,7 +821,7 @@ export default function HomePage() {
                   "Siyaasadda Caafimaadka",
                 ],
                 gradient: "from-red-600 to-red-800",
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
                 keywords: "public health somaliland, healthcare education hargeisa, medical programs",
               },
               {
@@ -840,7 +840,7 @@ export default function HomePage() {
                   "Naqshadaynta Joogta ah",
                 ],
                 gradient: "from-teal-600 to-teal-800",
-                duration: "4 Years Bachelor",
+                duration: "3 Years Bachelor",
                 keywords: "engineering programs somaliland, civil engineering hargeisa, infrastructure development",
               },
               {
@@ -864,7 +864,7 @@ export default function HomePage() {
                   "Tababarka Hogaaminta",
                 ],
                 gradient: "from-purple-600 to-purple-800",
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
                 keywords: "teacher training somaliland, education degree hargeisa, teaching programs",
               },
               {
@@ -883,7 +883,7 @@ export default function HomePage() {
                   "Beeraha Casriga ah",
                 ],
                 gradient: "from-green-600 to-green-800",
-                duration: "4 Years Bachelor",
+                duration: "3 Years Bachelor",
                 keywords: "agriculture programs somaliland, environmental studies hargeisa, sustainable farming",
               },
             ].map((program, index) => (

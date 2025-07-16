@@ -168,7 +168,7 @@ export default function AcademicsPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -191,17 +191,17 @@ export default function AcademicsPage() {
           <div className="text-center text-white">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
               <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">Academics</Badge>
-              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
                 Academic
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   Excellence
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
                 Discover world-class academic programs designed to prepare you for success in an interconnected global
                 economy. Excellence in education, innovation in learning.
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
                 <Link href="/academics/undergraduate">
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg font-bold">
                     Explore Programs
@@ -224,23 +224,23 @@ export default function AcademicsPage() {
       </section>
 
       {/* Academic Statistics */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Academic Excellence by Numbers</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Academic Excellence by Numbers</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Our commitment to quality education reflected in our achievements
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               { label: "Academic Programs", value: 37, suffix: "+", description: "Across all levels" },
               { label: "Faculty Members", value: 153, suffix: "+", description: "Expert educators" },
@@ -268,23 +268,23 @@ export default function AcademicsPage() {
       </section>
 
       {/* Academic Programs Overview */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Academic Programs</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Academic Programs</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Comprehensive educational pathways from undergraduate to professional development
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
             {academicPrograms.map((program, index) => (
               <motion.div
                 key={program.level}
@@ -340,23 +340,23 @@ export default function AcademicsPage() {
       </section>
 
       {/* Schools and Colleges */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Schools & Colleges</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Schools & Colleges</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Specialized schools offering focused education in diverse fields of study
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {schools.map((school, index) => (
               <motion.div
                 key={school.name}
@@ -421,23 +421,23 @@ export default function AcademicsPage() {
       </section>
 
       {/* Academic Features */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Why Choose The Unity University</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Why Choose The Unity University</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Distinctive features that set our academic programs apart
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -461,9 +461,9 @@ export default function AcademicsPage() {
       </section>
 
       {/* Research & Innovation */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
         <div className="container mx-auto px-4">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
+          <div className="grid gap-12 md:gap-16 lg:grid-cols-2 items-center">
             <div className="text-white">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -471,18 +471,18 @@ export default function AcademicsPage() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-5xl font-bold mb-8 leading-tight">
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6 md:mb-8 leading-tight">
                   Research &
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                     Innovation Hub
                   </span>
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
                   Our commitment to research excellence drives innovation and creates solutions for real-world
                   challenges across Africa and beyond.
                 </p>
 
-                <div className="grid gap-6 sm:grid-cols-2 mb-8">
+                <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 mb-8">
                   {[
                     { label: "Research Centers", value: 15 },
                     { label: "Active Projects", value: 150 },
@@ -571,23 +571,23 @@ export default function AcademicsPage() {
       </section>
 
       {/* Quick Links */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Academic Resources</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Academic Resources</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Everything you need to succeed in your academic journey
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 title: "Undergraduate Programs",
@@ -665,7 +665,7 @@ export default function AcademicsPage() {
               Join thousands of students who have chosen The Unity University for their academic excellence and global
               perspective.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
               <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
                   Apply Now

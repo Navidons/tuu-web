@@ -10,7 +10,21 @@ import { Calendar, MapPin, Clock, Users, Trophy, Palette, Gamepad2, Heart, Searc
 import EnhancedNavbar from "@/components/enhanced-navbar"
 import EnhancedFooter from "@/components/enhanced-footer"
 
-const activities = [
+type Event = {
+  id: number;
+  title: string;
+  category: string;
+  date: string;
+  time: string;
+  location: string;
+  participants: number;
+  description: string;
+  image: string;
+  tags: string[];
+  featured?: boolean;
+}
+
+const events: Event[] = [
   {
     id: 1,
     title: "Unity Football Championship",
@@ -22,77 +36,53 @@ const activities = [
     description: "Inter-campus football (soccer) tournament with teams from all The Unity University locations",
     image: "/placeholder.svg?height=200&width=300",
     tags: ["Sports", "Football", "Competition", "Inter-campus"],
-  },
-  {
-    id: 2,
-    title: "Annual Research Symposium",
-    category: "Research",
-    date: "April 5, 2024",
-    time: "9:00 AM - 5:00 PM",
-    location: "Main Auditorium",
-    participants: 200,
-    description: "Showcase of student and faculty research projects across disciplines.",
-    image: "/placeholder.svg?height=200&width=300",
-    tags: ["Research", "Symposium", "Academic"],
-  },
-  {
-    id: 3,
-    title: "Inter-University Debate Competition",
-    category: "Debate",
-    date: "April 12, 2024",
-    time: "10:00 AM - 4:00 PM",
-    location: "Debate Hall",
-    participants: 60,
-    description: "Debate teams from various universities compete on current global issues.",
-    image: "/placeholder.svg?height=200&width=300",
-    tags: ["Debate", "Competition", "Public Speaking"],
-  },
-  {
-    id: 4,
-    title: "Campus Quiz Bowl",
-    category: "Quiz",
-    date: "April 18, 2024",
-    time: "1:00 PM - 5:00 PM",
-    location: "Lecture Theatre 2",
-    participants: 80,
-    description: "Test your knowledge in a fun and competitive quiz event open to all students.",
-    image: "/placeholder.svg?height=200&width=300",
-    tags: ["Quiz", "Competition", "Knowledge"],
-  },
-  {
-    id: 5,
-    title: "Community Outreaches",
-    category: "OutReaches",
-    date: "April 22, 2024",
-    time: "8:00 AM - 3:00 PM",
-    location: "Various Locations",
-    participants: 150,
-    description: "Join our outreach teams to make a positive impact in local communities.",
-    image: "/placeholder.svg?height=200&width=300",
-    tags: ["Community", "Service", "Outreach"],
     featured: true,
   },
   {
-    id: 6,
-    title: "Coding Hackathon",
-    category: "Coding",
-    date: "April 28-29, 2024",
-    time: "48 Hours",
-    location: "Innovation Hub",
-    participants: 100,
-    description: "Collaborate and compete in a 48-hour coding marathon to solve real-world problems.",
+    id: 2,
+    title: "Global Innovation Summit",
+    category: "Academic",
+    date: "September 15, 2024",
+    time: "9:00 AM - 5:00 PM",
+    location: "University Conference Center",
+    participants: 250,
+    description: "Annual gathering of students, researchers, and industry leaders to showcase innovative projects",
     image: "/placeholder.svg?height=200&width=300",
-    tags: ["Coding", "Hackathon", "Technology", "Competition"],
+    tags: ["Innovation", "Research", "Networking", "Technology"],
   },
+  {
+    id: 3,
+    title: "Cultural Diversity Week",
+    category: "Community",
+    date: "November 10-16, 2024",
+    time: "All Day",
+    location: "Campus-wide",
+    participants: 500,
+    description: "A week-long celebration of cultural diversity, featuring performances, workshops, and exhibitions",
+    image: "/placeholder.svg?height=200&width=300",
+    tags: ["Culture", "Diversity", "Community", "Inclusion"],
+  },
+  {
+    id: 4,
+    title: "Annual Research Symposium",
+    category: "Academic",
+    date: "February 20, 2025",
+    time: "10:00 AM - 4:00 PM",
+    location: "Research Hall",
+    participants: 180,
+    description: "Showcase of student and faculty research across various disciplines",
+    image: "/placeholder.svg?height=200&width=300",
+    tags: ["Research", "Academic", "Presentation", "Innovation"],
+  }
 ]
 
 const categories = [
-  { name: "All", icon: Calendar, count: activities.length },
-  { name: "Cultural", icon: Heart, count: activities.filter((a) => a.category === "Cultural").length },
-  { name: "Sports", icon: Trophy, count: activities.filter((a) => a.category === "Sports").length },
-  { name: "Academic", icon: Users, count: activities.filter((a) => a.category === "Academic").length },
-  { name: "Arts", icon: Palette, count: activities.filter((a) => a.category === "Arts").length },
-  { name: "Service", icon: Heart, count: activities.filter((a) => a.category === "Service").length },
+  { name: "All", icon: Calendar, count: events.length },
+  { name: "Cultural", icon: Heart, count: events.filter((a) => a.category === "Cultural").length },
+  { name: "Sports", icon: Trophy, count: events.filter((a) => a.category === "Sports").length },
+  { name: "Academic", icon: Users, count: events.filter((a) => a.category === "Academic").length },
+  { name: "Arts", icon: Palette, count: events.filter((a) => a.category === "Arts").length },
+  { name: "Service", icon: Heart, count: events.filter((a) => a.category === "Service").length },
 ]
 
 const upcomingHighlights = [
@@ -120,7 +110,7 @@ export default function CampusActivitiesPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [searchTerm, setSearchTerm] = useState("")
 
-  const filteredActivities = activities.filter((activity) => {
+  const filteredActivities = events.filter((activity) => {
     const matchesCategory = selectedCategory === "All" || activity.category === selectedCategory
     const matchesSearch =
       activity.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -202,7 +192,7 @@ export default function CampusActivitiesPage() {
           </motion.div>
 
           <div className="grid gap-6 sm:gap-8 grid-cols-1 lg:grid-cols-2 mb-10 sm:mb-16">
-            {activities
+            {events
               .filter((activity) => activity.featured)
               .map((activity, index) => (
                 <motion.div

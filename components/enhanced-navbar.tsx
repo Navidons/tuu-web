@@ -8,6 +8,7 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence, Variants } from "framer-motion"
+import { usePathname } from "next/navigation"
 
 // Flag components for visual campus identification (realistic designs)
 
@@ -61,6 +62,7 @@ export default function EnhancedNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -118,8 +120,9 @@ export default function EnhancedNavbar() {
       name: "Academics",
       href: "/academics",
       dropdown: [
+        { name: "All Programs", href: "/academics" },
         { name: "Undergraduate Programs", href: "/academics/undergraduate" },
-        {  name: "Graduate Programs", href: "/academics/graduate" },
+        { name: "Graduate Programs", href: "/academics/graduate" },
         { name: "Academic Calendar", href: "/academics/calendar" },
       ] as DropdownItem[],
     },
@@ -132,16 +135,6 @@ export default function EnhancedNavbar() {
       ],
     },
     {
-      name: "Research",
-      href: "/research",
-      dropdown: [
-        { name: "Research Centers", href: "/research/centers" },
-        { name: "Publications", href: "/research/publications" },
-        { name: "Partnerships", href: "/research/partnerships" },
-        { name: "Research Support", href: "/research/support" },
-      ],
-    },
-    {
       name: "Student Life",
       href: "/student-life",
     },
@@ -149,6 +142,7 @@ export default function EnhancedNavbar() {
       name: "About",
       href: "/about",
       dropdown: [
+        { name: "Overview", href: "/about" },
         { name: "Our History", href: "/about/history" },
         { name: "Leadership", href: "/about/leadership" },
         { name: "Global Network", href: "/about/network" },
@@ -359,7 +353,11 @@ export default function EnhancedNavbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="block rounded-lg px-3 py-2 text-xs font-medium text-gray-700 transition-all duration-300 hover:text-purple-700 hover:bg-purple-50"
+                      className={cn(
+                        "block rounded-lg px-3 py-2 text-xs font-medium transition-all duration-300",
+                        "text-gray-700 hover:text-purple-700 hover:bg-purple-50",
+                        pathname.startsWith(link.href) ? "text-purple-700 bg-purple-50" : ""
+                      )}
                     >
                       {link.name}
                     </Link>
@@ -500,7 +498,10 @@ export default function EnhancedNavbar() {
                                       <Link
                                         href={item.href}
                                         {...(item.name === "Apply Now" && { target: "_blank", rel: "noopener noreferrer" })}
-                                        className="block py-1 text-gray-600 hover:text-purple-700 transition-colors text-xs pl-2"
+                                        className={cn(
+                                          "block py-1 text-gray-600 hover:text-purple-700 transition-colors text-xs pl-2",
+                                          pathname.startsWith(item.href) ? "text-purple-700 font-semibold" : ""
+                                        )}
                                         onClick={() => setMobileMenuOpen(false)}
                                       >
                                         {item.name}
@@ -514,7 +515,10 @@ export default function EnhancedNavbar() {
                         ) : (
                           <Link
                             href={link.href}
-                            className="block text-sm font-semibold text-gray-800 hover:text-purple-700 transition-colors py-2"
+                            className={cn(
+                              "block text-sm font-semibold text-gray-800 hover:text-purple-700 transition-colors py-2",
+                              pathname.startsWith(link.href) ? "text-purple-700" : ""
+                            )}
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {link.name}

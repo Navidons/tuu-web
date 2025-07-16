@@ -43,7 +43,6 @@ export default function EnhancedFooter() {
                   { name: "About Us", href: "/about" },
                   { name: "Academics", href: "/academics" },
                   { name: "Admissions", href: "/admissions" },
-                  { name: "Research", href: "/research" },
                   { name: "Student Life", href: "/student-life" },
                   { name: "Alumni", href: "/about/network" }
                 ].map((link) => (

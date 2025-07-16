@@ -152,7 +152,7 @@ export default function LeadershipPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -177,13 +177,13 @@ export default function LeadershipPage() {
               <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
                 Our Leadership
               </Badge>
-              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
                 Visionary
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   Leaders
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
                 Meet the exceptional individuals who guide The Unity University's mission to transform education across
                 Africa and beyond.
               </p>
@@ -193,23 +193,23 @@ export default function LeadershipPage() {
       </section>
 
       {/* Executive Leadership */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Executive Leadership</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Executive Leadership</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 The visionary leaders who shape our academic excellence and global impact
               </p>
             </motion.div>
           </div>
 
-          <div className="space-y-16">
+          <div className="space-y-12 md:space-y-16">
             {leadership.map((leader, index) => (
               <motion.div
                 key={leader.name}
@@ -217,7 +217,7 @@ export default function LeadershipPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`grid gap-12 lg:grid-cols-2 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                className={`grid gap-8 sm:grid-cols-1 lg:grid-cols-2 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
               >
                 <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
                   <motion.div whileHover={{ scale: 1.02 }} className="relative">
@@ -227,50 +227,54 @@ export default function LeadershipPage() {
                       alt={leader.name}
                       width={500}
                       height={600}
-                      className="relative rounded-3xl shadow-2xl"
+                      className="relative rounded-3xl shadow-2xl w-full h-auto"
                     />
                   </motion.div>
                 </div>
 
                 <div className={index % 2 === 1 ? "lg:col-start-1" : ""}>
-                  <div className="space-y-6">
+                  <div className="space-y-5 sm:space-y-6">
                     <div>
-                      <h3 className="text-4xl font-bold text-gray-900 mb-2">{leader.name}</h3>
-                      <p className="text-xl text-purple-600 font-semibold mb-4">{leader.title}</p>
-                      <p className="text-gray-600 leading-relaxed mb-6">{leader.bio}</p>
+                      <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{leader.name}</h3>
+                      <p className="text-lg sm:text-xl text-purple-600 font-semibold mb-3 sm:mb-4">{leader.title}</p>
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6">{leader.bio}</p>
                     </div>
 
-                    <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-6">
-                      <h4 className="text-lg font-bold text-gray-900 mb-2">Education</h4>
-                      <p className="text-gray-700">{leader.education}</p>
+                    <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-5 sm:p-6">
+                      <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-2">Education</h4>
+                      <p className="text-sm sm:text-base text-gray-700">{leader.education}</p>
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-bold text-gray-900 mb-4">Key Achievements</h4>
-                      <ul className="space-y-2">
+                      <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4">Key Achievements</h4>
+                      <ul className="space-y-1.5 sm:space-y-2">
                         {leader.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start space-x-3">
-                            <Award className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-700">{achievement}</span>
+                          <li key={i} className="flex items-start space-x-2 sm:space-x-3">
+                            <Award className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm sm:text-base text-gray-700">{achievement}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <blockquote className="border-l-4 border-purple-600 pl-6 italic text-gray-700 text-lg">
+                    <blockquote className="border-l-4 border-purple-600 pl-4 sm:pl-6 italic text-gray-700 text-base sm:text-lg">
                       "{leader.quote}"
                     </blockquote>
 
-                    <div className="flex space-x-4">
+                    <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-purple-600 text-purple-600 hover:bg-purple-50"
+                        className="w-full sm:w-auto border-purple-600 text-purple-600 hover:bg-purple-50 py-2"
                       >
                         <Mail className="h-4 w-4 mr-2" />
                         Contact
                       </Button>
-                      <Button variant="outline" size="sm" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full sm:w-auto border-blue-600 text-blue-600 hover:bg-blue-50 py-2"
+                      >
                         <Linkedin className="h-4 w-4 mr-2" />
                         LinkedIn
                       </Button>
@@ -284,34 +288,34 @@ export default function LeadershipPage() {
       </section>
 
       {/* Faculty Deans */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Faculty Deans & Directors</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Faculty Deans & Directors</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Academic leaders driving excellence across our diverse faculties and programs
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {facultyDeans.map((member, index) => (
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }} // Adjusted delay for a quicker staggered effect
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -10 }}
                 className="group bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden"
               >
-                <div className="relative h-64">
+                <div className="relative h-56 sm:h-64">
                   <Image
                     src={member.image || "/placeholder.svg"}
                     alt={member.name}
@@ -320,10 +324,10 @@ export default function LeadershipPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{member.name}</h3>
-                  <p className="text-purple-600 font-semibold mb-2 text-sm">{member.title}</p>
-                  <p className="text-gray-600 text-sm">{member.description}</p>
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1.5 sm:mb-2">{member.name}</h3>
+                  <p className="text-purple-600 font-semibold mb-1.5 text-xs sm:text-sm">{member.title}</p>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{member.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -332,23 +336,23 @@ export default function LeadershipPage() {
       </section>
 
       {/* Leadership Philosophy */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-white mb-6">Our Leadership Philosophy</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Our Leadership Philosophy</h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 The principles that guide our approach to education and institutional excellence
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
             {[
               {
                 icon: Users,
@@ -390,7 +394,7 @@ export default function LeadershipPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -398,12 +402,12 @@ export default function LeadershipPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold text-gray-900 mb-8">Join Our Leadership Journey</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Join Our Leadership Journey</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12">
               Be part of an institution led by visionaries who are committed to transforming education and empowering
               the next generation of African leaders.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"

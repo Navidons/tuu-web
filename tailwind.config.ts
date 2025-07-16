@@ -12,6 +12,41 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		screens: {
+  			'mobile': '320px',
+  			'tablet': '640px',
+  			'desktop': '1024px',
+  			'wide': '1440px',
+  		},
+  		fontSize: {
+  			// Mobile Typography
+  			'mobile-xs': ['0.625rem', { lineHeight: '1rem' }],
+  			'mobile-sm': ['0.75rem', { lineHeight: '1rem' }],
+  			'mobile-base': ['0.875rem', { lineHeight: '1.25rem' }],
+  			'mobile-lg': ['1rem', { lineHeight: '1.5rem' }],
+  			'mobile-xl': ['1.25rem', { lineHeight: '1.75rem' }],
+
+  			// Desktop Typography
+  			'desktop-xs': ['0.75rem', { lineHeight: '1rem' }],
+  			'desktop-sm': ['0.875rem', { lineHeight: '1.25rem' }],
+  			'desktop-base': ['1rem', { lineHeight: '1.5rem' }],
+  			'desktop-lg': ['1.25rem', { lineHeight: '1.75rem' }],
+  			'desktop-xl': ['1.5rem', { lineHeight: '2rem' }],
+  		},
+  		spacing: {
+  			// Mobile-specific spacing
+  			'mobile-xs': '0.25rem',
+  			'mobile-sm': '0.5rem',
+  			'mobile-md': '0.75rem',
+  			'mobile-lg': '1rem',
+  			'mobile-xl': '1.5rem',
+  		},
+  		borderRadius: {
+  			// Mobile-specific border radius
+  			'mobile-sm': '0.25rem',
+  			'mobile-md': '0.5rem',
+  			'mobile-lg': '0.75rem',
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

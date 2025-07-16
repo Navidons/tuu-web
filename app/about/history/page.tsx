@@ -18,7 +18,7 @@ export default function HistoryPage() {
 
   const timelineEvents = [
     {
-      year: "2021",
+      year: "2020",
       title: "Foundation in Hargeisa",
       description:
         "The Unity University was established in Hargeisa, Somaliland, with the motto 'What begins here, transforms Africa' and a vision to become a world-class university in leadership development.",
@@ -27,7 +27,7 @@ export default function HistoryPage() {
       students: 200,
     },
     {
-      year: "2022",
+      year: "2021",
       title: "First Academic Programs",
       description:
         "Launched comprehensive academic programs across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
@@ -36,7 +36,7 @@ export default function HistoryPage() {
       students: 850,
     },
     {
-      year: "2023",
+      year: "2022",
       title: "Research & Innovation",
       description:
         "Established research centers and began implementing innovative teaching methods, integrating theory with practice to produce graduates with relevant knowledge and skills.",
@@ -45,7 +45,7 @@ export default function HistoryPage() {
       students: 1800,
     },
     {
-      year: "2024",
+      year: "2023",
       title: "Liberia Campus Expansion",
       description:
         "Opened second campus in Monrovia, Liberia, extending The Unity University's reach across West Africa and establishing a truly Pan-African educational network.",
@@ -54,7 +54,7 @@ export default function HistoryPage() {
       students: 3500,
     },
     {
-      year: "2025",
+      year: "2024-2025",
       title: "Continued Growth",
       description:
         "Today, The Unity University serves over 4,000 students across both campuses, offering undergraduate and graduate programs with a commitment to holistic human development and leadership.",
@@ -69,7 +69,7 @@ export default function HistoryPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -94,14 +94,14 @@ export default function HistoryPage() {
               <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
                 Our History
               </Badge>
-              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-                4 Years of
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
+                5 Years of
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   Educational Excellence
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Founded in 2021 in Hargeisa, Somaliland, The Unity University has quickly established itself as a leading educational institution committed to transforming African higher education.
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
+                Founded in 2020 in Hargeisa, Somaliland, The Unity University has quickly established itself as a leading educational institution committed to transforming African higher education.
               </p>
             </motion.div>
           </div>
@@ -109,17 +109,17 @@ export default function HistoryPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Journey Through Time</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Our Journey Through Time</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Key milestones that shaped The Unity University into the institution it is today
               </p>
             </motion.div>
@@ -127,7 +127,7 @@ export default function HistoryPage() {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-600 to-blue-600 rounded-full"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-600 to-blue-600 rounded-full md:block hidden"></div>
 
             {timelineEvents.map((event, index) => (
               <motion.div
@@ -136,44 +136,51 @@ export default function HistoryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`relative flex items-center mb-16 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+                className="relative flex flex-col md:flex-row items-center mb-16"
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full border-4 border-white shadow-lg z-10"></div>
+                <div className="absolute top-0 md:top-1/2 left-1/2 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full border-4 border-white shadow-lg z-10"></div>
+
+                {/* Year Badge (Mobile Only) */}
+                <div className="mb-4 md:hidden text-center">
+                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full font-bold text-base shadow-lg">
+                    {event.year}
+                  </div>
+                </div>
 
                 {/* Content Card */}
-                <div className={`w-5/12 ${index % 2 === 0 ? "pr-8" : "pl-8"}`}>
+                <div className="w-full md:w-5/12 p-0 md:pr-8 lg:pr-16 text-center md:text-left">
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
                     className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden"
                   >
-                    <div className="relative h-48">
+                    <div className="relative h-40 sm:h-48">
                       <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4">
-                        <Badge className="bg-purple-600 text-white">{event.milestone}</Badge>
+                      <div className="absolute bottom-3 left-3">
+                        <Badge className="bg-purple-600 text-white text-xs sm:text-sm">{event.milestone}</Badge>
                       </div>
                     </div>
-                    <div className="p-8">
-                      <div className="flex items-center space-x-3 mb-4">
-                        <Calendar className="h-5 w-5 text-purple-600" />
-                        <span className="text-3xl font-bold text-purple-600">{event.year}</span>
+                    <div className="p-6 sm:p-8">
+                      <div className="flex items-center justify-center md:justify-start space-x-2 mb-3">
+                        <Calendar className="h-4 w-4 text-purple-600" />
+                        <span className="text-2xl sm:text-3xl font-bold text-purple-600">{event.year}</span>
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">{event.title}</h3>
-                      <p className="text-gray-600 mb-6 leading-relaxed">{event.description}</p>
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <div className="flex items-center space-x-2">
-                          <Users className="h-4 w-4 text-gray-500" />
-                          <span className="text-sm text-gray-500">Students Enrolled</span>
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 leading-tight">{event.title}</h3>
+                      <p className="text-sm sm:text-base text-gray-600 mb-5 leading-relaxed">{event.description}</p>
+                      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                        <div className="flex items-center space-x-1">
+                          <Users className="h-3 w-3 text-gray-500" />
+                          <span className="text-xs text-gray-500">Students Enrolled</span>
                         </div>
-                        <div className="text-2xl font-bold text-purple-600">{event.students.toLocaleString()}</div>
+                        <div className="text-xl font-bold text-purple-600">{event.students.toLocaleString()}</div>
                       </div>
                     </div>
                   </motion.div>
                 </div>
 
-                {/* Year Badge */}
-                <div className={`w-2/12 flex justify-center ${index % 2 === 0 ? "order-last" : "order-first"}`}>
+                {/* Year Badge (Desktop Only) */}
+                <div className={`w-2/12 hidden md:flex justify-center ${index % 2 === 0 ? "order-last" : "order-first"}`}>
                   <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
                     {event.year}
                   </div>
@@ -185,9 +192,9 @@ export default function HistoryPage() {
       </section>
 
       {/* Founding Story */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
+          <div className="grid gap-12 sm:grid-cols-1 lg:grid-cols-2 items-center">
             <div>
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -195,27 +202,27 @@ export default function HistoryPage() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-5xl font-bold text-gray-900 mb-8">
+                <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 md:mb-8">
                   The Founding
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
                     Vision
                   </span>
                 </h2>
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                <p className="text-base md:text-xl text-gray-600 mb-6 leading-relaxed">
                   The Unity University was born from a simple yet powerful vision: to create an institution that would
                   bridge the educational gap in Africa while maintaining the highest international standards.
                 </p>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Founded in 2021 in Hargeisa, Somaliland, The Unity University emerged with the motto "What begins here, transforms Africa" and a mission to contribute to the development of Somaliland, Africa, and the world. In 2024, we expanded to Liberia, establishing our second campus in Monrovia, creating a truly Pan-African educational network committed to excellence and leadership development.
+                <p className="text-sm md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
+                  Founded in 2020 in Hargeisa, Somaliland, The Unity University emerged with the motto "What begins here, transforms Africa" and a mission to contribute to the development of Somaliland, Africa, and the world. In 2024, we expanded to Liberia, establishing our second campus in Monrovia, creating a truly Pan-African educational network committed to excellence and leadership development.
                 </p>
-                                  <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">2021</div>
-                    <div className="text-gray-600">Founded</div>
+                <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                  <div className="text-center p-5 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50">
+                    <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-2">2020</div>
+                    <div className="text-sm sm:text-base text-gray-600">Founded</div>
                   </div>
-                  <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-emerald-50">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">2</div>
-                    <div className="text-gray-600">Campuses</div>
+                  <div className="text-center p-5 rounded-2xl bg-gradient-to-br from-blue-50 to-emerald-50">
+                    <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">2</div>
+                    <div className="text-sm sm:text-base text-gray-600">Campuses</div>
                   </div>
                 </div>
               </motion.div>
@@ -235,7 +242,7 @@ export default function HistoryPage() {
                   alt="University Founding"
                   width={800}
                   height={600}
-                  className="relative rounded-3xl shadow-2xl"
+                  className="relative rounded-3xl shadow-2xl w-full h-auto"
                 />
               </motion.div>
             </div>
@@ -244,23 +251,23 @@ export default function HistoryPage() {
       </section>
 
       {/* Legacy & Impact */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-white mb-6">Our Legacy</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Our Legacy</h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 19 years of transforming lives and building the future of Africa
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Users, label: "Graduates", value: "12,000+", description: "Alumni worldwide" },
               { icon: Globe, label: "Countries", value: "45", description: "Student representation" },
@@ -289,7 +296,7 @@ export default function HistoryPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -297,8 +304,8 @@ export default function HistoryPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold text-gray-900 mb-8">Be Part of Our Continuing Story</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 md:mb-8">Be Part of Our Continuing Story</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 md:mb-12">
               Join thousands of students who have chosen The Unity University to shape their future and contribute to
               Africa's development.
             </p>

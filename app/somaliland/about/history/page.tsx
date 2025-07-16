@@ -10,7 +10,7 @@ import SomalilandFooter from "@/components/somaliland/somaliland-footer"
 
 const timelineEvents = [
   {
-    year: "2021",
+    year: "2020",
     title: "Foundation and Vision",
     description: "The Unity University was established in Hargeisa, Somaliland with the motto 'What begins here, transforms Africa'.",
     details: [
@@ -24,7 +24,7 @@ const timelineEvents = [
     color: "bg-green-100 text-green-800",
   },
   {
-    year: "2022",
+    year: "2021",
     title: "Academic Programs Launch",
     description: "Launch of comprehensive academic programs across five faculties with diverse offerings.",
     details: [
@@ -39,7 +39,7 @@ const timelineEvents = [
     color: "bg-blue-100 text-blue-800",
   },
   {
-    year: "2023",
+    year: "2022",
     title: "Research and Innovation Growth",
     description: "Expansion of research capabilities and establishment of graduate programs.",
     details: [
@@ -53,7 +53,7 @@ const timelineEvents = [
     color: "bg-purple-100 text-purple-800",
   },
   {
-    year: "2024",
+    year: "2023",
     title: "Pan-African Expansion",
     description: "Expanded operations with the establishment of Liberia campus, creating a Pan-African network.",
     details: [
@@ -67,7 +67,7 @@ const timelineEvents = [
     color: "bg-red-100 text-red-800",
   },
   {
-    year: "2025",
+    year: "2024-2025",
     title: "Continued Excellence",
     description: "Building on strong foundations to serve over 4,000 students across both campuses.",
     details: [
@@ -157,7 +157,7 @@ export default function HistoryPage() {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-8">Our Founding Story</h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                The Unity University was born from a vision to transform education in Somaliland and Africa. Founded in 2021 by dedicated educators and community leaders, our university emerged with the motto "What begins here, transforms Africa" and a mission to become a world-class university in leadership development. From our beginnings in Hargeisa, we have grown into a leading institution committed to integrating theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
+                The Unity University was born from a vision to transform education in Somaliland and Africa. Founded in 2020 by dedicated educators and community leaders, our university emerged with the motto "What begins here, transforms Africa" and a mission to become a world-class university in leadership development. From our beginnings in Hargeisa, we have grown into a leading institution committed to integrating theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Our name "Unity" reflects our core belief in bringing together diverse perspectives, cultures, and knowledge systems to create a harmonious learning environment that serves not just Somaliland, but the entire African continent through our Pan-African approach with campuses in both Somaliland and Liberia.

@@ -18,65 +18,25 @@ export default function NetworkPage() {
 
   const partnerships = [
     {
-      name: "University of Nairobi",
-      country: "Kenya",
+      name: "University of Burao",
+      country: "Somaliland",
       type: "Regional Partnership",
       description:
-        "Pan-African educational initiatives and student mobility programs, fostering academic exchange and research opportunities across East Africa.",
+        "Collaborative initiatives focusing on regional development, educational exchange, and strengthening academic ties in the Horn of Africa.",
       image: "/placeholder.svg?height=200&width=300",
       established: "2022",
-      programs: ["Student Exchange", "Faculty Development", "Research Collaboration"],
+      programs: ["Student Exchange", "Joint Research", "Community Development"],
     },
     {
-      name: "Makerere University",
+      name: "Victoria University Kampala",
       country: "Uganda",
       type: "Academic Collaboration",
       description:
-        "Collaborative programs in public health and social sciences, with initiatives aimed at improving healthcare access and community development.",
+        "Strategic partnership promoting educational innovation, research collaboration, and cross-cultural academic exchange in East Africa.",
       image: "/placeholder.svg?height=200&width=300",
       established: "2023",
-      programs: ["Joint Research", "Graduate Programs", "Faculty Exchange"],
-    },
-    {
-      name: "University of Cape Town",
-      country: "South Africa",
-      type: "Regional Partnership",
-      description:
-        "Pan-African educational initiatives and student mobility programs, connecting Southern and Eastern Africa through education.",
-      image: "/placeholder.svg?height=200&width=300",
-      established: "2024",
-      programs: ["Student Exchange", "Research Collaboration", "Online Learning"],
-    },
-    {
-      name: "University of Ghana",
-      country: "Ghana",
-      type: "Academic Partnership",
-      description:
-        "Collaborative programs in business and technology, promoting West-East African educational exchange through our Liberia campus.",
-      image: "/placeholder.svg?height=200&width=300",
-      established: "2024",
-      programs: ["Business Programs", "Technology Transfer", "Cultural Exchange"],
-    },
-    {
-      name: "Addis Ababa University",
-      country: "Ethiopia",
-      type: "Regional Collaboration",
-      description:
-        "Educational cooperation in the Horn of Africa, focusing on sustainable development and regional integration.",
-      image: "/placeholder.svg?height=200&width=300",
-      established: "2023",
-      programs: ["Development Studies", "Regional Research", "Student Exchange"],
-    },
-    {
-      name: "Al-Azhar University",
-      country: "Egypt",
-      type: "Islamic Studies Partnership",
-      description:
-        "Collaboration in Islamic studies and Arabic language programs, enhancing cultural and religious education opportunities.",
-      image: "/placeholder.svg?height=200&width=300",
-      established: "2023",
-      programs: ["Islamic Studies", "Arabic Language", "Cultural Programs"],
-    },
+      programs: ["Faculty Development", "Research Partnerships", "International Programs"],
+    }
   ]
 
   const organizations = [
@@ -156,7 +116,7 @@ export default function NetworkPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -181,13 +141,13 @@ export default function NetworkPage() {
               <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
                 Global Network
               </Badge>
-              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
                 Connected
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   Worldwide
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
                 Our global network spans continents, connecting students, faculty, and institutions in a shared mission
                 of educational excellence and innovation.
               </p>
@@ -197,28 +157,28 @@ export default function NetworkPage() {
       </section>
 
       {/* Global Statistics */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Global Reach</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Our Global Reach</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Building bridges across continents through education and collaboration
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Globe, label: "Partner Universities", value: "6+", description: "Across Africa & Middle East" },
+              { icon: Globe, label: "Partner Universities", value: "2+", description: "Across Africa" },
               { icon: Users, label: "International Students", value: "400+", description: "From 15 countries" },
-              { icon: BookOpen, label: "Exchange Programs", value: "6", description: "Active partnerships" },
-              { icon: Award, label: "Joint Programs", value: "3", description: "Collaborative initiatives" },
+              { icon: BookOpen, label: "Exchange Programs", value: "2", description: "Active partnerships" },
+              { icon: Award, label: "Joint Programs", value: "2", description: "Collaborative initiatives" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -242,23 +202,23 @@ export default function NetworkPage() {
       </section>
 
       {/* University Partnerships */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">University Partnerships</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">University Partnerships</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Collaborating with world-renowned institutions to provide exceptional educational opportunities
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {partnerships.map((partner, index) => (
               <motion.div
                 key={partner.name}
@@ -315,23 +275,23 @@ export default function NetworkPage() {
       </section>
 
       {/* International Organizations */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-white mb-6">International Organizations</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">International Organizations</h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Partnering with global organizations to advance education and development
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {organizations.map((org, index) => (
               <motion.div
                 key={org.name}
@@ -361,24 +321,24 @@ export default function NetworkPage() {
       </section>
 
       {/* Alumni Network */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Global Alumni Network</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Global Alumni Network</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Our graduates are making a difference across industries and continents, with a strong presence in the
                 Horn of Africa.
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {alumni.map((alum, index) => (
               <motion.div
                 key={alum.name}
@@ -408,7 +368,7 @@ export default function NetworkPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -416,11 +376,11 @@ export default function NetworkPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold text-white mb-8">Join Our Global Network</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Join Our Global Network</h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
               Become part of a worldwide community of scholars, innovators, and leaders who are shaping the future.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
               <Link href="/admissions/apply">
                 <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
                   Apply Now
