@@ -383,7 +383,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/academics">
+                <Link href="/somaliland/academics">
                   <Button
                     size="lg"
                     variant="outline"
@@ -489,18 +489,18 @@ export default function HomePage() {
                 Excellence in Hargeisa
               </span>
             </h2>
-            <h3 className="text-2xl font-semibold text-gray-700 mb-6">Fiican Campus-ka Hargeisa</h3>
+            <h3 className="text-2xl font-semibold text-gray-700 mb-6">Exciting Campus Activities</h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Experience state-of-the-art educational facilities at The Unity University Somaliland's campuses in Hargeisa
-              and Berbera. Our modern infrastructure, advanced laboratories, and innovative learning spaces provide the
-              perfect environment for academic excellence and research innovation in the Horn of Africa.
+              Explore our dynamic campus life with cutting-edge coding classes, thrilling football tournaments, 
+              and state-of-the-art science laboratories. We provide students with opportunities to develop 
+              technical skills, engage in sports, and conduct innovative scientific research.
             </p>
 
-            {/* SEO keywords for campus facilities */}
+            {/* SEO keywords for campus activities */}
             <div className="sr-only">
               <p>
-                Modern university facilities Hargeisa, state-of-the-art campus Somaliland, advanced laboratories Horn of
-                Africa, research facilities Berbera, innovation centers Somaliland, educational infrastructure Hargeisa
+                Coding classes Somaliland, football tournaments university, science labs Hargeisa, 
+                technical skills development, sports activities campus, research opportunities
               </p>
             </div>
           </motion.div>
@@ -508,37 +508,52 @@ export default function HomePage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Main Campus Hargeisa - Premier Educational Hub",
-                titleSo: "Campus Weyn Hargeisa - Xarunta Waxbarashada",
-                location: "New Generation Campus, Hargeisa",
+                title: "Coding Classes - Tech Innovation Hub",
+                titleSo: "Darasadaha Koodiga - Xarunta Hal-abuurka Tignoolajiyada",
+                location: "Modern Tech Learning Center, Hargeisa",
                 description:
-                  "Our flagship 50-acre campus in Hargeisa features modern lecture halls, advanced research laboratories, digital library, student amenities, and sports facilities. Home to 2,200+ students across 20+ undergraduate and graduate programs.",
+                  "Cutting-edge coding programs for students to develop advanced programming skills. State-of-the-art computer labs, expert instructors, and hands-on projects in various programming languages and technologies.",
                 image: "/placeholder.svg?height=400&width=600",
-                stats: { students: "2,200+", programs: "20+", facilities: "15+" },
+                stats: { students: "500+", programs: "10+", facilities: "15+" },
                 color: "emerald",
-                keywords: "main campus hargeisa, flagship university somaliland, modern facilities",
+                textColor: "text-emerald-900",
+                titleColor: "text-emerald-900",
+                titleSoColor: "text-emerald-700",
+                bgColor: "bg-emerald-50",
+                locationBadgeColor: "bg-emerald-600/90",
+                keywords: "coding classes somaliland, tech education hargeisa",
               },
               {
-                title: "Berbera Innovation Hub - Maritime & Technology Center",
-                titleSo: "Xarunta Hal-abuurka Berbera - Xarunta Badda & Tignoolajiyada",
-                location: "Coastal Innovation Center, Berbera",
+                title: "Football Tournaments - Sports Excellence",
+                titleSo: "Kubadaha Cagta - Fiican Ciyaaraha",
+                location: "University Sports Complex, Hargeisa",
                 description:
-                  "Specialized 25-acre campus focusing on maritime studies, information technology, and coastal development. Strategic location near Berbera Port with industry partnerships and internship opportunities.",
+                  "Vibrant football program with regular tournaments, professional coaching, and inter-university competitions. Developing teamwork, leadership, and athletic skills for students across different programs.",
                 image: "/placeholder.svg?height=400&width=600",
-                stats: { students: "600+", programs: "8+", facilities: "10+" },
-                color: "red",
-                keywords: "berbera campus, maritime studies, technology center somaliland",
+                stats: { teams: "20+", tournaments: "8+", participants: "300+" },
+                color: "orange",
+                textColor: "text-orange-900",
+                titleColor: "text-orange-900",
+                titleSoColor: "text-orange-700",
+                bgColor: "bg-orange-50",
+                locationBadgeColor: "bg-orange-600/90",
+                keywords: "football tournaments university, sports activities somaliland",
               },
               {
-                title: "Research & Development Complex - Innovation Excellence",
-                titleSo: "Xarunta Cilmi-baadhista & Horumarinta - Fiican Hal-abuur",
-                location: "Advanced Research Facility, Hargeisa",
+                title: "Science Laboratories - Research Innovation",
+                titleSo: "Makhadyada Cilmiga - Hal-abuurka Cilmi-baadhista",
+                location: "Advanced Science Research Center, Hargeisa",
                 description:
-                  "Cutting-edge 15-acre research complex with specialized laboratories, innovation incubators, and collaboration spaces. Supporting 50+ research projects and partnerships with international institutions.",
+                  "Comprehensive science laboratory program offering cutting-edge research facilities for students. Professional-grade equipment, expert guidance, and interdisciplinary research opportunities across multiple scientific domains.",
                 image: "/placeholder.svg?height=400&width=600",
-                stats: { projects: "50+", labs: "12+", partnerships: "25+" },
-                color: "teal",
-                keywords: "research facilities hargeisa, innovation complex somaliland, advanced laboratories",
+                stats: { students: "100+", labs: "12+", projects: "50+" },
+                color: "blue",
+                textColor: "text-blue-900",
+                titleColor: "text-blue-900",
+                titleSoColor: "text-blue-700",
+                bgColor: "bg-blue-50",
+                locationBadgeColor: "bg-blue-600/90",
+                keywords: "science labs hargeisa, research facilities somaliland",
               },
             ].map((campus, index) => (
               <motion.div
@@ -550,7 +565,7 @@ export default function HomePage() {
                 className="group"
                 data-program={campus.keywords}
               >
-                <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-all duration-500">
+                <Card className={`h-full overflow-hidden ${campus.bgColor} shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-all duration-500`}>
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src={campus.image || "/placeholder.svg"}
@@ -563,36 +578,26 @@ export default function HomePage() {
                       <SomalilandFlag className="h-6 w-8" />
                     </div>
                     <div className="absolute bottom-4 left-4 text-white">
-                      <h4 className="text-xl font-bold mb-1">{campus.title}</h4>
-                      <p className="text-white/90 text-sm">{campus.titleSo}</p>
-                      <Badge className={`mt-2 bg-${campus.color}-600/90 text-white text-xs`}>{campus.location}</Badge>
+                      <h4 className={`text-xl font-bold mb-1 ${campus.titleColor}`}>{campus.title}</h4>
+                      <p className={`text-sm ${campus.titleSoColor}`}>{campus.titleSo}</p>
+                      <Badge className={`mt-2 ${campus.locationBadgeColor} text-white text-xs`}>{campus.location}</Badge>
                     </div>
                   </div>
 
                   <CardContent className="p-6">
-                    <p className="text-gray-600 leading-relaxed mb-6">{campus.description}</p>
+                    <p className={`${campus.textColor} leading-relaxed mb-6`}>{campus.description}</p>
 
                     <div className="grid grid-cols-3 gap-4">
                       {Object.entries(campus.stats).map(([key, value]) => (
                         <div key={key} className="text-center">
-                          <div className={`text-2xl font-bold text-${campus.color}-600`}>{value}</div>
+                          <div className={`text-2xl font-bold ${campus.textColor}`}>{value}</div>
                           <div className="text-xs text-gray-500 capitalize">{key}</div>
                         </div>
                       ))}
                     </div>
                   </CardContent>
 
-                  <CardFooter className="p-6 pt-0">
-                    <Link href="/about/campus-map" className="w-full">
-                      <Button
-                        variant="outline"
-                        className="w-full group-hover:bg-gray-50 transition-colors duration-300 bg-transparent"
-                      >
-                        Explore Campus
-                        <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </CardFooter>
+                  {/* Removed CardFooter and Explore Campus button */}
                 </Card>
               </motion.div>
             ))}
@@ -932,7 +937,7 @@ export default function HomePage() {
                   </CardContent>
 
                   <CardFooter className="p-6 pt-0">
-                    <Link href="/academics" className="w-full">
+                    <Link href="/somaliland/academics" className="w-full">
                       <Button
                         variant="outline"
                         className="w-full group-hover:bg-gray-50 transition-colors duration-300 bg-transparent"
@@ -954,7 +959,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Link href="/academics">
+            <Link href="/somaliland/academics">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 px-8 py-4 text-lg font-bold shadow-xl"
@@ -1034,7 +1039,7 @@ export default function HomePage() {
                   title: "Visit Us - Campus Tour Available",
                   titleSo: "Noo Yimaada - Booqasho Campus Diyaar",
                   info: "New Generation Campus, Hargeisa",
-                  action: "/about/contact",
+                  action: "/somaliland/about/contact",
                   keywords: "campus visit hargeisa",
                 },
               ].map((contact, index) => (
@@ -1069,7 +1074,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/about/contact">
+                <Link href="/somaliland/about/contact">
                   <Button
                     size="lg"
                     variant="outline"

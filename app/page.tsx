@@ -271,275 +271,287 @@ export default function UnityUniversityHome() {
 
           <div className="grid gap-12 md:grid-cols-2">
             {/* Liberia Campus Card */}
-            <div
-              className="group relative overflow-hidden rounded-3xl bg-white shadow-2xl border-0"
-              suppressHydrationWarning
-            >
-              {mounted && (
-                <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }} className="h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/graduation/master-of-education.jpg"
-                      alt="Liberia Campus"
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-blue-900/80" />
-                    <div className="absolute top-6 left-6">
-                      <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <LiberiaFlag className="h-6 w-8" />
-                        <span className="text-white font-bold text-sm">Liberia</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Liberia Campus</h3>
-                      <p className="text-white/90">Monrovia, Montserrado County</p>
-                    </div>
-                  </div>
-
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">The Love of Liberty Brought Us Here</h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence.
-                        Established in mid-2024, we are rapidly growing and expanding our presence in West Africa.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={1200} />+
+            <div className="block">
+              <Link href="/liberia" target="_blank" rel="noopener noreferrer" className="block">
+                <div
+                  className="group relative overflow-hidden rounded-3xl bg-white shadow-2xl border-0"
+                  suppressHydrationWarning
+                >
+                  {mounted && (
+                    <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }} className="h-full">
+                      <div className="relative h-64 overflow-hidden">
+                        <Image
+                          src="/graduation/master-of-education.jpg"
+                          alt="Liberia Campus"
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-blue-900/80" />
+                        <div className="absolute top-6 left-6">
+                          <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
+                            <LiberiaFlag className="h-6 w-8" />
+                            <span className="text-white font-bold text-sm">Liberia</span>
+                          </div>
                         </div>
-                        <div className="text-sm text-gray-600">Students</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600">
-                          <AnimatedCounter end={15} />+
+                        <div className="absolute bottom-6 left-6 text-white">
+                          <h3 className="text-2xl font-bold mb-2">Liberia Campus</h3>
+                          <p className="text-white/90">Monrovia, Montserrado County</p>
                         </div>
-                        <div className="text-sm text-gray-600">Programs</div>
                       </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={1} />
-                        </div>
-                        <div className="text-sm text-gray-600">Year</div>
-                      </div>
-                    </div>
 
-                    <Link href="/liberia" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg group">
-                        Visit Liberia Campus
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-              {!mounted && (
-                <div className="h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/hero-section/hero.png"
-                      alt="Liberia Campus"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-blue-900/80" />
-                    <div className="absolute top-6 left-6">
-                      <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <LiberiaFlag className="h-6 w-8" />
-                        <span className="text-white font-bold text-sm">Liberia</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Liberia Campus</h3>
-                      <p className="text-white/90">Monrovia, Montserrado County</p>
-                    </div>
-                  </div>
-
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">The Love of Liberty Brought Us Here</h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence.
-                        Established in mid-2024, we are rapidly growing and expanding our presence in West Africa.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={1200} />+
+                      <div className="p-8">
+                        <div className="mb-6">
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">The Love of Liberty Brought Us Here</h4>
+                          <p className="text-gray-600 leading-relaxed">
+                            Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence.
+                            Established in mid-2024, we are rapidly growing and expanding our presence in West Africa.
+                          </p>
                         </div>
-                        <div className="text-sm text-gray-600">Students</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600">
-                          <AnimatedCounter end={15} />+
+
+                        <div className="grid grid-cols-3 gap-4 mb-6">
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-red-600">
+                              <AnimatedCounter end={1200} />+
+                            </div>
+                            <div className="text-sm text-gray-600">Students</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-blue-600">
+                              <AnimatedCounter end={15} />+
+                            </div>
+                            <div className="text-sm text-gray-600">Programs</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-red-600">
+                              <AnimatedCounter end={1} />
+                            </div>
+                            <div className="text-sm text-gray-600">Year</div>
+                          </div>
                         </div>
-                        <div className="text-sm text-gray-600">Programs</div>
+
+                        <Button 
+                          className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg group"
+                          onClick={() => window.open('/liberia', '_blank')}
+                        >
+                          Visit Liberia Campus
+                          <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
                       </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={1} />
+                    </motion.div>
+                  )}
+                  {!mounted && (
+                    <div className="h-full">
+                      <div className="relative h-64 overflow-hidden">
+                        <Image
+                          src="/hero-section/hero.png"
+                          alt="Liberia Campus"
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-blue-900/80" />
+                        <div className="absolute top-6 left-6">
+                          <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
+                            <LiberiaFlag className="h-6 w-8" />
+                            <span className="text-white font-bold text-sm">Liberia</span>
+                          </div>
                         </div>
-                        <div className="text-sm text-gray-600">Year</div>
+                        <div className="absolute bottom-6 left-6 text-white">
+                          <h3 className="text-2xl font-bold mb-2">Liberia Campus</h3>
+                          <p className="text-white/90">Monrovia, Montserrado County</p>
+                        </div>
+                      </div>
+
+                      <div className="p-8">
+                        <div className="mb-6">
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">The Love of Liberty Brought Us Here</h4>
+                          <p className="text-gray-600 leading-relaxed">
+                            Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence.
+                            Established in mid-2024, we are rapidly growing and expanding our presence in West Africa.
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-4 mb-6">
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-red-600">
+                              <AnimatedCounter end={1200} />+
+                            </div>
+                            <div className="text-sm text-gray-600">Students</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-blue-600">
+                              <AnimatedCounter end={15} />+
+                            </div>
+                            <div className="text-sm text-gray-600">Programs</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-red-600">
+                              <AnimatedCounter end={1} />
+                            </div>
+                            <div className="text-sm text-gray-600">Year</div>
+                          </div>
+                        </div>
+
+                        <Button 
+                          className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg group"
+                          onClick={() => window.open('/liberia', '_blank')}
+                        >
+                          Visit Liberia Campus
+                          <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
                       </div>
                     </div>
-
-                    <Link href="/liberia" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg group">
-                        Visit Liberia Campus
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </div>
+                  )}
                 </div>
-              )}
+              </Link>
             </div>
 
             {/* Somaliland Campus Card */}
-            <div
-              className="group relative overflow-hidden rounded-3xl bg-white shadow-2xl border-0"
-              suppressHydrationWarning
-            >
-              {mounted && (
-                <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }} className="h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/hero-section/hero.png"
-                      alt="Somaliland Campus"
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-red-900/80" />
-                    <div className="absolute top-6 left-6">
-                      <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <div className="h-6 w-8 relative overflow-hidden rounded-sm">
-                          <div className="h-1/3 bg-emerald-600"></div>
-                          <div className="h-1/3 bg-white flex items-center justify-center">
-                            <Star className="h-2 w-2 text-emerald-600 fill-emerald-600" />
+            <div className="block">
+              <Link href="/somaliland" target="_blank" rel="noopener noreferrer" className="block">
+                <div
+                  className="group relative overflow-hidden rounded-3xl bg-white shadow-2xl border-0"
+                  suppressHydrationWarning
+                >
+                  {mounted && (
+                    <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }} className="h-full">
+                      <div className="relative h-64 overflow-hidden">
+                        <Image
+                          src="/hero-section/hero.png"
+                          alt="Somaliland Campus"
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-red-900/80" />
+                        <div className="absolute top-6 left-6">
+                          <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
+                            <div className="h-6 w-8 relative overflow-hidden rounded-sm">
+                              <div className="h-1/3 bg-emerald-600"></div>
+                              <div className="h-1/3 bg-white flex items-center justify-center">
+                                <Star className="h-2 w-2 text-emerald-600 fill-emerald-600" />
+                              </div>
+                              <div className="h-1/3 bg-red-600"></div>
+                            </div>
+                            <span className="text-white font-bold text-sm">Somaliland</span>
                           </div>
-                          <div className="h-1/3 bg-red-600"></div>
                         </div>
-                        <span className="text-white font-bold text-sm">Somaliland</span>
+                        <div className="absolute bottom-6 left-6 text-white">
+                          <h3 className="text-2xl font-bold mb-2">Somaliland Campus</h3>
+                          <p className="text-white/90">Hargeisa, Somaliland</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Somaliland Campus</h3>
-                      <p className="text-white/90">Hargeisa, Somaliland</p>
-                    </div>
-                  </div>
 
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">
-                        What begins here, transforms Africa
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        Founded in 2020, our Hargeisa campus has been here for 5 years, merging the best in the Horn of Africa. Our rapidly growing campus embodies the spirit of Somaliland – innovation, resilience, and academic excellence.
-                      </p>
-                    </div>
+                      <div className="p-8">
+                        <div className="mb-6">
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">
+                            What begins here, transforms Africa
+                          </h4>
+                          <p className="text-gray-600 leading-relaxed">
+                            Founded in 2020, our Hargeisa campus has been here for 5 years, merging the best in the Horn of Africa. Our rapidly growing campus embodies the spirit of Somaliland – innovation, resilience, and academic excellence.
+                          </p>
+                        </div>
 
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={2800} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Students</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={25} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Programs</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={5} />
-                        </div>
-                        <div className="text-sm text-gray-600">Years</div>
-                      </div>
-                    </div>
-
-                    <Link href="/somaliland" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-lg group">
-                        Visit Somaliland Campus
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-              {!mounted && (
-                <div className="h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/hero-section/hero.png"
-                      alt="Somaliland Campus"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-red-900/80" />
-                    <div className="absolute top-6 left-6">
-                      <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <div className="h-6 w-8 relative overflow-hidden rounded-sm">
-                          <div className="h-1/3 bg-emerald-600"></div>
-                          <div className="h-1/3 bg-white flex items-center justify-center">
-                            <Star className="h-2 w-2 text-emerald-600 fill-emerald-600" />
+                        <div className="grid grid-cols-3 gap-4 mb-6">
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-emerald-600">
+                              <AnimatedCounter end={2800} />+
+                            </div>
+                            <div className="text-sm text-gray-600">Students</div>
                           </div>
-                          <div className="h-1/3 bg-red-600"></div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-red-600">
+                              <AnimatedCounter end={25} />+
+                            </div>
+                            <div className="text-sm text-gray-600">Programs</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-emerald-600">
+                              <AnimatedCounter end={5} />
+                            </div>
+                            <div className="text-sm text-gray-600">Years</div>
+                          </div>
                         </div>
-                        <span className="text-white font-bold text-sm">Somaliland</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Somaliland Campus</h3>
-                      <p className="text-white/90">Hargeisa, Somaliland</p>
-                    </div>
-                  </div>
 
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">
-                        What begins here, transforms Africa
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        Founded in 2020, our Hargeisa campus has been here for 5 years, merging the best in the Horn of Africa. Our rapidly growing campus embodies the spirit of Somaliland – innovation, resilience, and academic excellence.
-                      </p>
-                    </div>
+                        <Button 
+                          className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-lg group"
+                          onClick={() => window.open('/somaliland', '_blank')}
+                        >
+                          Visit Somaliland Campus
+                          <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </div>
+                    </motion.div>
+                  )}
+                  {!mounted && (
+                    <div className="h-full">
+                      <div className="relative h-64 overflow-hidden">
+                        <Image
+                          src="/hero-section/hero.png"
+                          alt="Somaliland Campus"
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-red-900/80" />
+                        <div className="absolute top-6 left-6">
+                          <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
+                            <div className="h-6 w-8 relative overflow-hidden rounded-sm">
+                              <div className="h-1/3 bg-emerald-600"></div>
+                              <div className="h-1/3 bg-white flex items-center justify-center">
+                                <Star className="h-2 w-2 text-emerald-600 fill-emerald-600" />
+                              </div>
+                              <div className="h-1/3 bg-red-600"></div>
+                            </div>
+                            <span className="text-white font-bold text-sm">Somaliland</span>
+                          </div>
+                        </div>
+                        <div className="absolute bottom-6 left-6 text-white">
+                          <h3 className="text-2xl font-bold mb-2">Somaliland Campus</h3>
+                          <p className="text-white/90">Hargeisa, Somaliland</p>
+                        </div>
+                      </div>
 
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={2800} />+
+                      <div className="p-8">
+                        <div className="mb-6">
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">
+                            What begins here, transforms Africa
+                          </h4>
+                          <p className="text-gray-600 leading-relaxed">
+                            Founded in 2020, our Hargeisa campus has been here for 5 years, merging the best in the Horn of Africa. Our rapidly growing campus embodies the spirit of Somaliland – innovation, resilience, and academic excellence.
+                          </p>
                         </div>
-                        <div className="text-sm text-gray-600">Students</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={25} />+
+
+                        <div className="grid grid-cols-3 gap-4 mb-6">
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-emerald-600">
+                              <AnimatedCounter end={2800} />+
+                            </div>
+                            <div className="text-sm text-gray-600">Students</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-red-600">
+                              <AnimatedCounter end={25} />+
+                            </div>
+                            <div className="text-sm text-gray-600">Programs</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-emerald-600">
+                              <AnimatedCounter end={5} />
+                            </div>
+                            <div className="text-sm text-gray-600">Years</div>
+                          </div>
                         </div>
-                        <div className="text-sm text-gray-600">Programs</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={5} />
-                        </div>
-                        <div className="text-sm text-gray-600">Years</div>
+
+                        <Button 
+                          className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-lg group"
+                          onClick={() => window.open('/somaliland', '_blank')}
+                        >
+                          Visit Somaliland Campus
+                          <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
                       </div>
                     </div>
-
-                    <Link href="/somaliland" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-lg group">
-                        Visit Somaliland Campus
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </div>
+                  )}
                 </div>
-              )}
+              </Link>
             </div>
           </div>
         </div>
