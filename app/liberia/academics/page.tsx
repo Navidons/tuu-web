@@ -23,6 +23,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { cn } from "@/lib/utils"
 import LiberiaNavbar from "@/components/liberia/liberia-navbar"
 import LiberiaFooter from "@/components/liberia/liberia-footer"
+import Head from "next/head"
 
 // Liberian Flag Component
 const LiberiaFlag = ({ className = "h-6 w-10" }: { className?: string }) => {
@@ -166,7 +167,102 @@ export default function AcademicsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <Head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of International Relations and Diplomatic Studies",
+              "description": "Comprehensive study of international relations, diplomacy, and global governance for Liberia's role in West Africa and beyond.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Liberia",
+                "url": "https://tuu.university/liberia"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/courses/international-relations.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Monrovia Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Monrovia, Liberia"
+                }
+              }
+            },
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of Arts in Public Administration and Management",
+              "description": "Training future public servants and administrators to serve Liberian communities with excellence and integrity.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Liberia",
+                "url": "https://tuu.university/liberia"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/courses/leadership-skills.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Monrovia Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Monrovia, Liberia"
+                }
+              }
+            },
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of Arts in Social Work and Social Administration",
+              "description": "Empowering graduates to address social challenges and promote community development across Liberia.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Liberia",
+                "url": "https://tuu.university/liberia"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/community-outreaches/health-community-outreach-01.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Monrovia Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Monrovia, Liberia"
+                }
+              }
+            },
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of Project Planning and Management",
+              "description": "Developing project management experts for Liberia's development initiatives and infrastructure projects.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Liberia",
+                "url": "https://tuu.university/liberia"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/courses/business-class.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Monrovia Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Monrovia, Liberia"
+                }
+              }
+            }
+          ]
+        }` }} />
+      </Head>
       <LiberiaNavbar />
 
       {/* Hero Section */}
@@ -475,6 +571,6 @@ export default function AcademicsPage() {
       </section>
 
       <LiberiaFooter />
-    </div>
+    </>
   )
 }

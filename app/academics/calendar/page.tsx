@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import EnhancedNavbar from "@/components/enhanced-navbar"
 import EnhancedFooter from "@/components/enhanced-footer"
 import { Button } from "@/components/ui/button"
+import Head from "next/head"
 
 export default function AcademicCalendarPage() {
   const [mounted, setMounted] = useState(false)
@@ -233,109 +234,180 @@ export default function AcademicCalendarPage() {
   )
 
   return (
-    <div className="min-h-screen bg-white">
-      <EnhancedNavbar />
+    <>
+      <Head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Event",
+              "name": "Semester 1 Registration",
+              "description": "Registration period for the first semester.",
+              "startDate": "2024-09-01",
+              "endDate": "2024-09-10",
+              "location": {
+                "@type": "Place",
+                "name": "The Unity University Campuses"
+              },
+              "organizer": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University",
+                "url": "https://tuu.university/"
+              }
+            },
+            {
+              "@type": "Event",
+              "name": "First Semester Classes Begin",
+              "description": "Start of classes for the first semester.",
+              "startDate": "2024-09-15",
+              "location": {
+                "@type": "Place",
+                "name": "The Unity University Campuses"
+              },
+              "organizer": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University",
+                "url": "https://tuu.university/"
+              }
+            },
+            {
+              "@type": "Event",
+              "name": "Midterm Exams",
+              "description": "Midterm examinations for all programs.",
+              "startDate": "2024-11-01",
+              "endDate": "2024-11-05",
+              "location": {
+                "@type": "Place",
+                "name": "The Unity University Campuses"
+              },
+              "organizer": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University",
+                "url": "https://tuu.university/"
+              }
+            },
+            {
+              "@type": "Event",
+              "name": "Graduation Ceremony",
+              "description": "Annual graduation ceremony for all graduating students.",
+              "startDate": "2025-07-20",
+              "location": {
+                "@type": "Place",
+                "name": "Main Auditorium, The Unity University"
+              },
+              "organizer": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University",
+                "url": "https://tuu.university/"
+              }
+            }
+          ]
+        }` }} />
+      </Head>
+      <div className="min-h-screen bg-white">
+        <EnhancedNavbar />
 
-      {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-red-900 to-slate-900">
-          {mounted && (
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
-            />
-          )}
-        </div>
-
-        <div className="container relative z-10 mx-auto px-4">
-          <div className="text-center text-white">
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-red-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
-                Academic Calendar
-              </Badge>
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight">Academic Calendar</h1>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Filter & Events Section */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          {/* Semester Selector */}
-          <div className="flex flex-wrap justify-center gap-3 mb-6 md:mb-8">
-            {semesters.map((sem) => (
-              <Button
-                key={sem.id}
-                variant={selectedSemester === sem.id ? "default" : "outline"}
-                className="px-4 py-2 text-sm md:px-5 md:py-2"
-                onClick={() => setSelectedSemester(sem.id)}
-              >
-                {sem.name}
-              </Button>
-            ))}
-          </div>
-
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10 md:mb-12">
-            {categories.map((cat) => (
-              <Button
-                key={cat.id}
-                size="sm"
-                variant={selectedCategory === cat.id ? "secondary" : "outline"}
-                className="text-xs md:text-sm"
-                onClick={() => setSelectedCategory(cat.id)}
-              >
-                {cat.name}
-              </Button>
-            ))}
-          </div>
-
-          {/* Events List */}
-          <div className="space-y-5 max-w-3xl mx-auto">
-            {filteredEvents.map((event, idx) => {
-              const Icon = getEventIcon(event.type)
-              return (
-                <motion.div
-                  key={`${event.title}-${idx}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className={`bg-white rounded-xl border-l-4 p-5 shadow ${getCategoryColor(event.category)}`}
-                >
-                  <div className="flex items-start gap-3">
-                    <Icon className="h-5 w-5 shrink-0 mt-1" />
-                    <div className="flex-1">
-                      <h3 className="text-base font-bold text-gray-900 mb-1">{event.title}</h3>
-                      <p className="text-xs text-gray-600 mb-2">{event.description}</p>
-                      <div className="text-xs text-gray-500 flex items-center gap-2">
-                        <Calendar className="h-3 w-3" /> {event.date}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
-
-            {filteredEvents.length === 0 && (
-              <p className="text-center text-gray-500">No events found for the selected filters.</p>
+        {/* Hero Section */}
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-red-900 to-slate-900">
+            {mounted && (
+              <motion.div
+                className="absolute inset-0 opacity-20"
+                style={{
+                  backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.2, 0.3, 0.2],
+                }}
+                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
+              />
             )}
           </div>
-        </div>
-      </section>
 
-      {/* Site Footer */}
-      <EnhancedFooter />
-    </div>
+          <div className="container relative z-10 mx-auto px-4">
+            <div className="text-center text-white">
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+                <Badge className="bg-red-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
+                  Academic Calendar
+                </Badge>
+                <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight">Academic Calendar</h1>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Filter & Events Section */}
+        <section className="py-12 md:py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            {/* Semester Selector */}
+            <div className="flex flex-wrap justify-center gap-3 mb-6 md:mb-8">
+              {semesters.map((sem) => (
+                <Button
+                  key={sem.id}
+                  variant={selectedSemester === sem.id ? "default" : "outline"}
+                  className="px-4 py-2 text-sm md:px-5 md:py-2"
+                  onClick={() => setSelectedSemester(sem.id)}
+                >
+                  {sem.name}
+                </Button>
+              ))}
+            </div>
+
+            {/* Category Filters */}
+            <div className="flex flex-wrap justify-center gap-2 mb-10 md:mb-12">
+              {categories.map((cat) => (
+                <Button
+                  key={cat.id}
+                  size="sm"
+                  variant={selectedCategory === cat.id ? "secondary" : "outline"}
+                  className="text-xs md:text-sm"
+                  onClick={() => setSelectedCategory(cat.id)}
+                >
+                  {cat.name}
+                </Button>
+              ))}
+            </div>
+
+            {/* Events List */}
+            <div className="space-y-5 max-w-3xl mx-auto">
+              {filteredEvents.map((event, idx) => {
+                const Icon = getEventIcon(event.type)
+                return (
+                  <motion.div
+                    key={`${event.title}-${idx}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    className={`bg-white rounded-xl border-l-4 p-5 shadow ${getCategoryColor(event.category)}`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <Icon className="h-5 w-5 shrink-0 mt-1" />
+                      <div className="flex-1">
+                        <h3 className="text-base font-bold text-gray-900 mb-1">{event.title}</h3>
+                        <p className="text-xs text-gray-600 mb-2">{event.description}</p>
+                        <div className="text-xs text-gray-500 flex items-center gap-2">
+                          <Calendar className="h-3 w-3" /> {event.date}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              })}
+
+              {filteredEvents.length === 0 && (
+                <p className="text-center text-gray-500">No events found for the selected filters.</p>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Site Footer */}
+        <EnhancedFooter />
+      </div>
+    </>
   )
 }

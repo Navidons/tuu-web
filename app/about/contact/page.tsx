@@ -46,7 +46,7 @@ export default function ContactPage() {
       phone: "+252 634 210013",
       email: "theunityuniversity@gmail.com",
       hours: "Sunday - Thursday: 8:00 AM - 6:00 PM (GMT+3)",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/hero-section/hero.png?height=300&width=400",
       flag: "🏴",
     },
     {

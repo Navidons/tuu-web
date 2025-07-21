@@ -106,7 +106,15 @@ export default function HistoryPage() {
                     <div className={`w-full max-w-md ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'} md:text-right text-center`}>
                       <div className="inline-block bg-white rounded-md shadow border-2 border-gray-100 overflow-hidden text-left align-top">
                         <div className="relative h-40 sm:h-48">
-                          <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+                          <Image src={event.image || "/events/the-unity-university-indipendence-day-somaliland-01.jpg"} alt={
+                            event.title === 'Foundation in Hargeisa'
+                              ? 'Historic photo of The Unity University founding'
+                              : event.title === 'First Academic Programs'
+                              ? 'Unity University students at first graduation ceremony'
+                              : event.title === 'Research & Innovation'
+                              ? 'Unity University receives accreditation milestone'
+                              : event.title
+                          } fill className="object-cover" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-100/60 to-transparent"></div>
                           <div className="absolute bottom-3 left-3">
                             <Badge className={`text-white text-xs sm:text-sm uppercase tracking-wide ${index === 0 ? 'bg-emerald-700' : index === 3 ? 'bg-red-700' : 'bg-gray-800'}`}>{event.milestone}</Badge>
@@ -174,7 +182,7 @@ export default function HistoryPage() {
               <div className="relative w-full max-w-lg mx-auto">
                 <Image
                   src="/placeholder.svg?height=600&width=800"
-                  alt="University Founding"
+                  alt="Unity University campus historic photo"
                   width={800}
                   height={600}
                   className="rounded-md border-2 border-emerald-100 shadow-md w-full h-auto"

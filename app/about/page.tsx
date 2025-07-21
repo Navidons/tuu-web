@@ -215,7 +215,7 @@ export default function AboutPage() {
                 <div className="relative h-64 w-full border-b-2 border-gray-900 bg-gray-50">
                   <Image
                     src="/graduation/master-of-education.jpg"
-                    alt="Liberia Campus"
+                    alt="Graduates at The Unity University Liberia campus in Monrovia"
                     fill
                     className="object-cover"
                   />
@@ -253,7 +253,7 @@ export default function AboutPage() {
                 <div className="relative h-64 w-full border-b-2 border-gray-900 bg-gray-50">
                   <Image
                     src="/hero-section/hero.png"
-                    alt="Somaliland Campus"
+                    alt="The Unity University Somaliland campus in Hargeisa"
                     fill
                     className="object-cover"
                   />

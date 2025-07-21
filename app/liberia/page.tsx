@@ -28,6 +28,7 @@ import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import LiberiaNavbar from "@/components/liberia/liberia-navbar"
 import LiberiaFooter from "@/components/liberia/liberia-footer"
+import Head from "next/head"
 
 // Optimized floating particles component with better performance
 const FloatingParticles = () => {
@@ -274,7 +275,51 @@ export default function LiberiaHome() {
   }), [])
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <>
+      <Head>
+        <title>The Unity University Liberia | Accredited University in Monrovia, West Africa</title>
+        <meta name="description" content="The Unity University Liberia campus in Monrovia offers world-class, tuition-free, accredited education for West Africa. Join a leading Pan-African university dedicated to leadership and innovation." />
+        <meta property="og:title" content="The Unity University Liberia | Accredited University in Monrovia, West Africa" />
+        <meta property="og:description" content="Tuition-free, accredited university in Monrovia, Liberia. Empowering leaders for West Africa and the African continent." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://tuu.university/liberia" />
+        <meta property="og:image" content="https://tuu.university/hero-section/hero.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="The Unity University Liberia | Accredited University in Monrovia, West Africa" />
+        <meta name="twitter:description" content="Tuition-free, accredited university in Monrovia, Liberia. Empowering leaders for West Africa and the African continent." />
+        <meta name="twitter:image" content="https://tuu.university/hero-section/hero.png" />
+        <link rel="canonical" href="https://tuu.university/liberia" />
+        <meta httpEquiv="Content-Language" content="en" />
+        <meta name="geo.region" content="LR" />
+        <meta name="geo.placename" content="Monrovia, Liberia, West Africa" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+          "@context": "https://schema.org",
+          "@type": "CollegeOrUniversity",
+          "name": "The Unity University Liberia",
+          "url": "https://tuu.university/liberia",
+          "logo": "https://tuu.university/hero-section/hero.png",
+          "description": "The Unity University Liberia campus in Monrovia offers world-class, tuition-free, accredited education for West Africa. Join a leading Pan-African university dedicated to leadership and innovation.",
+          "foundingDate": "2020",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Monrovia Campus, Main Road",
+            "addressLocality": "Monrovia",
+            "addressRegion": "Montserrado",
+            "addressCountry": "LR"
+          },
+          "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+231 77 1234567",
+            "contactType": "admissions",
+            "areaServed": ["LR", "West Africa"]
+          }],
+          "sameAs": [
+            "https://www.facebook.com/theunityuniversity",
+            "https://twitter.com/theunityuniv",
+            "https://www.linkedin.com/company/the-unity-university/"
+          ]
+        }` }} />
+      </Head>
       <LiberiaNavbar />
 
       {/* Optimized Hero Section */}
@@ -822,6 +867,6 @@ export default function LiberiaHome() {
       </section>
 
       <LiberiaFooter />
-    </div>
+    </>
   )
 }

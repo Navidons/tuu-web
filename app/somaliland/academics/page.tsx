@@ -21,6 +21,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import SomalilandNavbar from "@/components/somaliland/somaliland-navbar"
 import SomalilandFooter from "@/components/somaliland/somaliland-footer"
+import Head from "next/head"
 
 // Animated counter component
 const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
@@ -152,7 +153,124 @@ export default function AcademicsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <Head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of International Relations and Diplomatic Studies",
+              "description": "Global politics, diplomacy, and international cooperation.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Somaliland",
+                "url": "https://tuu.university/somaliland"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/courses/international-relations.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Hargeisa Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Hargeisa, Somaliland"
+                }
+              }
+            },
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of Arts in Public Administration and Management",
+              "description": "Governance, public policy, and administrative leadership.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Somaliland",
+                "url": "https://tuu.university/somaliland"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/courses/business-class.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Hargeisa Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Hargeisa, Somaliland"
+                }
+              }
+            },
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of Arts in Social Works and Social Administration",
+              "description": "Community development, welfare services, and advocacy.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Somaliland",
+                "url": "https://tuu.university/somaliland"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/community-outreaches/health-community-outreach-01.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Hargeisa Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Hargeisa, Somaliland"
+                }
+              }
+            },
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of Project Planning and Management",
+              "description": "Project lifecycle, monitoring, and evaluation.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Somaliland",
+                "url": "https://tuu.university/somaliland"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/courses/business-class.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Hargeisa Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Hargeisa, Somaliland"
+                }
+              }
+            },
+            {
+              "@type": "EducationalOccupationalProgram",
+              "name": "Bachelor of Arts in Public Relations and Media Management",
+              "description": "Strategic communication and reputation management.",
+              "provider": {
+                "@type": "CollegeOrUniversity",
+                "name": "The Unity University Somaliland",
+                "url": "https://tuu.university/somaliland"
+              },
+              "occupationalCategory": "Social Sciences",
+              "programPrerequisites": "High School Diploma or equivalent",
+              "educationalCredentialAwarded": "Bachelor's Degree",
+              "image": "https://tuu.university/courses/public-speaking.jpg",
+              "location": {
+                "@type": "Place",
+                "name": "Hargeisa Campus",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Hargeisa, Somaliland"
+                }
+              }
+            }
+          ]
+        }` }} />
+      </Head>
       <SomalilandNavbar />
 
       {/* Hero Section */}
@@ -453,6 +571,6 @@ export default function AcademicsPage() {
       </section>
 
       <SomalilandFooter />
-    </div>
+    </>
   )
 }

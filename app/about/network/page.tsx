@@ -203,7 +203,7 @@ export default function NetworkPage() {
                 <div className="relative flex items-center justify-center h-48 bg-white">
                   <Image
                     src={partner.image || "/placeholder.svg"}
-                    alt={partner.name}
+                    alt={`${partner.name} logo, a partner organization of The Unity University`}
                     fill
                     className="object-contain p-6"
                   />
@@ -268,11 +268,11 @@ export default function NetworkPage() {
               <div key={org.name} className="text-center p-8 rounded-xl bg-white border-2 border-emerald-600 shadow-sm font-serif flex flex-col items-center">
                 <div className="w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6 border-2 border-emerald-600">
                   <Image
-                    src={org.logo || "/placeholder.svg"}
-                    alt={org.name}
-                    width={60}
-                    height={60}
-                    className="rounded-full"
+                    src={org.logo}
+                    alt={`Logo of ${org.name}, a partner organization of The Unity University`}
+                    width={80}
+                    height={80}
+                    className="object-contain w-20 h-20 mx-auto mb-4"
                   />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">{org.name}</h3>
