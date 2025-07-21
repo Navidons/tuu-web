@@ -110,51 +110,38 @@ export default function AdmissionsPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
-          {mounted && (
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
-            />
-          )}
+      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-emerald-900">
+        <div className="absolute inset-0">
+          <img src="/hero-section/all-on-graduation-pic.jpg" alt="Admissions Hero" className="w-full h-full object-cover object-center opacity-60" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
-
         <div className="container relative z-10 mx-auto px-4">
           <div className="text-center text-white">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-purple-600 text-white px-4 py-2 text-sm md:text-lg font-bold shadow-2xl mb-4 md:mb-8">Admissions</Badge>
+              <Badge className="bg-emerald-700 text-white px-4 py-2 text-sm md:text-lg font-bold shadow-2xl mb-4 md:mb-8">Admissions</Badge>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight">
                 Your Journey
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-                  Starts Here
-                </span>
+                <span className="block text-emerald-200">Starts Here</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-12">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-emerald-100 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-12">
                 Join a global community of scholars at The Unity University. Discover world-class education opportunities
                 across our campuses in Liberia and Somaliland.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-6">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-8 mt-6">
                 <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg font-bold">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-emerald-700 hover:bg-emerald-800 text-white px-10 py-5 text-xl font-extrabold shadow-xl transition-all duration-200 focus:ring-4 focus:ring-emerald-300 focus:outline-none flex items-center gap-3"
+                  >
                     Apply Now
-                    <ArrowRight className="ml-3 h-6 w-6" />
+                    <ArrowRight className="ml-2 h-7 w-7" />
                   </Button>
                 </Link>
                 <Link href="/academics">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold"
+                    className="rounded-full border-2 border-emerald-700 text-emerald-700 bg-white hover:bg-emerald-50 px-10 py-5 text-xl font-extrabold shadow-md transition-all duration-200 focus:ring-4 focus:ring-emerald-200 focus:outline-none flex items-center gap-3"
                   >
                     View Programs
                   </Button>
@@ -166,7 +153,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Admission Statistics */}
-      <section className="py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-24 bg-[#faf9f7] border-y-4 border-emerald-600">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
             <motion.div
@@ -214,12 +201,12 @@ export default function AdmissionsPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="text-center p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100"
+                className={`text-center p-8 rounded-md bg-white border-2 ${index % 2 === 0 ? 'border-emerald-600' : 'border-red-600'}`}
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center mx-auto mb-6">
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${index % 2 === 0 ? 'bg-emerald-700' : 'bg-red-700'}`}>
                   <stat.icon className="h-8 w-8 text-white" />
                 </div>
-                <div className="text-4xl font-bold text-purple-600 mb-2">
+                <div className={`text-4xl font-bold mb-2 ${index % 2 === 0 ? 'text-emerald-700' : 'text-red-700'}`}> 
                   <AnimatedCounter end={stat.value} />
                   {stat.suffix}
                 </div>
@@ -232,7 +219,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Application Process */}
-      <section className="py-12 md:py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white border-b-4 border-emerald-600">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
             <motion.div
@@ -250,7 +237,7 @@ export default function AdmissionsPage() {
 
           <div className="relative max-w-6xl mx-auto">
             {/* Process Line */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full transform -translate-y-1/2"></div>
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-emerald-600 to-red-600 rounded-full transform -translate-y-1/2"></div>
 
             <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
               {admissionSteps.map((step, index) => (
@@ -264,14 +251,14 @@ export default function AdmissionsPage() {
                   className="relative bg-white rounded-3xl shadow-xl border border-gray-100 p-6 text-center"
                 >
                   {/* Step Number */}
-                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-base shadow-lg">
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-r from-emerald-700 to-red-700 rounded-full flex items-center justify-center text-white font-bold text-base shadow-lg">
                     {step.step}
                   </div>
 
                   <div className="text-5xl mb-5 mt-2">{step.icon}</div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
                   <p className="text-sm text-gray-600 mb-5 leading-relaxed">{step.description}</p>
-                  <Badge className="bg-purple-100 text-purple-700 text-xs">{step.timeline}</Badge>
+                  <Badge className="bg-emerald-100 text-emerald-700 text-xs">{step.timeline}</Badge>
                 </motion.div>
               ))}
             </div>
@@ -280,7 +267,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Academic Programs */}
-      <section className="py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-24 bg-[#faf9f7] border-y-4 border-emerald-600">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
             <motion.div
@@ -307,7 +294,7 @@ export default function AdmissionsPage() {
                 whileHover={{ scale: 1.03, y: -5 }}
                 className="relative overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-100"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-5`}></div>
+                <div className={`absolute inset-0 ${index % 2 === 0 ? 'bg-emerald-100/40' : 'bg-red-100/40'}`}></div>
                 <div className="relative z-10 p-6 sm:p-8">
                   <div className="text-center mb-6 sm:mb-8">
                     <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1.5 sm:mb-2">{program.level}</h3>
@@ -318,14 +305,14 @@ export default function AdmissionsPage() {
                     <h4 className="text-base sm:text-lg font-semibold text-gray-900">Available Programs:</h4>
                     {program.programs.map((prog, i) => (
                       <div key={i} className="flex items-center space-x-2.5 sm:space-x-3">
-                        <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600 flex-shrink-0" />
+                        <CheckCircle className={`h-4 w-4 sm:h-5 sm:w-5 ${index % 2 === 0 ? 'text-emerald-700' : 'text-red-700'} flex-shrink-0`} />
                         <span className="text-sm sm:text-base text-gray-700">{prog}</span>
                       </div>
                     ))}
                   </div>
 
                   <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                    <Button className={`w-full bg-gradient-to-r ${program.color} text-white hover:opacity-90 py-2.5`}>
+                    <Button className={`w-full ${index % 2 === 0 ? 'bg-emerald-700 hover:bg-emerald-800' : 'bg-red-700 hover:bg-red-800'} text-white py-2.5`}>
                       Apply for {program.level}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -338,7 +325,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Quick Links */}
-      <section className="py-12 md:py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white border-b-4 border-emerald-600">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
             <motion.div
@@ -408,11 +395,11 @@ export default function AdmissionsPage() {
                     ></div>
                     <div className="relative z-10 text-center">
                       <div className="text-6xl mb-6">{item.icon}</div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors">
+                      <h3 className={`text-2xl font-bold text-gray-900 mb-4 group-hover:${index % 2 === 0 ? 'text-emerald-700' : 'text-red-700'} transition-colors`}>
                         {item.title}
                       </h3>
                       <p className="text-gray-600 mb-6">{item.description}</p>
-                      <div className="flex items-center justify-center text-purple-600 font-medium">
+                      <div className={`flex items-center justify-center font-medium ${index % 2 === 0 ? 'text-emerald-700' : 'text-red-700'}`}>
                         Learn More
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -425,80 +412,8 @@ export default function AdmissionsPage() {
         </div>
       </section>
 
-      {/* Important Dates */}
-      <section className="py-12 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Important Dates</h2>
-              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                Key deadlines and dates for the upcoming academic year
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                date: "March 1, 2024",
-                title: "Early Decision Deadline",
-                description: "Submit your application for priority consideration",
-                type: "Deadline",
-              },
-              {
-                date: "May 15, 2024",
-                title: "Regular Decision Deadline",
-                description: "Final deadline for fall semester applications",
-                type: "Deadline",
-              },
-              {
-                date: "July 15, 2024",
-                title: "International Student Deadline",
-                description: "Final deadline for visa processing requirements",
-                type: "International",
-              },
-              {
-                date: "August 20, 2024",
-                title: "Orientation Week",
-                description: "Welcome activities and campus introduction",
-                type: "Event",
-              },
-              {
-                date: "August 27, 2024",
-                title: "Classes Begin",
-                description: "First day of fall semester classes",
-                type: "Academic",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20"
-              >
-                <div className="flex items-center space-x-3 mb-4">
-                  <Calendar className="h-6 w-6 text-purple-300" />
-                  <Badge className="bg-purple-600 text-white">{item.type}</Badge>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-purple-300 font-semibold mb-3">{item.date}</p>
-                <p className="text-gray-300">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-t-4 border-emerald-600">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -515,7 +430,7 @@ export default function AdmissionsPage() {
               <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4 text-lg font-bold"
+                  className="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 text-lg font-bold"
                 >
                   Start Application
                   <ArrowRight className="ml-3 h-6 w-6" />
@@ -525,7 +440,7 @@ export default function AdmissionsPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-4 text-lg font-bold"
+                  className="border-red-700 text-red-700 hover:bg-red-50 px-8 py-4 text-lg font-bold"
                 >
                   Contact Admissions
                 </Button>

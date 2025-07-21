@@ -139,49 +139,18 @@ const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; dura
   )
 }
 
-// Enhanced Somaliland flag component
-const SomalilandFlag = ({ className = "h-6 w-8" }: { className?: string }) => {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
-  if (!isClient) {
-    return (
-      <div className={`${className} relative overflow-hidden rounded-sm shadow-md border border-white/20`}>
-        <div className="h-1/3 bg-emerald-600"></div>
-        <div className="h-1/3 bg-white flex items-center justify-center">
-          <Star className="h-2 w-2 text-emerald-600 fill-emerald-600" />
-        </div>
-        <div className="h-1/3 bg-red-600"></div>
-      </div>
-    )
-  }
-
-  return (
-    <motion.div
-      className={`${className} relative overflow-hidden rounded-sm shadow-md border border-white/20`}
-      whileHover={{ scale: 1.05 }}
-      animate={{
-        boxShadow: ["0 0 0 rgba(34, 197, 94, 0.3)", "0 0 20px rgba(34, 197, 94, 0.6)", "0 0 0 rgba(34, 197, 94, 0.3)"],
-      }}
-      transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-      suppressHydrationWarning
-    >
-      <div className="h-1/3 bg-emerald-600"></div>
-      <div className="h-1/3 bg-white flex items-center justify-center">
-        <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        >
-          <Star className="h-2 w-2 text-emerald-600 fill-emerald-600" />
-        </motion.div>
-      </div>
-      <div className="h-1/3 bg-red-600"></div>
-    </motion.div>
-  )
-}
+// Somaliland flag using Wikimedia SVG
+const SomalilandFlag = ({ className = "h-6 w-8" }: { className?: string }) => (
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag_of_Somaliland.svg"
+    alt="Flag of Somaliland"
+    className={`${className} rounded-sm shadow-md border border-white/20 object-cover`}
+    loading="lazy"
+    decoding="async"
+    draggable={false}
+    style={{ display: 'inline-block' }}
+  />
+)
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)

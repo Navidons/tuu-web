@@ -88,50 +88,33 @@ export default function ContactPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#faf9f7]">
       <EnhancedNavbar />
 
-      {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
-          {mounted && (
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
-            />
-          )}
+      {/* Hero Section - Editorial Style with Background Image */}
+      <section className="relative py-24 md:py-36 bg-white border-b border-gray-200 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/strips/apply-now-at-the-unity-university.jpg" alt="Apply Now at The Unity University" className="w-full h-full object-cover object-center" style={{filter:'brightness(0.6)'}} />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-emerald-50/80 to-white/90" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-100/40 via-transparent to-transparent" />
         </div>
-
         <div className="container relative z-10 mx-auto px-4">
-          <div className="text-center text-white">
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">Contact Us</Badge>
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
-                Get in
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-                  Touch
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
-                We're here to help you on your educational journey. Reach out to us with any questions or to learn more
-                about The Unity University.
-              </p>
-            </motion.div>
+          <div className="text-center flex flex-col items-center">
+            <Badge className="bg-emerald-700 text-white px-10 py-4 text-xl font-extrabold shadow-xl mb-8 tracking-wide uppercase rounded-full">Contact Us</Badge>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <Mail className="h-10 w-10 text-emerald-700 drop-shadow-lg" />
+              <h1 className="text-6xl sm:text-7xl md:text-8xl font-serif font-extrabold text-gray-900 leading-tight drop-shadow-xl">Get in Touch</h1>
+            </div>
+            <div className="flex justify-center mb-6">
+              <hr className="w-32 border-t-2 border-emerald-700" />
+            </div>
+            <p className="text-xl md:text-2xl italic text-emerald-800 max-w-2xl mx-auto leading-relaxed mb-10 font-serif font-medium drop-shadow">We're here to help you on your educational journey. Reach out to us with any questions or to learn more about The Unity University.</p>
           </div>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 sm:grid-cols-1 lg:grid-cols-2">
             {/* Contact Form */}
@@ -141,8 +124,9 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 transition hover:shadow-2xl">
+                <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-2">Send us a Message</h2>
+                <hr className="w-20 border-t-2 border-emerald-700 mb-6 mx-auto" />
                 <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
@@ -155,7 +139,7 @@ export default function ContactPage() {
                         type="text"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="mt-1 text-sm"
+                        className="mt-1 text-lg rounded-lg border border-emerald-600 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-700 transition"
                         placeholder="Your full name"
                         required
                       />
@@ -170,7 +154,7 @@ export default function ContactPage() {
                         type="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="mt-1 text-sm"
+                        className="mt-1 text-lg rounded-lg border border-emerald-600 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-700 transition"
                         placeholder="your.email@example.com"
                         required
                       />
@@ -187,7 +171,7 @@ export default function ContactPage() {
                         name="campus"
                         value={formData.campus}
                         onChange={handleInputChange}
-                        className="mt-1 w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="mt-1 w-full px-3 py-2 text-lg border border-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-700 transition"
                         required
                       >
                         <option value="">Select a campus</option>
@@ -206,7 +190,7 @@ export default function ContactPage() {
                         type="text"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="mt-1 text-sm"
+                        className="mt-1 text-lg rounded-lg border border-emerald-600 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-700 transition"
                         placeholder="What is this about?"
                         required
                       />
@@ -222,7 +206,7 @@ export default function ContactPage() {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="mt-1 text-sm"
+                      className="mt-1 text-lg rounded-lg border border-emerald-600 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-700 transition"
                       rows={5}
                       placeholder="Tell us more about your inquiry..."
                       required
@@ -231,10 +215,10 @@ export default function ContactPage() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 py-2.5 text-base font-bold"
+                    className="w-full bg-emerald-700 text-white hover:bg-emerald-800 py-3 text-lg font-bold rounded-full flex items-center justify-center gap-2 shadow-md transition hover:scale-105"
                   >
+                    <Send className="h-5 w-5 mr-2" />
                     Send Message
-                    <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
               </div>
@@ -257,11 +241,12 @@ export default function ContactPage() {
               </div>
 
               {/* Quick Contact */}
-              <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-3xl p-6 sm:p-8 border border-purple-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-5 sm:mb-6">Quick Contact</h3>
+              <div className="bg-emerald-50 rounded-md p-6 sm:p-8 border border-gray-200">
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">Quick Contact</h3>
+                <hr className="w-12 border-t border-gray-300 mb-5 mx-auto" />
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-center space-x-3 sm:space-x-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-600 flex items-center justify-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emerald-700 flex items-center justify-center">
                       <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                     </div>
                     <div>
@@ -270,7 +255,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 sm:space-x-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-600 flex items-center justify-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-600 flex items-center justify-center">
                       <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                     </div>
                     <div>
@@ -291,16 +276,17 @@ export default function ContactPage() {
               </div>
 
               {/* Department Contacts */}
-              <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-5 sm:mb-6">Department Contacts</h3>
+              <div className="bg-white rounded-md shadow-sm border border-gray-200 p-6 sm:p-8">
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">Department Contacts</h3>
+                <hr className="w-12 border-t border-gray-300 mb-5 mx-auto" />
                 <div className="space-y-3 sm:space-y-4">
                   {departments.map((dept, index) => (
                     <div key={dept.name} className="border-b border-gray-100 pb-3 sm:pb-4 last:border-b-0">
                       <div className="font-semibold text-gray-900 text-sm sm:text-base">{dept.name}</div>
                       <div className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2">{dept.description}</div>
                       <div className="flex flex-wrap gap-3 text-xs sm:text-sm">
-                        <span className="text-purple-600">{dept.email}</span>
-                        <span className="text-blue-600">{dept.phone}</span>
+                        <span className="text-emerald-700">{dept.email}</span>
+                        <span className="text-red-600">{dept.phone}</span>
                       </div>
                     </div>
                   ))}
@@ -311,90 +297,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Campus Locations */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Campus Locations</h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Visit us at either of our beautiful campuses across Africa
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
-            {campusInfo.map((campus, index) => (
-              <motion.div
-                key={campus.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden"
-              >
-                <div className="relative h-56 sm:h-64">
-                  <Image src={campus.image || "/placeholder.svg"} alt={campus.name} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4">
-                    <div className="flex items-center space-x-2">
-                      <span className="text-2xl sm:text-3xl">{campus.flag}</span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white">{campus.name}</h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6 sm:p-8">
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-start space-x-3 sm:space-x-4">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600 mt-1 flex-shrink-0" />
-                      <div>
-                        <div className="font-semibold text-gray-900 text-sm sm:text-base">Address</div>
-                        <div className="text-gray-600 text-xs sm:text-sm">{campus.address}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3 sm:space-x-4">
-                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 flex-shrink-0" />
-                      <div>
-                        <div className="font-semibold text-gray-900 text-sm sm:text-base">Phone</div>
-                        <div className="text-gray-600 text-xs sm:text-sm">{campus.phone}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3 sm:space-x-4">
-                      <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 flex-shrink-0" />
-                      <div>
-                        <div className="font-semibold text-gray-900 text-sm sm:text-base">Email</div>
-                        <div className="text-gray-600 text-xs sm:text-sm">{campus.email}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3 sm:space-x-4">
-                      <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-orange-600 flex-shrink-0" />
-                      <div>
-                        <div className="font-semibold text-gray-900 text-sm sm:text-base">Office Hours</div>
-                        <div className="text-gray-600 text-xs sm:text-sm">{campus.hours}</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-5 sm:mt-6">
-                    <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 py-2.5 text-base">
-                      Get Directions
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
             <motion.div
@@ -450,7 +354,7 @@ export default function ContactPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6"
+                  className="bg-white rounded-md shadow-sm border border-gray-200 p-6"
                 >
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{faq.question}</h3>
                   <p className="text-gray-600">{faq.answer}</p>
@@ -462,7 +366,7 @@ export default function ContactPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-24 bg-[#faf9f7] border-t border-b border-gray-200">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -470,23 +374,24 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold text-white mb-8">Ready to Start Your Journey?</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+            <h2 className="text-5xl font-serif font-bold text-gray-900 mb-2">Ready to Start Your Journey?</h2>
+            <hr className="w-24 border-t border-gray-400 mb-8 mx-auto" />
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
               Take the first step towards your future at The Unity University. We're here to support you every step of the
               way.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <Link href="/admissions/apply">
-                <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
+                <Button size="lg" className="bg-emerald-700 text-white hover:bg-emerald-800 px-10 py-4 text-lg font-bold rounded-full flex items-center gap-2">
+                  <ArrowRight className="h-6 w-6 mr-2" />
                   Apply Now
-                  <ArrowRight className="ml-3 h-6 w-6" />
                 </Button>
               </Link>
               <Link href="/academics">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold"
+                  className="border-emerald-700 text-emerald-700 bg-white hover:bg-emerald-700 hover:text-white px-10 py-4 text-lg font-bold rounded-full flex items-center gap-2"
                 >
                   Explore Programs
                 </Button>

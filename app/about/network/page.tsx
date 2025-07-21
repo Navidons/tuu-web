@@ -68,25 +68,25 @@ export default function NetworkPage() {
       name: "African Union",
       type: "Continental Organization",
       description: "Supporting AU's education initiatives across Africa",
-      logo: "/placeholder.svg?height=100&width=100",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_the_African_Union.svg",
     },
     {
       name: "UNESCO",
       type: "UN Agency",
       description: "Advancing education for sustainable development",
-      logo: "/placeholder.svg?height=100&width=100",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_UNESCO.svg",
     },
     {
       name: "World Bank",
       type: "International Finance",
       description: "Educational development and capacity building projects",
-      logo: "/placeholder.svg?height=100&width=100",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/8/87/The_World_Bank_logo.svg",
     },
     {
       name: "African Development Bank",
       type: "Regional Bank",
       description: "Financing higher education infrastructure",
-      logo: "/placeholder.svg?height=100&width=100",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/3/36/Logo_Afrikanische_Entwicklungsbank.svg",
     },
   ]
 
@@ -126,86 +126,47 @@ export default function NetworkPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
-          {mounted && (
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
-            />
-          )}
+      <section className="relative py-20 md:py-28 bg-white border-b border-gray-200 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/strips/apply-now-at-the-unity-university.jpg" alt="Apply Now at The Unity University" className="w-full h-full object-cover object-center" style={{filter:'brightness(0.7)'}} />
+          <div className="absolute inset-0 bg-white/70" />
         </div>
-
         <div className="container relative z-10 mx-auto px-4">
-          <div className="text-center text-white">
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
-                Global Network
-              </Badge>
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
-                Connected
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-                  Worldwide
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
-                Our global network spans continents, connecting students, faculty, and institutions in a shared mission
-                of educational excellence and innovation.
-              </p>
-            </motion.div>
+          <div className="text-center">
+            <Badge className="bg-emerald-700 text-white px-8 py-3 text-lg font-extrabold shadow-lg mb-8 tracking-wide uppercase">Global Network</Badge>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-extrabold text-gray-900 mb-4 md:mb-6 leading-tight drop-shadow-lg">Connected Worldwide</h1>
+            <div className="flex justify-center mb-4">
+              <hr className="w-24 border-t-2 border-emerald-700" />
+            </div>
+            <p className="text-lg md:text-xl italic text-emerald-800 max-w-2xl mx-auto leading-relaxed mb-6 md:mb-10 font-serif font-medium">
+              Our global network spans continents, connecting students, faculty, and institutions in a shared mission of educational excellence and innovation.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Global Statistics */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-14 md:py-20 bg-[#faf9f7] border-b border-gray-200">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Our Global Reach</h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Building bridges across continents through education and collaboration
-              </p>
-            </motion.div>
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Our Global Reach</h2>
+            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">Building bridges across continents through education and collaboration</p>
           </div>
-
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Globe, label: "Partner Universities", value: "2+", description: "Across Africa" },
-              { icon: Users, label: "International Students", value: "400+", description: "From 15 countries" },
-              { icon: BookOpen, label: "Exchange Programs", value: "2", description: "Active partnerships" },
-              { icon: Award, label: "Joint Programs", value: "2", description: "Collaborative initiatives" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="text-center p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100"
-              >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center mx-auto mb-6">
-                  <stat.icon className="h-8 w-8 text-white" />
+              { icon: Globe, label: "Partner Universities", value: "4+", description: "Across Africa", color: "emerald" },
+              { icon: Users, label: "International Students", value: "400+", description: "From 15 countries", color: "emerald" },
+              { icon: BookOpen, label: "Exchange Programs", value: "2", description: "Active partnerships", color: "red" },
+              { icon: Award, label: "Joint Programs", value: "2", description: "Collaborative initiatives", color: "red" },
+            ].map((stat) => (
+              <div key={stat.label} className={`text-center p-8 rounded-xl bg-white border-2 ${stat.color === 'emerald' ? 'border-emerald-600' : 'border-red-600'} shadow-sm font-serif flex flex-col items-center`}>
+                <div className={`w-12 h-12 rounded-full ${stat.color === 'emerald' ? 'bg-emerald-100 border-2 border-emerald-600' : 'bg-red-100 border-2 border-red-600'} flex items-center justify-center mx-auto mb-4`}>
+                  <stat.icon className={`h-7 w-7 ${stat.color === 'emerald' ? 'text-emerald-700' : 'text-red-600'}`} />
                 </div>
-                <div className="text-4xl font-bold text-purple-600 mb-2">{stat.value}</div>
-                <div className="text-xl font-semibold text-gray-900 mb-2">{stat.label}</div>
-                <div className="text-gray-600">{stat.description}</div>
-              </motion.div>
+                <div className={`text-3xl font-extrabold ${stat.color === 'emerald' ? 'text-emerald-700' : 'text-red-600'} mb-2`} style={{fontFamily:'serif', fontVariant:'small-caps'}}>{stat.value}</div>
+                <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
+                <div className="text-gray-700 text-sm">{stat.description}</div>
+              </div>
             ))}
           </div>
         </div>
@@ -237,7 +198,7 @@ export default function NetworkPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.03, y: -5 }}
-                className="group bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden"
+                className={`group bg-white rounded-xl shadow-sm border-2 ${index % 2 === 0 ? 'border-emerald-600' : 'border-red-600'} overflow-hidden`}
               >
                 <div className="relative flex items-center justify-center h-48 bg-white">
                   <Image
@@ -248,7 +209,7 @@ export default function NetworkPage() {
                   />
                   {/* Removed dark overlay and gradient */}
                   <div className="absolute top-4 left-4">
-                    <Badge className="bg-purple-600 text-white">{partner.type}</Badge>
+                    <Badge className="bg-emerald-700 text-white">{partner.type}</Badge>
                   </div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="flex items-center space-x-2 text-gray-700">
@@ -273,19 +234,19 @@ export default function NetworkPage() {
                     <a href={partner.website} target="_blank" rel="noopener noreferrer">
                       <Button
                         variant="outline"
-                        className="w-full group-hover:bg-purple-50 group-hover:border-purple-600 group-hover:text-purple-600"
+                        className={`w-full ${index % 2 === 0 ? 'border-emerald-600 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-700 hover:text-emerald-700' : 'border-red-600 text-red-700 hover:bg-red-50 hover:border-red-700 hover:text-red-700'}`}
                       >
                         Learn More
-                        <ExternalLink className="ml-2 h-4 w-4" />
+                        <ExternalLink className={`ml-2 h-4 w-4 ${index % 2 === 0 ? 'text-emerald-700' : 'text-red-700'}`} />
                       </Button>
                     </a>
                   ) : (
                     <Button
                       variant="outline"
-                      className="w-full group-hover:bg-purple-50 group-hover:border-purple-600 group-hover:text-purple-600"
+                      className={`w-full ${index % 2 === 0 ? 'border-emerald-600 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-700 hover:text-emerald-700' : 'border-red-600 text-red-700 hover:bg-red-50 hover:border-red-700 hover:text-red-700'}`}
                     >
                       Learn More
-                      <ExternalLink className="ml-2 h-4 w-4" />
+                      <ExternalLink className={`ml-2 h-4 w-4 ${index % 2 === 0 ? 'text-emerald-700' : 'text-red-700'}`} />
                     </Button>
                   )}
                 </div>
@@ -296,34 +257,16 @@ export default function NetworkPage() {
       </section>
 
       {/* International Organizations */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-14 md:py-20 bg-[#faf9f7] border-b border-gray-200">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">International Organizations</h2>
-              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                Partnering with global organizations to advance education and development
-              </p>
-            </motion.div>
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">International Organizations</h2>
+            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">Partnering with global organizations to advance education and development</p>
           </div>
-
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {organizations.map((org, index) => (
-              <motion.div
-                key={org.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="text-center p-8 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20"
-              >
-                <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+            {organizations.map((org) => (
+              <div key={org.name} className="text-center p-8 rounded-xl bg-white border-2 border-emerald-600 shadow-sm font-serif flex flex-col items-center">
+                <div className="w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6 border-2 border-emerald-600">
                   <Image
                     src={org.logo || "/placeholder.svg"}
                     alt={org.name}
@@ -332,64 +275,17 @@ export default function NetworkPage() {
                     className="rounded-full"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{org.name}</h3>
-                <p className="text-purple-300 font-medium mb-3">{org.type}</p>
-                <p className="text-gray-300 text-sm">{org.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Alumni Network */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Global Alumni Network</h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Our graduates are making a difference across industries and continents, with a strong presence in the
-                Horn of Africa.
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {alumni.map((alum, index) => (
-              <motion.div
-                key={alum.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group bg-white rounded-3xl shadow-xl border border-gray-100 p-6 text-center"
-              >
-                <div className="relative w-24 h-24 mx-auto mb-4">
-                  <Image
-                    src={alum.image || "/placeholder.svg"}
-                    alt={alum.name}
-                    fill
-                    className="rounded-full object-cover"
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{alum.name}</h3>
-                <p className="text-purple-600 font-medium mb-2">{alum.position}</p>
-                <p className="text-sm text-gray-500 mb-3">{alum.year}</p>
-                <p className="text-gray-600 text-sm">{alum.achievement}</p>
-              </motion.div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">{org.name}</h3>
+                <p className="text-emerald-700 font-medium mb-3">{org.type}</p>
+                <p className="text-gray-700 text-sm">{org.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-t border-b border-gray-200">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -397,23 +293,25 @@ export default function NetworkPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Join Our Global Network</h2>
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Join Our Global Network</h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
               Become part of a worldwide community of scholars, innovators, and leaders who are shaping the future.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
               <Link href="/admissions/apply">
-                <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
+                <Button size="lg" className="bg-emerald-700 text-white hover:bg-emerald-800 px-10 py-4 text-lg font-bold rounded-full flex items-center gap-2">
+                  <svg className="h-5 w-5 text-white mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                   Apply Now
-                  <ArrowRight className="ml-3 h-6 w-6" />
+                  <ArrowRight className="ml-3 h-6 w-6 text-white" />
                 </Button>
               </Link>
               <Link href="/about/contact">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold"
+                  className="border-red-600 text-red-700 bg-white hover:bg-red-600 hover:text-white px-10 py-4 text-lg font-bold rounded-full flex items-center gap-2"
                 >
+                  <svg className="h-5 w-5 text-red-700 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7"/><path d="M21 10.5l-9 5.5-9-5.5"/><path d="M17 17v5"/><path d="M17 22l2-2 2 2"/></svg>
                   Contact Us
                 </Button>
               </Link>

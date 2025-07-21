@@ -155,29 +155,29 @@ export default function UnityUniversityHome() {
     {
       image: "/hero-section/all-on-graduation-pic.jpg",
       title: "The Unity University",
-      subtitle: "What begins here, transforms Africa",
+      subtitle: "Leadership for Africa's Future",
       description: "Africa's pioneer, non-profit, tuition-free accredited university dedicated to raising a new generation of leaders for the African continent. Growing every day since 2020.",
       cta: "Discover Our Programs",
-      foundationCaption: "Empowering Africa's future, inspired by the vision of Prof. PLO Lumumba and the PLO Lumumba Foundation.",
-      circleImage: "/hero-section/all-on-graduation-pic.jpg", // Graduation image
+      foundationCaption: "\"Education is the passport to the future. At Unity, we empower every student to lead.\" – Dr. Katerega, Vice Chancellor",
+      circleImage: "/hero-section/circle/dr.katerega-vice-chancellor.jpg",
     },
     {
       image: "/hero-section/global-perspective.jpg",
       title: "Pan-African Excellence",
-      subtitle: "5 Years of Growth & Innovation",
+      subtitle: "Guiding with Vision & Integrity",
       description: "From our founding in 2020 to today, we've been pioneering excellence at the cutting edge of learning through holistic, human development and integrated learning curriculum.",
       cta: "Explore Academics",
-      foundationCaption: "A mission for free, quality education across Africa, led by the PLO Lumumba Foundation.",
-      circleImage: "/lecturers/plo-lumumba.jpeg", // Lumumba Foundation image
+      foundationCaption: "\"Our campus is a beacon of hope and opportunity for all.\" – Kavuma Yusuf Musa, Campus Director",
+      circleImage: "/hero-section/circle/kavuma-yusuf-musa-campas-director.png",
     },
     {
       image: "/hero-section/graduation-day.jpg",
       title: "Transform Your Future",
-      subtitle: "50% Scholarships Available",
+      subtitle: "Inspired by Visionary Leadership",
       description: "Excellent education within reach of all passionate and driven students. Join our rapidly growing community with comprehensive scholarship opportunities.",
       cta: "Apply for Scholarship",
-      foundationCaption: "Graduation day: a testament to the Foundation's commitment to accessible education for all.",
-      circleImage: "/hero-section/graduation-day.jpg", // Another graduation image
+      foundationCaption: "\"Africa will rise through education, innovation, and unity.\" – Prof. PLO Lumumba, Founder & Chancellor",
+      circleImage: "/hero-section/circle/plof.PLO-lumumba-founder-and-chancellor-tuu.jpg",
     },
   ]
 
@@ -186,7 +186,7 @@ export default function UnityUniversityHome() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] md:h-[80vh] flex items-center bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-purple-900/80 overflow-hidden max-w-full">
+      <section className="relative min-h-[60vh] md:h-[80vh] flex items-center bg-emerald-900 overflow-hidden max-w-full">
         {/* Hero Image with overlay */}
         <div className="absolute inset-0">
           {heroSlides.map((slide, index) => (
@@ -200,44 +200,26 @@ export default function UnityUniversityHome() {
               priority={index === 0} // Only prioritize the first image
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
         {/* Content */}
         <div className="relative z-10 mx-auto w-full flex flex-col md:flex-row items-center h-full pb-16">
           {/* Left: Text */}
-          <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
-            <Badge className="bg-purple-600 text-white px-6 py-2 text-base font-semibold shadow-lg mb-2">
-              {heroSlides[currentSlide].subtitle}
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-6 text-center md:text-left">
+            <Badge className="bg-emerald-700 text-white px-6 py-2 text-base font-semibold shadow-lg mb-2 inline-block">
+              <span className="text-emerald-200">{heroSlides[currentSlide].subtitle}</span>
             </Badge>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
               {heroSlides[currentSlide].title}
             </h1>
-            <p className="text-base md:text-lg text-white/90 mb-8">
+            <p className="text-base md:text-lg text-white mb-8">
               {heroSlides[currentSlide].description}
             </p>
-            <div className="flex items-center justify-center md:justify-start mb-4">
-              <div className="relative w-20 h-20 md:w-28 md:h-28 mr-4">
-                <Image
-                  src="/lecturers/plo-lumumba.jpeg"
-                  alt="Prof. PLO Lumumba"
-                  fill
-                  className="rounded-full border-4 border-emerald-500 shadow-xl object-cover"
-                  style={{ objectPosition: 'top' }}
-                />
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs px-3 py-1 rounded-full shadow-md font-semibold">Founder & Chancellor</span>
-              </div>
-              <div className="text-left">
-                <span className="block text-emerald-200 font-semibold text-sm md:text-base">
-                  {heroSlides[currentSlide].foundationCaption}
-                </span>
-                <span className="block text-emerald-100 text-xs mt-1">PLO Lumumba Foundation</span>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto justify-center md:justify-start">
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg font-bold shadow-xl"
+                className="w-full sm:w-auto bg-emerald-700 text-white hover:bg-emerald-800 px-8 py-4 text-lg font-bold shadow-xl"
               >
                 {heroSlides[currentSlide].cta}
                 <ArrowRight className="ml-3 h-6 w-6" />
@@ -246,7 +228,7 @@ export default function UnityUniversityHome() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-900 px-8 py-4 text-lg font-bold backdrop-blur-sm transition-all duration-300"
+                  className="w-full sm:w-auto border-2 border-emerald-700 text-emerald-700 bg-white hover:bg-emerald-700 hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
                 >
                   Apply Now
                 </Button>
@@ -255,15 +237,26 @@ export default function UnityUniversityHome() {
           </div>
 
           {/* Right: Large Circular Image that changes with slides */}
-          <div className="hidden md:flex w-1/2 justify-center items-center">
-            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white/30 bg-white/10 flex items-center justify-center">
-              <Image
-                src={heroSlides[currentSlide].circleImage}
-                alt="Slide Visual"
-                fill
-                className="object-cover"
-                priority
-              />
+          <div className="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0">
+            <div className="flex flex-col items-center">
+              <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white/30 bg-white/10 flex items-center justify-center">
+                <Image
+                  src={heroSlides[currentSlide].circleImage}
+                  alt="Slide Visual"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* Caption below the image, styled for clarity */}
+              <div className="mt-4 text-center">
+                <span className="block text-lg md:text-xl font-bold text-white drop-shadow-lg">
+                  {heroSlides[currentSlide].title}
+                </span>
+                <span className="block text-sm text-emerald-200 mt-1">
+                  {heroSlides[currentSlide].subtitle}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -276,7 +269,7 @@ export default function UnityUniversityHome() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`h-2 w-8 rounded-full transition-all duration-500 ${
-                  currentSlide === index ? "bg-white shadow-lg" : "bg-white/40"
+                  currentSlide === index ? "bg-emerald-700 shadow-lg" : "bg-emerald-200"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -287,7 +280,7 @@ export default function UnityUniversityHome() {
 
       {/* Campus Showcase Section */}
       <section className="py-16 md:py-20 bg-white border-y-4 border-emerald-600 font-serif">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-2 sm:px-4">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-800 mb-2 tracking-wide uppercase border-b-4 border-emerald-600 inline-block pb-2">Our Global Campuses</h2>
             <div className="text-xs text-red-600 mt-1 mb-2 font-semibold">Excellence in Education Across Africa</div>
@@ -296,9 +289,9 @@ export default function UnityUniversityHome() {
             </p>
           </div>
 
-          <div className="grid gap-12 md:grid-cols-2">
+          <div className="grid gap-8 sm:gap-12 grid-cols-1 md:grid-cols-2">
             {/* Liberia Campus Card */}
-            <div className="block border-2 border-red-500 bg-white shadow-sm p-0">
+            <div className="block border-2 border-red-500 bg-white shadow-sm p-0 w-full max-w-full mx-auto">
               <Link href="/liberia" target="_blank" rel="noopener noreferrer" className="block">
                 <div className="relative h-64 w-full border-b-2 border-emerald-600 bg-gray-50">
                   <Image
@@ -336,7 +329,7 @@ export default function UnityUniversityHome() {
             </div>
 
             {/* Somaliland Campus Card */}
-            <div className="block border-2 border-emerald-600 bg-white shadow-sm p-0">
+            <div className="block border-2 border-emerald-600 bg-white shadow-sm p-0 w-full max-w-full mx-auto">
               <Link href="/somaliland" target="_blank" rel="noopener noreferrer" className="block">
                 <div className="relative h-64 w-full border-b-2 border-red-500 bg-gray-50">
                   <Image
@@ -521,7 +514,7 @@ export default function UnityUniversityHome() {
             <div className="flex flex-col h-full p-6">
               <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
                   <Image
-                  src="/community-outreaches/health-community-outreach-01.jpg"
+                  src="/community-outreaches/health-science-faculty-community-out-reach-1.JPG"
                   alt="Community Outreaches"
                     fill
                   className="object-cover"
@@ -534,40 +527,6 @@ export default function UnityUniversityHome() {
               <p className="text-gray-700 text-sm mb-1">Impactful service and outreach programs</p>
               <div className="text-xs text-gray-500">50+ programs</div>
                 </div>
-            {/* Student Lecturers Talk */}
-            <div className="flex flex-col h-full p-6">
-              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
-                <Image
-                  src="/student-life/student-lecturer-talks.jpg"
-                  alt="Student Lecturers Talk"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-center mb-2">
-                <Mic className="h-5 w-5 text-gray-700 mr-2" />
-                <span className="text-lg font-bold text-gray-900">Student Lecturers Talk</span>
-              </div>
-              <p className="text-gray-700 text-sm mb-1">Inspiring talks and knowledge sharing by students and lecturers</p>
-              <div className="text-xs text-gray-500">100+ sessions</div>
-            </div>
-            {/* Sports Teams */}
-            <div className="flex flex-col h-full p-6">
-              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
-                <Image
-                  src="/sports/sports.png"
-                  alt="Sports Teams"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-center mb-2">
-                <Trophy className="h-5 w-5 text-gray-700 mr-2" />
-                <span className="text-lg font-bold text-gray-900">Sports Teams</span>
-              </div>
-              <p className="text-gray-700 text-sm mb-1">Competitive athletics and team spirit</p>
-              <div className="text-xs text-gray-500">25+ teams</div>
-            </div>
             {/* Research Projects */}
             <div className="flex flex-col h-full p-6">
               <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
@@ -589,7 +548,7 @@ export default function UnityUniversityHome() {
             <div className="flex flex-col h-full p-6">
               <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
                 <Image
-                  src="/events/the-unity-university-indipendence-day-somaliland-0.jpg"
+                  src="/events/the-unity-university-indipendence-day-somaliland-01.jpg"
                   alt="Events"
                   fill
                   className="object-cover"
@@ -619,55 +578,21 @@ export default function UnityUniversityHome() {
               <p className="text-gray-700 text-sm mb-1">Modern science and technology labs for hands-on learning</p>
               <div className="text-xs text-gray-500">10+ labs</div>
             </div>
-            {/* Student Life */}
-            <div className="flex flex-col h-full p-6">
-              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
-                <Image
-                  src="/student-life/smart-studentss.jpg"
-                  alt="Student Life"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-center mb-2">
-                <GraduationCap className="h-5 w-5 text-gray-700 mr-2" />
-                <span className="text-lg font-bold text-gray-900">Student Life</span>
-              </div>
-              <p className="text-gray-700 text-sm mb-1">A vibrant, diverse, and inclusive student community</p>
-              <div className="text-xs text-gray-500">1000+ students</div>
-            </div>
-            {/* Health Awareness Campaigns */}
-            <div className="flex flex-col h-full p-6">
-              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
-                <Image
-                  src="/community-outreaches/health-science-family.JPG"
-                  alt="Health Awareness Campaigns"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-center mb-2">
-                <HeartPulse className="h-5 w-5 text-gray-700 mr-2" />
-                <span className="text-lg font-bold text-gray-900">Health Awareness Campaigns</span>
-              </div>
-              <p className="text-gray-700 text-sm mb-1">Student-led health education and awareness drives in the community.</p>
-              <div className="text-xs text-gray-500">20+ campaigns</div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Research & Innovation Section */}
       <section className="py-16 md:py-24 bg-[#faf9f7] border-y-4 border-emerald-600 font-serif">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-12 md:gap-16 lg:grid-cols-2 items-center">
+        <div className="container mx-auto px-2 sm:px-4">
+          <div className="grid gap-10 md:gap-16 grid-cols-1 lg:grid-cols-2 items-center">
             <div>
               <h2 className="text-4xl sm:text-5xl font-extrabold text-emerald-800 mb-6 md:mb-8 border-b-4 border-emerald-600 inline-block pb-2 uppercase tracking-wide">Research & Innovation Hub</h2>
               <p className="text-base md:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed">
                 Our cutting-edge research facilities and partnerships with global institutions drive innovation that addresses real-world challenges across Africa and beyond.
               </p>
 
-              <div className="grid gap-6 sm:grid-cols-2 mb-8">
+              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 mb-8">
                 {[
                   { label: "Research Centers", value: 12, suffix: "", color: "emerald" },
                   { label: "Published Papers", value: 450, suffix: "+", color: "red" },
@@ -687,44 +612,44 @@ export default function UnityUniversityHome() {
                 ))}
               </div>
 
-              <Button className="bg-emerald-800 text-white hover:bg-emerald-700 px-8 py-4 text-lg font-bold shadow-none border border-emerald-600 font-serif">
+              <Button className="bg-emerald-800 text-white hover:bg-emerald-700 px-8 py-4 text-lg font-bold border border-emerald-600 w-full sm:w-auto mt-4 sm:mt-0 mx-auto text-center">
                 Explore Research Opportunities
                 <ArrowRight className="ml-3 h-6 w-6 text-red-600" />
               </Button>
             </div>
 
-            <div className="relative flex justify-center items-center">
-              <div className="grid gap-4 grid-cols-2 lg:grid-cols-2">
-                <div className="space-y-4">
+            <div className="relative flex justify-center items-center w-full">
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 w-full">
+                <div className="space-y-4 w-full">
                   <Image
                     src="/labs/in-the-lab.jpg"
                     alt="Research Lab 1"
                     width={300}
                     height={250}
-                    className="rounded-md border-2 border-emerald-600 shadow-md w-full h-auto"
+                    className="rounded-md border-2 border-emerald-600 shadow-md w-full h-auto mx-auto"
                   />
                   <Image
                     src="/labs/in-the-lab-01.jpg"
                     alt="Research Lab 2"
                     width={300}
                     height={200}
-                    className="rounded-md border-2 border-red-600 shadow-md w-full h-auto"
+                    className="rounded-md border-2 border-red-600 shadow-md w-full h-auto mx-auto"
                   />
                 </div>
-                <div className="space-y-4 mt-8">
+                <div className="space-y-4 w-full sm:mt-8">
                   <Image
                     src="/research/on-the-podium-0.jpg"
                     alt="Research Podium 1"
                     width={300}
                     height={200}
-                    className="rounded-md border-2 border-emerald-600 shadow-md w-full h-auto"
+                    className="rounded-md border-2 border-emerald-600 shadow-md w-full h-auto mx-auto"
                   />
                   <Image
                     src="/research/on-the-podium-01.jpg"
                     alt="Research Podium 2"
                     width={300}
                     height={250}
-                    className="rounded-md border-2 border-red-600 shadow-md w-full h-auto"
+                    className="rounded-md border-2 border-red-600 shadow-md w-full h-auto mx-auto"
                   />
                 </div>
               </div>
@@ -733,71 +658,47 @@ export default function UnityUniversityHome() {
         </div>
       </section>
 
-      {/* Alumni Success Stories Section */}
-      <section className="py-16 md:py-24 bg-[#faf9f7] border-y-4 border-emerald-600 font-serif">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-emerald-800 mb-2 tracking-wide uppercase border-b-4 border-emerald-600 inline-block pb-2">Alumni Success Stories</h2>
-            <div className="text-xs text-red-600 mt-1 mb-2 font-semibold">Leading Change Across Africa & Beyond</div>
-            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mt-4 italic">
-              Our graduates are making a difference across industries and continents, leading change and innovation worldwide.
-            </p>
+      {/* Why The Unity University Section */}
+      <section className="py-12 md:py-20 bg-[#faf9f7] border-y-4 border-emerald-600">
+        <div className="container mx-auto px-2 sm:px-4">
+          <div className="flex flex-col items-center mb-10 md:mb-16">
+            <div className="flex flex-col sm:flex-row items-center w-full justify-center mb-4 gap-2">
+              <span className="hidden sm:inline-block w-24 h-1 bg-gray-700 rounded-full mr-4" />
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-extrabold text-gray-900 text-center whitespace-normal">Why The Unity University</h2>
+              <span className="hidden sm:inline-block w-24 h-1 bg-gray-700 rounded-full ml-4" />
+            </div>
           </div>
-
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                name: "Dr. Amina Hassan",
-                title: "Chief Medical Officer",
-                company: "WHO Africa",
-                year: "Class of 2020",
-                image: "/alumni/alumni-01.jpg",
-                quote: "The Unity University gave me the foundation to serve communities across Africa.",
-                achievement: "Leading COVID-19 response initiatives",
-              },
-              {
-                name: "James Koroma",
-                title: "Tech Entrepreneur",
-                company: "Founder, EduTech Solutions",
-                year: "Class of 2020",
-                image: "/alumni/alumni-02.jpg",
-                quote: "The global perspective I gained here shaped my vision for African education technology.",
-                achievement: "Serving 2M+ students across 15 countries",
-              },
-              {
-                name: "Fatima Al-Rashid",
-                title: "Environmental Scientist",
-                company: "UN Climate Change",
-                year: "Class of 2020",
-                image: "/alumni/alumni-03.jpg",
-                quote: "My research on sustainable agriculture started in Unity's labs.",
-                achievement: "Published 25+ research papers",
-              },
-            ].map((alumni, index) => (
-              <div
-                key={alumni.name}
-                className="bg-white border-2 border-emerald-600 rounded-md p-8 shadow-sm flex flex-col items-center"
-              >
-                <div className="text-center mb-6">
-                  <div className="relative w-24 h-24 mx-auto mb-4">
-                    <Image
-                      src={alumni.image || "/hero-section/hero.png"}
-                      alt={alumni.name}
-                      fill
-                      className="rounded-full object-cover border-4 border-emerald-600 shadow-md"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-emerald-800 mb-1">{alumni.name}</h3>
-                  <p className="text-red-700 font-medium">{alumni.title}</p>
-                  <p className="text-gray-700">{alumni.company}</p>
-                  <p className="text-sm text-gray-500 mt-2">{alumni.year}</p>
-                </div>
-                <blockquote className="text-gray-700 italic mb-4 text-center border-l-4 border-emerald-600 pl-4">"{alumni.quote}"</blockquote>
-                <div className="text-center">
-                  <span className="inline-block bg-emerald-100 text-emerald-800 border border-emerald-600 rounded px-3 py-1 text-xs font-semibold">{alumni.achievement}</span>
-                </div>
-              </div>
-            ))}
+          <div className="grid gap-6 sm:gap-8 grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {/* Quality Guaranteed */}
+            <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
+              <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M16 24l6 6 10-12" strokeWidth="2.5"/></svg>
+              <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Quality Guaranteed</h3>
+              <p className="text-gray-700 text-sm sm:text-base">Highly Trained and Experienced faculty and State-of-the-Art Learning Facilities, Globally Recognised Qualifications, Chartered by Commission for University Education (CUE), Accredited by the Technical and Vocational Education and Training Authority (TVETA) and ISO 9001:2015 Certified</p>
+            </div>
+            {/* Timely Completion */}
+            <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
+              <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M24 14v10l7 7" strokeWidth="2.5"/></svg>
+              <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Timely Completion</h3>
+              <p className="text-gray-700 text-sm sm:text-base">Trimester System, Unit Exemptions for Recognised Academic Qualifications, Timely Release of Exam Results, Blended Mode of Learning and ODeL Accredited Center.</p>
+            </div>
+            {/* Students Finance */}
+            <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
+              <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M24 32c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8" strokeWidth="2.5"/><path d="M24 20v4h4" strokeWidth="2.5"/></svg>
+              <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Students Finance</h3>
+              <p className="text-gray-700 text-sm sm:text-base">Affordable, Flexible (instalment) Fee Payment Schedule, Access to HELB loans and University Scholarships.</p>
+            </div>
+            {/* Great Prospects */}
+            <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
+              <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M24 16v8l6 6" strokeWidth="2.5"/><path d="M24 8v8" strokeWidth="2.5"/></svg>
+              <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Great Prospects</h3>
+              <p className="text-gray-700 text-sm sm:text-base">Mandatory Training on Employability, Entrepreneurship and ICT. Exposure through Industry Visits and Immersion, Linkages and Collaboration</p>
+            </div>
+            {/* Vibrant Student Experience */}
+            <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
+              <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M24 16l4 8h-8l4 8" strokeWidth="2.5"/></svg>
+              <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Vibrant Student Experience</h3>
+              <p className="text-gray-700 text-sm sm:text-base">Sporting and Recreational Activities, Career Guidance, Student Welfare, International Academic Exchange Programs, and Industrial Placement.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -840,7 +741,7 @@ export default function UnityUniversityHome() {
             <div className="relative flex justify-center items-center">
               <div className="relative w-full max-w-lg">
                 <Image
-                  src="/community-outreaches/health-science-faculty-community-out-reach-2.JPG"
+                  src="/side-show/the-unity-university-glow.jpg"
                   alt="Health Science Faculty Community Outreach"
                   width={600}
                   height={500}
