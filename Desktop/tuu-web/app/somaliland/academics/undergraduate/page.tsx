@@ -625,7 +625,7 @@ export default function UndergraduatePage() {
             <h3 className="text-2xl font-semibold text-emerald-200 mb-8">Safarkaaga Maanta Bilow</h3>
 
             <p className="text-xl leading-relaxed mb-12 opacity-95">
-              Join thousands of successful graduates who started their careers at Unity University Somaliland. Your
+              Join thousands of successful graduates who started their careers at The Unity University Somaliland. Your
               future begins with the right education.
             </p>
 

@@ -32,10 +32,10 @@ import SomalilandFooter from "@/components/somaliland/somaliland-footer"
 
 // SEO-optimized content constants
 const SEO_CONTENT = {
-  heroTitle: "Unity University Somaliland - #1 Leading University in Hargeisa",
+  heroTitle: "The Unity University Somaliland - #1 Leading University in Hargeisa",
   heroSubtitle: "Best Higher Education Institution in Somaliland | World-Class Programs",
   heroDescription:
-    "Discover excellence at Unity University Somaliland, the premier higher education institution in Hargeisa. Offering accredited undergraduate, graduate, and professional programs in Business Administration, Information Technology, Engineering, Health Sciences, and Education. Modern facilities, expert faculty, 95% job placement rate.",
+    "Discover excellence at The Unity University Somaliland, the premier higher education institution in Hargeisa. Offering accredited undergraduate, graduate, and professional programs in Business Administration, Information Technology, Engineering, Health Sciences, and Education. Modern facilities, expert faculty, 95% job placement rate.",
 
   // Location-specific content
   locationKeywords:
@@ -205,35 +205,29 @@ export default function HomePage() {
 
   const heroSlides = [
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/all-on-graduation-pic.jpg",
       title: "Unity University Somaliland - Leading University in Hargeisa",
-      titleSo: "Jaamacadda Unity Somaliland - Jaamacadda Ugu Horeysa Hargeisa",
-      subtitle: "What Begins Here, Transforms Africa | Halkan wax ka bilaabmaan, Afrika way beddelaan",
-      description: "Founded in 2021, Unity University is the premier higher education institution in Hargeisa, Somaliland. With our motto 'What Begins Here, Transforms Africa', we offer world-class undergraduate and graduate programs across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
+      subtitle: "What Begins Here, Transforms Africa",
+      description: "Founded in 2020, Unity University is the premier higher education institution in Hargeisa, Somaliland. With our motto 'What Begins Here, Transforms Africa', we offer world-class undergraduate and graduate programs across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
       cta: "Apply Now",
-      ctaSo: "Hadda Codso",
       keywords: "leading university hargeisa, best education somaliland, top university horn africa",
     },
     {
-      image: "/placeholder.svg?height=1080&width=1920",
-      title: "Transforming African Education Since 2021",
-      titleSo: "Waxbarashada Afrika waan beddelaynaa 2021 laga bilaabo",
-      subtitle: "4 Years of Excellence | Modern Facilities | Expert Faculty",
+      image: "/hero-section/global-perspective.jpg",
+      title: "Transforming African Education Since 2020",
+      subtitle: "5 Years of Excellence | Modern Facilities | Expert Faculty",
       description:
         "Experience transformative education at Unity University Somaliland. Our 37+ academic programs across five faculties prepare you for leadership roles. Located at Jigjiga Yar Street near Masjid Jabir, Hargeisa, we serve 2,800+ students with cutting-edge facilities and Pan-African vision.",
       cta: "Explore Programs",
-      ctaSo: "Barnaamijyada Baadh",
       keywords: "academic programs somaliland, modern facilities hargeisa, research university",
     },
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/graduation-master-0.jpg",
       title: "Join the Pan-African Educational Revolution",
-      titleSo: "Kala soo biir Isbeddelka Waxbarashada Afrika",
       subtitle: "37+ Programs | 2,800+ Students | 150+ Faculty | Pan-African Network",
       description:
         "Be part of Unity University's mission to become a world-class university in leadership development in Africa. With campuses in Somaliland and Liberia, we integrate theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.",
       cta: "Join Our Community",
-      ctaSo: "Bulshadeenna Ku Biir",
       keywords: "pan-african university, leadership development, international standards",
     },
   ]
@@ -265,7 +259,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       {/* SEO-optimized hidden content for search engines */}
       <div className="sr-only">
-        <h1>Unity University Somaliland - Leading Higher Education Institution in Hargeisa</h1>
+        <h1>The Unity University Somaliland - Leading Higher Education Institution in Hargeisa</h1>
         <p>
           Best university in Somaliland offering undergraduate, graduate, and professional programs. Located in Hargeisa
           with modern facilities, expert faculty, and international accreditation. Programs include Business
@@ -352,8 +346,6 @@ export default function HomePage() {
                   </motion.span>
                 ))}
               </h1>
-
-              <h2 className="text-xl md:text-2xl font-semibold text-emerald-200">{heroSlides[currentSlide].titleSo}</h2>
             </motion.div>
 
             {/* SEO-optimized description */}
@@ -383,14 +375,14 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/academics">
+                <Link href="/somaliland/academics">
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold backdrop-blur-sm bg-transparent"
                     data-program="academics"
                   >
-                    {heroSlides[currentSlide].ctaSo}
+                    Apply Now
                     <Play className="ml-3 h-5 w-5" />
                   </Button>
                 </Link>
@@ -403,19 +395,16 @@ export default function HomePage() {
                 {
                   icon: GraduationCap,
                   title: "37+ Academic Programs",
-                  titleSo: "37+ Barnaamij Waxbarasho",
                   keywords: "academic programs somaliland",
                 },
                 {
                   icon: Users,
                   title: "2,800+ Students",
-                  titleSo: "2,800+ Arday",
                   keywords: "student success hargeisa",
                 },
                 {
                   icon: Award,
-                  title: "4 Years Excellence",
-                  titleSo: "4 Sano Fiican",
+                  title: "5 Years Excellence",
                   keywords: "educational excellence somaliland",
                 },
               ].map((feature, index) => (
@@ -428,7 +417,6 @@ export default function HomePage() {
                   <feature.icon className="h-8 w-8 text-emerald-300" />
                   <div>
                     <div className="text-white font-bold">{feature.title}</div>
-                    <div className="text-emerald-200 text-sm">{feature.titleSo}</div>
                   </div>
                 </motion.div>
               ))}
@@ -489,18 +477,18 @@ export default function HomePage() {
                 Excellence in Hargeisa
               </span>
             </h2>
-            <h3 className="text-2xl font-semibold text-gray-700 mb-6">Fiican Campus-ka Hargeisa</h3>
+            <h3 className="text-2xl font-semibold text-gray-700 mb-6">Exciting Campus Activities</h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Experience state-of-the-art educational facilities at Unity University Somaliland's campuses in Hargeisa
-              and Berbera. Our modern infrastructure, advanced laboratories, and innovative learning spaces provide the
-              perfect environment for academic excellence and research innovation in the Horn of Africa.
+              Explore our dynamic campus life with cutting-edge coding classes, thrilling football tournaments, 
+              and state-of-the-art science laboratories. We provide students with opportunities to develop 
+              technical skills, engage in sports, and conduct innovative scientific research.
             </p>
 
-            {/* SEO keywords for campus facilities */}
+            {/* SEO keywords for campus activities */}
             <div className="sr-only">
               <p>
-                Modern university facilities Hargeisa, state-of-the-art campus Somaliland, advanced laboratories Horn of
-                Africa, research facilities Berbera, innovation centers Somaliland, educational infrastructure Hargeisa
+                Coding classes Somaliland, football tournaments university, science labs Hargeisa, 
+                technical skills development, sports activities campus, research opportunities
               </p>
             </div>
           </motion.div>
@@ -508,37 +496,46 @@ export default function HomePage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Main Campus Hargeisa - Premier Educational Hub",
-                titleSo: "Campus Weyn Hargeisa - Xarunta Waxbarashada",
-                location: "New Generation Campus, Hargeisa",
+                title: "Coding Classes - Tech Innovation Hub",
+                location: "Modern Tech Learning Center, Hargeisa",
                 description:
-                  "Our flagship 50-acre campus in Hargeisa features modern lecture halls, advanced research laboratories, digital library, student amenities, and sports facilities. Home to 2,200+ students across 20+ undergraduate and graduate programs.",
+                  "Cutting-edge coding programs for students to develop advanced programming skills. State-of-the-art computer labs, expert instructors, and hands-on projects in various programming languages and technologies.",
                 image: "/placeholder.svg?height=400&width=600",
-                stats: { students: "2,200+", programs: "20+", facilities: "15+" },
+                stats: { students: "500+", programs: "10+", facilities: "15+" },
                 color: "emerald",
-                keywords: "main campus hargeisa, flagship university somaliland, modern facilities",
+                textColor: "text-emerald-900",
+                titleColor: "text-emerald-900",
+                bgColor: "bg-emerald-50",
+                locationBadgeColor: "bg-emerald-600/90",
+                keywords: "coding classes somaliland, tech education hargeisa",
               },
               {
-                title: "Berbera Innovation Hub - Maritime & Technology Center",
-                titleSo: "Xarunta Hal-abuurka Berbera - Xarunta Badda & Tignoolajiyada",
-                location: "Coastal Innovation Center, Berbera",
+                title: "Football Tournaments - Sports Excellence",
+                location: "University Sports Complex, Hargeisa",
                 description:
-                  "Specialized 25-acre campus focusing on maritime studies, information technology, and coastal development. Strategic location near Berbera Port with industry partnerships and internship opportunities.",
+                  "Vibrant football program with regular tournaments, professional coaching, and inter-university competitions. Developing teamwork, leadership, and athletic skills for students across different programs.",
                 image: "/placeholder.svg?height=400&width=600",
-                stats: { students: "600+", programs: "8+", facilities: "10+" },
-                color: "red",
-                keywords: "berbera campus, maritime studies, technology center somaliland",
+                stats: { teams: "20+", tournaments: "8+", participants: "300+" },
+                color: "orange",
+                textColor: "text-orange-900",
+                titleColor: "text-orange-900",
+                bgColor: "bg-orange-50",
+                locationBadgeColor: "bg-orange-600/90",
+                keywords: "football tournaments university, sports activities somaliland",
               },
               {
-                title: "Research & Development Complex - Innovation Excellence",
-                titleSo: "Xarunta Cilmi-baadhista & Horumarinta - Fiican Hal-abuur",
-                location: "Advanced Research Facility, Hargeisa",
+                title: "Science Laboratories - Research Innovation",
+                location: "Advanced Science Research Center, Hargeisa",
                 description:
-                  "Cutting-edge 15-acre research complex with specialized laboratories, innovation incubators, and collaboration spaces. Supporting 50+ research projects and partnerships with international institutions.",
+                  "Comprehensive science laboratory program offering cutting-edge research facilities for students. Professional-grade equipment, expert guidance, and interdisciplinary research opportunities across multiple scientific domains.",
                 image: "/placeholder.svg?height=400&width=600",
-                stats: { projects: "50+", labs: "12+", partnerships: "25+" },
-                color: "teal",
-                keywords: "research facilities hargeisa, innovation complex somaliland, advanced laboratories",
+                stats: { students: "100+", labs: "12+", projects: "50+" },
+                color: "blue",
+                textColor: "text-blue-900",
+                titleColor: "text-blue-900",
+                bgColor: "bg-blue-50",
+                locationBadgeColor: "bg-blue-600/90",
+                keywords: "science labs hargeisa, research facilities somaliland",
               },
             ].map((campus, index) => (
               <motion.div
@@ -550,7 +547,7 @@ export default function HomePage() {
                 className="group"
                 data-program={campus.keywords}
               >
-                <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-all duration-500">
+                <Card className={`h-full overflow-hidden ${campus.bgColor} shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-all duration-500`}>
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src={campus.image || "/placeholder.svg"}
@@ -563,36 +560,25 @@ export default function HomePage() {
                       <SomalilandFlag className="h-6 w-8" />
                     </div>
                     <div className="absolute bottom-4 left-4 text-white">
-                      <h4 className="text-xl font-bold mb-1">{campus.title}</h4>
-                      <p className="text-white/90 text-sm">{campus.titleSo}</p>
-                      <Badge className={`mt-2 bg-${campus.color}-600/90 text-white text-xs`}>{campus.location}</Badge>
+                      <h4 className={`text-xl font-bold mb-1 ${campus.titleColor}`}>{campus.title}</h4>
+                      <Badge className={`mt-2 ${campus.locationBadgeColor} text-white text-xs`}>{campus.location}</Badge>
                     </div>
                   </div>
 
                   <CardContent className="p-6">
-                    <p className="text-gray-600 leading-relaxed mb-6">{campus.description}</p>
+                    <p className={`${campus.textColor} leading-relaxed mb-6`}>{campus.description}</p>
 
                     <div className="grid grid-cols-3 gap-4">
                       {Object.entries(campus.stats).map(([key, value]) => (
                         <div key={key} className="text-center">
-                          <div className={`text-2xl font-bold text-${campus.color}-600`}>{value}</div>
+                          <div className={`text-2xl font-bold ${campus.textColor}`}>{value}</div>
                           <div className="text-xs text-gray-500 capitalize">{key}</div>
                         </div>
                       ))}
                     </div>
                   </CardContent>
 
-                  <CardFooter className="p-6 pt-0">
-                    <Link href="/about/campus-map" className="w-full">
-                      <Button
-                        variant="outline"
-                        className="w-full group-hover:bg-gray-50 transition-colors duration-300 bg-transparent"
-                      >
-                        Explore Campus
-                        <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </CardFooter>
+                  {/* Removed CardFooter and Explore Campus button */}
                 </Card>
               </motion.div>
             ))}
@@ -615,7 +601,7 @@ export default function HomePage() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Excellence in Numbers - Proven Success</h2>
             <h3 className="text-2xl font-semibold text-emerald-200 mb-6">Tirooyinka Fiicanta - Guul La Hubay</h3>
             <p className="text-lg text-white/90 max-w-3xl mx-auto">
-              Our achievements demonstrate Unity University Somaliland's commitment to academic excellence, student
+              Our achievements demonstrate The Unity University Somaliland's commitment to academic excellence, student
               success, and community impact across the Horn of Africa. These numbers reflect our position as the leading
               higher education institution in Somaliland.
             </p>
@@ -623,7 +609,7 @@ export default function HomePage() {
             {/* SEO content for statistics */}
             <div className="sr-only">
               <p>
-                Unity University Somaliland statistics: 2800+ students enrolled, 95+ expert faculty, 25+ academic
+                The Unity University Somaliland statistics: 2800+ students enrolled, 95+ expert faculty, 25+ academic
                 programs, 15 years of educational excellence, 85% graduate employment rate, 50+ research projects, 12+
                 international partnerships, 98% student satisfaction rate. Best university performance metrics
                 Somaliland.
@@ -636,7 +622,6 @@ export default function HomePage() {
               {
                 number: 2800,
                 label: "Students Enrolled Successfully",
-                labelSo: "Ardayda Diiwaan-gashan oo Guulaysan",
                 icon: Users,
                 suffix: "+",
                 keywords: "student enrollment somaliland",
@@ -644,7 +629,6 @@ export default function HomePage() {
               {
                 number: 95,
                 label: "Expert Faculty Members",
-                labelSo: "Macallimiinta Khibradda leh",
                 icon: Award,
                 suffix: "+",
                 keywords: "expert faculty hargeisa",
@@ -652,7 +636,6 @@ export default function HomePage() {
               {
                 number: 25,
                 label: "Accredited Academic Programs",
-                labelSo: "Barnaamijyada Waxbarasho ee Aqoonsi leh",
                 icon: BookOpen,
                 suffix: "+",
                 keywords: "accredited programs somaliland",
@@ -660,7 +643,6 @@ export default function HomePage() {
               {
                 number: 15,
                 label: "Years of Educational Excellence",
-                labelSo: "Sanno Fiican Waxbarasho",
                 icon: TrendingUp,
                 suffix: "",
                 keywords: "educational excellence somaliland",
@@ -668,7 +650,6 @@ export default function HomePage() {
               {
                 number: 85,
                 label: "Graduate Employment Rate",
-                labelSo: "Heerka Shaqo-helida Qalinjirayaasha",
                 icon: Target,
                 suffix: "%",
                 keywords: "job placement rate somaliland",
@@ -676,7 +657,6 @@ export default function HomePage() {
               {
                 number: 50,
                 label: "Active Research Projects",
-                labelSo: "Mashaariicda Cilmi-baadhista ee Firfircoon",
                 icon: Lightbulb,
                 suffix: "+",
                 keywords: "research projects hargeisa",
@@ -684,7 +664,6 @@ export default function HomePage() {
               {
                 number: 12,
                 label: "International Partnerships",
-                labelSo: "Iskaashiga Caalamiga ah",
                 icon: Globe,
                 suffix: "+",
                 keywords: "international partnerships university",
@@ -692,7 +671,6 @@ export default function HomePage() {
               {
                 number: 98,
                 label: "Student Satisfaction Rate",
-                labelSo: "Heerka Qanacsanaanta Ardayda",
                 icon: Heart,
                 suffix: "%",
                 keywords: "student satisfaction somaliland",
@@ -715,7 +693,6 @@ export default function HomePage() {
                 </div>
                 <div className="space-y-2">
                   <div className="text-white font-bold text-sm leading-tight">{stat.label}</div>
-                  <div className="text-emerald-200 font-medium text-xs leading-tight">{stat.labelSo}</div>
                 </div>
               </motion.div>
             ))}
@@ -743,7 +720,7 @@ export default function HomePage() {
               Barnaamijyada Waxbarasho ee Ugu Fiican Somaliland
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Choose from Unity University Somaliland's comprehensive range of internationally accredited academic
+              Choose from The Unity University Somaliland's comprehensive range of internationally accredited academic
               programs. Our curriculum combines global best practices with local relevance, preparing graduates for
               successful careers in Somaliland, the Horn of Africa, and beyond. All programs feature modern facilities,
               expert faculty, and strong industry connections.
@@ -764,9 +741,7 @@ export default function HomePage() {
             {[
               {
                 title: "Business Administration - Leading Business Education in Somaliland",
-                titleSo: "Maamulka Ganacsiga - Waxbarashada Ganacsiga ee Hogaaminta Somaliland",
                 level: "Undergraduate & Graduate Programs",
-                levelSo: "Barnaamijyo Koowaad & Sare",
                 description:
                   "Premier business education program in Somaliland preparing future entrepreneurs and business leaders. Comprehensive curriculum covering entrepreneurship, finance, marketing, and management with focus on Somaliland's growing economy and regional business opportunities.",
                 image: "/placeholder.svg?height=300&width=400",
@@ -776,78 +751,46 @@ export default function HomePage() {
                   "Practical Training",
                   "Career Placement",
                 ],
-                featuresSo: [
-                  "Horumarinta Ganacsiga",
-                  "Iskaashiga Warshadaha",
-                  "Tababar Ficil ah",
-                  "Meel-marinta Shaqada",
-                ],
                 gradient: "from-emerald-600 to-emerald-800",
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
                 keywords: "business administration somaliland, entrepreneurship hargeisa, business degree",
               },
               {
                 title: "Information Technology - Advanced IT Education in Horn of Africa",
-                titleSo: "Tignoolajiyada Macluumaadka - Waxbarasho Horumarsan IT Geeska Afrika",
                 level: "Undergraduate & Graduate Programs",
-                levelSo: "Barnaamijyo Koowaad & Sare",
                 description:
                   "Cutting-edge Information Technology programs covering software development, cybersecurity, data science, and digital innovation. State-of-the-art computer labs, industry certifications, and partnerships with leading tech companies prepare students for the digital economy.",
                 image: "/placeholder.svg?height=300&width=400",
                 features: ["Modern Curriculum", "Industry Certifications", "Innovation Labs", "Tech Partnerships"],
-                featuresSo: [
-                  "Manhaj Casri ah",
-                  "Shahaadooyinka Warshadaha",
-                  "Makhadyada Hal-abuurka",
-                  "Iskaashiga Tignoolajiyada",
-                ],
                 gradient: "from-blue-600 to-blue-800",
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
                 keywords: "information technology hargeisa, IT courses somaliland, computer science degree",
               },
               {
                 title: "Public Health - Community Health Leadership in Somaliland",
-                titleSo: "Caafimaadka Dadweynaha - Hogaaminta Caafimaadka Bulshada Somaliland",
                 level: "Undergraduate & Graduate Programs",
-                levelSo: "Barnaamijyo Koowaad & Sare",
                 description:
                   "Comprehensive public health education addressing community health challenges in Somaliland and the Horn of Africa. Focus on preventive care, health promotion, epidemiology, and health systems management with clinical training opportunities.",
                 image: "/placeholder.svg?height=300&width=400",
                 features: ["Community Focus", "Clinical Training", "Research Opportunities", "Health Policy"],
-                featuresSo: [
-                  "Diiradda Bulshada",
-                  "Tababarka Bukaan-socodka",
-                  "Fursadaha Cilmi-baadhista",
-                  "Siyaasadda Caafimaadka",
-                ],
                 gradient: "from-red-600 to-red-800",
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
                 keywords: "public health somaliland, healthcare education hargeisa, medical programs",
               },
               {
                 title: "Engineering - Infrastructure Development Excellence",
-                titleSo: "Injineerinta - Fiican Horumarinta Kaabayaasha",
                 level: "Undergraduate Programs",
-                levelSo: "Barnaamijyo Koowaad",
                 description:
                   "Comprehensive engineering education in civil, electrical, and mechanical engineering supporting Somaliland's infrastructure development. Hands-on learning with modern equipment, industry projects, and sustainable design principles.",
                 image: "/placeholder.svg?height=300&width=400",
                 features: ["Hands-on Learning", "Modern Equipment", "Industry Projects", "Sustainable Design"],
-                featuresSo: [
-                  "Barashada Gacanta",
-                  "Qalabka Casriga ah",
-                  "Mashaariicda Warshadaha",
-                  "Naqshadaynta Joogta ah",
-                ],
                 gradient: "from-teal-600 to-teal-800",
-                duration: "4 Years Bachelor",
+                duration: "3 Years Bachelor",
                 keywords: "engineering programs somaliland, civil engineering hargeisa, infrastructure development",
               },
               {
                 title: "Education - Teacher Training Excellence in Somaliland",
-                titleSo: "Waxbarashada - Fiican Tababarka Macallimiinta Somaliland",
                 level: "Undergraduate & Graduate Programs",
-                levelSo: "Barnaamijyo Koowaad & Sare",
                 description:
                   "Premier teacher training programs preparing qualified educators to transform Somaliland's education sector. Modern teaching methodologies, educational technology integration, and practical classroom experience.",
                 image: "/placeholder.svg?height=300&width=400",
@@ -857,33 +800,19 @@ export default function HomePage() {
                   "Curriculum Development",
                   "Leadership Training",
                 ],
-                featuresSo: [
-                  "Ku-celcelinta Waxbarashada",
-                  "Tignoolajiyada Waxbarashada",
-                  "Horumarinta Manhajka",
-                  "Tababarka Hogaaminta",
-                ],
                 gradient: "from-purple-600 to-purple-800",
-                duration: "4 Years Bachelor / 2 Years Master",
+                duration: "3 Years Bachelor / 2 Years Master",
                 keywords: "teacher training somaliland, education degree hargeisa, teaching programs",
               },
               {
                 title: "Agriculture & Environment - Sustainable Development Focus",
-                titleSo: "Beeraha & Deegaanka - Diiradda Horumarinta Joogta ah",
                 level: "Undergraduate Programs",
-                levelSo: "Barnaamijyo Koowaad",
                 description:
                   "Innovative agriculture and environmental management programs addressing food security and climate challenges in Somaliland. Sustainable farming practices, environmental conservation, and modern agricultural techniques.",
                 image: "/placeholder.svg?height=300&width=400",
                 features: ["Sustainable Practices", "Field Research", "Climate Adaptation", "Modern Farming"],
-                featuresSo: [
-                  "Hab-maamuusyada Joogta ah",
-                  "Cilmi-baadhista Beerta",
-                  "La-qabsiga Cimilada",
-                  "Beeraha Casriga ah",
-                ],
                 gradient: "from-green-600 to-green-800",
-                duration: "4 Years Bachelor",
+                duration: "3 Years Bachelor",
                 keywords: "agriculture programs somaliland, environmental studies hargeisa, sustainable farming",
               },
             ].map((program, index) => (
@@ -900,7 +829,7 @@ export default function HomePage() {
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={program.image || "/placeholder.svg"}
-                      alt={`${program.title} - Unity University Somaliland`}
+                      alt={`${program.title} - The Unity University Somaliland`}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -910,8 +839,7 @@ export default function HomePage() {
                     </div>
                     <div className="absolute bottom-4 left-4 text-white">
                       <h4 className="text-lg font-bold mb-1">{program.title}</h4>
-                      <p className="text-white/90 text-sm">{program.titleSo}</p>
-                      <p className="text-white/80 text-xs mt-1">{program.level}</p>
+                      <p className="text-white/90 text-sm">{program.level}</p>
                     </div>
                   </div>
 
@@ -932,7 +860,7 @@ export default function HomePage() {
                   </CardContent>
 
                   <CardFooter className="p-6 pt-0">
-                    <Link href="/academics" className="w-full">
+                    <Link href="/somaliland/academics" className="w-full">
                       <Button
                         variant="outline"
                         className="w-full group-hover:bg-gray-50 transition-colors duration-300 bg-transparent"
@@ -954,7 +882,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Link href="/academics">
+            <Link href="/somaliland/academics">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 px-8 py-4 text-lg font-bold shadow-xl"
@@ -997,7 +925,7 @@ export default function HomePage() {
             </h3>
 
             <p className="text-xl leading-relaxed mb-12 opacity-95">
-              Join Unity University Somaliland and become part of a community dedicated to excellence, innovation, and
+              Join The Unity University Somaliland and become part of a community dedicated to excellence, innovation, and
               positive impact. Your journey to success starts here in Hargeisa, at the leading higher education
               institution in the Horn of Africa. Apply now for 2025-2026 admission and transform your future.
             </p>
@@ -1005,7 +933,7 @@ export default function HomePage() {
             {/* SEO content for CTA section */}
             <div className="sr-only">
               <p>
-                Apply now Unity University Somaliland 2025-2026 admission, best university Hargeisa application, leading
+                Apply now The Unity University Somaliland 2025-2026 admission, best university Hargeisa application, leading
                 higher education Somaliland enrollment, premier university Horn of Africa admission process,
                 scholarships available qualified students, career success guaranteed graduates
               </p>
@@ -1016,7 +944,6 @@ export default function HomePage() {
                 {
                   icon: Phone,
                   title: "Call Us - Admissions Hotline",
-                  titleSo: "Noo Soo Wac - Khadka Gelitaanka",
                   info: "+252 63 4210013",
                   action: "tel:+25263421013",
                   keywords: "university contact hargeisa",
@@ -1024,7 +951,6 @@ export default function HomePage() {
                 {
                   icon: Mail,
                   title: "Email Us - Quick Response",
-                  titleSo: "Iimeel Noo Dir - Jawaab Degdeg ah",
                   info: "somaliland@tuu.university",
                   action: "mailto:somaliland@tuu.university",
                   keywords: "university email somaliland",
@@ -1032,9 +958,8 @@ export default function HomePage() {
                 {
                   icon: MapPin,
                   title: "Visit Us - Campus Tour Available",
-                  titleSo: "Noo Yimaada - Booqasho Campus Diyaar",
                   info: "New Generation Campus, Hargeisa",
-                  action: "/about/contact",
+                  action: "/somaliland/about/contact",
                   keywords: "campus visit hargeisa",
                 },
               ].map((contact, index) => (
@@ -1048,7 +973,6 @@ export default function HomePage() {
                 >
                   <contact.icon className="h-10 w-10 mb-4 text-emerald-300" />
                   <h4 className="font-bold text-lg mb-1">{contact.title}</h4>
-                  <h5 className="font-semibold text-sm mb-3 text-emerald-200">{contact.titleSo}</h5>
                   <p className="text-sm opacity-95 text-center leading-relaxed">{contact.info}</p>
                 </motion.a>
               ))}
@@ -1069,7 +993,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/about/contact">
+                <Link href="/somaliland/about/contact">
                   <Button
                     size="lg"
                     variant="outline"

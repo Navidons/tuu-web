@@ -2,13 +2,35 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowRight, Star, Globe, ExternalLink, Mail, Phone } from "lucide-react"
+import { ArrowRight, Star, Globe, ExternalLink, Mail, Phone, Users, Mic, Trophy, FlaskConical, BookOpen, Calendar, HeartPulse, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import EnhancedNavbar from "@/components/enhanced-navbar"
 import Link from "next/link"
 import { useInView } from "react-intersection-observer"
 import EnhancedFooter from "@/components/enhanced-footer"
+import { cn } from "@/lib/utils"
+
+// Liberia Flag component (copied from navbar)
+const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
+  return (
+    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+    >
+      {/* Stripes */}
+      <div className="liberian-flag-gradient w-full h-full" />
+
+      {/* Blue canton with white star */}
+      <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+    </div>
+  )
+}
 
 // Static particle positions to ensure consistent SSR/CSR rendering
 const PARTICLE_POSITIONS = [
@@ -67,7 +89,7 @@ const FloatingParticles = () => {
                 scale: [0.3, 0.8, 0.3],
               }}
               transition={{
-                duration: 6 + (i % 4),
+                duration: 3 + (i % 2), // Reduced from 6 + (i % 4)
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
                 delay: particle.delay,
@@ -131,188 +153,130 @@ export default function UnityUniversityHome() {
 
   const heroSlides = [
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/all-on-graduation-pic.jpg",
       title: "The Unity University",
       subtitle: "What begins here, transforms Africa",
-      description: "Africa's pioneer, non-profit, tuition-free accredited university dedicated to raising a new generation of leaders for the African continent. Growing every day since 2021.",
+      description: "Africa's pioneer, non-profit, tuition-free accredited university dedicated to raising a new generation of leaders for the African continent. Growing every day since 2020.",
       cta: "Discover Our Programs",
+      foundationCaption: "Empowering Africa's future, inspired by the vision of Prof. PLO Lumumba and the PLO Lumumba Foundation.",
+      circleImage: "/hero-section/all-on-graduation-pic.jpg", // Graduation image
     },
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/global-perspective.jpg",
       title: "Pan-African Excellence",
-      subtitle: "4 Years of Growth & Innovation",
-      description: "From our founding in 2021 to today, we've been pioneering excellence at the cutting edge of learning through holistic, human development and integrated learning curriculum.",
+      subtitle: "5 Years of Growth & Innovation",
+      description: "From our founding in 2020 to today, we've been pioneering excellence at the cutting edge of learning through holistic, human development and integrated learning curriculum.",
       cta: "Explore Academics",
+      foundationCaption: "A mission for free, quality education across Africa, led by the PLO Lumumba Foundation.",
+      circleImage: "/lecturers/plo-lumumba.jpeg", // Lumumba Foundation image
     },
     {
-      image: "/placeholder.svg?height=1080&width=1920",
+      image: "/hero-section/graduation-day.jpg",
       title: "Transform Your Future",
       subtitle: "50% Scholarships Available",
       description: "Excellent education within reach of all passionate and driven students. Join our rapidly growing community with comprehensive scholarship opportunities.",
       cta: "Apply for Scholarship",
+      foundationCaption: "Graduation day: a testament to the Foundation's commitment to accessible education for all.",
+      circleImage: "/hero-section/graduation-day.jpg", // Another graduation image
     },
   ]
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white overflow-hidden overflow-x-hidden">
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] overflow-hidden">
-        {/* Animated background gradient */}
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-purple-900/80"
-          suppressHydrationWarning
-        >
-          {mounted && (
-            <motion.div
-              className="absolute inset-0"
-              animate={{
-                background: [
-                  "linear-gradient(45deg, rgba(88, 28, 135, 0.8), rgba(30, 64, 175, 0.6), rgba(88, 28, 135, 0.8))",
-                  "linear-gradient(135deg, rgba(30, 64, 175, 0.8), rgba(88, 28, 135, 0.6), rgba(30, 64, 175, 0.8))",
-                  "linear-gradient(45deg, rgba(88, 28, 135, 0.8), rgba(30, 64, 175, 0.6), rgba(88, 28, 135, 0.8))",
-                ],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+      <section className="relative min-h-[60vh] md:h-[80vh] flex items-center bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-purple-900/80 overflow-hidden max-w-full">
+        {/* Hero Image with overlay */}
+        <div className="absolute inset-0">
+          {heroSlides.map((slide, index) => (
+            <Image
+              key={slide.image} // Use image path as a stable key
+              src={slide.image}
+              alt={slide.title}
+              fill
+              className="object-cover transition-opacity duration-1000 ease-in-out"
+              style={{ opacity: currentSlide === index ? 1 : 0 }}
+              priority={index === 0} // Only prioritize the first image
             />
-          )}
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/40" />
         </div>
 
-        <div className="absolute inset-0" suppressHydrationWarning>
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${heroSlides[currentSlide].image})` }}
-          />
-
-          <div className="container relative z-10 mx-auto flex h-full items-center px-4">
-            <div className="max-w-4xl">
-              <div className="mb-6 flex items-center space-x-4">
-                <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl">
-                  {heroSlides[currentSlide].subtitle}
-                </Badge>
-                <div className="h-8 w-8 text-white drop-shadow-2xl">
-                  {mounted ? (
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 360],
-                      }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                    >
-                      <Globe className="h-8 w-8" />
-                    </motion.div>
-                  ) : (
-                    <Globe className="h-8 w-8" />
-                  )}
-                </div>
+        {/* Content */}
+        <div className="relative z-10 mx-auto w-full flex flex-col md:flex-row items-center h-full pb-16">
+          {/* Left: Text */}
+          <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
+            <Badge className="bg-purple-600 text-white px-6 py-2 text-base font-semibold shadow-lg mb-2">
+              {heroSlides[currentSlide].subtitle}
+            </Badge>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
+              {heroSlides[currentSlide].title}
+            </h1>
+            <p className="text-base md:text-lg text-white/90 mb-8">
+              {heroSlides[currentSlide].description}
+            </p>
+            <div className="flex items-center justify-center md:justify-start mb-4">
+              <div className="relative w-20 h-20 md:w-28 md:h-28 mr-4">
+                <Image
+                  src="/lecturers/plo-lumumba.jpeg"
+                  alt="Prof. PLO Lumumba"
+                  fill
+                  className="rounded-full border-4 border-emerald-500 shadow-xl object-cover"
+                  style={{ objectPosition: 'top' }}
+                />
+                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs px-3 py-1 rounded-full shadow-md font-semibold">Founder & Chancellor</span>
               </div>
-
-              <h1 className="text-5xl font-bold text-white md:text-7xl leading-tight mb-6">
-                {heroSlides[currentSlide].title.split(" ").map((word, index) => (
-                  <span key={`${currentSlide}-${index}`} className="inline-block mr-4">
-                    {word}
-                  </span>
-                ))}
-              </h1>
-
-              <p className="mb-10 text-xl text-white/95 max-w-3xl leading-relaxed">
-                {heroSlides[currentSlide].description}
-              </p>
-
-              <div className="flex flex-wrap gap-6">
-                <Button
-                  size="lg"
-                  className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg font-bold shadow-2xl"
-                >
-                  {heroSlides[currentSlide].cta}
-                  <div className="ml-3">
-                    {mounted ? (
-                      <motion.div
-                        animate={{ x: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                      >
-                        <ArrowRight className="h-6 w-6" />
-                      </motion.div>
-                    ) : (
-                      <ArrowRight className="h-6 w-6" />
-                    )}
-                  </div>
-                </Button>
-                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+              <div className="text-left">
+                <span className="block text-emerald-200 font-semibold text-sm md:text-base">
+                  {heroSlides[currentSlide].foundationCaption}
+                </span>
+                <span className="block text-emerald-100 text-xs mt-1">PLO Lumumba Foundation</span>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row gap-4">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg font-bold shadow-xl"
+              >
+                {heroSlides[currentSlide].cta}
+                <ArrowRight className="ml-3 h-6 w-6" />
+              </Button>
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   variant="outline"
-                    className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-900 px-8 py-4 text-lg font-bold backdrop-blur-sm transition-all duration-300"
+                  className="w-full sm:w-auto border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-900 px-8 py-4 text-lg font-bold backdrop-blur-sm transition-all duration-300"
                 >
                   Apply Now
                 </Button>
-                </Link>
-              </div>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: Large Circular Image that changes with slides */}
+          <div className="hidden md:flex w-1/2 justify-center items-center">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white/30 bg-white/10 flex items-center justify-center">
+              <Image
+                src={heroSlides[currentSlide].circleImage}
+                alt="Slide Visual"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
 
-        {mounted && (
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, x: 1000 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -1000 }}
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 35 },
-                opacity: { duration: 0.4 },
-              }}
-              className="absolute inset-0 pointer-events-none"
-            >
-              <div className="container relative z-10 mx-auto flex h-full items-center px-4">
-                <motion.div
-                  className="max-w-4xl"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-                >
-                  <motion.div
-                    className="mb-6 flex items-center space-x-4"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
-                  >
-                    <motion.h1
-                      className="text-5xl font-bold text-white md:text-7xl leading-tight mb-6"
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-                    >
-                      {heroSlides[currentSlide].title.split(" ").map((word, index) => (
-                        <motion.span
-                          key={`motion-${currentSlide}-${index}`}
-                          className="inline-block mr-4"
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.8 + index * 0.1, duration: 0.6 }}
-                        >
-                          {word}
-                        </motion.span>
-                      ))}
-                    </motion.h1>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
-
-        {/* Slide indicators */}
-        <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center" suppressHydrationWarning>
-          <div className="flex space-x-4">
+        {/* Slide Indicators */}
+        <div className="absolute bottom-4 left-0 right-0 z-30 flex justify-center">
+          <div className="flex space-x-3">
             {heroSlides.map((_, index) => (
               <button
-                key={`indicator-${index}`}
+                key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-3 w-12 rounded-full transition-all duration-500 ${
-                  currentSlide === index ? "bg-white shadow-2xl" : "bg-white/40"
+                className={`h-2 w-8 rounded-full transition-all duration-500 ${
+                  currentSlide === index ? "bg-white shadow-lg" : "bg-white/40"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -322,820 +286,481 @@ export default function UnityUniversityHome() {
       </section>
 
       {/* Campus Showcase Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-50 via-white to-blue-50">
+      <section className="py-16 md:py-20 bg-white border-y-4 border-emerald-600 font-serif">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Global Campuses</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-800 mb-2 tracking-wide uppercase border-b-4 border-emerald-600 inline-block pb-2">Our Global Campuses</h2>
+            <div className="text-xs text-red-600 mt-1 mb-2 font-semibold">Excellence in Education Across Africa</div>
+            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mt-4 italic">
               Excellence in education across two dynamic locations, each with its unique culture and opportunities.
             </p>
           </div>
 
           <div className="grid gap-12 md:grid-cols-2">
             {/* Liberia Campus Card */}
-            <div
-              className="group relative overflow-hidden rounded-3xl bg-white shadow-2xl border-0"
-              suppressHydrationWarning
-            >
-              {mounted && (
-                <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }} className="h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=600&width=800"
-                      alt="Liberia Campus"
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-blue-900/80" />
-                    <div className="absolute top-6 left-6">
-                      <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <div className="h-6 w-8 relative overflow-hidden rounded-sm">
-                          <div className="h-1/3 bg-red-600"></div>
-                          <div className="h-1/3 bg-white flex items-center justify-center">
-                            <Star className="h-2 w-2 text-blue-600 fill-blue-600" />
-                          </div>
-                          <div className="h-1/3 bg-blue-600"></div>
-                        </div>
-                        <span className="text-white font-bold text-sm">Liberia</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Liberia Campus</h3>
-                      <p className="text-white/90">Monrovia, Montserrado County</p>
-                    </div>
+            <div className="block border-2 border-red-500 bg-white shadow-sm p-0">
+              <Link href="/liberia" target="_blank" rel="noopener noreferrer" className="block">
+                <div className="relative h-64 w-full border-b-2 border-emerald-600 bg-gray-50">
+                  <Image
+                    src="/graduation/master-of-education.jpg"
+                    alt="Liberia Campus"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute top-6 left-6 flex items-center space-x-3 bg-white border border-gray-200 px-4 py-2 shadow-sm rounded-md bg-opacity-90">
+                    <LiberiaFlag className="h-6 w-8" />
+                    <span className="text-red-700 font-bold text-sm">Liberia</span>
                   </div>
-
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">The Love of Liberty Brought Us Here</h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence.
-                        Established in mid-2024, we are rapidly growing and expanding our presence in West Africa.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={1200} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Students</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600">
-                          <AnimatedCounter end={15} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Programs</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={1} />
-                        </div>
-                        <div className="text-sm text-gray-600">Year</div>
-                      </div>
-                    </div>
-
-                    <Link href="/liberia">
-                      <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg group">
-                        Visit Liberia Campus
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-              {!mounted && (
-                <div className="h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=600&width=800"
-                      alt="Liberia Campus"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-blue-900/80" />
-                    <div className="absolute top-6 left-6">
-                      <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <div className="h-6 w-8 relative overflow-hidden rounded-sm">
-                          <div className="h-1/3 bg-red-600"></div>
-                          <div className="h-1/3 bg-white flex items-center justify-center">
-                            <Star className="h-2 w-2 text-blue-600 fill-blue-600" />
-                          </div>
-                          <div className="h-1/3 bg-blue-600"></div>
-                        </div>
-                        <span className="text-white font-bold text-sm">Liberia</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Liberia Campus</h3>
-                      <p className="text-white/90">Monrovia, Montserrado County</p>
-                    </div>
-                  </div>
-
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">The Love of Liberty Brought Us Here</h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence.
-                        Established in mid-2024, we are rapidly growing and expanding our presence in West Africa.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={1200} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Students</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600">
-                          <AnimatedCounter end={15} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Programs</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={1} />
-                        </div>
-                        <div className="text-sm text-gray-600">Year</div>
-                      </div>
-                    </div>
-
-                    <Link href="/liberia">
-                      <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg group">
-                        Visit Liberia Campus
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
+                  <div className="absolute bottom-6 left-6 bg-white/90 rounded-md px-4 py-2 shadow-sm">
+                    <h3 className="text-2xl font-bold text-red-700 mb-1 border-b-2 border-emerald-600 inline-block">Liberia Campus</h3>
+                    <p className="text-gray-700">Monrovia, Montserrado County</p>
                   </div>
                 </div>
-              )}
+                <div className="p-8">
+                  <div className="mb-6">
+                    <h4 className="text-xl font-bold text-red-700 mb-2">The Love of Liberty Brought Us Here</h4>
+                    <p className="text-gray-700 leading-relaxed text-sm">
+                      Our newest campus expansion in Monrovia combines Liberian heritage with global academic excellence. We are rapidly growing and expanding our presence in West Africa.
+                    </p>
+                  </div>
+                  {/* Removed numbers grid */}
+                  <Button 
+                    className="w-full bg-red-700 text-white hover:bg-red-800 shadow-md font-serif text-base rounded-full py-4 px-8 mt-2 transition-all duration-200 text-lg font-bold tracking-wide"
+                    onClick={() => window.open('/liberia', '_blank')}
+                  >
+                    Visit Liberia Campus
+                    <ExternalLink className="ml-2 h-5 w-5 text-white" />
+                  </Button>
+                </div>
+              </Link>
             </div>
 
             {/* Somaliland Campus Card */}
-            <div
-              className="group relative overflow-hidden rounded-3xl bg-white shadow-2xl border-0"
-              suppressHydrationWarning
-            >
-              {mounted && (
-                <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }} className="h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=600&width=800"
-                      alt="Somaliland Campus"
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+            <div className="block border-2 border-emerald-600 bg-white shadow-sm p-0">
+              <Link href="/somaliland" target="_blank" rel="noopener noreferrer" className="block">
+                <div className="relative h-64 w-full border-b-2 border-red-500 bg-gray-50">
+                  <Image
+                    src="/hero-section/hero.png"
+                    alt="Somaliland Campus"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute top-6 left-6 flex items-center space-x-3 bg-white border border-gray-200 px-4 py-2 shadow-sm rounded-md bg-opacity-90">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Flag_of_Somaliland.svg/1200px-Flag_of_Somaliland.svg.png"
+                      alt="Somaliland Flag"
+                      className="h-6 w-8 object-cover rounded-sm border border-gray-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-red-900/80" />
-                    <div className="absolute top-6 left-6">
-                      <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <div className="h-6 w-8 relative overflow-hidden rounded-sm">
-                          <div className="h-1/3 bg-emerald-600"></div>
-                          <div className="h-1/3 bg-white flex items-center justify-center">
-                            <Star className="h-2 w-2 text-emerald-600 fill-emerald-600" />
-                          </div>
-                          <div className="h-1/3 bg-red-600"></div>
-                        </div>
-                        <span className="text-white font-bold text-sm">Somaliland</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Somaliland Campus</h3>
-                      <p className="text-white/90">Hargeisa, Somaliland</p>
-                    </div>
+                    <span className="text-emerald-800 font-bold text-sm">Somaliland</span>
                   </div>
-
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">
-                        What begins here, transforms Africa
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        Founded in 2021, our rapidly growing Hargeisa campus embodies the spirit of Somaliland
-                        - innovation, resilience, and academic excellence. Growing every day since inception.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={2800} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Students</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={25} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Programs</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={4} />
-                        </div>
-                        <div className="text-sm text-gray-600">Years</div>
-                      </div>
-                    </div>
-
-                    <Link href="/somaliland">
-                      <Button className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-lg group">
-                        Visit Somaliland Campus
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-              {!mounted && (
-                <div className="h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=600&width=800"
-                      alt="Somaliland Campus"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-red-900/80" />
-                    <div className="absolute top-6 left-6">
-                      <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
-                        <div className="h-6 w-8 relative overflow-hidden rounded-sm">
-                          <div className="h-1/3 bg-emerald-600"></div>
-                          <div className="h-1/3 bg-white flex items-center justify-center">
-                            <Star className="h-2 w-2 text-emerald-600 fill-emerald-600" />
-                          </div>
-                          <div className="h-1/3 bg-red-600"></div>
-                        </div>
-                        <span className="text-white font-bold text-sm">Somaliland</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Somaliland Campus</h3>
-                      <p className="text-white/90">Hargeisa, Somaliland</p>
-                    </div>
-                  </div>
-
-                  <div className="p-8">
-                    <div className="mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">
-                        What begins here, transforms Africa
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        Founded in 2021, our rapidly growing Hargeisa campus embodies the spirit of Somaliland
-                        - innovation, resilience, and academic excellence. Growing every day since inception.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={2800} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Students</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-600">
-                          <AnimatedCounter end={25} />+
-                        </div>
-                        <div className="text-sm text-gray-600">Programs</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-emerald-600">
-                          <AnimatedCounter end={4} />
-                        </div>
-                        <div className="text-sm text-gray-600">Years</div>
-                      </div>
-                    </div>
-
-                    <Link href="/somaliland">
-                      <Button className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-lg group">
-                        Visit Somaliland Campus
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
+                  <div className="absolute bottom-6 left-6 bg-white/90 rounded-md px-4 py-2 shadow-sm">
+                    <h3 className="text-2xl font-bold text-emerald-800 mb-1 border-b-2 border-red-500 inline-block">Somaliland Campus</h3>
+                    <p className="text-gray-700">Hargeisa, Somaliland</p>
                   </div>
                 </div>
-              )}
+                <div className="p-8">
+                  <div className="mb-6">
+                    <h4 className="text-xl font-bold text-emerald-800 mb-2">What begins here, transforms Africa</h4>
+                    <p className="text-gray-700 leading-relaxed text-sm">
+                      Founded in 2020. Our rapidly growing campus embodies the spirit of Somaliland – innovation, resilience, and academic excellence.
+                    </p>
+                  </div>
+                  {/* Removed numbers grid */}
+                  <Button 
+                    className="w-full bg-emerald-700 text-white hover:bg-emerald-800 shadow-md font-serif text-base rounded-full py-4 px-8 mt-2 transition-all duration-200 text-lg font-bold tracking-wide"
+                    onClick={() => window.open('/somaliland', '_blank')}
+                  >
+                    Visit Somaliland Campus
+                    <ExternalLink className="ml-2 h-5 w-5 text-white" />
+                  </Button>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900">
-          {mounted && (
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
-            />
-          )}
-        </div>
-
-        <div className="container relative z-10 mx-auto px-4">
+      <section className="py-20 md:py-32 bg-[#faf9f7] border-y-4 border-emerald-600 font-serif">
+        <div className="container mx-auto px-4">
           <div className="grid gap-16 lg:grid-cols-2 items-center">
-            <div className="text-white">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-5xl font-bold mb-8 leading-tight">
-                  Transforming Africa Through
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-red-400">
-                    Excellence in Education
-                  </span>
-                </h2>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                  Since our founding in 2021, Unity University has been growing every day, believing that sustainable national and global development can be achieved through nurturing an intellectual culture that integrates theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
-                </p>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                    <h3 className="text-2xl font-bold mb-3 text-emerald-300">Our Mission</h3>
-                    <p className="text-gray-300">
-                      To contribute to the development and sustenance of the well-being of the people of Somaliland, Africa, and the world through the provision of flexible, innovative, entrepreneurial, inclusive programs of teaching, learning, research, and service.
-                    </p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                    <h3 className="text-2xl font-bold mb-3 text-red-300">Our Vision</h3>
-                    <p className="text-gray-300">
-                      To become a world-class University in leadership development in Africa.
-                    </p>
-                  </div>
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-emerald-800 mb-6 md:mb-8 leading-tight border-b-4 border-emerald-600 inline-block pb-2 uppercase tracking-wide">Mission & Vision</h2>
+              <p className="text-base md:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed">
+                Since our founding in 2020, The Unity University has been growing every day, believing that sustainable national and global development can be achieved through nurturing an intellectual culture that integrates theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
+              </p>
+              <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
+                <div className="bg-white border-l-4 border-emerald-600 p-6">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-emerald-800 uppercase tracking-wide">Our Mission</h3>
+                  <p className="text-sm md:text-base text-gray-700">
+                    To contribute to the development and sustenance of the well-being of the people of Somaliland, Africa, and the world through the provision of flexible, innovative, entrepreneurial, inclusive programs of teaching, learning, research, and service.
+                  </p>
                 </div>
-              </motion.div>
+                <div className="bg-white border-l-4 border-red-600 p-6">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-red-700 uppercase tracking-wide">Our Vision</h3>
+                  <p className="text-sm md:text-base text-gray-700">
+                    To become a world-class University in leadership development in Africa.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="relative">
-              {mounted && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/30 to-red-500/30 rounded-3xl blur-3xl"></div>
-                  <Image
-                    src="/placeholder.svg?height=600&width=800"
-                    alt="Students collaborating"
-                    width={800}
-                    height={600}
-                    className="relative rounded-3xl shadow-2xl"
-                  />
-                  <motion.div
-                    className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-2xl"
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-                  >
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-emerald-600">
-                        <AnimatedCounter end={98} />%
-                      </div>
-                      <div className="text-sm text-gray-600">Graduate Employability</div>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              )}
+            <div className="relative flex justify-center items-center">
+              <div className="relative w-full max-w-md">
+                <Image
+                  src="/graduation/male-graduation.jpg"
+                  alt="Graduation Ceremony"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto border-4 border-emerald-600 shadow-md"
+                />
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white border border-emerald-600 rounded-md p-4 shadow-md w-64 text-center">
+                  <div className="text-3xl font-bold text-emerald-700">
+                    <AnimatedCounter end={98} />%
+                  </div>
+                  <div className="text-sm text-gray-700">Graduate Employability</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Academic Excellence Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-[repeating-linear-gradient(135deg,_#f8f8f8_0px,_#f8f8f8_20px,_#f3f3f3_21px,_#f3f3f3_40px)] border-y border-gray-300 font-serif">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Academic Excellence</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover our comprehensive range of programs designed to prepare you for leadership roles in Africa and beyond.
-              </p>
-            </motion.div>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-wide uppercase border-b-2 border-black inline-block pb-2">Academic Excellence</h2>
+            <div className="text-xs text-gray-500 mt-1 mb-2">Published: {new Date().getFullYear()}</div>
+            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mt-4 italic relative">
+              <span className="float-left text-4xl font-extrabold text-gray-400 leading-none mr-2 not-italic select-none" style={{fontFamily:'serif'}}>
+                E
+              </span>
+              xplore our diverse academic divisions, each dedicated to rigorous scholarship and real-world impact. Our programs are designed to equip students with timeless knowledge and practical skills for a changing world.
+            </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Business & Management",
-                icon: "💼",
-                programs: ["Business Administration", "Accounting & Finance", "Human Resources", "Marketing Management", "Project Management"],
-                color: "from-blue-500 to-emerald-600",
-                students: 850,
-              },
-              {
-                title: "Computing & IT",
-                icon: "💻",
-                programs: ["Computer Science", "Software Engineering", "Information Technology", "Web Development"],
-                color: "from-emerald-500 to-teal-600",
-                students: 720,
-              },
-              {
-                title: "Health Sciences",
-                icon: "🏥",
-                programs: ["Public Health", "Nutrition & Food Science", "Health Service Management"],
-                color: "from-red-500 to-pink-600",
-                students: 640,
-              },
-              {
-                title: "Social Sciences",
-                icon: "🌍",
-                programs: ["International Relations", "Public Administration", "Development Studies", "Social Work"],
-                color: "from-purple-500 to-indigo-600",
-                students: 560,
-              },
-              {
-                title: "Education",
-                icon: "📚",
-                programs: ["Educational Leadership", "Policy Planning & Management", "Curriculum Development"],
-                color: "from-orange-500 to-yellow-600",
-                students: 480,
-              },
-              {
-                title: "Media & Communications",
-                icon: "📺",
-                programs: ["Public Relations", "Media Management", "Digital Communications"],
-                color: "from-green-500 to-emerald-600",
-                students: 380,
-              },
-            ].map((program, index) => (
-              <motion.div
-                key={program.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group relative overflow-hidden rounded-3xl bg-white shadow-xl border-0 cursor-pointer"
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                ></div>
-                <div className="p-8">
-                  <div className="text-6xl mb-4">{program.icon}</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{program.title}</h3>
-                  <div className="space-y-2 mb-6">
-                    {program.programs.map((prog) => (
-                      <div key={prog} className="flex items-center text-gray-600">
-                        <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3"></div>
-                        {prog}
+          <div className="grid gap-x-12 gap-y-0 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-b border-gray-300 divide-y md:divide-y-0 md:divide-x divide-gray-300 bg-transparent">
+            {/* Business & Management */}
+            <div className="flex flex-col h-full p-8">
+              <div className="flex items-center mb-3">
+                <svg className="h-6 w-6 text-gray-800 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3v4M8 3v4"/></svg>
+                <span className="text-xl font-bold text-gray-900 uppercase tracking-wide">Business & Management</span>
                       </div>
-                    ))}
+              <p className="text-gray-700 text-sm mb-2">
+                Develop leadership, entrepreneurship, and analytical skills for the modern business world. Programs include Business Administration, Accounting, HR, Marketing, and Project Management.
+              </p>
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div className="text-sm text-gray-500">Students Enrolled</div>
-                    <div className="text-2xl font-bold text-emerald-600">
-                      <AnimatedCounter end={program.students} />
+            {/* Computing & IT */}
+            <div className="flex flex-col h-full p-8">
+              <div className="flex items-center mb-3">
+                <svg className="h-6 w-6 text-gray-800 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg>
+                <span className="text-xl font-bold text-gray-900 uppercase tracking-wide">Computing & IT</span>
                     </div>
+              <p className="text-gray-700 text-sm mb-2">
+                Master the foundations of computer science, software engineering, and digital innovation. Courses cover programming, cybersecurity, IT management, and web development.
+              </p>
                   </div>
+            {/* Health Sciences */}
+            <div className="flex flex-col h-full p-8">
+              <div className="flex items-center mb-3">
+                <svg className="h-6 w-6 text-gray-800 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 10c0-3.314-2.686-6-6-6s-6 2.686-6 6c0 4.418 6 10 6 10s6-5.582 6-10z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span className="text-xl font-bold text-gray-900 uppercase tracking-wide">Health Sciences</span>
                 </div>
-              </motion.div>
-            ))}
+              <p className="text-gray-700 text-sm mb-2">
+                Prepare for careers in public health, nutrition, and healthcare management. Programs emphasize community health, research, and practical experience.
+              </p>
+            </div>
+            {/* Social Sciences */}
+            <div className="flex flex-col h-full p-8">
+              <div className="flex items-center mb-3">
+                <svg className="h-6 w-6 text-gray-800 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 0v4m0 8v4m4-4h4m-8 0H4"/></svg>
+                <span className="text-xl font-bold text-gray-900 uppercase tracking-wide">Social Sciences</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-2">
+                Study society, governance, and development. Courses include international relations, public administration, development studies, and social work.
+              </p>
+            </div>
+            {/* Education */}
+            <div className="flex flex-col h-full p-8">
+              <div className="flex items-center mb-3">
+                <svg className="h-6 w-6 text-gray-800 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 19h16M4 15h16M4 11h16M4 7h16"/></svg>
+                <span className="text-xl font-bold text-gray-900 uppercase tracking-wide">Education</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-2">
+                Train as an educator and leader. Our education division focuses on leadership, policy, curriculum development, and classroom practice.
+              </p>
+            </div>
+            {/* Media & Communications */}
+            <div className="flex flex-col h-full p-8">
+              <div className="flex items-center mb-3">
+                <svg className="h-6 w-6 text-gray-800 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V3h8v4"/><path d="M8 21h8"/></svg>
+                <span className="text-xl font-bold text-gray-900 uppercase tracking-wide">Media & Communications</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-2">
+                Learn the art and science of communication in the digital age. Programs include public relations, media management, and digital communications.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Student Life Section */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-y border-gray-300 font-serif">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-bold text-white mb-6">Vibrant Student Life</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Experience a rich campus culture that celebrates diversity, fosters growth, and creates lifelong
-                connections.
-              </p>
-            </motion.div>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-wide uppercase border-b-2 border-black inline-block pb-2">Vibrant Student Life</h2>
+            <div className="text-xs text-gray-500 mt-1 mb-2">Campus Life Highlights</div>
+            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mt-4 italic">
+              Experience a rich campus culture that celebrates diversity, fosters growth, and creates lifelong connections.
+            </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: "Student Organizations",
-                count: "50+",
-                description: "Active clubs and societies",
-                icon: "👥",
-                image: "/placeholder.svg?height=300&width=400",
-              },
-              {
-                title: "Cultural Events",
-                count: "100+",
-                description: "Annual celebrations",
-                icon: "🎭",
-                image: "/placeholder.svg?height=300&width=400",
-              },
-              {
-                title: "Sports Teams",
-                count: "25+",
-                description: "Competitive athletics",
-                icon: "🏆",
-                image: "/placeholder.svg?height=300&width=400",
-              },
-              {
-                title: "Research Projects",
-                count: "200+",
-                description: "Student-led initiatives",
-                icon: "🔬",
-                image: "/placeholder.svg?height=300&width=400",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md border border-white/20"
-              >
-                <div className="relative h-48 overflow-hidden">
+          <div className="grid gap-x-10 gap-y-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-gray-200 divide-y md:divide-y-0 md:divide-x divide-gray-200 bg-transparent">
+            {/* Community Outreaches */}
+            <div className="flex flex-col h-full p-6">
+              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
                   <Image
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.title}
+                  src="/community-outreaches/health-community-outreach-01.jpg"
+                  alt="Community Outreaches"
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <div className="text-4xl mb-2">{item.icon}</div>
-                    <div className="text-3xl font-bold">{item.count}</div>
                   </div>
+              <div className="flex items-center mb-2">
+                <Users className="h-5 w-5 text-gray-700 mr-2" />
+                <span className="text-lg font-bold text-gray-900">Community Outreaches</span>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-300">{item.description}</p>
+              <p className="text-gray-700 text-sm mb-1">Impactful service and outreach programs</p>
+              <div className="text-xs text-gray-500">50+ programs</div>
                 </div>
-              </motion.div>
-            ))}
+            {/* Student Lecturers Talk */}
+            <div className="flex flex-col h-full p-6">
+              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
+                <Image
+                  src="/student-life/student-lecturer-talks.jpg"
+                  alt="Student Lecturers Talk"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center mb-2">
+                <Mic className="h-5 w-5 text-gray-700 mr-2" />
+                <span className="text-lg font-bold text-gray-900">Student Lecturers Talk</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-1">Inspiring talks and knowledge sharing by students and lecturers</p>
+              <div className="text-xs text-gray-500">100+ sessions</div>
+            </div>
+            {/* Sports Teams */}
+            <div className="flex flex-col h-full p-6">
+              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
+                <Image
+                  src="/sports/sports.png"
+                  alt="Sports Teams"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center mb-2">
+                <Trophy className="h-5 w-5 text-gray-700 mr-2" />
+                <span className="text-lg font-bold text-gray-900">Sports Teams</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-1">Competitive athletics and team spirit</p>
+              <div className="text-xs text-gray-500">25+ teams</div>
+            </div>
+            {/* Research Projects */}
+            <div className="flex flex-col h-full p-6">
+              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
+                <Image
+                  src="/research/research-students.jpg"
+                  alt="Research Projects"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center mb-2">
+                <BookOpen className="h-5 w-5 text-gray-700 mr-2" />
+                <span className="text-lg font-bold text-gray-900">Research Projects</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-1">Student-led research and innovation initiatives</p>
+              <div className="text-xs text-gray-500">200+ projects</div>
+            </div>
+            {/* Events */}
+            <div className="flex flex-col h-full p-6">
+              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
+                <Image
+                  src="/events/the-unity-university-indipendence-day-somaliland-0.jpg"
+                  alt="Events"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center mb-2">
+                <Calendar className="h-5 w-5 text-gray-700 mr-2" />
+                <span className="text-lg font-bold text-gray-900">Events</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-1">Annual celebrations, independence day, and campus events</p>
+              <div className="text-xs text-gray-500">30+ events</div>
+            </div>
+            {/* Labs */}
+            <div className="flex flex-col h-full p-6">
+              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
+                <Image
+                  src="/labs/health-science-student-in-lab.jpg"
+                  alt="Labs"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center mb-2">
+                <FlaskConical className="h-5 w-5 text-gray-700 mr-2" />
+                <span className="text-lg font-bold text-gray-900">Labs</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-1">Modern science and technology labs for hands-on learning</p>
+              <div className="text-xs text-gray-500">10+ labs</div>
+            </div>
+            {/* Student Life */}
+            <div className="flex flex-col h-full p-6">
+              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
+                <Image
+                  src="/student-life/smart-studentss.jpg"
+                  alt="Student Life"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center mb-2">
+                <GraduationCap className="h-5 w-5 text-gray-700 mr-2" />
+                <span className="text-lg font-bold text-gray-900">Student Life</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-1">A vibrant, diverse, and inclusive student community</p>
+              <div className="text-xs text-gray-500">1000+ students</div>
+            </div>
+            {/* Health Awareness Campaigns */}
+            <div className="flex flex-col h-full p-6">
+              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
+                <Image
+                  src="/community-outreaches/health-science-family.JPG"
+                  alt="Health Awareness Campaigns"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center mb-2">
+                <HeartPulse className="h-5 w-5 text-gray-700 mr-2" />
+                <span className="text-lg font-bold text-gray-900">Health Awareness Campaigns</span>
+              </div>
+              <p className="text-gray-700 text-sm mb-1">Student-led health education and awareness drives in the community.</p>
+              <div className="text-xs text-gray-500">20+ campaigns</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Research & Innovation Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-y-4 border-emerald-600 font-serif">
         <div className="container mx-auto px-4">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
+          <div className="grid gap-12 md:gap-16 lg:grid-cols-2 items-center">
             <div>
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-5xl font-bold text-gray-900 mb-8">
-                  Research &
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-                    Innovation Hub
-                  </span>
-                </h2>
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Our cutting-edge research facilities and partnerships with global institutions drive innovation that
-                  addresses real-world challenges across Africa and beyond.
-                </p>
-
-                <div className="grid gap-6 sm:grid-cols-2 mb-8">
-                  {[
-                    { label: "Research Centers", value: 12, suffix: "" },
-                    { label: "Published Papers", value: 450, suffix: "+" },
-                    { label: "Patents Filed", value: 28, suffix: "" },
-                    { label: "Industry Partners", value: 85, suffix: "+" },
-                  ].map((stat, index) => (
-                    <motion.div
-                      key={stat.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100"
-                    >
-                      <div className="text-4xl font-bold text-purple-600 mb-2">
-                        <AnimatedCounter end={stat.value} />
-                        {stat.suffix}
-                      </div>
-                      <div className="text-gray-600 font-medium">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <Button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4 text-lg font-bold shadow-lg">
-                  Explore Research Opportunities
-                  <ArrowRight className="ml-3 h-6 w-6" />
-                </Button>
-              </motion.div>
-            </div>
-
-            <div className="relative">
-              {mounted && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  <div className="grid gap-4 grid-cols-2">
-                    <motion.div
-                      animate={{ y: [0, -20, 0] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 0 }}
-                      className="space-y-4"
-                    >
-                      <Image
-                        src="/placeholder.svg?height=250&width=300"
-                        alt="Research Lab"
-                        width={300}
-                        height={250}
-                        className="rounded-2xl shadow-lg"
-                      />
-                      <Image
-                        src="/placeholder.svg?height=200&width=300"
-                        alt="Innovation Center"
-                        width={300}
-                        height={200}
-                        className="rounded-2xl shadow-lg"
-                      />
-                    </motion.div>
-                    <motion.div
-                      animate={{ y: [0, 20, 0] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
-                      className="space-y-4 mt-8"
-                    >
-                      <Image
-                        src="/placeholder.svg?height=200&width=300"
-                        alt="Student Research"
-                        width={300}
-                        height={200}
-                        className="rounded-2xl shadow-lg"
-                      />
-                      <Image
-                        src="/placeholder.svg?height=250&width=300"
-                        alt="Technology Lab"
-                        width={300}
-                        height={250}
-                        className="rounded-2xl shadow-lg"
-                      />
-                    </motion.div>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* News & Events Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Latest News & Events</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Stay updated with the latest happenings, achievements, and upcoming events across our global campuses.
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-emerald-800 mb-6 md:mb-8 border-b-4 border-emerald-600 inline-block pb-2 uppercase tracking-wide">Research & Innovation Hub</h2>
+              <p className="text-base md:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed">
+                Our cutting-edge research facilities and partnerships with global institutions drive innovation that addresses real-world challenges across Africa and beyond.
               </p>
-            </motion.div>
-          </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "International Research Symposium 2024",
-                date: "March 15-17, 2024",
-                category: "Research",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Join leading researchers from around the world as they present groundbreaking findings...",
-              },
-              {
-                title: "New Partnership with Oxford University",
-                date: "February 28, 2024",
-                category: "Partnership",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Unity University announces strategic partnership for student exchange programs...",
-              },
-              {
-                title: "Student Innovation Challenge Winners",
-                date: "February 20, 2024",
-                category: "Achievement",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Celebrating our students' innovative solutions to real-world problems...",
-              },
-              {
-                title: "Campus Sustainability Initiative Launch",
-                date: "February 10, 2024",
-                category: "Sustainability",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "New green campus initiatives aim to reduce carbon footprint by 50%...",
-              },
-              {
-                title: "Alumni Success Story: Tech Entrepreneur",
-                date: "January 25, 2024",
-                category: "Alumni",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Graduate launches successful fintech startup serving African markets...",
-              },
-              {
-                title: "Cultural Festival 2024 Announcement",
-                date: "January 15, 2024",
-                category: "Culture",
-                image: "/placeholder.svg?height=250&width=400",
-                excerpt: "Annual celebration of diversity featuring performances from both campuses...",
-              },
-            ].map((news, index) => (
-              <motion.div
-                key={news.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 cursor-pointer"
-              >
-                <div className="relative h-48 overflow-hidden">
+              <div className="grid gap-6 sm:grid-cols-2 mb-8">
+                {[
+                  { label: "Research Centers", value: 12, suffix: "", color: "emerald" },
+                  { label: "Published Papers", value: 450, suffix: "+", color: "red" },
+                  { label: "Patents Filed", value: 28, suffix: "", color: "emerald" },
+                  { label: "Industry Partners", value: 85, suffix: "+", color: "red" },
+                ].map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className={`text-center p-6 border-2 rounded-md shadow-sm bg-white ${stat.color === "emerald" ? "border-emerald-600" : "border-red-600"}`}
+                  >
+                    <div className={`text-4xl font-bold mb-2 ${stat.color === "emerald" ? "text-emerald-700" : "text-red-700"}`}>
+                      <AnimatedCounter end={stat.value} />
+                      {stat.suffix}
+                    </div>
+                    <div className="text-gray-700 font-medium">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <Button className="bg-emerald-800 text-white hover:bg-emerald-700 px-8 py-4 text-lg font-bold shadow-none border border-emerald-600 font-serif">
+                Explore Research Opportunities
+                <ArrowRight className="ml-3 h-6 w-6 text-red-600" />
+              </Button>
+            </div>
+
+            <div className="relative flex justify-center items-center">
+              <div className="grid gap-4 grid-cols-2 lg:grid-cols-2">
+                <div className="space-y-4">
                   <Image
-                    src={news.image || "/placeholder.svg"}
-                    alt={news.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    src="/labs/in-the-lab.jpg"
+                    alt="Research Lab 1"
+                    width={300}
+                    height={250}
+                    className="rounded-md border-2 border-emerald-600 shadow-md w-full h-auto"
                   />
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-purple-600 text-white">{news.category}</Badge>
-                  </div>
+                  <Image
+                    src="/labs/in-the-lab-01.jpg"
+                    alt="Research Lab 2"
+                    width={300}
+                    height={200}
+                    className="rounded-md border-2 border-red-600 shadow-md w-full h-auto"
+                  />
                 </div>
-                <div className="p-6">
-                  <div className="text-sm text-gray-500 mb-2">{news.date}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
-                    {news.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{news.excerpt}</p>
-                  <div className="flex items-center text-purple-600 font-medium">
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                <div className="space-y-4 mt-8">
+                  <Image
+                    src="/research/on-the-podium-0.jpg"
+                    alt="Research Podium 1"
+                    width={300}
+                    height={200}
+                    className="rounded-md border-2 border-emerald-600 shadow-md w-full h-auto"
+                  />
+                  <Image
+                    src="/research/on-the-podium-01.jpg"
+                    alt="Research Podium 2"
+                    width={300}
+                    height={250}
+                    className="rounded-md border-2 border-red-600 shadow-md w-full h-auto"
+                  />
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Alumni Success Stories Section */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-y-4 border-emerald-600 font-serif">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-bold text-white mb-6">Alumni Success Stories</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Our graduates are making a difference across industries and continents, leading change and innovation
-                worldwide.
-              </p>
-            </motion.div>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-emerald-800 mb-2 tracking-wide uppercase border-b-4 border-emerald-600 inline-block pb-2">Alumni Success Stories</h2>
+            <div className="text-xs text-red-600 mt-1 mb-2 font-semibold">Leading Change Across Africa & Beyond</div>
+            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mt-4 italic">
+              Our graduates are making a difference across industries and continents, leading change and innovation worldwide.
+            </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: "Dr. Amina Hassan",
                 title: "Chief Medical Officer",
                 company: "WHO Africa",
-                year: "Class of 2015",
-                image: "/placeholder.svg?height=300&width=300",
-                quote: "Unity University gave me the foundation to serve communities across Africa.",
+                year: "Class of 2020",
+                image: "/alumni/alumni-01.jpg",
+                quote: "The Unity University gave me the foundation to serve communities across Africa.",
                 achievement: "Leading COVID-19 response initiatives",
               },
               {
                 name: "James Koroma",
                 title: "Tech Entrepreneur",
                 company: "Founder, EduTech Solutions",
-                year: "Class of 2018",
-                image: "/placeholder.svg?height=300&width=300",
+                year: "Class of 2020",
+                image: "/alumni/alumni-02.jpg",
                 quote: "The global perspective I gained here shaped my vision for African education technology.",
                 achievement: "Serving 2M+ students across 15 countries",
               },
@@ -1143,124 +768,85 @@ export default function UnityUniversityHome() {
                 name: "Fatima Al-Rashid",
                 title: "Environmental Scientist",
                 company: "UN Climate Change",
-                year: "Class of 2016",
-                image: "/placeholder.svg?height=300&width=300",
+                year: "Class of 2020",
+                image: "/alumni/alumni-03.jpg",
                 quote: "My research on sustainable agriculture started in Unity's labs.",
                 achievement: "Published 25+ research papers",
               },
             ].map((alumni, index) => (
-              <motion.div
+              <div
                 key={alumni.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20"
+                className="bg-white border-2 border-emerald-600 rounded-md p-8 shadow-sm flex flex-col items-center"
               >
                 <div className="text-center mb-6">
                   <div className="relative w-24 h-24 mx-auto mb-4">
                     <Image
-                      src={alumni.image || "/placeholder.svg"}
+                      src={alumni.image || "/hero-section/hero.png"}
                       alt={alumni.name}
                       fill
-                      className="rounded-full object-cover"
+                      className="rounded-full object-cover border-4 border-emerald-600 shadow-md"
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1">{alumni.name}</h3>
-                  <p className="text-purple-300 font-medium">{alumni.title}</p>
-                  <p className="text-gray-300">{alumni.company}</p>
-                  <p className="text-sm text-gray-400 mt-2">{alumni.year}</p>
+                  <h3 className="text-xl font-bold text-emerald-800 mb-1">{alumni.name}</h3>
+                  <p className="text-red-700 font-medium">{alumni.title}</p>
+                  <p className="text-gray-700">{alumni.company}</p>
+                  <p className="text-sm text-gray-500 mt-2">{alumni.year}</p>
                 </div>
-                <blockquote className="text-gray-300 italic mb-4 text-center">"{alumni.quote}"</blockquote>
+                <blockquote className="text-gray-700 italic mb-4 text-center border-l-4 border-emerald-600 pl-4">"{alumni.quote}"</blockquote>
                 <div className="text-center">
-                  <Badge className="bg-purple-600 text-white">{alumni.achievement}</Badge>
+                  <span className="inline-block bg-emerald-100 text-emerald-800 border border-emerald-600 rounded px-3 py-1 text-xs font-semibold">{alumni.achievement}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Global Impact Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-y-4 border-emerald-600 font-serif">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Global Impact</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our reach extends far beyond our campuses, creating positive change in communities worldwide.
-              </p>
-            </motion.div>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-emerald-800 mb-2 tracking-wide uppercase border-b-4 border-emerald-600 inline-block pb-2">Global Impact</h2>
+            <div className="text-xs text-red-600 mt-1 mb-2 font-semibold">Reaching Communities Worldwide</div>
+            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mt-4 italic">
+              Our reach extends far beyond our campuses, creating positive change in communities worldwide.
+            </p>
           </div>
 
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
+          <div className="grid gap-12 sm:grid-cols-1 lg:grid-cols-2 items-center">
             <div>
-              <div className="grid gap-8 sm:grid-cols-2">
+              <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
                 {[
-                  { label: "Countries Reached", value: 45, icon: "🌍" },
-                  { label: "Community Projects", value: 120, icon: "🤝" },
-                  { label: "Scholarships Awarded", value: 850, icon: "🎓" },
-                  { label: "Research Collaborations", value: 200, icon: "🔬" },
+                  { label: "Countries Reached", value: 45, icon: <Globe className='h-8 w-8 text-emerald-700 mx-auto' />, color: "emerald" },
+                  { label: "Community Projects", value: 120, icon: <Users className='h-8 w-8 text-red-700 mx-auto' />, color: "red" },
+                  { label: "Scholarships Awarded", value: 850, icon: <GraduationCap className='h-8 w-8 text-emerald-700 mx-auto' />, color: "emerald" },
+                  { label: "Research Collaborations", value: 200, icon: <BookOpen className='h-8 w-8 text-red-700 mx-auto' />, color: "red" },
                 ].map((impact, index) => (
-                  <motion.div
+                  <div
                     key={impact.label}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-center p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100"
+                    className={`text-center p-8 border-2 rounded-md shadow-sm bg-white ${impact.color === "emerald" ? "border-emerald-600" : "border-red-600"}`}
                   >
-                    <div className="text-5xl mb-4">{impact.icon}</div>
-                    <div className="text-4xl font-bold text-purple-600 mb-2">
-                      <AnimatedCounter end={impact.value} /> {"+"}
+                    <div className="mb-2">{impact.icon}</div>
+                    <div className={`text-4xl font-bold mb-2 ${impact.color === "emerald" ? "text-emerald-700" : "text-red-700"}`}>
+                      <AnimatedCounter end={impact.value} />
+                      {"+"}
                     </div>
-                    <div className="text-gray-600 font-medium">{impact.label}</div>
-                  </motion.div>
+                    <div className="text-gray-700 font-medium">{impact.label}</div>
+                  </div>
                 ))}
               </div>
             </div>
 
-            <div className="relative">
-              {mounted && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-3xl blur-3xl"></div>
-                  <Image
-                    src="/placeholder.svg?height=500&width=600"
-                    alt="Global Impact Map"
-                    width={600}
-                    height={500}
-                    className="relative rounded-3xl shadow-2xl"
-                  />
-                  {/* Animated dots for global presence */}
-                  <motion.div
-                    className="absolute top-1/4 left-1/3 w-4 h-4 bg-purple-500 rounded-full"
-                    animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                  />
-                  <motion.div
-                    className="absolute top-1/2 right-1/4 w-4 h-4 bg-blue-500 rounded-full"
-                    animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 0.5 }}
-                  />
-                  <motion.div
-                    className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-emerald-500 rounded-full"
-                    animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
-                  />
-                </motion.div>
-              )}
+            <div className="relative flex justify-center items-center">
+              <div className="relative w-full max-w-lg">
+                <Image
+                  src="/community-outreaches/health-science-faculty-community-out-reach-2.JPG"
+                  alt="Health Science Faculty Community Outreach"
+                  width={600}
+                  height={500}
+                  className="w-full h-auto border-4 border-emerald-600 shadow-md rounded-md"
+                />
+              </div>
             </div>
           </div>
         </div>

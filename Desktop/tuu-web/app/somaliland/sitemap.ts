@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://unity.edu.so"
+  const baseUrl = "https://tuu.university/somaliland"
   const currentDate = new Date()
 
   // Static pages with high priority

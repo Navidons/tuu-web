@@ -293,7 +293,6 @@ export default function AcademicsPage() {
                           </div>
                           <div className="absolute bottom-4 left-4 text-white">
                             <h4 className="text-lg font-bold mb-1">{program.title}</h4>
-                            <p className="text-white/90 text-sm">{program.titleSo}</p>
                           </div>
                         </div>
 
@@ -400,126 +399,6 @@ export default function AcademicsPage() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Academic Calendar Preview */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Academic{" "}
-              <span className="bg-gradient-to-r from-emerald-600 to-red-600 bg-clip-text text-transparent">
-                Calendar
-              </span>
-            </h2>
-            <h3 className="text-2xl font-semibold text-gray-700 mb-6">Jadwalka Waxbarasho</h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Stay informed about important academic dates, deadlines, and events throughout the academic year.
-            </p>
-          </motion.div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Fall Semester 2024",
-                titleSo: "Semesterka Dayrta 2024",
-                dates: "September 15 - December 20",
-                events: [
-                  { date: "Sep 15", event: "Classes Begin", eventSo: "Fasalladaha Bilaabmaan" },
-                  { date: "Oct 10", event: "Mid-term Exams", eventSo: "Imtixaannada Dhexe" },
-                  { date: "Nov 25", event: "Registration Opens", eventSo: "Diiwaan-gelinta Furmaan" },
-                  { date: "Dec 20", event: "Final Exams", eventSo: "Imtixaannada Dhammaadka" },
-                ],
-                color: "emerald",
-              },
-              {
-                title: "Spring Semester 2025",
-                titleSo: "Semesterka Gu'ga 2025",
-                dates: "February 10 - May 25",
-                events: [
-                  { date: "Feb 10", event: "Classes Begin", eventSo: "Fasalladaha Bilaabmaan" },
-                  { date: "Mar 15", event: "Mid-term Exams", eventSo: "Imtixaannada Dhexe" },
-                  { date: "Apr 20", event: "Research Presentations", eventSo: "Bandhigga Cilmi-baadhista" },
-                  { date: "May 25", event: "Graduation", eventSo: "Qalin-jabinta" },
-                ],
-                color: "red",
-              },
-              {
-                title: "Summer Programs 2025",
-                titleSo: "Barnaamijyada Xagaaga 2025",
-                dates: "June 15 - August 30",
-                events: [
-                  { date: "Jun 15", event: "Summer Classes", eventSo: "Fasalladaha Xagaaga" },
-                  { date: "Jul 10", event: "Internship Program", eventSo: "Barnaamijka Tababarka" },
-                  { date: "Aug 15", event: "Research Projects", eventSo: "Mashaariicda Cilmi-baadhista" },
-                  { date: "Aug 30", event: "Summer Graduation", eventSo: "Qalin-jabinta Xagaaga" },
-                ],
-                color: "teal",
-              },
-            ].map((semester, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card
-                  className={`h-full bg-gradient-to-br from-${semester.color}-50 to-white border-l-4 border-${semester.color}-600 shadow-lg hover:shadow-xl transition-all duration-300`}
-                >
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between">
-                      <Calendar className={`h-8 w-8 text-${semester.color}-600`} />
-                      <Badge className={`bg-${semester.color}-600 text-white`}>{semester.dates}</Badge>
-                    </div>
-                    <CardTitle className="text-xl font-bold text-gray-900 mt-4">{semester.title}</CardTitle>
-                    <p className={`text-${semester.color}-700 font-semibold`}>{semester.titleSo}</p>
-                  </CardHeader>
-
-                  <CardContent>
-                    <div className="space-y-3">
-                      {semester.events.map((event, eventIndex) => (
-                        <div key={eventIndex} className="flex items-start space-x-3 p-3 bg-white/60 rounded-lg">
-                          <div className={`text-sm font-bold text-${semester.color}-600 min-w-[3rem]`}>
-                            {event.date}
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-gray-900">{event.event}</div>
-                            <div className={`text-xs text-${semester.color}-600`}>{event.eventSo}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Link href="/academics/calendar">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 px-8 py-4 text-lg font-bold shadow-xl"
-              >
-                View Full Calendar
-                <Calendar className="ml-3 h-5 w-5" />
-              </Button>
-            </Link>
-          </motion.div>
         </div>
       </section>
 

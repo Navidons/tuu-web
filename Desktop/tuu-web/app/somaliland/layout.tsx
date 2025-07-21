@@ -17,14 +17,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Unity University Somaliland - #1 Leading University in Hargeisa | Best Higher Education in Somaliland",
-    template: "%s | Unity University Somaliland - Top University in Hargeisa",
+    default: "The Unity University Somaliland - #1 Leading University in Hargeisa | Best Higher Education in Somaliland",
+    template: "%s | The Unity University Somaliland - Top University in Hargeisa",
   },
   description:
-    "Unity University Somaliland is the premier higher education institution in Hargeisa, offering world-class undergraduate, graduate, and professional programs. Best university in Somaliland for Business, IT, Engineering, Health Sciences, and Education. Accredited programs, expert faculty, modern facilities. Apply now for 2024 admission.",
+    "The Unity University Somaliland is the premier higher education institution in Hargeisa, offering world-class undergraduate, graduate, and professional programs. Best university in Somaliland for Business, IT, Engineering, Health Sciences, and Education. Accredited programs, expert faculty, modern facilities. Apply now for 2024 admission.",
   keywords: [
     // Primary keywords
-    "Unity University Somaliland",
+    "The Unity University Somaliland",
     "best university in Somaliland",
     "top university Hargeisa",
     "Somaliland higher education",
@@ -67,65 +67,55 @@ export const metadata: Metadata = {
     "skills training Somaliland",
     "professional certification",
 
-    // Cultural keywords
-    "Somali language education",
-    "Islamic education Somaliland",
-    "cultural studies Hargeisa",
-    "local community engagement",
-
     // Comparative keywords
     "best education in Horn of Africa",
     "top ranked university East Africa",
     "leading institution Somaliland",
     "premier university Hargeisa",
   ],
-  authors: [{ name: "Unity University Somaliland", url: "https://tuu.university" }],
-  creator: "Unity University Somaliland",
-  publisher: "Unity University Somaliland",
+  authors: [{ name: "The Unity University Somaliland", url: "https://tuu.university/somaliland" }],
+  creator: "The Unity University Somaliland",
+  publisher: "The Unity University Somaliland",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://tuu.university"),
+  metadataBase: new URL("https://tuu.university/somaliland"),
   alternates: {
     canonical: "/",
-    languages: {
-      "en-US": "/en",
-      "so-SO": "/so",
-    },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-      url: "https://tuu.university",
-    title: "Unity University Somaliland - #1 Leading University in Hargeisa | Best Higher Education",
+      url: "https://tuu.university/somaliland",
+    title: "The Unity University Somaliland - #1 Leading University in Hargeisa | Best Higher Education",
     description:
-      "Discover excellence at Unity University Somaliland, the premier higher education institution in Hargeisa. Offering world-class programs in Business, IT, Engineering, Health Sciences & more. Modern facilities, expert faculty, 95% job placement rate. Apply now!",
-    siteName: "Unity University Somaliland",
+      "Discover excellence at The Unity University Somaliland, the premier higher education institution in Hargeisa. Offering world-class programs in Business, IT, Engineering, Health Sciences & more. Modern facilities, expert faculty, 95% job placement rate. Apply now!",
+    siteName: "The Unity University Somaliland",
     images: [
       {
         url: "/og-image-main.jpg",
         width: 1200,
         height: 630,
-        alt: "Unity University Somaliland - Leading University in Hargeisa with Modern Campus",
+        alt: "The Unity University Somaliland - Leading University in Hargeisa with Modern Campus",
       },
       {
         url: "/og-image-campus.jpg",
         width: 1200,
         height: 630,
-        alt: "Unity University Somaliland Campus in Hargeisa - State-of-the-art Facilities",
+        alt: "The Unity University Somaliland Campus in Hargeisa - State-of-the-art Facilities",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unity University Somaliland - #1 University in Hargeisa | Best Higher Education",
+    title: "The Unity University Somaliland - #1 University in Hargeisa | Best Higher Education",
     description:
       "Premier university in Somaliland offering world-class education. Modern facilities, expert faculty, 25+ programs. 95% job placement rate. Apply now for 2024 admission!",
     images: ["/twitter-image.jpg"],
-    creator: "@UnityUniSomaliland",
-    site: "@UnityUniSomaliland",
+    creator: "@TheUnityUniSomaliland",
+    site: "@TheUnityUniSomaliland",
   },
   robots: {
     index: true,
@@ -141,7 +131,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "unity-university-somaliland-verification",
+    google: "the-unity-university-somaliland-verification",
     yandex: "unity-university-verification",
     yahoo: "unity-university-verification",
   },
@@ -152,21 +142,21 @@ export const metadata: Metadata = {
     "geo.placename": "Hargeisa, Somaliland",
     "geo.position": "9.5600;44.0650",
     ICBM: "9.5600, 44.0650",
-    "DC.title": "Unity University Somaliland - Leading Higher Education Institution",
-    "DC.creator": "Unity University Somaliland",
+    "DC.title": "The Unity University Somaliland - Leading Higher Education Institution",
+    "DC.creator": "The Unity University Somaliland",
     "DC.subject": "Higher Education, University, Somaliland, Hargeisa",
     "DC.description": "Premier university in Somaliland offering world-class higher education programs",
-    "DC.publisher": "Unity University Somaliland",
-    "DC.contributor": "Unity University Faculty and Staff",
+    "DC.publisher": "The Unity University Somaliland",
+    "DC.contributor": "The Unity University Faculty and Staff",
     "DC.date": "2024",
     "DC.type": "Text",
     "DC.format": "text/html",
-    "DC.identifier": "https://tuu.university",
+    "DC.identifier": "https://tuu.university/somaliland",
     "DC.language": "en",
     "DC.coverage": "Somaliland, Horn of Africa",
-    "DC.rights": "Copyright Unity University Somaliland",
+    "DC.rights": "Copyright The Unity University Somaliland",
   },
-    generator: 'v0.dev'
+    generator: 'UgProJectHub.com'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

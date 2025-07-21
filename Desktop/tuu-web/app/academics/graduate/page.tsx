@@ -248,7 +248,7 @@ export default function GraduatePage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -273,17 +273,17 @@ export default function GraduatePage() {
               <Badge className="bg-blue-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
                 Graduate Programs
               </Badge>
-              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
                 Advanced
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                   Degrees
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
                 Pursue advanced study and research opportunities that will position you as a leader in your field.
                 Master's programs designed for academic and professional excellence.
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
                 <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg font-bold">
                     Apply Now
@@ -304,23 +304,23 @@ export default function GraduatePage() {
       </section>
 
       {/* Program Statistics */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Graduate Excellence</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Graduate Excellence</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Our graduate programs prepare leaders and researchers for tomorrow's challenges
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               { label: "Master's Programs", value: 14, suffix: "", description: "Across 5 faculties" },
               { label: "Graduate Students", value: 1800, suffix: "+", description: "Currently enrolled" },
@@ -348,37 +348,37 @@ export default function GraduatePage() {
       </section>
 
       {/* Degree Type Selection */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Choose Your Path</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Choose Your Path</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Explore our comprehensive graduate degree offerings
               </p>
             </motion.div>
           </div>
 
           {/* Degree Type Selector */}
-          <div className="flex justify-center gap-8 mb-16">
+          <div className="flex flex-wrap justify-center gap-4 mb-12 md:mb-16">
             {degreeTypes.map((type) => (
               <button
                 key={type.id}
                 onClick={() => setSelectedDegree(type.id)}
-                className={`flex items-center space-x-4 px-8 py-4 rounded-2xl border-2 transition-all ${selectedDegree === type.id
+                className={`flex items-center space-x-3 px-6 py-3 rounded-2xl border-2 transition-all ${selectedDegree === type.id
                     ? "border-blue-600 bg-blue-50 text-blue-700"
                     : "border-gray-200 hover:border-blue-300 text-gray-700"
                   }`}
               >
-                <type.icon className="h-8 w-8" />
+                <type.icon className="h-7 w-7" />
                 <div className="text-left">
-                  <div className="font-bold text-lg">{type.name}</div>
-                  <div className="text-sm text-gray-500">{type.count} programs</div>
+                  <div className="font-bold text-base">{type.name}</div>
+                  <div className="text-xs text-gray-500">{type.count} programs</div>
                 </div>
               </button>
             ))}
@@ -390,9 +390,9 @@ export default function GraduatePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-7xl mx-auto"
+            className="max-w-7xl mx-auto px-4"
           >
-            <div className="grid gap-8 lg:grid-cols-2">
+            <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
               {programs[selectedDegree as keyof typeof programs].map((program, index) => (
                 <motion.div
                   key={program.name}
@@ -481,23 +481,23 @@ export default function GraduatePage() {
       </section>
 
       {/* Program Features */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Why Choose Our Graduate Programs</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Why Choose Our Graduate Programs</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Distinctive features that set our graduate education apart
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -521,9 +521,9 @@ export default function GraduatePage() {
       </section>
 
       {/* Research Opportunities */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900">
         <div className="container mx-auto px-4">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
+          <div className="grid gap-12 md:gap-16 lg:grid-cols-2 items-center">
             <div className="text-white">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -531,18 +531,18 @@ export default function GraduatePage() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-5xl font-bold mb-8 leading-tight">
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6 md:mb-8 leading-tight">
                   Research
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                     Opportunities
                   </span>
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
                   Join cutting-edge research projects that address real-world challenges and contribute to advancing
                   knowledge in your field.
                 </p>
 
-                <div className="grid gap-6 sm:grid-cols-2 mb-8">
+                <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 mb-8">
                   {[
                     { label: "Active Research Projects", value: 85 },
                     { label: "Research Funding", value: 2.5, suffix: "M", prefix: "$" },
@@ -632,30 +632,30 @@ export default function GraduatePage() {
       </section>
 
       {/* Graduate Success Stories */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Graduate Success Stories</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Graduate Success Stories</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Meet our alumni who are leading innovation and research in their fields
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: "Amara Okafor",
                 program: "MSc Information Technology '23",
                 achievement: "Lead AI Researcher at Microsoft",
                 story:
-                  "The research opportunities and mentorship at Unity University prepared me to lead groundbreaking AI projects.",
+                  "The research opportunities and mentorship at The Unity University prepared me to lead groundbreaking AI projects.",
                 image: "/placeholder.svg?height=200&width=200",
               },
               {
@@ -671,7 +671,7 @@ export default function GraduatePage() {
                 program: "MPH '24",
                 achievement: "WHO Regional Director",
                 story:
-                  "Unity's global health perspective and research training prepared me for leadership in international health.",
+                  "The Unity University's global health perspective and research training prepared me for leadership in international health.",
                 image: "/placeholder.svg?height=200&width=200",
               },
             ].map((story, index) => (

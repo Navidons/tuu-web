@@ -165,7 +165,7 @@ export default function InternationalPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -187,33 +187,33 @@ export default function InternationalPage() {
         <div className="container relative z-10 mx-auto px-4">
           <div className="text-center text-white">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
+              <Badge className="bg-purple-600 text-white px-4 py-2 text-sm md:text-lg font-bold shadow-2xl mb-4 md:mb-8">
                 International Students
               </Badge>
-              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight">
                 Welcome to
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   Global Unity
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Join students from over 45 countries at Unity University. We provide comprehensive support to help
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-12">
+                Join students from over 45 countries at The Unity University. We provide comprehensive support to help
                 international students thrive academically and culturally.
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-6">
                 <Link href="/admissions/apply">
-                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg font-bold">
+                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700 px-6 md:px-8 py-2 md:py-4 text-sm md:text-lg font-bold">
                     Start Application
-                    <ArrowRight className="ml-3 h-6 w-6" />
+                    <ArrowRight className="ml-2 md:ml-3 h-4 md:h-6 w-4 md:w-6" />
                   </Button>
                 </Link>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold"
+                  className="border-white text-white hover:bg-white/10 px-6 md:px-8 py-2 md:py-4 text-sm md:text-lg font-bold"
                 >
                   Download Guide
-                  <FileText className="ml-3 h-6 w-6" />
+                  <FileText className="ml-2 md:ml-3 h-4 md:h-6 w-4 md:w-6" />
                 </Button>
               </div>
             </motion.div>
@@ -222,23 +222,23 @@ export default function InternationalPage() {
       </section>
 
       {/* International Student Statistics */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Global Community</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Unity University is home to a diverse international community
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">Our Global Community</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                The Unity University is home to a diverse international community
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               { label: "International Students", value: 1200, suffix: "+", description: "From around the world" },
               { label: "Countries Represented", value: 45, suffix: "", description: "Diverse backgrounds" },
@@ -252,7 +252,7 @@ export default function InternationalPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="text-center p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100"
+                className="text-center p-4 md:p-6 rounded-3xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100"
               >
                 <div className="text-4xl font-bold text-purple-600 mb-2">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
@@ -266,76 +266,78 @@ export default function InternationalPage() {
       </section>
 
       {/* Application Requirements */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Application Requirements</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Everything you need to know about applying as an international student
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">International Requirements</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Essential documents and criteria for international student applications
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {requirements.map((req, index) => (
-              <motion.div
-                key={req.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6"
-              >
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
-                    <req.icon className="h-6 w-6 text-white" />
+          <div className="max-w-4xl mx-auto">
+            <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2">
+              {requirements.map((req, index) => (
+                <motion.div
+                  key={req.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.03, y: -5 }}
+                  className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 md:p-6"
+                >
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+                      <req.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900">{req.title}</h3>
+                      {req.required && <Badge className="bg-red-100 text-red-700 text-xs">Required</Badge>}
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">{req.title}</h3>
-                    {req.required && <Badge className="bg-red-100 text-red-700 text-xs">Required</Badge>}
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">{req.description}</p>
-              </motion.div>
-            ))}
+                  <p className="text-gray-600 leading-relaxed">{req.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Student Support Services */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Student Support Services</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive support from arrival to graduation
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">International Student Services</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Comprehensive support to help you succeed from day one
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 text-center"
+                className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-6 text-center"
               >
                 <div className="text-6xl mb-6">{service.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
@@ -355,93 +357,71 @@ export default function InternationalPage() {
       </section>
 
       {/* Application Timeline */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Application Timeline</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Plan your application journey with our recommended timeline
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">Application Timeline</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Key dates and milestones for international student applications
               </p>
             </motion.div>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-600 to-blue-600 rounded-full"></div>
-
-              {timeline.map((period, index) => (
-                <motion.div
-                  key={period.month}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className={`relative flex items-center mb-16 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
-                >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                  {/* Content Card */}
-                  <div className={`w-5/12 ${index % 2 === 0 ? "pr-8" : "pl-8"}`}>
-                    <motion.div
-                      whileHover={{ scale: 1.02, y: -5 }}
-                      className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6"
-                    >
-                      <div className="flex items-center space-x-3 mb-4">
-                        <Calendar className="h-5 w-5 text-purple-600" />
-                        <Badge className="bg-purple-600 text-white">{period.deadline}</Badge>
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{period.title}</h3>
-                      <p className="text-purple-600 font-semibold mb-4">{period.month}</p>
-                      <ul className="space-y-2">
-                        {period.tasks.map((task, i) => (
-                          <li key={i} className="flex items-center space-x-3">
-                            <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm">{task}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  </div>
-
-                  {/* Month Badge */}
-                  <div className={`w-2/12 flex justify-center ${index % 2 === 0 ? "order-last" : "order-first"}`}>
-                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg text-center">
-                      Step {index + 1}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {timeline.map((period, index) => (
+              <motion.div
+                key={period.month}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4 md:p-6"
+              >
+                <div className="flex items-center space-x-3 mb-4">
+                  <Calendar className="h-5 w-5 text-purple-600" />
+                  <Badge className="bg-purple-600 text-white">{period.deadline}</Badge>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{period.title}</h3>
+                <p className="text-purple-600 font-semibold mb-4">{period.month}</p>
+                <ul className="space-y-2">
+                  {period.tasks.map((task, i) => (
+                    <li key={i} className="flex items-center space-x-3">
+                      <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm">{task}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Countries Represented */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-white mb-6">Countries Represented</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Our top international student populations by country
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">Our International Representation</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Students from across the African continent and beyond
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 md:gap-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {countries.map((country, index) => (
               <motion.div
                 key={country.name}
@@ -449,15 +429,12 @@ export default function InternationalPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center"
+                whileHover={{ scale: 1.1 }}
+                className="bg-white rounded-3xl shadow-lg border border-gray-100 p-3 md:p-6 text-center"
               >
-                <div className="text-4xl mb-3">{country.flag}</div>
-                <h3 className="text-lg font-bold text-white mb-2">{country.name}</h3>
-                <div className="text-2xl font-bold text-purple-300 mb-1">
-                  <AnimatedCounter end={country.students} />
-                </div>
-                <div className="text-gray-300 text-sm">students</div>
+                <div className="text-4xl md:text-5xl mb-2 md:mb-4">{country.flag}</div>
+                <h3 className="text-sm md:text-base font-bold text-gray-900 mb-1">{country.name}</h3>
+                <p className="text-xs md:text-sm text-gray-600">{country.students} Students</p>
               </motion.div>
             ))}
           </div>
@@ -465,7 +442,7 @@ export default function InternationalPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -473,31 +450,27 @@ export default function InternationalPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold text-gray-900 mb-8">Ready to Join Our Global Community?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              Take the first step towards your international education journey at Unity University. We're here to
-              support you every step of the way.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 md:mb-8">Your Global Journey Starts Here</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 md:mb-12">
+              Join our diverse community of international students and transform your academic future at The Unity University.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-6">
               <Link href="/admissions/apply">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-4 text-lg font-bold"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 md:px-8 py-2 md:py-4 text-sm md:text-lg font-bold"
                 >
-                  Start Your Application
-                  <ArrowRight className="ml-3 h-6 w-6" />
+                  Start Application
+                  <ArrowRight className="ml-2 md:ml-3 h-4 md:h-6 w-4 md:w-6" />
                 </Button>
               </Link>
-              <Link href="/about/contact">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-4 text-lg font-bold"
-                >
-                  Contact International Office
-                  <Globe className="ml-3 h-6 w-6" />
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-purple-600 text-purple-600 hover:bg-purple-50 px-6 md:px-8 py-2 md:py-4 text-sm md:text-lg font-bold"
+              >
+                Contact Admissions
+              </Button>
             </div>
           </motion.div>
         </div>

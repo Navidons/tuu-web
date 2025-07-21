@@ -2,27 +2,27 @@ export function StructuredData() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "@id": "https://unity.edu.so/#organization",
-    name: "Unity University Somaliland",
-    alternateName: ["Unity University", "Jaamacadda Unity Somaliland"],
-    url: "https://unity.edu.so",
+    "@id": "https://tuu.university/somaliland/#organization",
+    name: "The Unity University Somaliland",
+    alternateName: ["The Unity University", "Jaamacadda The Unity University Somaliland"],
+    url: "https://tuu.university/somaliland",
     logo: {
       "@type": "ImageObject",
-      url: "https://unity.edu.so/logo.png",
+      url: "https://tuu.university/somaliland/logo.png",
       width: 200,
       height: 200,
     },
     image: [
-      "https://unity.edu.so/campus-main.jpg",
-      "https://unity.edu.so/campus-aerial.jpg",
-      "https://unity.edu.so/students-graduation.jpg",
+      "https://tuu.university/somaliland/campus-main.jpg",
+      "https://tuu.university/somaliland/campus-aerial.jpg",
+      "https://tuu.university/somaliland/students-graduation.jpg",
     ],
     description:
-      "Unity University Somaliland is the premier higher education institution in Hargeisa, offering world-class undergraduate, graduate, and professional programs in Business, IT, Engineering, Health Sciences, and Education.",
+      "The Unity University Somaliland is the premier higher education institution in Hargeisa, offering world-class undergraduate, graduate, and professional programs in Business, IT, Engineering, Health Sciences, and Education.",
     foundingDate: "2009",
     founder: {
       "@type": "Person",
-      name: "Unity University Founders",
+      name: "The Unity University Founders",
     },
     address: {
       "@type": "PostalAddress",
@@ -53,10 +53,10 @@ export function StructuredData() {
       },
     ],
     sameAs: [
-      "https://www.facebook.com/UnityUniversitySomaliland",
-      "https://www.twitter.com/UnityUniSomaliland",
-      "https://www.linkedin.com/school/unity-university-somaliland",
-      "https://www.instagram.com/unityuniversitysomaliland",
+      "https://www.facebook.com/TheUnityUniversitySomaliland",
+      "https://www.twitter.com/TheUnityUniSomaliland",
+      "https://www.linkedin.com/school/the-unity-university-somaliland",
+      "https://www.instagram.com/theunityuniversitysomaliland",
     ],
     department: [
       {
@@ -100,18 +100,18 @@ export function StructuredData() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://unity.edu.so/#website",
-    url: "https://unity.edu.so",
-    name: "Unity University Somaliland",
-    description: "Official website of Unity University Somaliland - Premier higher education institution in Hargeisa",
+    "@id": "https://tuu.university/somaliland/#website",
+    url: "https://tuu.university/somaliland",
+    name: "The Unity University Somaliland",
+    description: "Official website of The Unity University Somaliland - Premier higher education institution in Hargeisa",
     publisher: {
-      "@id": "https://unity.edu.so/#organization",
+      "@id": "https://tuu.university/somaliland/#organization",
     },
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://unity.edu.so/search?q={search_term_string}",
+        urlTemplate: "https://tuu.university/somaliland/search?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -126,25 +126,25 @@ export function StructuredData() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://unity.edu.so",
+        item: "https://tuu.university/somaliland",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Academics",
-        item: "https://unity.edu.so/academics",
+        item: "https://tuu.university/somaliland/academics",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Admissions",
-        item: "https://unity.edu.so/admissions",
+        item: "https://tuu.university/somaliland/admissions",
       },
       {
         "@type": "ListItem",
         position: 4,
         name: "Research",
-        item: "https://unity.edu.so/research",
+        item: "https://tuu.university/somaliland/research",
       },
     ],
   }
@@ -152,9 +152,9 @@ export function StructuredData() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://unity.edu.so/#localbusiness",
-    name: "Unity University Somaliland",
-    image: "https://unity.edu.so/campus-main.jpg",
+    "@id": "https://tuu.university/somaliland/#localbusiness",
+    name: "The Unity University Somaliland",
+    image: "https://tuu.university/somaliland/campus-main.jpg",
     address: {
       "@type": "PostalAddress",
       streetAddress: "New Generation Campus",
@@ -169,7 +169,7 @@ export function StructuredData() {
     },
     telephone: "+252-63-4210013",
     email: "somaliland@tuu.university",
-    url: "https://unity.edu.so",
+    url: "https://tuu.university/somaliland",
     openingHours: ["Mo-Fr 08:00-17:00", "Sa 08:00-12:00"],
     priceRange: "$$",
     paymentAccepted: "Cash, Bank Transfer, Mobile Money",
@@ -182,7 +182,7 @@ export function StructuredData() {
     name: "Business Administration Program",
     description: "Comprehensive 4-year undergraduate program in Business Administration at Unity University Somaliland",
     provider: {
-      "@id": "https://unity.edu.so/#organization",
+      "@id": "https://tuu.university/somaliland/#organization",
     },
     educationalCredentialAwarded: "Bachelor of Business Administration",
     numberOfCredits: 120,

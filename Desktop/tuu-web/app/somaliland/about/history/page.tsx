@@ -10,9 +10,9 @@ import SomalilandFooter from "@/components/somaliland/somaliland-footer"
 
 const timelineEvents = [
   {
-    year: "2021",
+    year: "2020",
     title: "Foundation and Vision",
-    description: "Unity University was established in Hargeisa, Somaliland with the motto 'What begins here, transforms Africa'.",
+    description: "The Unity University was established in Hargeisa, Somaliland with the motto 'What begins here, transforms Africa'.",
     details: [
       "Founded with a vision to become a world-class university in leadership development in Africa",
       "Initial campus established at Jigjiga Yar Street near Masjid Jabir, Hargeisa",
@@ -24,7 +24,7 @@ const timelineEvents = [
     color: "bg-green-100 text-green-800",
   },
   {
-    year: "2022",
+    year: "2021",
     title: "Academic Programs Launch",
     description: "Launch of comprehensive academic programs across five faculties with diverse offerings.",
     details: [
@@ -39,7 +39,7 @@ const timelineEvents = [
     color: "bg-blue-100 text-blue-800",
   },
   {
-    year: "2023",
+    year: "2022",
     title: "Research and Innovation Growth",
     description: "Expansion of research capabilities and establishment of graduate programs.",
     details: [
@@ -53,7 +53,7 @@ const timelineEvents = [
     color: "bg-purple-100 text-purple-800",
   },
   {
-    year: "2024",
+    year: "2023",
     title: "Pan-African Expansion",
     description: "Expanded operations with the establishment of Liberia campus, creating a Pan-African network.",
     details: [
@@ -67,7 +67,7 @@ const timelineEvents = [
     color: "bg-red-100 text-red-800",
   },
   {
-    year: "2025",
+    year: "2024-2025",
     title: "Continued Excellence",
     description: "Building on strong foundations to serve over 4,000 students across both campuses.",
     details: [
@@ -157,7 +157,7 @@ export default function HistoryPage() {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-8">Our Founding Story</h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Unity University was born from a vision to transform education in Somaliland and Africa. Founded in 2021 by dedicated educators and community leaders, our university emerged with the motto "What begins here, transforms Africa" and a mission to become a world-class university in leadership development. From our beginnings in Hargeisa, we have grown into a leading institution committed to integrating theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
+                The Unity University was born from a vision to transform education in Somaliland and Africa. Founded in 2020 by dedicated educators and community leaders, our university emerged with the motto "What begins here, transforms Africa" and a mission to become a world-class university in leadership development. From our beginnings in Hargeisa, we have grown into a leading institution committed to integrating theory with practice to produce graduates with relevant knowledge, skills, and responsible citizenry.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Our name "Unity" reflects our core belief in bringing together diverse perspectives, cultures, and knowledge systems to create a harmonious learning environment that serves not just Somaliland, but the entire African continent through our Pan-African approach with campuses in both Somaliland and Liberia.
@@ -287,7 +287,7 @@ export default function HistoryPage() {
                 <div>
                   <h2 className="text-3xl font-bold mb-6">Our Legacy</h2>
                   <p className="text-gray-700 mb-6 leading-relaxed">
-                    Over the past decade, Unity University has established itself as a cornerstone of higher education
+                    Over the past decade, The Unity University has established itself as a cornerstone of higher education
                     in Somaliland. Our graduates have gone on to become leaders in government, business, healthcare,
                     education, and technology, contributing to the development and prosperity of our nation.
                   </p>
@@ -301,7 +301,7 @@ export default function HistoryPage() {
                 <div>
                   <h2 className="text-3xl font-bold mb-6">Looking Forward</h2>
                   <p className="text-gray-700 mb-6 leading-relaxed">
-                    As we look to the future, Unity University remains committed to its founding vision while adapting
+                    As we look to the future, The Unity University remains committed to its founding vision while adapting
                     to the changing needs of our society. We are expanding our programs, strengthening our research
                     capabilities, and building new partnerships that will position us as the premier university in the
                     Horn of Africa.
@@ -322,11 +322,13 @@ export default function HistoryPage() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-4">Be Part of Our Story</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join Unity University and become part of our continuing journey of excellence and innovation
+              Join The Unity University and become part of our continuing journey of excellence and innovation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary">
-                Apply Now
+              <Button size="lg" variant="secondary" asChild>
+                <a href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+                  Apply Now
+                </a>
               </Button>
               <Button
                 size="lg"

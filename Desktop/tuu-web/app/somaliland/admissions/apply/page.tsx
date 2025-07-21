@@ -161,7 +161,7 @@ export default function ApplyPage() {
             <h2 className="text-3xl font-semibold text-emerald-200 mb-8">Safarkaaga Bilow</h2>
 
             <p className="text-xl leading-relaxed mb-12 opacity-95">
-              Take the first step towards your future at Unity University Somaliland. Our streamlined application
+              Take the first step towards your future at The Unity University Somaliland. Our streamlined application
               process makes it easy to apply for your desired program.
             </p>
 
@@ -201,7 +201,7 @@ export default function ApplyPage() {
             </h2>
             <h3 className="text-2xl font-semibold text-gray-700 mb-6">Habka Codsiga</h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Follow our simple 6-step application process to join Unity University Somaliland.
+              Follow our simple 6-step application process to join The Unity University Somaliland.
             </p>
           </motion.div>
 
@@ -478,7 +478,7 @@ export default function ApplyPage() {
                       <Label htmlFor="personalStatement">Personal Statement *</Label>
                       <Textarea
                         id="personalStatement"
-                        placeholder="Tell us why you want to study at Unity University and your career goals (500-1000 words)"
+                        placeholder="Tell us why you want to study at The Unity University and your career goals (500-1000 words)"
                         className="mt-2 min-h-[150px]"
                       />
                     </div>

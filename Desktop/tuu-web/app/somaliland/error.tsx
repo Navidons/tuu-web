@@ -48,8 +48,8 @@ export default function Error({
           <div className="pt-4 border-t">
             <p className="text-xs text-gray-500">
               If this problem persists, please contact our support team at{" "}
-              <a href="mailto:support@unity.edu.so" className="text-green-600 hover:underline">
-                support@unity.edu.so
+              <a href="mailto:support@tuu.university" className="text-green-600 hover:underline">
+                support@tuu.university
               </a>
             </p>
           </div>

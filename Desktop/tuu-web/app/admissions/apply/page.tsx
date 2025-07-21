@@ -114,7 +114,7 @@ export default function ApplyPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -136,41 +136,71 @@ export default function ApplyPage() {
         <div className="container relative z-10 mx-auto px-4">
           <div className="text-center text-white">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">Apply Now</Badge>
-              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              <Badge className="bg-purple-600 text-white px-4 py-2 text-sm md:text-lg font-bold shadow-2xl mb-4 md:mb-8">Apply Now</Badge>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight">
                 Start Your
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   Application
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                Take the first step towards your future at Unity University. Our streamlined application process makes
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-12">
+                Take the first step towards your future at The Unity University. Our streamlined application process makes
                 it easy to apply.
               </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-6">
+                <Button
+                  type="button"
+                  onClick={prevStep}
+                  disabled={currentStep === 1}
+                  className="px-6 py-2"
+                >
+                  Previous
+                </Button>
+
+                {currentStep < 4 ? (
+                  <Button
+                    type="button"
+                    onClick={nextStep}
+                    className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 py-2"
+                  >
+                    Next Step
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                ) : (
+                  <Button
+                    type="submit"
+                    disabled={!formData.terms}
+                    className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-2 font-bold"
+                  >
+                    Submit Application
+                    <CheckCircle className="ml-2 h-5 w-5" />
+                  </Button>
+                )}
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Application Requirements */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Application Requirements</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">Application Requirements</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Make sure you have all the required documents before starting your application
               </p>
             </motion.div>
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2">
               {requirements.map((req, index) => (
                 <motion.div
                   key={req.title}
@@ -178,7 +208,7 @@ export default function ApplyPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6"
+                  className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 md:p-6"
                 >
                   <div className="flex items-start space-x-4">
                     <div
@@ -210,26 +240,26 @@ export default function ApplyPage() {
       </section>
 
       {/* Application Form */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Progress Steps */}
-            <div className="mb-12">
-              <div className="flex items-center justify-between mb-8">
+            <div className="mb-8 md:mb-12">
+              <div className="flex items-center justify-between mb-6 md:mb-8">
                 {steps.map((step, index) => (
                   <div key={step.number} className="flex items-center">
                     <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold ${
+                      className={`w-8 md:w-12 h-8 md:h-12 rounded-full flex items-center justify-center font-bold ${
                         currentStep >= step.number
                           ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
                           : "bg-gray-200 text-gray-600"
                       }`}
                     >
-                      {currentStep > step.number ? <CheckCircle className="h-6 w-6" /> : step.number}
+                      {currentStep > step.number ? <CheckCircle className="h-4 md:h-6 w-4 md:w-6" /> : step.number}
                     </div>
                     {index < steps.length - 1 && (
                       <div
-                        className={`w-24 h-1 mx-4 ${
+                        className={`w-12 md:w-24 h-1 mx-2 md:mx-4 ${
                           currentStep > step.number ? "bg-gradient-to-r from-purple-600 to-blue-600" : "bg-gray-200"
                         }`}
                       />
@@ -238,10 +268,10 @@ export default function ApplyPage() {
                 ))}
               </div>
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
                   Step {currentStep}: {steps[currentStep - 1].title}
                 </h3>
-                <p className="text-gray-600">Complete all fields to continue</p>
+                <p className="text-sm md:text-base text-gray-600">Complete all fields to continue</p>
               </div>
             </div>
 
@@ -250,7 +280,8 @@ export default function ApplyPage() {
               key={currentStep}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
               className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8"
             >
               <form onSubmit={handleSubmit}>
@@ -505,7 +536,7 @@ export default function ApplyPage() {
                         onChange={handleInputChange}
                         className="mt-2"
                         rows={8}
-                        placeholder="Write a 500-word essay about your goals, motivations, and why you want to study at Unity University..."
+                        placeholder="Write a 500-word essay about your goals, motivations, and why you want to study at The Unity University..."
                         required
                       />
                       <p className="text-sm text-gray-500 mt-2">{formData.personalStatement.length}/500 words</p>

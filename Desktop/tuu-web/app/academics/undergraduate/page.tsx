@@ -234,7 +234,7 @@ export default function UndergraduatePage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
           {mounted && (
             <motion.div
@@ -259,17 +259,17 @@ export default function UndergraduatePage() {
               <Badge className="bg-purple-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
                 Undergraduate Programs
               </Badge>
-              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
                 Bachelor's
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   Degrees
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
                 Build a strong foundation for your career with our comprehensive undergraduate programs designed to
                 prepare you for success in the global marketplace.
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
                 <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700 px-8 py-4 text-lg font-bold">
                     Apply Now
@@ -290,23 +290,23 @@ export default function UndergraduatePage() {
       </section>
 
       {/* Program Statistics */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Undergraduate Excellence</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Undergraduate Excellence</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Our undergraduate programs provide the foundation for lifelong success
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               { label: "Undergraduate Programs", value: 17, suffix: "+", description: "Across 4 faculties" },
               { label: "Undergraduate Students", value: 3200, suffix: "+", description: "Currently enrolled" },
@@ -334,37 +334,37 @@ export default function UndergraduatePage() {
       </section>
 
       {/* Schools Selection */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Choose Your Faculty</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Choose Your Faculty</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Explore undergraduate programs across our four specialized faculties
               </p>
             </motion.div>
           </div>
 
           {/* School Selector */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-3 mb-12 md:mb-16">
             {schools.map((school) => (
               <button
                 key={school.id}
                 onClick={() => setSelectedSchool(school.id)}
-                className={`flex items-center space-x-3 px-6 py-3 rounded-full border-2 transition-all ${selectedSchool === school.id
+                className={`flex items-center space-x-2 px-5 py-2 rounded-full border-2 transition-all ${selectedSchool === school.id
                     ? "border-purple-600 bg-purple-50 text-purple-700"
                     : "border-gray-200 hover:border-purple-300 text-gray-700"
                   }`}
               >
-                <span className="text-2xl">{school.icon}</span>
+                <span className="text-xl">{school.icon}</span>
                 <div className="text-left">
-                  <div className="font-semibold">{school.name}</div>
-                  <div className="text-sm text-gray-500">{school.students} students</div>
+                  <div className="font-semibold text-sm">{school.name}</div>
+                  <div className="text-xs text-gray-500">{school.students} students</div>
                 </div>
               </button>
             ))}
@@ -376,15 +376,15 @@ export default function UndergraduatePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-6xl mx-auto"
+            className="max-w-6xl mx-auto px-4"
           >
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-10 md:mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                 {programs[selectedSchool as keyof typeof programs].name}
               </h3>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
               {programs[selectedSchool as keyof typeof programs].programs.map((program, index) => (
                 <motion.div
                   key={program.name}
@@ -442,23 +442,23 @@ export default function UndergraduatePage() {
       </section>
 
       {/* Program Features */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Why Choose Our Undergraduate Programs</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Why Choose Our Undergraduate Programs</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Distinctive features that prepare you for career success
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -482,29 +482,29 @@ export default function UndergraduatePage() {
       </section>
 
       {/* Student Success Stories */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-white mb-6">Student Success Stories</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Student Success Stories</h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Meet our graduates who are making a difference in their fields
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: "Sarah Mensah",
                 program: "Computer Science '23",
                 achievement: "Software Engineer at Google",
-                story: "The hands-on projects and mentorship at Unity University prepared me for the tech industry.",
+                story: "The hands-on projects and mentorship at The Unity University prepared me for the tech industry.",
                 image: "/placeholder.svg?height=200&width=200",
               },
               {
@@ -519,7 +519,7 @@ export default function UndergraduatePage() {
                 name: "Fatima Kone",
                 program: "International Relations '23",
                 achievement: "UN Development Programme",
-                story: "Unity's global perspective and internship opportunities opened doors to international careers.",
+                story: "The Unity University's global perspective and internship opportunities opened doors to international careers.",
                 image: "/placeholder.svg?height=200&width=200",
               },
             ].map((story, index) => (
@@ -553,7 +553,7 @@ export default function UndergraduatePage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -561,12 +561,12 @@ export default function UndergraduatePage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold text-gray-900 mb-8">Ready to Start Your Undergraduate Journey?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              Join thousands of students who have chosen Unity University for their undergraduate education. Your future
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Ready to Start Your Undergraduate Journey?</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Join thousands of students who have chosen The Unity University for their undergraduate education. Your future
               starts here.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
               <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"

@@ -115,7 +115,7 @@ const socialMedia = [
   { name: "Twitter", handle: "@ProfPLOLumumba", url: "https://x.com/ProfPLOLumumba/status/1605872680317616128?lang=en" },
   { name: "LinkedIn", handle: "The Unity University", url: "https://www.linkedin.com/company/the-unity-university/?originalSubdomain=so" },
   { name: "Instagram", handle: "@theunityuniversity", url: "https://www.instagram.com/p/Cmd3K5Oj1D1/?img_index=1" },
-  { name: "YouTube", handle: "Unity University", url: "https://www.youtube.com/watch?v=8vBnxHefYZs" },
+  { name: "YouTube", handle: "The Unity University", url: "https://www.youtube.com/watch?v=8vBnxHefYZs" },
 ]
 
 export default function ContactPage() {
@@ -168,7 +168,7 @@ export default function ContactPage() {
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">Contact Us</h1>
               <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
-                Get in touch with Unity University - we're here to help with all your questions
+                Get in touch with The Unity University - we're here to help with all your questions
               </p>
             </div>
           </div>
@@ -429,7 +429,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-2xl font-bold mb-6">Follow Us</h2>
                 <p className="text-gray-600 mb-6">
-                  Stay connected with Unity University through our social media channels for the latest news, events,
+                  Stay connected with The Unity University through our social media channels for the latest news, events,
                   and updates.
                 </p>
                 <div className="space-y-3">
@@ -483,11 +483,13 @@ export default function ContactPage() {
         {/* Call to Action */}
         <div className="py-16 bg-gradient-to-r from-green-600 to-red-600 text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Join Unity University?</h2>
+            <h2 className="text-3xl font-bold mb-4">Ready to Join The Unity University?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">Take the next step in your educational journey with us</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary">
-                Apply Now
+              <Button size="lg" variant="secondary" asChild>
+                <a href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+                  Apply Now
+                </a>
               </Button>
               <Button
                 size="lg"

@@ -2,10 +2,10 @@
 
 import type React from "react"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useScroll, useTransform, useInView, AnimatePresence, Variants } from "framer-motion"
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion"
 import {
   ArrowRight,
   ChevronRight,
@@ -29,31 +29,40 @@ import { cn } from "@/lib/utils"
 import LiberiaNavbar from "@/components/liberia/liberia-navbar"
 import LiberiaFooter from "@/components/liberia/liberia-footer"
 
-// Enhanced floating particles component with better performance
+// Optimized floating particles component with better performance
 const FloatingParticles = () => {
-  const [isClient, setIsClient] = useState(false)
+  const [particles, setParticles] = useState<Array<{
+    id: number;
+    x: number;
+    y: number;
+    delay: number;
+    duration: number;
+    size: number;
+  }>>([])
 
   useEffect(() => {
-    setIsClient(true)
+    // Generate particles after hydration to avoid SSR mismatch
+    setParticles(
+      Array.from({ length: 6 }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        delay: Math.random() * 4,
+        duration: 8 + Math.random() * 4,
+        size: Math.random() * 2 + 1,
+      }))
+    )
   }, [])
 
-  if (!isClient) return null
-
-  const particles = Array.from({ length: 25 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    delay: Math.random() * 8,
-    duration: 12 + Math.random() * 8,
-    size: Math.random() * 3 + 1,
-  }))
+  // Don't render anything until particles are generated (after hydration)
+  if (particles.length === 0) return null
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" suppressHydrationWarning>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-white/20"
+          className="absolute rounded-full bg-white/15"
           style={{
             width: `${particle.size}px`,
             height: `${particle.size}px`,
@@ -61,14 +70,13 @@ const FloatingParticles = () => {
             top: `${particle.y}%`,
           }}
           animate={{
-            y: [0, -120, 0],
-            x: [0, Math.random() * 100 - 50, 0],
-            opacity: [0, 0.8, 0],
-            scale: [0.5, 1.5, 0.5],
+            y: [0, -60, 0],
+            opacity: [0, 0.6, 0],
+            scale: [0.5, 1, 0.5],
           }}
           transition={{
             duration: particle.duration,
-            repeat: Number.POSITIVE_INFINITY,
+            repeat: Infinity,
             ease: "easeInOut",
             delay: particle.delay,
           }}
@@ -78,8 +86,8 @@ const FloatingParticles = () => {
   )
 }
 
-// Enhanced animated counter with better performance
-const AnimatedCounter = ({ end, duration = 2.5, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
+// Optimized animated counter with better performance
+const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
   const [count, setCount] = useState(0)
   const [hasStarted, setHasStarted] = useState(false)
   const ref = useRef(null)
@@ -92,7 +100,7 @@ const AnimatedCounter = ({ end, duration = 2.5, suffix = "" }: { end: number; du
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime
         const progress = Math.min((currentTime - startTime) / (duration * 1000), 1)
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+        const easeOutQuart = 1 - Math.pow(1 - progress, 3)
         setCount(Math.floor(easeOutQuart * end))
         if (progress < 1) {
           requestAnimationFrame(animate)
@@ -110,160 +118,175 @@ const AnimatedCounter = ({ end, duration = 2.5, suffix = "" }: { end: number; du
   )
 }
 
+// Optimized Liberia flag component
 const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
   return (
-    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+    <svg
+      className={cn(className, "rounded-sm shadow-sm border border-white/20")}
+      viewBox="0 0 60 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Liberia Flag"
     >
-      {/* Stripes */}
-      <div className="liberian-flag-gradient w-full h-full" />
-
-      {/* Blue canton with white star */}
-      <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <svg
-          viewBox="0 0 24 24"
-          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      </div>
-    </div>
+      {/* 11 stripes: 6 red, 5 white, starting and ending with red */}
+      {[...Array(11)].map((_, i) => (
+        <rect
+          key={i}
+          x="0"
+          y={(40 / 11) * i}
+          width="60"
+          height={40 / 11}
+          fill={i % 2 === 0 ? "#D21034" : "#fff"}
+        />
+      ))}
+      {/* Blue canton */}
+      <rect x="0" y="0" width={60 / 3} height={40 / 2} fill="#003893" />
+      {/* White star in canton */}
+      <g transform={`translate(${60 / 6},${40 / 4})`}>
+        <polygon
+          points="0,-7 2.05,-2.16 7, -2.16 3.09,0.83 4.18,5.67 0,2.8 -4.18,5.67 -3.09,0.83 -7,-2.16 -2.05,-2.16"
+          fill="#fff"
+        />
+      </g>
+    </svg>
   )
 }
 
-// Parallax section component with improved performance
-const ParallaxSection = ({ children, offset = 50 }: { children: React.ReactNode; offset?: number }) => {
+// Simplified parallax section component
+const ParallaxSection = ({ children, offset = 30 }: { children: React.ReactNode; offset?: number }) => {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 1000], [0, offset])
 
   return (
-    <motion.div style={{ y }} className="relative will-change-transform">
+    <motion.div style={{ y }} className="relative">
       {children}
     </motion.div>
   )
 }
 
+// Utility to get a random subset of images
+// (No longer needed globally)
+
 export default function LiberiaHome() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isClient, setIsClient] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
-  // Mouse tracking for interactive elements
+  // Hero section images pool
+  const heroImages = [
+    "/hero-section/hero.png",
+    "/hero-section/global-perspective.jpg",
+    "/hero-section/male-graduation.jpg",
+    "/hero-section/graduation-day.jpg",
+    "/hero-section/all-on-graduation-pic.jpg",
+    "/hero-section/master-of-education-and-planning.jpg",
+    "/graduation/bachelor-of-information-technology.jpg",
+    "/graduation/big-men-graduation-master-0.jpg",
+    "/graduation/master-of-accounting.jpg",
+    "/graduation/master-of-education-and-planning.jpg",
+    "/graduation/master-of-education.jpg",
+    "/graduation/master-of-human-resource.jpg",
+    "/graduation/all-on-graduation-pic.jpg",
+    "/graduation/graduation-day.jpg",
+  ];
+
+  // State for random hero images (client only)
+  const [randomHeroImages, setRandomHeroImages] = useState<string[]>([]);
+
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
+    function getRandomImages(images: string[], count: number): string[] {
+      const shuffled = [...images].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
     }
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
+    setRandomHeroImages(getRandomImages(heroImages, 3));
+  }, []);
+
+  // Use random images if available, otherwise fallback to first 3 for SSR
+  const heroSlides = useMemo(() => {
+    const images = randomHeroImages.length === 3 ? randomHeroImages : heroImages.slice(0, 3);
+    return [
+      {
+        image: images[0],
+        title: "The Unity University Liberia",
+        subtitle: "What Begins Here, Transforms Africa",
+        description:
+          "A dynamic, vision-driven university founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. We are raising a new generation of leaders for the African continent through holistic human development.",
+        cta: "Transform Your Future",
+        keywords: "premier university liberia, monrovia education, west africa",
+      },
+      {
+        image: images[1],
+        title: "The Love of Liberty Brought Us Here",
+        subtitle: "Pioneering Excellence Since 2024",
+        description:
+          "Offering transformational educational experiences that develop you in ways you might not yet have dreamed of. We are one of the strongest universities in West Africa, making history every day through innovation and excellence.",
+        cta: "Join Our Legacy",
+        keywords: "liberian education, transformational learning, west africa university",
+      },
+      {
+        image: images[2],
+        title: "Building Leaders for Africa",
+        subtitle: "University of Pan-African Excellence",
+        description:
+          "Our unique approach equips graduates with the skills, acuity and vision needed to succeed as ethical, entrepreneurial leaders. Our vibrant, Pan-African community promises life-long friendship and inspiration.",
+        cta: "Become a Leader",
+        keywords: "african leadership, pan-african education, ethical leaders",
+      },
+    ];
+  }, [randomHeroImages]);
+
+  const handleSlideChange = useCallback((index: number) => {
+    setCurrentSlide(index)
   }, [])
 
-  // Ensure client-side rendering consistency
   useEffect(() => {
-    setIsClient(true)
-  }, [])
-
-  useEffect(() => {
-    if (!isClient) return
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 7000)
-
+    }, 6000)
     return () => clearInterval(interval)
-  }, [isClient])
+  }, [])
 
   const base = "/liberia"
 
-  const heroSlides = [
-    {
-      image: "/placeholder.svg?height=1080&width=1920",
-      title: "Unity University Liberia",
-      subtitle: "What Begins Here, Transforms Africa",
-      description:
-        "A dynamic, vision-driven university founded on Pan-Africanism and committed to pioneering excellence at the cutting edge of learning. We are raising a new generation of leaders for the African continent through holistic human development.",
-      cta: "Transform Your Future",
-      keywords: "premier university liberia, monrovia education, west africa",
-    },
-    {
-      image: "/placeholder.svg?height=1080&width=1920",
-      title: "The Love of Liberty Brought Us Here",
-      subtitle: "Pioneering Excellence Since 2024",
-      description:
-        "Offering transformational educational experiences that develop you in ways you might not yet have dreamed of. We are one of the strongest universities in West Africa, making history every day through innovation and excellence.",
-      cta: "Join Our Legacy",
-      keywords: "liberian education, transformational learning, west africa university",
-    },
-    {
-      image: "/placeholder.svg?height=1080&width=1920",
-      title: "Building Leaders for Africa",
-      subtitle: "University of Pan-African Excellence",
-      description:
-        "Our unique approach equips graduates with the skills, acuity and vision needed to succeed as ethical, entrepreneurial leaders. Our vibrant, Pan-African community promises life-long friendship and inspiration.",
-      cta: "Become a Leader",
-      keywords: "african leadership, pan-african education, ethical leaders",
-    },
-  ]
-
-  const containerVariants = {
+  const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.1,
       },
     },
-  }
+  }), [])
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 50 },
+  const itemVariants = useMemo(() => ({
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 }
+      transition: { duration: 0.6 }
     },
-  }
+  }), [])
 
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-  }
+  // Simplified slide variants
+  const slideVariants = useMemo(() => ({
+    enter: { opacity: 0 },
+    center: { opacity: 1 },
+    exit: { opacity: 0 },
+  }), [])
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       <LiberiaNavbar />
 
-      {/* Enhanced Hero Section */}
+      {/* Optimized Hero Section */}
       <section className="relative h-screen overflow-hidden">
         <FloatingParticles />
 
-        {/* Animated background gradient */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-red-900/85 via-blue-900/70 to-red-900/85"
-          animate={{
-            background: [
-              "linear-gradient(45deg, rgba(220, 38, 38, 0.85), rgba(37, 99, 235, 0.7), rgba(220, 38, 38, 0.85))",
-              "linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(220, 38, 38, 0.7), rgba(37, 99, 235, 0.85))",
-              "linear-gradient(45deg, rgba(220, 38, 38, 0.85), rgba(37, 99, 235, 0.7), rgba(220, 38, 38, 0.85))",
-            ],
-          }}
-          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        />
+        {/* Simplified animated background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-red-900/80 via-blue-900/70 to-red-900/80" />
 
         {/* SEO-optimized hidden content */}
         <div className="sr-only">
-          <h1>Unity University Liberia - Premier Higher Education Institution in Monrovia</h1>
+          <h1>The Unity University Liberia - Premier Higher Education Institution in Monrovia</h1>
           <p>
             Leading university in Liberia offering world-class education in Business Administration, Information
             Technology, Engineering, and Public Health. Located in Monrovia with modern facilities and expert faculty.
@@ -271,375 +294,220 @@ export default function LiberiaHome() {
           </p>
         </div>
 
-        {isClient ? (
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.6 },
-              }}
-              className="absolute inset-0"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${heroSlides[currentSlide].image})` }}
-              />
+        {/* Simplified hero content */}
+        <motion.div
+          key={currentSlide}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0"
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroSlides[currentSlide].image})` }}
+          />
 
-              <div className="container relative z-10 mx-auto flex h-full items-center px-4">
-                <motion.div
-                  className="max-w-5xl"
-                  initial={{ opacity: 0, x: -100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-                >
-                  {/* University Badge */}
-                  <motion.div
-                    className="mb-8 flex items-center space-x-6"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6, duration: 0.8 }}
-                  >
-                    <Badge className="bg-blue-600/90 backdrop-blur-sm text-white px-8 py-4 text-lg font-bold shadow-xl border border-blue-500/30">
-                      {heroSlides[currentSlide].subtitle}
-                    </Badge>
-                    <motion.div
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                    >
-                      <LiberiaFlag className="h-10 w-16" />
-                    </motion.div>
-                    <motion.div
-                      animate={{
-                        rotate: [0, 360],
-                        scale: [1, 1.3, 1],
-                      }}
-                      transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY }}
-                    >
-                      <Star className="h-8 w-8 text-white fill-white drop-shadow-lg liberian-star-glow" />
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Main Headlines */}
-                  <motion.h1
-                    className="mb-8 text-5xl font-bold text-white md:text-7xl leading-tight"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
-                  >
-                    {heroSlides[currentSlide].title.split(" ").map((word, index) => (
-                      <motion.span
-                        key={`${currentSlide}-${index}`}
-                        className="inline-block mr-4"
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8 + index * 0.1, duration: 0.8 }}
-                      >
-                        {word}
-                      </motion.span>
-                    ))}
-                  </motion.h1>
-
-                  {/* Description */}
-                  <motion.p
-                    className="mb-12 text-xl text-white/95 max-w-4xl leading-relaxed"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.2, duration: 0.8 }}
-                  >
-                    {heroSlides[currentSlide].description}
-                  </motion.p>
-
-                  {/* CTA Buttons */}
-                  <motion.div
-                    className="flex flex-wrap gap-6 mb-16"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.6, duration: 0.8 }}
-                  >
-                    <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
-                      <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                        <Button
-                          size="lg"
-                          className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-lg font-bold shadow-2xl border border-blue-500/30"
-                        >
-                          {heroSlides[currentSlide].cta}
-                          <motion.div
-                            className="ml-3"
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                          >
-                            <ArrowRight className="h-6 w-6" />
-                          </motion.div>
-                        </Button>
-                      </Link>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
-                      <Link href={`${base}/academics`}>
-                        <Button
-                          size="lg"
-                          variant="outline"
-                          className="border-2 border-white text-white hover:bg-white/10 px-10 py-6 text-lg font-bold backdrop-blur-sm bg-transparent"
-                        >
-                          Explore Programs
-                          <GraduationCap className="ml-3 h-6 w-6" />
-                        </Button>
-                      </Link>
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Key Features */}
-                  <motion.div
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 2, duration: 0.8 }}
-                  >
-                    {[
-                      {
-                        icon: GraduationCap,
-                        title: "28 Programs",
-                        subtitle: "Across 4 Faculties",
-                        keywords: "academic programs liberia",
-                      },
-                      {
-                        icon: Users,
-                        title: "1,500+ Students",
-                        subtitle: "Thriving Community",
-                        keywords: "student community liberia",
-                      },
-                      {
-                        icon: Award,
-                        title: "19 Years Excellence",
-                        subtitle: "Proven Track Record",
-                        keywords: "educational excellence liberia",
-                      },
-                    ].map((feature, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex items-center space-x-4 bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 card-hover-effect"
-                        whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.15)" }}
-                        data-keywords={feature.keywords}
-                      >
-                        <feature.icon className="h-10 w-10 text-blue-300" />
-                        <div>
-                          <div className="text-white font-bold text-lg">{feature.title}</div>
-                          <div className="text-blue-200 text-sm">{feature.subtitle}</div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </motion.div>
+          <div className="container relative z-10 mx-auto flex h-full items-center px-4">
+            <div className="max-w-5xl">
+              {/* University Badge */}
+              <div className="mb-6 flex items-center space-x-4">
+                <Badge className="bg-blue-600/90 backdrop-blur-sm text-white px-6 py-3 text-lg font-bold shadow-xl border border-blue-500/30">
+                  {heroSlides[currentSlide].subtitle}
+                </Badge>
+                <LiberiaFlag className="h-8 w-12" />
+                <Star className="h-6 w-6 text-white fill-white drop-shadow-lg" />
               </div>
-            </motion.div>
-          </AnimatePresence>
-        ) : (
-          // Static version for SSR
-          <div className="absolute inset-0">
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${heroSlides[0].image})` }}
-            />
-            <div className="container relative z-10 mx-auto flex h-full items-center px-4">
-              <div className="max-w-5xl">
-                <div className="mb-8 flex items-center space-x-6">
-                  <Badge className="bg-blue-600 text-white px-8 py-4 text-lg font-bold">{heroSlides[0].subtitle}</Badge>
-                  <LiberiaFlag className="h-10 w-16" />
-                  <Star className="h-8 w-8 text-white fill-white" />
-                </div>
-                <h1 className="mb-8 text-5xl font-bold text-white md:text-7xl leading-tight">{heroSlides[0].title}</h1>
-                <p className="mb-12 text-xl text-white/95 max-w-4xl leading-relaxed">{heroSlides[0].description}</p>
-                <div className="flex flex-wrap gap-6">
+
+              {/* Main Headlines */}
+              <motion.h1
+                className="mb-6 text-4xl font-bold text-white md:text-6xl leading-tight"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                {heroSlides[currentSlide].title}
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                className="mb-8 text-lg text-white/95 max-w-4xl leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              >
+                {heroSlides[currentSlide].description}
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                className="flex flex-wrap gap-4 mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.8 }}
+              >
                   <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                    <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-lg font-bold">
-                      {heroSlides[0].cta}
-                      <ArrowRight className="ml-3 h-6 w-6" />
+                    <Button
+                      size="lg"
+                    className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 text-lg font-bold shadow-2xl border border-blue-500/30"
+                    >
+                      {heroSlides[currentSlide].cta}
+                    <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white hover:bg-white/10 px-10 py-6 text-lg font-bold bg-transparent"
+                  <Link href={`${base}/academics`}>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                    className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold backdrop-blur-sm bg-transparent"
+                    >
+                      Explore Programs
+                    <GraduationCap className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+              </motion.div>
+
+              {/* Key Features */}
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.8 }}
+              >
+                {[
+                  {
+                    icon: GraduationCap,
+                    title: "28 Programs",
+                    subtitle: "Across 4 Faculties",
+                    keywords: "academic programs liberia",
+                  },
+                  {
+                    icon: Users,
+                    title: "1,500+ Students",
+                    subtitle: "Thriving Community",
+                    keywords: "student community liberia",
+                  },
+                  {
+                    icon: Award,
+                    title: "1+ Years Excellence",
+                    subtitle: "Proven Track Record",
+                    keywords: "educational excellence liberia",
+                  },
+                ].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20"
+                    data-keywords={feature.keywords}
                   >
-                    Explore Programs
-                    <GraduationCap className="ml-3 h-6 w-6" />
-                  </Button>
-                </div>
-              </div>
+                    <feature.icon className="h-8 w-8 text-blue-300" />
+                    <div>
+                      <div className="text-white font-bold">{feature.title}</div>
+                      <div className="text-blue-200 text-sm">{feature.subtitle}</div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
             </div>
           </div>
-        )}
+        </motion.div>
 
-        {/* Enhanced slide indicators */}
-        {isClient && (
-          <div className="absolute bottom-12 left-0 right-0 z-10 flex justify-center">
-            <div className="flex space-x-4 bg-black/30 backdrop-blur-md rounded-full px-8 py-4">
+        {/* Simplified slide indicators */}
+        <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center">
+          <div className="flex space-x-3 bg-black/30 backdrop-blur-md rounded-full px-6 py-3">
               {heroSlides.map((_, index) => (
-                <motion.button
+              <button
                   key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`h-3 w-16 rounded-full transition-all duration-500 ${
+                onClick={() => handleSlideChange(index)}
+                className={`h-2 w-12 rounded-full transition-all duration-300 ${
                     currentSlide === index ? "bg-white shadow-lg" : "bg-white/40 hover:bg-white/60"
                   }`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
           </div>
-        )}
 
-        {/* Scroll indicator */}
-        {isClient && (
-          <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            suppressHydrationWarning
-          >
-            <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center mb-2">
-              <motion.div
-                className="w-1.5 h-3 bg-white/80 rounded-full mt-2"
-                animate={{ y: [0, 16, 0] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-              />
+        {/* Simplified scroll indicator */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center">
+          <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center mb-2">
+            <div className="w-1 h-2 bg-white/80 rounded-full mt-2" />
             </div>
             <p className="text-white/70 text-sm font-medium">Discover Excellence</p>
-          </motion.div>
-        )}
+        </div>
       </section>
 
-      {/* Enhanced About Section with Parallax */}
-      <ParallaxSection offset={100}>
-        <section className="py-32 relative overflow-hidden">
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-red-50/50"
-            animate={{
-              background: [
-                "linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(239, 68, 68, 0.1))",
-                "linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(59, 130, 246, 0.1))",
-                "linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(239, 68, 68, 0.1))",
-              ],
-            }}
-            transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY }}
-          />
+      {/* Simplified About Section */}
+      <ParallaxSection offset={50}>
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-red-50/50" />
 
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
-              className="grid gap-16 md:grid-cols-2 items-center"
+              className="grid gap-12 md:grid-cols-2 items-center"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={containerVariants}
             >
-              <motion.div variants={itemVariants} className="space-y-8">
-                <motion.h2
-                  className="text-sm font-semibold uppercase tracking-wider text-blue-700"
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  Unity University - Liberia Campus
-                </motion.h2>
+              <motion.div variants={itemVariants} className="space-y-6">
+                <h2 className="text-sm font-semibold uppercase tracking-wider text-blue-700">
+                  The Unity University - Liberia Campus
+                </h2>
 
-                <motion.h3
-                  className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                   Excellence in{" "}
-                  <motion.span
-                    className="text-liberian-gradient"
-                    animate={{ backgroundPosition: ["0%", "100%", "0%"] }}
-                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                  >
+                  <span className="text-liberian-gradient">
                     Liberian Higher Education
-                  </motion.span>
-                </motion.h3>
+                  </span>
+                </h3>
 
-                <motion.div className="space-y-6 text-lg text-gray-600 leading-relaxed" variants={containerVariants}>
-                  <motion.p variants={itemVariants}>
-                    Since establishing our Liberia campus in mid-2024, Unity University has been at the forefront of
+                <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <p>
+                    Since establishing our Liberia campus in mid-2024, The Unity University has been at the forefront of
                     educational excellence in West Africa. Our institution embodies the spirit of Liberia - a nation
                     founded on the principles of freedom, democracy, and opportunity for all.
-                  </motion.p>
-                  <motion.p variants={itemVariants}>
+                  </p>
+                  <p>
                     Located in the vibrant capital city of Monrovia, we offer comprehensive programs designed to meet
                     Liberia's development needs while preparing our students to compete globally in an interconnected
-                    world. Our commitment to academic excellence and community service reflects our motto: "The Love of
-                    Liberty Brought Us Here."
-                  </motion.p>
-                  <motion.p variants={itemVariants}>
-                    With state-of-the-art facilities, expert faculty, and strong industry partnerships, we provide
-                    students with the knowledge, skills, and values needed to become leaders in their chosen fields and
-                    contributors to Liberia's continued growth and prosperity.
-                  </motion.p>
-                </motion.div>
+                    world.
+                  </p>
+                </div>
 
-                <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                  <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
+                <div className="flex flex-wrap gap-4">
                     <Link href={`${base}/about/history`}>
-                      <Button className="group bg-blue-700 text-white hover:bg-blue-800 px-8 py-4 text-lg font-semibold shadow-xl">
+                    <Button className="bg-blue-700 text-white hover:bg-blue-800 px-6 py-3 font-semibold shadow-xl">
                         Learn More About Us
-                        <motion.div
-                          className="ml-2"
-                          animate={{ x: [0, 5, 0] }}
-                          transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                        >
-                          <ChevronRight className="h-5 w-5" />
-                        </motion.div>
+                      <ChevronRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
                     <Link href={`${base}/about/contact`}>
-                      <Button variant="outline" className="px-8 py-4 text-lg font-semibold border-2 bg-transparent">
+                    <Button variant="outline" className="px-6 py-3 font-semibold border-2 bg-transparent">
                         Visit Campus
-                        <MapPin className="ml-2 h-5 w-5" />
+                      <MapPin className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                  </motion.div>
-                </motion.div>
+                </div>
               </motion.div>
 
-              <motion.div variants={itemVariants} whileHover={{ scale: 1.02, rotateY: 5 }} className="relative">
-                <motion.div
-                  className="absolute -inset-4 bg-gradient-to-r from-red-600 to-blue-600 rounded-2xl opacity-20 blur-xl"
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                />
-                <div className="relative h-[600px] overflow-hidden rounded-2xl shadow-2xl">
+              <motion.div variants={itemVariants} className="relative">
+                <div className="relative h-[500px] overflow-hidden rounded-2xl shadow-2xl">
                   <Image
-                    src="/placeholder.svg?height=1200&width=800"
-                    alt="Unity University Liberia Campus in Monrovia"
+                    src="/graduation/master-of-education-and-planning.jpg"
+                    alt="The Unity University Liberia Campus in Monrovia"
                     fill
                     className="object-cover"
                   />
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                  />
-                  <motion.div
-                    className="absolute bottom-8 left-8 text-white"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                  >
-                    <h4 className="text-2xl font-bold mb-2">Monrovia Campus</h4>
-                    <p className="text-white/90 text-lg">Modern facilities in the heart of Liberia</p>
-                    <div className="mt-3 flex items-center space-x-2">
-                      <LiberiaFlag className="h-6 w-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <h4 className="text-xl font-bold mb-2">Monrovia Campus</h4>
+                    <p className="text-white/90">Modern facilities in the heart of Liberia</p>
+                    <div className="mt-2 flex items-center space-x-2">
+                      <LiberiaFlag className="h-5 w-8" />
                       <span className="text-sm font-medium">The Love of Liberty Brought Us Here</span>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -647,149 +515,70 @@ export default function LiberiaHome() {
         </section>
       </ParallaxSection>
 
-      {/* Enhanced Stats Section with Animated Counters */}
-      <motion.section
-        className="py-20 bg-gradient-to-r from-red-700 via-white to-blue-700 relative overflow-hidden"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          animate={{
-            backgroundImage: [
-              "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY }}
-        />
+      {/* Rest of the sections remain the same but with simplified animations... */}
+      {/* I'll continue with the rest of the optimizations */}
 
+      {/* Simplified Stats Section */}
+      <section className="py-16 bg-gradient-to-r from-red-700 via-white to-blue-700 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Excellence in Numbers</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Our achievements demonstrate Unity University Liberia's commitment to academic excellence and community
-              impact.
-            </p>
+          <motion.div className="text-center mb-12" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
+            <motion.h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" variants={itemVariants}>Excellence in Numbers</motion.h2>
+            <motion.p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed" variants={itemVariants}>
+              Our achievements demonstrate The Unity University Liberia's commitment to academic excellence and community impact.
+            </motion.p>
           </motion.div>
 
-          <motion.div className="grid grid-cols-2 gap-12 md:grid-cols-4" variants={containerVariants}>
+          <motion.div className="grid grid-cols-2 gap-8 md:grid-cols-4" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             {[
-              {
-                number: 1500,
-                label: "Students Enrolled",
-                sublabel: "Active Learners",
-                icon: Users,
-                keywords: "student enrollment liberia",
-              },
-              {
-                number: 85,
-                label: "Faculty & Staff",
-                sublabel: "Expert Educators",
-                icon: Award,
-                keywords: "faculty staff liberia",
-              },
-              {
-                number: 28,
-                label: "Academic Programs",
-                sublabel: "Diverse Offerings",
-                icon: BookOpen,
-                keywords: "academic programs liberia",
-              },
-              {
-                number: 1,
-                label: "Year of Excellence",
-                sublabel: "Growing Strong",
-                icon: Globe,
-                keywords: "educational excellence liberia",
-              },
+              { number: 1500, label: "Students Enrolled", sublabel: "Active Learners", icon: Users },
+              { number: 85, label: "Faculty & Staff", sublabel: "Expert Educators", icon: Award },
+              { number: 28, label: "Academic Programs", sublabel: "Diverse Offerings", icon: BookOpen },
+              { number: 1, label: "Year of Excellence", sublabel: "Growing Strong", icon: Globe },
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{
-                  scale: 1.1,
-                  y: -10,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-                }}
-                className="text-center bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl card-hover-effect"
-                data-keywords={stat.keywords}
+                className="text-center bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow duration-300"
               >
-                <motion.div
-                  className="flex justify-center mb-6"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <stat.icon className="h-12 w-12 text-blue-600" />
-                </motion.div>
-                <motion.div
-                  className="text-4xl md:text-5xl font-bold mb-3 text-gray-900"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                >
+                <div className="flex justify-center mb-4">
+                  <stat.icon className="h-10 w-10 text-blue-600" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">
                   <AnimatedCounter end={stat.number} />
                   <span>{stat.number !== 1 ? "+" : ""}</span>
-                </motion.div>
-                <motion.div
-                  className="text-gray-800 font-bold text-lg mb-1"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 + 0.3 }}
-                >
-                  {stat.label}
-                </motion.div>
-                <motion.div
-                  className="text-gray-600 text-sm"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
-                >
-                  {stat.sublabel}
-                </motion.div>
+                </div>
+                <div className="text-gray-800 font-bold mb-1">{stat.label}</div>
+                <div className="text-gray-600 text-sm">{stat.sublabel}</div>
               </motion.div>
             ))}
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Enhanced Programs Section */}
-      <section className="py-32 bg-gray-50 relative overflow-hidden">
-        <motion.div
-          className="absolute inset-0 opacity-5"
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 60, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-blue-500" />
-        </motion.div>
-
+      {/* Simplified Programs Section */}
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            className="mb-16 text-center"
+            className="mb-12 text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
           >
-            <motion.h2
-              className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-700"
-              variants={itemVariants}
-            >
+            <motion.h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-blue-700" variants={itemVariants}>
               Academic Excellence
             </motion.h2>
-            <motion.h3 className="mb-8 text-4xl md:text-5xl font-bold text-gray-900" variants={itemVariants}>
+            <motion.h3 className="mb-6 text-3xl md:text-4xl font-bold text-gray-900" variants={itemVariants}>
               Our <span className="text-liberian-gradient">Programs</span>
             </motion.h3>
-            <motion.p className="mx-auto max-w-3xl text-xl text-gray-600 leading-relaxed" variants={itemVariants}>
+            <motion.p className="mx-auto max-w-2xl text-lg text-gray-600 leading-relaxed" variants={itemVariants}>
               Discover our comprehensive programs designed to meet Liberia's development needs and prepare students for
-              global success in an interconnected world.
+              global success.
             </motion.p>
           </motion.div>
 
           <motion.div
-            className="grid gap-10 md:grid-cols-3"
+            className="grid gap-8 md:grid-cols-3"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -798,86 +587,50 @@ export default function LiberiaHome() {
             {[
               {
                 title: "Business Administration",
-                description:
-                  "Developing business leaders for Liberia's growing economy and regional markets. Comprehensive curriculum covering entrepreneurship, finance, marketing, and management.",
-                image: "/placeholder.svg?height=400&width=600",
-                color: "blue",
-                gradient: "from-blue-600 to-blue-800",
+                description: "Developing business leaders for Liberia's growing economy and regional markets.",
+                image: "/courses/business-class.jpg",
                 features: ["Entrepreneurship Focus", "Industry Partnerships", "Practical Training"],
-                duration: "4 Years Bachelor / 2 Years Master",
-                keywords: "business administration liberia, entrepreneurship monrovia",
+                duration: "3 Years Bachelor / 2 Years Master",
               },
               {
                 title: "Information Technology",
-                description:
-                  "Building digital skills and technological solutions for Liberia's digital transformation. Cutting-edge curriculum in software development, cybersecurity, and data science.",
-                image: "/placeholder.svg?height=400&width=600",
-                color: "red",
-                gradient: "from-red-600 to-red-800",
+                description: "Building digital skills and technological solutions for Liberia's digital transformation.",
+                image: "/courses/technology.jpg",
                 features: ["Modern Curriculum", "Industry Certifications", "Innovation Labs"],
-                duration: "4 Years Bachelor / 2 Years Master",
-                keywords: "information technology liberia, IT courses monrovia",
+                duration: "3 Years Bachelor / 2 Years Master",
               },
               {
                 title: "Public Health",
-                description:
-                  "Training healthcare professionals to serve Liberian communities with excellence. Focus on preventive care, health promotion, and community health management.",
-                image: "/placeholder.svg?height=400&width=600",
-                color: "purple",
-                gradient: "from-blue-600 to-purple-600",
+                description: "Training healthcare professionals to serve Liberian communities with excellence.",
+                image: "/courses/health-sciences.jpg",
                 features: ["Community Focus", "Clinical Training", "Research Opportunities"],
-                duration: "4 Years Bachelor / 2 Years Master",
-                keywords: "public health liberia, healthcare education monrovia",
+                duration: "3 Years Bachelor / 2 Years Master",
               },
             ].map((program, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{
-                  y: -20,
-                  rotateY: 5,
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-                }}
-                className="group"
-                data-keywords={program.keywords}
-              >
-                <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl card-hover-effect">
-                  <div className="relative h-64 w-full overflow-hidden">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.6 }}>
+              <motion.div key={`program-${program.title.replace(/\s+/g, '-').toLowerCase()}`} variants={itemVariants} className="group">
+                <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-shadow duration-300">
+                  <div className="relative h-48 w-full overflow-hidden">
                       <Image
-                        src={program.image || "/placeholder.svg"}
-                        alt={`${program.title} - Unity University Liberia`}
+                      src={program.image}
+                        alt={`${program.title} - The Unity University Liberia`}
                         fill
-                        className="object-cover"
-                      />
-                    </motion.div>
-                    <motion.div
-                      className={`absolute inset-0 bg-gradient-to-t ${program.gradient}/80 to-transparent`}
-                      initial={{ opacity: 0.8 }}
-                      whileHover={{ opacity: 0.9 }}
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute top-4 right-4">
                       <Badge className="bg-white/20 backdrop-blur-sm text-white text-xs">{program.duration}</Badge>
                     </div>
-                    <motion.div
-                      className="absolute bottom-6 left-6 text-white"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.2 }}
-                    >
-                      <h4 className="text-xl font-bold">{program.title}</h4>
-                    </motion.div>
                   </div>
-                  <CardHeader className="pb-4">
-                    <CardTitle className="text-2xl font-bold text-gray-900">{program.title}</CardTitle>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-xl font-bold text-gray-900">{program.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="pb-6">
-                    <p className="text-gray-600 text-lg leading-relaxed mb-4">{program.description}</p>
+                  <CardContent className="pb-4">
+                    <p className="text-gray-600 leading-relaxed mb-4">{program.description}</p>
                     <div className="space-y-2">
                       <h5 className="font-semibold text-gray-900 text-sm">Key Features:</h5>
                       <div className="flex flex-wrap gap-2">
-                        {program.features.map((feature, idx) => (
-                          <Badge key={idx} variant="secondary" className="text-xs">
+                        {program.features.map((feature) => (
+                          <Badge key={`feature-${feature.replace(/\s+/g, '-').toLowerCase()}`} variant="secondary" className="text-xs">
                             {feature}
                           </Badge>
                         ))}
@@ -885,23 +638,12 @@ export default function LiberiaHome() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <motion.div className="w-full" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Link href={`${base}/academics`}>
-                        <Button
-                          variant="outline"
-                          className="w-full group border-2 hover:bg-gray-50 py-3 text-lg font-semibold bg-transparent"
-                        >
+                    <Link href={`${base}/academics`} className="w-full">
+                      <Button variant="outline" className="w-full group border-2 hover:bg-gray-50 py-3 font-semibold bg-transparent">
                           Learn More
-                          <motion.div
-                            className="ml-2"
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                          >
-                            <ArrowRight className="h-5 w-5" />
-                          </motion.div>
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </Link>
-                    </motion.div>
                   </CardFooter>
                 </Card>
               </motion.div>
@@ -909,290 +651,175 @@ export default function LiberiaHome() {
           </motion.div>
 
           <motion.div
-            className="text-center mt-16"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
             <Link href={`${base}/academics`}>
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 px-10 py-4 text-lg font-bold shadow-xl"
-              >
+              <Button size="lg" className="bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 px-8 py-4 font-bold shadow-xl">
                 Explore All Programs
-                <ArrowRight className="ml-3 h-6 w-6" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Enhanced Heritage Section */}
-      <ParallaxSection offset={100}>
-        <section className="py-32 relative overflow-hidden">
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-red-900/5 to-blue-900/5"
-            animate={{
-              background: [
-                "linear-gradient(45deg, rgba(220, 38, 38, 0.05), rgba(37, 99, 235, 0.05))",
-                "linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(220, 38, 38, 0.05))",
-                "linear-gradient(45deg, rgba(220, 38, 38, 0.05), rgba(37, 99, 235, 0.05))",
-              ],
-            }}
-            transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY }}
-          />
+      {/* Simplified Heritage Section */}
+      <ParallaxSection offset={40}>
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-red-900/5 to-blue-900/5" />
 
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
-              className="grid gap-16 md:grid-cols-2 items-center"
+              className="grid gap-12 md:grid-cols-2 items-center"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={containerVariants}
             >
-              <motion.div variants={itemVariants} whileHover={{ scale: 1.02, rotateY: -5 }} className="relative">
-                <motion.div
-                  className="absolute -inset-4 bg-gradient-to-r from-red-600 to-blue-600 rounded-2xl opacity-20 blur-xl"
-                  animate={{ rotate: [0, -360] }}
-                  transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                />
-                <div className="relative h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+              <motion.div variants={itemVariants} className="relative">
+                <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-2xl">
                   <Image
-                    src="/placeholder.svg?height=1000&width=800"
+                    src="https://diplomaticwatch.com/wp-content/uploads/2024/07/Liberia-cultural-performance.jpg"
                     alt="Liberian Heritage and Culture"
                     fill
                     className="object-cover"
                   />
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                  />
-                  <motion.div
-                    className="absolute bottom-8 left-8 text-white"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                  >
-                    <h4 className="text-2xl font-bold mb-2">Liberian Heritage</h4>
-                    <p className="text-white/90 text-lg mb-3">Celebrating our rich cultural legacy</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <h4 className="text-xl font-bold mb-2">Liberian Heritage</h4>
+                    <p className="text-white/90 mb-2">Celebrating our rich cultural legacy</p>
                     <div className="flex items-center space-x-2">
-                      <LiberiaFlag className="h-6 w-10" />
+                      <LiberiaFlag className="h-5 w-8" />
                       <span className="text-sm font-medium">The Love of Liberty Brought Us Here</span>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
 
-              <motion.div variants={itemVariants} className="space-y-8">
-                <motion.h2
-                  className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
+              <motion.div variants={itemVariants} className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                   Honoring Our Heritage,{" "}
-                  <motion.span
-                    className="text-liberian-gradient"
-                    animate={{ backgroundPosition: ["0%", "100%", "0%"] }}
-                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                  >
+                  <span className="text-liberian-gradient">
                     Building Our Future
-                  </motion.span>
-                </motion.h2>
+                  </span>
+                </h2>
 
-                <motion.div className="space-y-6" variants={containerVariants}>
+                <div className="space-y-4">
                   {[
                     {
                       title: "Cultural Preservation",
-                      description:
-                        "Celebrating and preserving Liberia's rich cultural traditions, languages, and heritage while fostering academic excellence.",
-                      color: "red",
+                      description: "Celebrating and preserving Liberia's rich cultural traditions, languages, and heritage while fostering academic excellence.",
                       icon: Heart,
                     },
                     {
                       title: "Democratic Values",
-                      description:
-                        "Upholding the democratic principles that make Liberia Africa's oldest republic, promoting freedom and equality in education.",
-                      color: "white",
-                      border: "blue",
+                      description: "Upholding the democratic principles that make Liberia Africa's oldest republic, promoting freedom and equality in education.",
                       icon: Shield,
                     },
                     {
                       title: "Community Service",
-                      description:
-                        "Fostering a spirit of service and giving back to Liberian communities through education, research, and outreach programs.",
-                      color: "blue",
+                      description: "Fostering a spirit of service and giving back to Liberian communities through education, research, and outreach programs.",
                       icon: Users,
                     },
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      variants={itemVariants}
-                      whileHover={{ x: 10, scale: 1.02 }}
-                      className="flex items-start space-x-6 p-6 rounded-xl hover:bg-white/50 transition-all duration-300 card-hover-effect"
-                    >
-                      <motion.div
-                        className={`mt-1 h-12 w-12 rounded-full flex items-center justify-center ${
-                          item.color === "red"
-                            ? "bg-red-600"
-                            : item.color === "blue"
-                              ? "bg-blue-600"
-                              : "bg-white border-4 border-blue-600"
-                        }`}
-                        whileHover={{ scale: 1.2, rotate: 180 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <item.icon className={`h-6 w-6 ${item.color === "white" ? "text-blue-600" : "text-white"}`} />
-                      </motion.div>
-                      <div>
-                        <h4 className="font-bold text-xl text-gray-900 mb-3">{item.title}</h4>
-                        <p className="text-gray-600 text-lg leading-relaxed">{item.description}</p>
+                  ].map((item) => (
+                    <div key={`heritage-${item.title.replace(/\s+/g, '-').toLowerCase()}`} className="flex items-start space-x-4 p-4 rounded-xl hover:bg-white/50 transition-colors duration-200">
+                      <div className="mt-1 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center">
+                        <item.icon className="h-5 w-5 text-white" />
                       </div>
-                    </motion.div>
+                      <div>
+                        <h4 className="font-bold text-lg text-gray-900 mb-2">{item.title}</h4>
+                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                      </div>
+                    </div>
                   ))}
-                </motion.div>
+                </div>
 
-                <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                  <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
+                <div className="flex flex-wrap gap-4">
                     <Link href={`${base}/about/history`}>
-                      <Button className="bg-red-600 text-white hover:bg-red-700 px-8 py-4 text-lg font-semibold shadow-xl">
+                    <Button className="bg-red-600 text-white hover:bg-red-700 px-6 py-3 font-semibold shadow-xl">
                         Our History
-                        <Heart className="ml-2 h-5 w-5" />
+                      <Heart className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
                     <Link href={`${base}/about/leadership`}>
-                      <Button variant="outline" className="px-8 py-4 text-lg font-semibold border-2 bg-transparent">
+                    <Button variant="outline" className="px-6 py-3 font-semibold border-2 bg-transparent">
                         Leadership
-                        <Shield className="ml-2 h-5 w-5" />
+                      <Shield className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                  </motion.div>
-                </motion.div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
         </section>
       </ParallaxSection>
 
-      {/* Enhanced Contact Section */}
-      <motion.section
-        className="bg-gradient-to-r from-red-800 to-blue-800 py-32 relative overflow-hidden"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
+      {/* Simplified Contact Section */}
+      <section className="bg-gradient-to-r from-red-800 to-blue-800 py-20 relative overflow-hidden">
         <FloatingParticles />
 
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          animate={{
-            background: [
-              "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 80%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
-        />
-
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div className="mx-auto max-w-4xl text-center text-white" variants={containerVariants}>
-            <motion.div className="mb-8 flex justify-center" variants={itemVariants}>
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-              >
-                <LiberiaFlag className="h-16 w-24" />
-              </motion.div>
+          <motion.div className="mx-auto max-w-4xl text-center text-white" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
+            <motion.div className="mb-6 flex justify-center" variants={itemVariants}>
+              <LiberiaFlag className="h-12 w-20" />
             </motion.div>
 
-            <motion.h2 className="mb-8 text-4xl md:text-5xl font-bold" variants={itemVariants}>
+            <motion.h2 className="mb-6 text-3xl md:text-4xl font-bold" variants={itemVariants}>
               Ready to Shape Your Future?
             </motion.h2>
-            <motion.p className="mb-12 text-xl leading-relaxed opacity-95" variants={itemVariants}>
-              Join the Unity University Liberia family and become part of a community dedicated to excellence,
-              innovation, and positive impact. Your journey to success starts here in Monrovia, where "The Love of
-              Liberty Brought Us Here."
+            <motion.p className="mb-8 text-lg leading-relaxed opacity-95" variants={itemVariants}>
+              Join The Unity University Liberia family and become part of a community dedicated to excellence,
+              innovation, and positive impact. Your journey to success starts here in Monrovia.
             </motion.p>
 
-            <motion.div className="grid gap-8 md:grid-cols-3 mb-12" variants={containerVariants}>
+            <motion.div className="grid gap-6 md:grid-cols-3 mb-8" variants={containerVariants}>
               {[
-                {
-                  icon: Phone,
-                  title: "Call Us",
-                  info: "+231 77 123 4567",
-                  action: "tel:+23177123456",
-                  keywords: "contact university liberia phone",
-                },
-                {
-                  icon: Mail,
-                  title: "Email Us",
-                  info: "liberia@tuu.university",
-                  action: "mailto:liberia@tuu.university",
-                  keywords: "contact university liberia email",
-                },
-                {
-                  icon: MapPin,
-                  title: "Visit Us",
-                  info: "Monrovia, Liberia",
-                  action: `${base}/about/contact`,
-                  keywords: "visit campus monrovia liberia",
-                },
-              ].map((contact, index) => (
+                { icon: Phone, title: "Call Us", info: "+231 77 123 4567", action: "tel:+23177123456" },
+                { icon: Mail, title: "Email Us", info: "liberia@tuu.university", action: "mailto:liberia@tuu.university" },
+                { icon: MapPin, title: "Visit Us", info: "Monrovia, Liberia", action: `${base}/about/contact` },
+              ].map((contact) => (
                 <motion.a
-                  key={index}
+                  key={`contact-${contact.title.replace(/\s+/g, '-').toLowerCase()}`}
                   href={contact.action}
                   variants={itemVariants}
-                  whileHover={{
-                    scale: 1.1,
-                    y: -10,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-                  }}
-                  className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-2xl p-8 card-hover-effect"
-                  data-keywords={contact.keywords}
+                  className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-colors duration-200"
                 >
-                  <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-                    <contact.icon className="h-12 w-12 mb-4" />
-                  </motion.div>
-                  <h4 className="font-bold text-xl mb-2">{contact.title}</h4>
-                  <p className="text-lg opacity-90">{contact.info}</p>
+                  <contact.icon className="h-10 w-10 mb-3" />
+                  <h4 className="font-bold text-lg mb-2">{contact.title}</h4>
+                  <p className="opacity-90">{contact.info}</p>
                 </motion.a>
               ))}
             </motion.div>
 
-            <motion.div className="flex flex-wrap justify-center gap-6" variants={containerVariants}>
-              <motion.div variants={itemVariants} whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
+            <motion.div className="flex flex-wrap justify-center gap-4" variants={containerVariants}>
+              <motion.div variants={itemVariants}>
                 <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    size="lg"
-                    className="bg-white text-blue-700 hover:bg-gray-100 px-10 py-6 text-lg font-bold shadow-2xl"
-                  >
+                  <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 font-bold shadow-2xl">
                     Apply Now - 2025-2026 Admission
-                    <GraduationCap className="ml-3 h-6 w-6" />
+                    <GraduationCap className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
               </motion.div>
-              <motion.div variants={itemVariants} whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }}>
+              <motion.div variants={itemVariants}>
                 <Link href={`${base}/about/contact`}>
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-2 border-white text-white hover:bg-white/10 px-10 py-6 text-lg font-bold backdrop-blur-sm bg-transparent"
+                    className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 font-bold backdrop-blur-sm bg-transparent"
                   >
                     Schedule Campus Visit
-                    <MapPin className="ml-3 h-6 w-6" />
+                    <MapPin className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
               </motion.div>
             </motion.div>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       <LiberiaFooter />
     </div>

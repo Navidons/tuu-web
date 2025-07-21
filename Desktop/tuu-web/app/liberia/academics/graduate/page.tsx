@@ -29,6 +29,7 @@ import {
   TrendingUp,
   Shield,
   Heart,
+  ChevronDown,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -39,10 +40,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { cn } from "@/lib/utils"
 import LiberiaNavbar from "@/components/liberia/liberia-navbar"
 import LiberiaFooter from "@/components/liberia/liberia-footer"
+import { useInView } from "react-intersection-observer"
 
 const LiberiaFlag = ({ className = "h-6 w-10" }: { className?: string }) => {
   return (
-    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}>
+    <div className={cn(className, "relative overflow-hidden rounded-md shadow-lg border border-white/30 animate-flag-wave")}>
       {/* Stripes */}
       <div className="liberian-flag-gradient w-full h-full" />
 
@@ -50,7 +52,7 @@ const LiberiaFlag = ({ className = "h-6 w-10" }: { className?: string }) => {
       <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
         <svg
           viewBox="0 0 24 24"
-          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
+          className="w-[12px] h-[12px] text-white fill-current drop-shadow-sm"
         >
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
@@ -76,557 +78,382 @@ const Breadcrumb = () => {
   )
 }
 
+// Animated counter component
+const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
+  const [count, setCount] = useState(0)
+  const [mounted, setMounted] = useState(false)
+  const [ref, isInView] = useInView({
+    triggerOnce: true,
+  })
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (mounted && isInView) {
+      let startTime: number
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime
+        const progress = Math.min((currentTime - startTime) / (duration * 1000), 1)
+        setCount(Math.floor(progress * end))
+        if (progress < 1) {
+          requestAnimationFrame(animate)
+        }
+      }
+      requestAnimationFrame(animate)
+    }
+  }, [mounted, isInView, end, duration])
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  )
+}
+
+// Program Card component for reusability
+const ProgramCard = ({ program, onClick }: { program: any; onClick: () => void }) => {
+  return (
+    <motion.div
+      whileHover={{ y: -10, scale: 1.02 }}
+      className="group cursor-pointer"
+      onClick={onClick}
+    >
+      <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl transition-all duration-300 hover:shadow-2xl">
+        <div className="relative h-48 overflow-hidden">
+          <Image
+            src={program.image || "/placeholder.svg"}
+            alt={program.name}
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute top-4 right-4">
+            <Badge className="bg-white/90 text-gray-900 font-bold">{program.duration}</Badge>
+          </div>
+          <div className="absolute top-4 left-4">
+            <Badge className="bg-red-600/90 text-white font-bold">Graduate</Badge>
+          </div>
+          <div className="absolute bottom-4 left-4">
+            {program.icon ? (
+              <program.icon className="h-8 w-8 text-white" />
+            ) : (
+              <GraduationCap className="h-8 w-8 text-white" />
+            )}
+          </div>
+        </div>
+
+        <CardHeader className="pb-4">
+          <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+            {program.name}
+          </CardTitle>
+          <div className="flex items-center space-x-4 text-sm text-gray-600">
+            <span className="flex items-center">
+              <Clock className="h-4 w-4 mr-1" />
+              {program.credits}
+            </span>
+          </div>
+        </CardHeader>
+
+        <CardContent className="pb-6">
+          <p className="text-gray-600 mb-4 line-clamp-3">{program.description}</p>
+          <div className="space-y-2">
+            <h4 className="font-semibold text-gray-900 text-sm">Key Highlights:</h4>
+            <div className="flex flex-wrap gap-1">
+              {program.specializations.slice(0, 2).map((highlight: string, idx: number) => (
+                <Badge key={idx} variant="secondary" className="text-xs">
+                  {highlight}
+                </Badge>
+              ))}
+              {program.specializations.length > 2 && (
+                <Badge variant="secondary" className="text-xs">
+                  +{program.specializations.length - 2} more
+                </Badge>
+              )}
+            </div>
+          </div>
+        </CardContent>
+
+        <div className="px-6 pb-6">
+          <Button className="w-full group-hover:bg-blue-600 transition-colors">
+            Learn More
+            <ChevronRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </Card>
+    </motion.div>
+  )
+}
+
 export default function GraduatePage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [selectedProgram, setSelectedProgram] = useState<string | null>(null)
   const [isClient, setIsClient] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
 
   useEffect(() => {
     setIsClient(true)
+    setMounted(true)
   }, [])
 
   const programs = [
-    // Faculty of Social Sciences Graduate Programs
     {
-      id: "ma-international-relations",
-      title: "Master of Arts in International Relations and Diplomatic Studies",
-      category: "social",
-      duration: "2 Years",
-      credits: "60 Credits",
-      icon: Globe,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced program for professionals seeking expertise in international diplomacy, foreign policy analysis, and global governance for careers in diplomatic service and international organizations.",
-      highlights: [
-        "Advanced Diplomatic Theory",
-        "International Law & Organizations",
-        "Foreign Policy Analysis",
-        "Conflict Resolution",
-        "Global Governance",
-      ],
-      curriculum: [
-        "Advanced International Relations Theory",
-        "Diplomatic Practice and Protocol",
-        "International Law and Organizations",
-        "Foreign Policy Analysis",
-        "Conflict Resolution and Peacebuilding",
-        "Global Political Economy",
-        "Research Methods in International Relations",
-        "Thesis Project",
-      ],
-      careers: [
-        "Senior Diplomat",
-        "Foreign Policy Analyst",
-        "International Development Specialist",
-        "Conflict Resolution Specialist",
-        "International NGO Director",
-        "Embassy Official",
-      ],
-      requirements: {
-        academic: "Bachelor's degree in related field with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Research proposal and academic references",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["West African Regional Integration", "Post-Conflict Development", "International Trade Policy"],
+      name: "Master of Business Administration (MBA)",
+      school: "Business & Management",
+      duration: "2 years",
+      credits: 60,
+      format: "Full-time / Part-time",
+      description: "Executive business education preparing senior leaders for Liberia's private and public sectors",
+      specializations: ["Strategic Management", "Finance", "Marketing", "Operations", "International Business"],
+      careers: ["CEO", "VP Operations", "Management Consultant", "Investment Manager"],
+      requirements: ["Bachelor's degree", "3+ years work experience", "Letters of recommendation"],
+      image: "/courses/business-class.jpg",
+      accreditation: "AACSB International Accredited",
+      curriculum: ["Strategic Management", "Financial Management", "Marketing Strategy", "Operations Management", "Leadership Development", "International Business"],
+      researchAreas: ["Strategic Management", "Organizational Leadership", "Financial Markets", "Marketing Innovation"],
+      icon: Briefcase,
     },
     {
-      id: "ma-public-administration",
-      title: "Master of Arts in Public Administration and Management",
-      category: "social",
-      duration: "2 Years",
-      credits: "60 Credits",
-      icon: Building,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced public administration program preparing leaders for senior positions in government, NGOs, and international development organizations.",
-      highlights: [
-        "Advanced Public Policy",
-        "Government Administration",
-        "Leadership Development",
-        "Public Finance Management",
-        "Governance and Ethics",
-      ],
-      curriculum: [
-        "Advanced Public Administration Theory",
-        "Public Policy Analysis and Evaluation",
-        "Public Financial Management",
-        "Leadership and Governance",
-        "Public Sector Reform",
-        "Development Administration",
-        "Research Methods",
-        "Capstone Project",
-      ],
-      careers: [
-        "Senior Government Administrator",
-        "Policy Director",
-        "Public Sector Consultant",
-        "International Development Manager",
-        "NGO Executive Director",
-        "Municipal Manager",
-      ],
-      requirements: {
-        academic: "Bachelor's degree with minimum 3.0 GPA and relevant work experience",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Professional experience and leadership potential",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Public Sector Reform", "Decentralization", "E-governance"],
-    },
-    {
-      id: "ma-development-studies",
-      title: "Master of Arts in Development Studies",
-      category: "social",
-      duration: "2 Years",
-      credits: "60 Credits",
-      icon: Heart,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Interdisciplinary program examining development challenges and solutions, preparing leaders for international development organizations and policy-making roles.",
-      highlights: [
-        "Development Theory & Practice",
-        "Project Management",
-        "Policy Analysis",
-        "Community Development",
-        "Sustainable Development",
-      ],
-      curriculum: [
-        "Development Theory and Practice",
-        "Development Economics",
-        "Project Planning and Management",
-        "Development Policy Analysis",
-        "Gender and Development",
-        "Environmental Development",
-        "Research Methodology",
-        "Thesis Research",
-      ],
-      careers: [
-        "Development Program Manager",
-        "International Development Consultant",
-        "Policy Analyst",
-        "Research Coordinator",
-        "NGO Program Director",
-        "Development Finance Officer",
-      ],
-      requirements: {
-        academic: "Bachelor's degree in social sciences or related field with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Development work experience preferred",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Rural Development", "Poverty Reduction", "Sustainable Development"],
-    },
-
-    // Faculty of Business and Management Graduate Programs
-    {
-      id: "mba",
-      title: "Master of Business Administration (MBA)",
-      category: "business",
-      duration: "2 Years",
-      credits: "60 Credits",
-      icon: TrendingUp,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced business leadership program designed for experienced professionals seeking executive roles in Liberia's dynamic business environment and international markets.",
-      highlights: [
-        "Executive Leadership Development",
-        "Strategic Management Focus",
-        "International Business Exposure",
-        "Capstone Business Project",
-        "Industry Mentorship Program",
-      ],
-      curriculum: [
-        "Strategic Management",
-        "Financial Analysis & Planning",
-        "International Business Strategy",
-        "Leadership & Organizational Behavior",
-        "Marketing Management",
-        "Operations & Supply Chain Management",
-        "Business Ethics & Corporate Governance",
-        "Entrepreneurship & Innovation",
-      ],
-      careers: [
-        "Chief Executive Officer",
-        "Business Development Director",
-        "Strategic Consultant",
-        "Investment Manager",
-        "Operations Director",
-        "International Business Manager",
-      ],
-      requirements: {
-        academic: "Bachelor's degree with minimum 3.0 GPA and 2+ years work experience",
-        english: "TOEFL 90+ or IELTS 7.0+ (for international students)",
-        additional: "GMAT/GRE scores, professional resume, and leadership essay",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Sustainable Business Practices", "African Market Development", "Digital Transformation"],
-    },
-    {
-      id: "mhrm",
-      title: "Master of Human Resources Management",
-      category: "business",
-      duration: "2 Years",
-      credits: "60 Credits",
+      name: "Master of Human Resources Management",
+      school: "Business & Management",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time / Part-time",
+      description: "Advanced HR management for senior leadership positions in Liberian businesses and organizations",
+      specializations: ["HR Strategy", "Talent Management", "Organizational Development", "Employment Law"],
+      careers: ["HR Director", "Talent Manager", "Organizational Consultant", "Training Manager"],
+      requirements: ["Bachelor's degree", "HR experience preferred", "Letters of recommendation"],
+      image: "/courses/human-resources.jpg",
+      accreditation: "CIPD Recognized",
+      curriculum: ["HR Strategy", "Talent Management", "Organizational Development", "Employment Law", "Performance Management", "Leadership Development"],
+      researchAreas: ["HR Strategy", "Talent Management", "Organizational Behavior", "Employment Relations"],
       icon: Users,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced HR management program focusing on strategic human resource development, organizational psychology, and leadership in modern organizations.",
-      highlights: [
-        "Strategic HR Management",
-        "Organizational Development",
-        "Leadership Psychology",
-        "Talent Management",
-        "International HR Practices",
-      ],
-      curriculum: [
-        "Strategic Human Resource Management",
-        "Advanced Organizational Behavior",
-        "Talent Development and Management",
-        "Compensation and Benefits Strategy",
-        "Employment Law and Relations",
-        "HR Analytics and Metrics",
-        "Change Management",
-        "Research Project",
-      ],
-      careers: [
-        "HR Director",
-        "Organizational Development Specialist",
-        "Talent Management Manager",
-        "HR Consultant",
-        "Training and Development Director",
-        "Chief People Officer",
-      ],
-      requirements: {
-        academic: "Bachelor's degree with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "HR experience and professional references",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Employee Engagement", "Diversity & Inclusion", "HR Technology"],
     },
     {
-      id: "maf",
-      title: "Master of Accounting & Finance",
-      category: "business",
-      duration: "2 Years",
-      credits: "60 Credits",
+      name: "Master of Accounting and Finance",
+      school: "Business & Management",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time",
+      description: "Advanced accounting and finance education for senior financial management and consulting roles",
+      specializations: ["Financial Accounting", "Management Accounting", "Auditing", "Tax Planning"],
+      careers: ["Finance Director", "Chief Financial Officer", "Senior Accountant", "Financial Analyst"],
+      requirements: ["Bachelor's degree in related field", "Accounting experience preferred", "Letters of recommendation"],
+      image: "/courses/accounts.jpg",
+      accreditation: "ACCA Recognized",
+      curriculum: ["Financial Accounting", "Management Accounting", "Auditing", "Tax Planning", "Financial Analysis", "Corporate Finance"],
+      researchAreas: ["Financial Accounting", "Management Accounting", "Auditing", "Financial Analysis"],
       icon: Calculator,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced accounting and finance program preparing professionals for senior financial management roles in both public and private sectors.",
-      highlights: [
-        "Advanced Financial Analysis",
-        "International Accounting Standards",
-        "Corporate Finance Strategy",
-        "Risk Management",
-        "Professional Certification Preparation",
-      ],
-      curriculum: [
-        "Advanced Financial Accounting",
-        "International Financial Reporting",
-        "Corporate Finance Strategy",
-        "Advanced Auditing",
-        "Financial Risk Management",
-        "Investment Analysis",
-        "Research Methods in Finance",
-        "Capstone Project",
-      ],
-      careers: [
-        "Chief Financial Officer",
-        "Financial Controller",
-        "Investment Manager",
-        "Risk Manager",
-        "Financial Consultant",
-        "Senior Auditor",
-      ],
-      requirements: {
-        academic: "Bachelor's degree in accounting, finance, or related field with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Professional accounting/finance experience preferred",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Financial Markets Development", "Corporate Governance", "Islamic Finance"],
     },
     {
-      id: "mpm",
-      title: "Master of Project Planning and Management",
-      category: "business",
-      duration: "2 Years",
-      credits: "60 Credits",
-      icon: Building,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Specialized program focusing on advanced project management methodologies, strategic planning, and leadership for complex development projects.",
-      highlights: [
-        "Advanced Project Management",
-        "Strategic Planning",
-        "Risk Assessment",
-        "Resource Optimization",
-        "International Development Focus",
-      ],
-      curriculum: [
-        "Advanced Project Management",
-        "Strategic Planning and Analysis",
-        "Project Risk Management",
-        "Resource Mobilization",
-        "Monitoring and Evaluation",
-        "Leadership in Project Management",
-        "Research Methods",
-        "Capstone Project",
-      ],
-      careers: [
-        "Senior Project Manager",
-        "Program Director",
-        "Development Consultant",
-        "Portfolio Manager",
-        "Strategic Planning Advisor",
-        "Project Management Consultant",
-      ],
-      requirements: {
-        academic: "Bachelor's degree with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Project management experience required",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Development Project Management", "Infrastructure Projects", "Technology Projects"],
-    },
-    {
-      id: "mmm",
-      title: "Master of Marketing Management",
-      category: "business",
-      duration: "2 Years",
-      credits: "60 Credits",
+      name: "Master of Marketing Management",
+      school: "Business & Management",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time / Part-time",
+      description: "Advanced marketing for senior marketing roles in Liberian businesses and regional markets",
+      specializations: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Market Research"],
+      careers: ["Marketing Director", "Brand Manager", "Digital Marketing Manager", "Market Research Analyst"],
+      requirements: ["Bachelor's degree", "Marketing experience preferred", "Letters of recommendation"],
+      image: "/courses/business-class.jpg",
+      accreditation: "CIM Recognized",
+      curriculum: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Market Research", "Marketing Strategy", "Marketing Analytics"],
+      researchAreas: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Marketing Innovation"],
       icon: TrendingUp,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced marketing program focusing on strategic marketing management, digital marketing, and consumer behavior in emerging markets.",
-      highlights: [
-        "Strategic Marketing Leadership",
-        "Digital Marketing Innovation",
-        "Consumer Psychology",
-        "Brand Strategy",
-        "Market Research",
-      ],
-      curriculum: [
-        "Strategic Marketing Management",
-        "Advanced Consumer Behavior",
-        "Digital Marketing Strategy",
-        "Brand Management",
-        "Marketing Research Methods",
-        "International Marketing",
-        "Marketing Analytics",
-        "Marketing Strategy Project",
-      ],
-      careers: [
-        "Marketing Director",
-        "Brand Manager",
-        "Digital Marketing Manager",
-        "Marketing Research Manager",
-        "Product Manager",
-        "Marketing Consultant",
-      ],
-      requirements: {
-        academic: "Bachelor's degree with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Marketing experience and portfolio",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Digital Marketing", "Consumer Behavior", "African Markets"],
     },
     {
-      id: "mplscm",
-      title: "Master of Procurement, Logistics and Supply Chain Management",
-      category: "business",
-      duration: "2 Years",
-      credits: "60 Credits",
+      name: "Master of Project Planning and Management",
+      school: "Business & Management",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time / Part-time",
+      description: "Advanced project management for leading major development and infrastructure projects in Liberia",
+      specializations: ["Project Management", "Program Management", "Risk Management", "Quality Management"],
+      careers: ["Project Director", "Program Manager", "PMO Lead", "Operations Manager"],
+      requirements: ["Bachelor's degree", "Project management experience", "Letters of recommendation"],
+      image: "/courses/business-class.jpg",
+      accreditation: "PMI Recognized",
+      curriculum: ["Project Management", "Program Management", "Risk Management", "Quality Management", "Project Leadership", "Project Finance"],
+      researchAreas: ["Project Management", "Program Management", "Risk Management", "Quality Management"],
       icon: Building,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced program focusing on strategic supply chain management, procurement optimization, and logistics coordination for modern organizations.",
-      highlights: [
-        "Strategic Supply Chain Management",
-        "Advanced Procurement",
-        "Logistics Optimization",
-        "Vendor Management",
-        "International Trade",
-      ],
-      curriculum: [
-        "Strategic Supply Chain Management",
-        "Advanced Procurement Systems",
-        "Logistics and Distribution",
-        "Supply Chain Analytics",
-        "International Trade and Logistics",
-        "Vendor Relationship Management",
-        "Supply Chain Risk Management",
-        "Research Project",
-      ],
-      careers: [
-        "Supply Chain Director",
-        "Procurement Manager",
-        "Logistics Manager",
-        "Operations Manager",
-        "Supply Chain Consultant",
-        "Vendor Relations Manager",
-      ],
-      requirements: {
-        academic: "Bachelor's degree with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Supply chain or logistics experience preferred",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Supply Chain Optimization", "Sustainable Logistics", "Procurement Innovation"],
-    },
-
-    // Faculty of Allied Health Sciences Graduate Programs
-    {
-      id: "mph",
-      title: "Master of Public Health",
-      category: "health",
-      duration: "2 Years",
-      credits: "60 Credits",
-      icon: Stethoscope,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced public health program addressing critical health challenges in Liberia and West Africa, focusing on epidemiology, health policy, and community health leadership.",
-      highlights: [
-        "Advanced Epidemiology",
-        "Health Policy Development",
-        "Global Health Focus",
-        "Community Health Leadership",
-        "Research Excellence",
-      ],
-      curriculum: [
-        "Advanced Epidemiology",
-        "Health Policy and Systems",
-        "Biostatistics",
-        "Environmental Health Sciences",
-        "Global Health",
-        "Health Program Evaluation",
-        "Research Methods",
-        "Thesis Project",
-      ],
-      careers: [
-        "Public Health Director",
-        "Epidemiologist",
-        "Health Policy Analyst",
-        "Global Health Specialist",
-        "Health Program Manager",
-        "Health Research Coordinator",
-      ],
-      requirements: {
-        academic: "Bachelor's degree in health sciences or related field with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Public health experience and commitment to service",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Infectious Disease Control", "Maternal Health", "Health Systems Strengthening"],
     },
     {
-      id: "mnfs",
-      title: "Master of Nutrition and Food Science",
-      category: "health",
-      duration: "2 Years",
-      credits: "60 Credits",
+      name: "Master of Procurement, Logistics and Supply Chain Management",
+      school: "Business & Management",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time",
+      description: "Advanced supply chain management for senior logistics and procurement positions in Liberian economy",
+      specializations: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management"],
+      careers: ["Supply Chain Director", "Procurement Manager", "Logistics Manager", "Operations Director"],
+      requirements: ["Bachelor's degree", "Supply chain experience preferred", "Letters of recommendation"],
+      image: "/courses/business-class.jpg",
+      accreditation: "CIPS Recognized",
+      curriculum: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management", "Supply Chain Finance", "Global Sourcing"],
+      researchAreas: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management"],
+      icon: Globe,
+    },
+    {
+      name: "Master of Public Health (MPH)",
+      school: "Allied Health Sciences",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time / Part-time",
+      description: "Advanced public health training for senior health leadership and policy positions in Liberia",
+      specializations: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health"],
+      careers: ["Public Health Director", "Epidemiologist", "Health Policy Analyst", "WHO Officer"],
+      requirements: ["Bachelor's degree", "Healthcare experience preferred", "Statement of purpose"],
+      image: "/courses/health-sciences.jpg",
+      accreditation: "CEPH Accredited",
+      curriculum: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health", "Biostatistics", "Health Economics"],
+      researchAreas: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health"],
       icon: Heart,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced program focusing on nutrition science, food security, and public nutrition policies for improving community health outcomes.",
-      highlights: [
-        "Advanced Nutrition Science",
-        "Food Security Analysis",
-        "Nutritional Epidemiology",
-        "Food Policy Development",
-        "Community Nutrition",
-      ],
-      curriculum: [
-        "Advanced Human Nutrition",
-        "Nutritional Epidemiology",
-        "Food Security and Policy",
-        "Clinical Nutrition",
-        "Food Science and Technology",
-        "Community Nutrition",
-        "Research Methods",
-        "Thesis Project",
-      ],
-      careers: [
-        "Senior Nutritionist",
-        "Food Policy Analyst",
-        "Public Health Nutritionist",
-        "Nutrition Program Manager",
-        "Food Security Specialist",
-        "Nutrition Researcher",
-      ],
-      requirements: {
-        academic: "Bachelor's degree in nutrition, food science, or related field with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "Nutrition or food science background",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Malnutrition Prevention", "Food Security", "Nutrition Education"],
     },
-
-    // Faculty of Computing and Information Technology Graduate Programs
     {
-      id: "msit",
-      title: "Master of Science in Information Technology",
-      category: "computing",
-      duration: "2 Years",
-      credits: "60 Credits",
+      name: "Master of Nutrition and Food Science",
+      school: "Allied Health Sciences",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time",
+      description: "Advanced nutrition science for addressing food security and nutrition challenges in Liberia",
+      specializations: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science"],
+      careers: ["Clinical Nutritionist", "Public Health Nutritionist", "Food Safety Manager", "Research Scientist"],
+      requirements: ["Bachelor's degree in related field", "Nutrition background preferred", "Statement of purpose"],
+      image: "/courses/food-nutrition.png",
+      accreditation: "CDR Recognized",
+      curriculum: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science", "Nutrition Research", "Food Policy"],
+      researchAreas: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science"],
+      icon: Stethoscope,
+    },
+    {
+      name: "Master of Arts in International Relations and Diplomatic Studies",
+      school: "Social Sciences",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time",
+      description: "Advanced study preparing diplomatic corps and international relations experts for Liberia's global engagement",
+      specializations: ["Diplomacy", "International Security", "Development Studies", "Regional Studies"],
+      careers: ["Diplomat", "International Analyst", "NGO Director", "Policy Advisor"],
+      requirements: ["Bachelor's degree", "Language proficiency", "Research proposal"],
+      image: "/courses/international-relations.jpg",
+      accreditation: "Diplomatically Recognized",
+      curriculum: ["Diplomacy", "International Security", "Development Studies", "Regional Studies", "International Law", "Global Governance"],
+      researchAreas: ["Diplomacy", "International Security", "Development Studies", "Regional Studies"],
+      icon: Globe,
+    },
+    {
+      name: "Master of Arts in Public Administration and Management",
+      school: "Social Sciences",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time / Part-time",
+      description: "Advanced public administration training for senior government positions and public sector leadership",
+      specializations: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership"],
+      careers: ["Government Official", "Public Policy Analyst", "Civil Service Manager", "NGO Administrator"],
+      requirements: ["Bachelor's degree", "Public sector experience preferred", "Statement of purpose"],
+      image: "/courses/leadership-skills.jpg",
+      accreditation: "NASPAA Recognized",
+      curriculum: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership", "Public Ethics", "Policy Analysis"],
+      researchAreas: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership"],
+      icon: Shield,
+    },
+    {
+      name: "Master of Arts in Development Studies",
+      school: "Social Sciences",
+      duration: "2 years",
+      credits: 48,
+      format: "Full-time",
+      description: "Comprehensive development studies focusing on sustainable development strategies for Liberia and West Africa",
+      specializations: ["International Development", "Community Development", "Development Policy", "Social Research"],
+      careers: ["Development Officer", "Program Manager", "Research Analyst", "Policy Consultant"],
+      requirements: ["Bachelor's degree", "Development experience preferred", "Research proposal"],
+      image: "/research/research-students.jpg",
+      accreditation: "DSA Recognized",
+      curriculum: ["International Development", "Community Development", "Development Policy", "Social Research", "Development Economics", "Sustainable Development"],
+      researchAreas: ["International Development", "Community Development", "Development Policy", "Social Research"],
+      icon: TrendingUp,
+    },
+    {
+      name: "Master of Science in Information Technology",
+      school: "Computing & IT",
+      duration: "2 years",
+      credits: 54,
+      format: "Full-time",
+      description: "Advanced IT education for senior technology leadership in Liberia's digital transformation initiatives",
+      specializations: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management"],
+      careers: ["IT Director", "Cybersecurity Specialist", "Data Scientist", "Systems Architect"],
+      requirements: ["Bachelor's degree in IT/related field", "Programming experience", "Technical portfolio"],
+      image: "/courses/technology.jpg",
+      accreditation: "ABET Accredited",
+      curriculum: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management", "Software Engineering", "Database Management"],
+      researchAreas: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management"],
       icon: Code,
-      image: "/placeholder.svg?height=400&width=600",
-      description:
-        "Advanced IT program focusing on emerging technologies, system administration, cybersecurity, and digital transformation for modern organizations.",
-      highlights: [
-        "Advanced System Administration",
-        "Cybersecurity Specialization",
-        "Cloud Computing",
-        "Digital Transformation",
-        "IT Leadership",
-      ],
-      curriculum: [
-        "Advanced Information Systems",
-        "Cybersecurity and Risk Management",
-        "Cloud Computing and Virtualization",
-        "Database Administration",
-        "Network Security",
-        "IT Project Management",
-        "Research Methods",
-        "Capstone Project",
-      ],
-      careers: [
-        "IT Director",
-        "Systems Architect",
-        "Cybersecurity Manager",
-        "Cloud Solutions Architect",
-        "IT Consultant",
-        "Technology Manager",
-      ],
-      requirements: {
-        academic: "Bachelor's degree in IT, Computer Science, or related field with minimum 3.0 GPA",
-        english: "TOEFL 85+ or IELTS 6.5+ (for international students)",
-        additional: "IT experience and technical portfolio",
-      },
-      accreditation: "Accredited by Liberia National Commission on Higher Education",
-      researchAreas: ["Cybersecurity", "Cloud Computing", "Digital Innovation"],
     },
   ]
 
   const categories = [
     { value: "all", label: "All Programs", count: programs.length },
-    { value: "social", label: "Social Sciences", count: programs.filter((p) => p.category === "social").length },
-    { value: "business", label: "Business & Management", count: programs.filter((p) => p.category === "business").length },
-    { value: "health", label: "Allied Health Sciences", count: programs.filter((p) => p.category === "health").length },
-    { value: "computing", label: "Computing & Information Technology", count: programs.filter((p) => p.category === "computing").length },
+    { value: "business", label: "Business & Management", count: 6 },
+    { value: "health", label: "Allied Health Sciences", count: 2 },
+    { value: "social", label: "Social Sciences", count: 3 },
+    { value: "technology", label: "Computing & IT", count: 1 },
   ]
 
-  const filteredPrograms = programs.filter((program) => {
+  const getCategoryFromSchool = (school: string) => {
+    switch (school) {
+      case "Business & Management":
+        return "business"
+      case "Allied Health Sciences":
+        return "health"
+      case "Social Sciences":
+        return "social"
+      case "Computing & IT":
+        return "technology"
+      default:
+        return "all"
+    }
+  }
+
+  const filteredPrograms = programs.filter((program: any) => {
     const matchesSearch =
-      program.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      program.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       program.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === "all" || program.category === selectedCategory
+    
+    const matchesCategory = selectedCategory === "all" || getCategoryFromSchool(program.school) === selectedCategory
+    
     return matchesSearch && matchesCategory
   })
+
+  const features = [
+    {
+      title: "Research Excellence",
+      description: "Access to cutting-edge research facilities and renowned faculty mentors in Monrovia",
+      icon: Microscope,
+      stat: "8 Research Centers",
+    },
+    {
+      title: "Small Cohorts",
+      description: "Intimate learning environment with personalized attention from expert faculty",
+      icon: Users,
+      stat: "15:1 Ratio",
+    },
+    {
+      title: "Industry Partnerships",
+      description: "Collaboration with leading Liberian organizations and international institutions",
+      icon: Award,
+      stat: "25+ Partners",
+    },
+    {
+      title: "Career Advancement",
+      description: "High placement rates in leadership positions across Liberia's economy",
+      icon: Star,
+      stat: "94% Success Rate",
+    },
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -651,13 +478,24 @@ export default function GraduatePage() {
     },
   }
 
+
+
   return (
     <div className="min-h-screen bg-white">
       <LiberiaNavbar />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-red-800 to-blue-800 py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0">
+          <Image
+            src="/graduation/master-of-education-and-planning.jpg"
+            alt="Graduate Excellence at Unity University Liberia"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
         <motion.div
           className="absolute inset-0 opacity-10"
           animate={{
@@ -669,7 +507,6 @@ export default function GraduatePage() {
           }}
           transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
         />
-
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumb />
           <motion.div
@@ -687,7 +524,7 @@ export default function GraduatePage() {
 
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Graduate Programs</h1>
             <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl">
-              Advance your career with our world-class graduate programs at Unity University Liberia. Designed for
+              Advance your career with our world-class graduate programs at The Unity University Liberia. Designed for
               working professionals and recent graduates, our master's programs combine rigorous academics with
               practical application, preparing you for leadership roles in your field.
             </p>
@@ -749,7 +586,7 @@ export default function GraduatePage() {
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
-            className="max-w-4xl mx-auto"
+            className="max-w-6xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -757,8 +594,10 @@ export default function GraduatePage() {
           >
             <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Find Your Graduate Program</h2>
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative">
+              
+              {/* Search Input */}
+              <div className="flex justify-center mb-8">
+                <div className="flex-1 max-w-md relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                   <Input
                     type="text"
@@ -768,122 +607,99 @@ export default function GraduatePage() {
                     className="pl-10 py-3 text-lg"
                   />
                 </div>
-                <div className="md:w-64">
-                  <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger className="py-3 text-lg">
-                      <Filter className="h-5 w-5 mr-2" />
-                      <SelectValue placeholder="Filter by field" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {categories.map((category) => (
-                        <SelectItem key={category.value} value={category.value}>
-                          {category.label} ({category.count})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
               </div>
+
+              {/* Tabs for Program Categories */}
+              <Tabs defaultValue="all" className="w-full">
+                <TabsList className="grid w-full grid-cols-5 mb-8">
+                  <TabsTrigger value="all" className="flex items-center gap-2">
+                    <span>All Programs</span>
+                    <Badge variant="secondary" className="text-xs">12</Badge>
+                  </TabsTrigger>
+                  <TabsTrigger value="business" className="flex items-center gap-2">
+                    <span>Business</span>
+                    <Badge variant="secondary" className="text-xs">6</Badge>
+                  </TabsTrigger>
+                  <TabsTrigger value="health" className="flex items-center gap-2">
+                    <span>Health</span>
+                    <Badge variant="secondary" className="text-xs">2</Badge>
+                  </TabsTrigger>
+                  <TabsTrigger value="social" className="flex items-center gap-2">
+                    <span>Social Sciences</span>
+                    <Badge variant="secondary" className="text-xs">3</Badge>
+                  </TabsTrigger>
+                  <TabsTrigger value="technology" className="flex items-center gap-2">
+                    <span>Technology</span>
+                    <Badge variant="secondary" className="text-xs">1</Badge>
+                  </TabsTrigger>
+                </TabsList>
+
+                {/* All Programs Tab */}
+                <TabsContent value="all">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                      program.description.toLowerCase().includes(searchTerm.toLowerCase())
+                    ).map((program, index) => (
+                      <ProgramCard key={program.name} program={program} onClick={() => setSelectedProgram(program.name)} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Business Programs Tab */}
+                <TabsContent value="business">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.school === "Business & Management" &&
+                      (program.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       program.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                    ).map((program, index) => (
+                      <ProgramCard key={program.name} program={program} onClick={() => setSelectedProgram(program.name)} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Health Programs Tab */}
+                <TabsContent value="health">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.school === "Allied Health Sciences" &&
+                      (program.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       program.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                    ).map((program, index) => (
+                      <ProgramCard key={program.name} program={program} onClick={() => setSelectedProgram(program.name)} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Social Sciences Programs Tab */}
+                <TabsContent value="social">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.school === "Social Sciences" &&
+                      (program.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       program.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                    ).map((program, index) => (
+                      <ProgramCard key={program.name} program={program} onClick={() => setSelectedProgram(program.name)} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Technology Programs Tab */}
+                <TabsContent value="technology">
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.filter(program => 
+                      program.school === "Computing & IT" &&
+                      (program.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       program.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                    ).map((program, index) => (
+                      <ProgramCard key={program.name} program={program} onClick={() => setSelectedProgram(program.name)} />
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Programs Grid */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
-            <AnimatePresence>
-              {filteredPrograms.map((program, index) => (
-                <motion.div
-                  key={program.id}
-                  variants={itemVariants}
-                  layout
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="group cursor-pointer"
-                  onClick={() => setSelectedProgram(program.id)}
-                >
-                  <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl transition-all duration-300 hover:shadow-2xl">
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={program.image || "/placeholder.svg"}
-                        alt={program.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute top-4 right-4">
-                        <Badge className="bg-white/90 text-gray-900 font-bold">{program.duration}</Badge>
-                      </div>
-                      <div className="absolute top-4 left-4">
-                        <Badge className="bg-red-600/90 text-white font-bold">Graduate</Badge>
-                      </div>
-                      <div className="absolute bottom-4 left-4">
-                        <program.icon className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-
-                    <CardHeader className="pb-4">
-                      <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {program.title}
-                      </CardTitle>
-                      <div className="flex items-center space-x-4 text-sm text-gray-600">
-                        <span className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1" />
-                          {program.credits}
-                        </span>
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="pb-6">
-                      <p className="text-gray-600 mb-4 line-clamp-3">{program.description}</p>
-                      <div className="space-y-2">
-                        <h4 className="font-semibold text-gray-900 text-sm">Key Highlights:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {program.highlights.slice(0, 2).map((highlight, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
-                              {highlight}
-                            </Badge>
-                          ))}
-                          {program.highlights.length > 2 && (
-                            <Badge variant="secondary" className="text-xs">
-                              +{program.highlights.length - 2} more
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    </CardContent>
-
-                    <div className="px-6 pb-6">
-                      <Button className="w-full group-hover:bg-blue-600 transition-colors">
-                        Learn More
-                        <ChevronRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-
-          {filteredPrograms.length === 0 && (
-            <motion.div
-              className="text-center py-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              <GraduationCap className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No programs found</h3>
-              <p className="text-gray-600">Try adjusting your search terms or filters.</p>
-            </motion.div>
-          )}
         </div>
       </section>
 
@@ -905,7 +721,7 @@ export default function GraduatePage() {
               onClick={(e) => e.stopPropagation()}
             >
               {(() => {
-                const program = programs.find((p) => p.id === selectedProgram)
+                const program = programs.find((p) => p.name === selectedProgram)
                 if (!program) return null
 
                 return (
@@ -913,7 +729,7 @@ export default function GraduatePage() {
                     <div className="relative h-64 overflow-hidden rounded-t-2xl">
                       <Image
                         src={program.image || "/placeholder.svg"}
-                        alt={program.title}
+                        alt={program.name}
                         fill
                         className="object-cover"
                       />
@@ -925,7 +741,7 @@ export default function GraduatePage() {
                         ×
                       </button>
                       <div className="absolute bottom-6 left-6 text-white">
-                        <h2 className="text-3xl font-bold mb-2">{program.title}</h2>
+                        <h2 className="text-3xl font-bold mb-2">{program.name}</h2>
                         <div className="flex items-center space-x-4">
                           <Badge className="bg-white/20 backdrop-blur-sm text-white">{program.duration}</Badge>
                           <Badge className="bg-white/20 backdrop-blur-sm text-white">{program.credits}</Badge>
@@ -953,7 +769,7 @@ export default function GraduatePage() {
                             <div>
                               <h3 className="text-xl font-bold text-gray-900 mb-3">Key Highlights</h3>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                {program.highlights.map((highlight, idx) => (
+                                {program.specializations.map((highlight, idx) => (
                                   <div key={idx} className="flex items-center space-x-2">
                                     <CheckCircle className="h-5 w-5 text-green-600" />
                                     <span className="text-gray-700">{highlight}</span>
@@ -976,7 +792,7 @@ export default function GraduatePage() {
                           <div>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Core Curriculum</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              {program.curriculum.map((course, idx) => (
+                              {program.curriculum?.map((course: string, idx: number) => (
                                 <div key={idx} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
                                   <BookOpen className="h-5 w-5 text-blue-600" />
                                   <span className="text-gray-800 font-medium">{course}</span>
@@ -990,7 +806,7 @@ export default function GraduatePage() {
                           <div>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Research Areas</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              {program.researchAreas.map((area, idx) => (
+                              {program.researchAreas?.map((area: string, idx: number) => (
                                 <div key={idx} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
                                   <Microscope className="h-5 w-5 text-purple-600" />
                                   <span className="text-gray-800 font-medium">{area}</span>
@@ -1034,16 +850,15 @@ export default function GraduatePage() {
                               <h3 className="text-xl font-bold text-gray-900 mb-4">Admission Requirements</h3>
                               <div className="space-y-4">
                                 <div>
-                                  <h4 className="font-semibold text-gray-800 mb-2">Academic Requirements</h4>
-                                  <p className="text-gray-600">{program.requirements.academic}</p>
-                                </div>
-                                <div>
-                                  <h4 className="font-semibold text-gray-800 mb-2">English Proficiency</h4>
-                                  <p className="text-gray-600">{program.requirements.english}</p>
-                                </div>
-                                <div>
-                                  <h4 className="font-semibold text-gray-800 mb-2">Additional Requirements</h4>
-                                  <p className="text-gray-600">{program.requirements.additional}</p>
+                                  <h4 className="font-semibold text-gray-800 mb-2">Requirements</h4>
+                                  <div className="space-y-2">
+                                    {program.requirements.map((req: string, idx: number) => (
+                                      <div key={idx} className="flex items-center space-x-2">
+                                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                        <span className="text-gray-600">{req}</span>
+                                      </div>
+                                    ))}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1079,7 +894,7 @@ export default function GraduatePage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Graduate School at Unity University?
+              Why Choose Graduate School at The Unity University?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Our graduate programs are designed for ambitious professionals ready to take their careers to the next
@@ -1094,45 +909,9 @@ export default function GraduatePage() {
             viewport={{ once: true }}
             variants={containerVariants}
           >
-            {[
-              {
-                icon: Brain,
-                title: "Advanced Expertise",
-                description:
-                  "Develop deep, specialized knowledge in your field with cutting-edge curriculum and research opportunities.",
-              },
-              {
-                icon: Users,
-                title: "Expert Faculty",
-                description:
-                  "Learn from distinguished professors and industry leaders who bring real-world experience to the classroom.",
-              },
-              {
-                icon: TrendingUp,
-                title: "Career Advancement",
-                description:
-                  "98% of our graduates report career advancement within two years of completing their degree.",
-              },
-              {
-                icon: Globe,
-                title: "Global Network",
-                description:
-                  "Join an international network of alumni and professionals across various industries and sectors.",
-              },
-              {
-                icon: Microscope,
-                title: "Research Excellence",
-                description:
-                  "Engage in groundbreaking research that addresses critical challenges in Liberia and Africa.",
-              },
-              {
-                icon: Shield,
-                title: "Flexible Learning",
-                description: "Evening and weekend classes designed for working professionals with busy schedules.",
-              },
-            ].map((feature, index) => (
+            {features.map((feature, index) => (
               <motion.div
-                key={index}
+                key={feature.title}
                 variants={itemVariants}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="text-center p-6 rounded-xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300"
@@ -1170,11 +949,11 @@ export default function GraduatePage() {
             viewport={{ once: true }}
           >
             <div className="flex justify-center mb-6">
-                                <LiberiaFlag className="h-12 w-20" />
+              <LiberiaFlag className="h-12 w-20" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Advance Your Career?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Take the next step in your professional journey with a graduate degree from Unity University Liberia. Join
+              Take the next step in your professional journey with a graduate degree from The Unity University Liberia. Join
               our community of leaders, innovators, and change-makers who are shaping the future of Liberia and Africa.
             </p>
             <div className="flex flex-wrap justify-center gap-6">

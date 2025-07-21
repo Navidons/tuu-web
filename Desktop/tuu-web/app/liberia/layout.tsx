@@ -11,13 +11,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Unity University Liberia - Leading Higher Education in West Africa | Monrovia Campus",
-    template: "%s | Unity University Liberia - Premier Education in West Africa",
+    default: "The Unity University Liberia - Leading Higher Education in West Africa | Monrovia Campus",
+    template: "%s | The Unity University Liberia - Premier Education in West Africa",
   },
   description:
-    "Unity University Liberia Campus in Monrovia - Premier higher education institution combining Liberian heritage with global academic excellence. The Love of Liberty Brought Us Here. Offering world-class programs in Business, IT, Engineering, and Health Sciences.",
+    "The Unity University Liberia Campus in Monrovia - Premier higher education institution combining Liberian heritage with global academic excellence. The Love of Liberty Brought Us Here. Offering world-class programs in Business, IT, Engineering, and Health Sciences.",
   keywords: [
-    "Unity University Liberia",
+    "The Unity University Liberia",
     "Liberia university",
     "Monrovia university",
     "higher education Liberia",
@@ -30,42 +30,42 @@ export const metadata: Metadata = {
     "accredited university Liberia",
     "The Love of Liberty Brought Us Here",
   ],
-  authors: [{ name: "Unity University Liberia", url: "https://unity.edu.lr" }],
-  creator: "Unity University Liberia",
-  publisher: "Unity University Liberia",
+  authors: [{ name: "The Unity University Liberia", url: "https://tuu.university/liberia" }],
+  creator: "The Unity University Liberia",
+  publisher: "The Unity University Liberia",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://unity.edu.lr"),
+    metadataBase: new URL("https://tuu.university/liberia"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://unity.edu.lr",
-    title: "Unity University Liberia - Leading Higher Education in West Africa",
+    url: "https://tuu.university/liberia",
+    title: "The Unity University Liberia - Leading Higher Education in West Africa",
     description:
       "Premier higher education institution in Monrovia, Liberia. Combining Liberian heritage with global academic excellence. The Love of Liberty Brought Us Here.",
-    siteName: "Unity University Liberia",
+    siteName: "The Unity University Liberia",
     images: [
       {
         url: "/og-image-liberia.jpg",
         width: 1200,
         height: 630,
-        alt: "Unity University Liberia Campus in Monrovia",
+        alt: "The Unity University Liberia Campus in Monrovia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unity University Liberia - Leading Higher Education in West Africa",
+    title: "The Unity University Liberia - Leading Higher Education in West Africa",
     description:
       "Premier university in Monrovia, Liberia. World-class education combining heritage with excellence. Apply now!",
     images: ["/twitter-image-liberia.jpg"],
-    creator: "@UnityUniLiberia",
+    creator: "@TheUnityUniLiberia",
   },
   robots: {
     index: true,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "unity-university-liberia-verification",
+    google: "the-unity-university-liberia-verification",
   },
   category: "Education",
     generator: 'v0.dev'

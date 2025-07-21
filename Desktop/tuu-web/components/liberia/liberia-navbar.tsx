@@ -1,31 +1,56 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useMemo } from "react"
 import Link from "next/link"
-import { Menu, X, ChevronDown, Mail, Phone, MapPin, Star } from "lucide-react"
+import { Menu, X, ChevronDown, Mail, Phone, MapPin, Star, Facebook, Instagram, Linkedin, Search, BookOpen, GraduationCap, Award, Info, Globe, Clock, Users, Network } from "lucide-react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence, Variants } from "framer-motion"
+import { usePathname } from "next/navigation"
 
 const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
   return (
-    <div className={cn(className, "relative overflow-hidden rounded-sm shadow-sm border border-white/20 animate-flag-wave")}
+    <svg
+      className={cn(className, "rounded-sm shadow-sm border border-white/20")}
+      viewBox="0 0 60 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Liberia Flag"
     >
-      {/* Stripes */}
-      <div className="liberian-flag-gradient w-full h-full" />
-
-      {/* Blue canton with white star */}
-      <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-blue-600 flex items-center justify-center">
-        <svg
-          viewBox="0 0 24 24"
-          className="w-[10px] h-[10px] text-white fill-current drop-shadow-sm"
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      </div>
-    </div>
+      {[...Array(11)].map((_, i) => (
+        <rect
+          key={i}
+          x="0"
+          y={(40 / 11) * i}
+          width="60"
+          height={40 / 11}
+          fill={i % 2 === 0 ? "#D21034" : "#fff"}
+        />
+      ))}
+      <rect x="0" y="0" width={60 / 3} height={40 / 2} fill="#003893" />
+      <g transform={`translate(${60 / 6},${40 / 4})`}>
+        <polygon
+          points="0,-7 2.05,-2.16 7, -2.16 3.09,0.83 4.18,5.67 0,2.8 -4.18,5.67 -3.09,0.83 -7,-2.16 -2.05,-2.16"
+          fill="#fff"
+        />
+      </g>
+    </svg>
   )
+}
+
+type DropdownItem = {
+  name: string
+  href: string
+  external?: boolean
+  icon?: React.ComponentType<{ className?: string }>
+}
+
+type NavLink = {
+  name: string
+  href: string
+  icon?: React.ComponentType<{ className?: string }>
+  dropdown?: DropdownItem[]
 }
 
 export default function LiberiaNavbar() {
@@ -33,160 +58,208 @@ export default function LiberiaNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isClient, setIsClient] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     setIsClient(true)
+    setIsLoading(false)
   }, [])
 
   useEffect(() => {
     if (!isClient) return
 
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
+      setIsScrolled(window.scrollY > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [isClient])
 
   const toggleDropdown = (name: string) => {
-    if (activeDropdown === name) {
-      setActiveDropdown(null)
-    } else {
-      setActiveDropdown(name)
-    }
+    setActiveDropdown(activeDropdown === name ? null : name)
   }
 
-  const navLinks = [
-    { name: "Home", href: "/liberia" },
+  const base = "/liberia"
+
+  const navLinks: NavLink[] = useMemo(() => [
+    { name: "Home", href: `${base}`, icon: Star },
     {
       name: "Academics",
-      href: "/liberia/academics",
+      href: `${base}/academics`,
+      icon: BookOpen,
       dropdown: [
-        { name: "Undergraduate Programs", href: "/liberia/academics/undergraduate" },
-        { name: "Graduate Programs", href: "/liberia/academics/graduate" },
-        { name: "Academic Calendar", href: "/liberia/academics/calendar" },
+        { name: "Undergraduate Programs", href: `${base}/academics/undergraduate`, icon: GraduationCap },
+        { name: "Graduate Programs", href: `${base}/academics/graduate`, icon: Award },
       ],
     },
     {
       name: "Admissions",
-      href: "/liberia/admissions",
+      href: `${base}/admissions`,
+      icon: Info,
       dropdown: [
-        { name: "Apply Now", href: "/admissions/apply" },
-        { name: "International Students", href: "/liberia/admissions/international" },
+        { name: "Apply Now", href: "/admissions/apply", external: true, icon: Globe },
       ],
     },
     {
       name: "About",
-      href: "/liberia/about",
+      href: `${base}/about`,
+      icon: Users,
       dropdown: [
-        { name: "Our History", href: "/liberia/about/history" },
-        { name: "Leadership", href: "/liberia/about/leadership" },
-        { name: "Contact Us", href: "/liberia/about/contact" },
-        { name: "Network", href: "/liberia/about/network" },
+        { name: "Our History", href: `${base}/about/history`, icon: Clock },
+        { name: "Leadership", href: `${base}/about/leadership`, icon: Users },
+        { name: "Contact Us", href: `${base}/about/contact`, icon: Mail },
       ],
     },
-  ]
+  ], [base])
 
   const dropdownVariants: Variants = {
     hidden: {
       opacity: 0,
-      y: -10,
-      scale: 0.95,
-      transition: { duration: 0.2 },
+      y: -8,
+      scale: 0.98,
+      transition: { duration: 0.15 },
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.3,
+        duration: 0.2,
         ease: "easeOut",
+        staggerChildren: 0.05,
+        delayChildren: 0.05,
       },
+    },
+  }
+
+  const dropdownItemVariants: Variants = {
+    hidden: { opacity: 0, y: -5 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.2, ease: "easeOut" },
     },
   }
 
   const mobileMenuVariants: Variants = {
     hidden: {
       x: "100%",
+      opacity: 0,
       transition: { duration: 0.3, ease: "easeOut" },
     },
     visible: {
       x: 0,
+      opacity: 1,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+    exit: {
+      x: "100%",
+      opacity: 0,
       transition: { duration: 0.3, ease: "easeOut" },
     },
   }
 
   return (
     <>
-      {/* Enhanced top bar */}
-      {isClient && (
+      {/* Compact Top bar */}
+      {isClient && !isLoading && (
         <motion.div
           className={cn(
-            "hidden w-full bg-gradient-to-r from-red-600 to-blue-600 py-3 transition-all duration-500 lg:block",
+            "hidden w-full bg-gradient-to-r from-red-600 to-blue-600 py-2 transition-all duration-500 lg:block",
             isScrolled ? "lg:hidden" : "",
           )}
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          suppressHydrationWarning
         >
           <div className="container mx-auto flex items-center justify-between px-4">
             <motion.div
-              className="flex items-center space-x-8 text-sm text-white"
-              initial={{ opacity: 0, x: -50 }}
+              className="flex items-center space-x-6 text-xs text-white"
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               <motion.a
                 href="mailto:liberia@tuu.university"
                 className="flex items-center hover:text-red-100 transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <Mail className="mr-2 h-4 w-4" />
+                <Mail className="mr-1 h-3 w-3" />
                 liberia@tuu.university
               </motion.a>
               <motion.a
-                href="tel:+23177123456"
+                href="tel:+231777123456"
                 className="flex items-center hover:text-red-100 transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <Phone className="mr-2 h-4 w-4" />
-                +231 77 123 4567
+                <Phone className="mr-1 h-3 w-3" />
+                +231 777 123 456
               </motion.a>
-              <span className="font-semibold">What begins here, Transforms Africa</span>
+              <span className="font-semibold">The Love of Liberty Brought Us Here</span>
             </motion.div>
             <motion.div
-              className="text-sm text-white font-bold flex items-center space-x-2"
-              initial={{ opacity: 0, x: 50 }}
+              className="text-xs text-white font-bold flex items-center space-x-2"
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <LiberiaFlag />
-              <span>The Love of Liberty Brought Us Here</span>
+              <div className="flex items-center space-x-2">
+                <a
+                  href="https://www.facebook.com/people/The-Unity-University-Liberia/61574316394828/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-100 transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-3 w-3" />
+                </a>
+                <a
+                  href="https://www.instagram.com/explore/locations/104837471861628/the-unity-university/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-100 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-3 w-3" />
+                </a>
+                <a
+                  href="https://so.linkedin.com/company/the-unity-university"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-100 transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-3 w-3" />
+                </a>
+              </div>
+              <LiberiaFlag className="h-3 w-5" />
             </motion.div>
           </div>
         </motion.div>
       )}
 
-      <motion.header
+      <header
         className={cn(
           "sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-lg transition-all duration-500",
-          isScrolled ? "py-2 shadow-xl" : "py-4",
+          isScrolled ? "py-1 shadow-xl" : "py-3",
         )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="container mx-auto flex items-center justify-between px-4">
-          <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-            <Link href="/liberia" className="flex items-center space-x-3">
-              <motion.div whileHover={{ scale: 1.05, rotate: 3 }} transition={{ duration: 0.3 }}>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link href="/liberia" className="flex items-center space-x-3 group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
                 <Image
                   src="/tuu-logo/tuu-logo.png"
                   alt="The Unity University Logo"
@@ -196,294 +269,266 @@ export default function LiberiaNavbar() {
                 />
               </motion.div>
               <div>
-                <span className="text-xl font-bold text-liberian-gradient">The Unity University</span>
+                <span className="text-base font-bold bg-gradient-to-r from-red-700 to-blue-700 bg-clip-text text-transparent group-hover:from-red-800 group-hover:to-blue-800 transition-all duration-300">
+                  The Unity University
+                </span>
                 <div className="text-xs text-gray-500 font-medium">Liberia Campus</div>
               </div>
             </Link>
           </motion.div>
 
-          {/* Enhanced Campus Indicator */}
-          <motion.div
-            className="hidden lg:flex items-center space-x-3 bg-gradient-to-r from-red-50 to-blue-50 px-4 py-2 rounded-full border border-red-200 shadow-md"
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
-            transition={{ duration: 0.2 }}
+          {/* Compact Campus Indicator */}
+          <motion.div 
+            className="hidden lg:flex items-center space-x-3 bg-gradient-to-r from-red-50 to-blue-50 px-3 py-1 rounded-full border border-red-200 shadow-sm"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <MapPin className="h-5 w-5 text-red-600" />
-            <span className="text-sm font-medium text-gray-700">Monrovia</span>
-            <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            >
-              <Star className="h-4 w-4 text-blue-600 fill-blue-600" />
-            </motion.div>
+            <MapPin className="h-3 w-3 text-red-600" />
+            <span className="text-xs font-medium text-gray-700">Monrovia</span>
+            <Star className="h-3 w-3 text-blue-600 fill-blue-600" />
           </motion.div>
 
           <nav className="hidden lg:flex">
-            <ul className="flex items-center space-x-2">
+            <ul className="flex items-center space-x-1">
               {navLinks.map((link, index) => (
-                <motion.li
-                  key={link.name}
+                <motion.li 
+                  key={link.name} 
                   className="relative"
-                  initial={{ opacity: 0, y: -20 }}
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  transition={{ delay: 0.1 * index, duration: 0.6 }}
                 >
                   {link.dropdown ? (
-                    <div>
-                      <motion.button
-                        onClick={() => toggleDropdown(link.name)}
+                    <div
+                      onMouseEnter={() => toggleDropdown(link.name)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      <div
                         className={cn(
-                          "flex items-center rounded-lg px-4 py-3 text-sm font-medium transition-all duration-300",
-                          "text-gray-700 hover:text-blue-700 hover:bg-blue-50",
-                          activeDropdown === link.name ? "text-blue-700 bg-blue-50" : "",
+                          "flex items-center rounded-lg px-3 py-2 text-xs font-medium transition-all duration-300",
+                          "text-gray-700 hover:text-red-700 hover:bg-red-50",
+                          activeDropdown === link.name ? "text-red-700 bg-red-50" : "",
                         )}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
                       >
+                        {link.icon && <link.icon className="mr-1 h-3 w-3" />}
                         {link.name}
-                        <motion.div
-                          animate={{ rotate: activeDropdown === link.name ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <ChevronDown className="ml-1 h-4 w-4" />
-                        </motion.div>
-                      </motion.button>
-                      <AnimatePresence>
-                        {activeDropdown === link.name && (
-                          <motion.div
-                            className="absolute left-0 mt-2 w-72 rounded-xl bg-white py-3 shadow-2xl ring-1 ring-black ring-opacity-5 border border-gray-100 backdrop-blur-md"
-                            variants={dropdownVariants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="hidden"
-                          >
-                            {link.dropdown.map((item, itemIndex) => (
-                              <motion.div
-                                key={item.name}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: itemIndex * 0.05 }}
-                              >
-                                <Link
-                                  href={item.href}
-                                  {...(item.name === "Apply Now" && { target: "_blank", rel: "noopener noreferrer" })}
-                                  className="block px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-red-50 hover:to-blue-50 hover:text-blue-700 transition-all duration-300 rounded-lg mx-2"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  {item.name}
-                                </Link>
-                              </motion.div>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                        <ChevronDown className={cn(
+                          "ml-1 h-3 w-3 transition-transform duration-200",
+                          activeDropdown === link.name ? "rotate-180" : ""
+                        )} />
+                      </div>
+                      {isClient && (
+                        <AnimatePresence>
+                          {activeDropdown === link.name && (
+                            <motion.div
+                              ref={dropdownRef}
+                              className="absolute left-0 mt-1 w-72 rounded-xl bg-white py-2 shadow-xl ring-1 ring-black ring-opacity-5 border border-gray-100 backdrop-blur-md"
+                              variants={dropdownVariants}
+                              initial="hidden"
+                              animate="visible"
+                              exit="hidden"
+                              suppressHydrationWarning
+                            >
+                              {link.dropdown.map((item) => (
+                                <motion.div key={item.name} variants={dropdownItemVariants}>
+                                  <Link
+                                    href={item.href}
+                                    {...('external' in item && item.external && { target: "_blank", rel: "noopener noreferrer" })}
+                                    className="block px-4 py-2 text-xs text-gray-700 hover:bg-gradient-to-r hover:from-red-50 hover:to-blue-50 hover:text-red-700 transition-all duration-300 rounded-lg mx-2"
+                                    onClick={() => setActiveDropdown(null)}
+                                  >
+                                    <div className="flex items-center space-x-2">
+                                      {item.icon && <item.icon className="h-3 w-3" />}
+                                      <span>{item.name}</span>
+                                    </div>
+                                  </Link>
+                                </motion.div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      )}
                     </div>
                   ) : (
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Link
-                        href={link.href}
-                        className="block rounded-lg px-4 py-3 text-sm font-medium text-gray-700 transition-all duration-300 hover:text-blue-700 hover:bg-blue-50"
-                      >
-                        {link.name}
-                      </Link>
-                    </motion.div>
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "block rounded-lg px-3 py-2 text-xs font-medium text-gray-700 transition-all duration-300 hover:text-red-700 hover:bg-red-50",
+                        pathname.startsWith(link.href) ? "text-red-700 bg-red-50" : ""
+                      )}
+                    >
+                      <div className="flex items-center space-x-1">
+                        {link.icon && <link.icon className="h-3 w-3" />}
+                        <span>{link.name}</span>
+                      </div>
+                    </Link>
                   )}
                 </motion.li>
               ))}
             </ul>
           </nav>
 
-          <motion.div
-            className="hidden items-center space-x-4 lg:flex"
-            initial={{ opacity: 0, x: 50 }}
+          <motion.div 
+            className="hidden items-center space-x-3 lg:flex"
+            initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg transition-all duration-300 hover:shadow-xl px-6 py-3 font-bold">
-                  Apply Now
-                </Button>
-              </Link>
-            </motion.div>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="p-2 hover:bg-red-50"
+            >
+              <Search className="h-4 w-4" />
+            </Button>
+            <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-md transition-all duration-300 hover:shadow-lg px-3 py-1 font-semibold text-xs">
+                Apply Now
+              </Button>
+            </Link>
           </motion.div>
 
           <motion.button
-            className="lg:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <AnimatePresence mode="wait">
-              {mobileMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="h-6 w-6 text-gray-700" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="h-6 w-6 text-gray-700" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        </div>
-      </motion.header>
-
-      {/* Enhanced Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-40 lg:hidden"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
           >
+            {mobileMenuOpen ? <X className="h-5 w-5 text-gray-700" /> : <Menu className="h-5 w-5 text-gray-700" />}
+          </motion.button>
+        </div>
+      </header>
+
+      {/* Compact Mobile Menu */}
+      {isClient && (
+        <AnimatePresence>
+          {mobileMenuOpen && (
             <motion.div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              className="fixed inset-0 z-40 lg:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            <motion.div
-              className="absolute right-0 top-0 h-full w-80 bg-white shadow-2xl"
-              variants={mobileMenuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
+              transition={{ duration: 0.3 }}
+              suppressHydrationWarning
             >
-              <div className="p-6 h-full overflow-y-auto">
-                <motion.div
-                  className="mb-8 flex flex-col space-y-4 border-b border-gray-100 pb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <div className="flex items-center space-x-3 text-red-700 font-medium">
-                    <MapPin className="h-5 w-5" />
-                    <span>Monrovia, Liberia</span>
-                    <LiberiaFlag />
+              <motion.div
+                className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setMobileMenuOpen(false)}
+              />
+              <motion.div
+                className="absolute right-0 top-0 h-full w-64 bg-white shadow-xl"
+                variants={mobileMenuVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <div className="p-4 h-full overflow-y-auto">
+                  <div className="mb-6 flex flex-col space-y-3 border-b border-gray-100 pb-4">
+                    <div className="flex items-center space-x-2 text-red-700 font-medium text-sm">
+                      <MapPin className="h-4 w-4" />
+                      <span>Monrovia, Liberia</span>
+                      <LiberiaFlag className="h-3 w-5" />
+                    </div>
+                    <a
+                      href="mailto:liberia@tuu.university"
+                      className="flex items-center text-gray-600 hover:text-red-700 transition-colors text-xs"
+                    >
+                      <Mail className="mr-2 h-3 w-3" />
+                      liberia@tuu.university
+                    </a>
+                    <a
+                      href="tel:+231777123456"
+                      className="flex items-center text-gray-600 hover:text-red-700 transition-colors text-xs"
+                    >
+                      <Phone className="mr-2 h-3 w-3" />
+                      +231 777 123 456
+                    </a>
                   </div>
-                  <a
-                    href="mailto:liberia@tuu.university"
-                    className="flex items-center text-gray-600 hover:text-blue-700 transition-colors"
-                  >
-                    <Mail className="mr-3 h-5 w-5" />
-                    liberia@tuu.university
-                  </a>
-                  <a
-                    href="tel:+23177123456"
-                    className="flex items-center text-gray-600 hover:text-blue-700 transition-colors"
-                  >
-                    <Phone className="mr-3 h-5 w-5" />
-                    +231 77 123 4567
-                  </a>
-                  <div className="text-sm text-gray-500 font-medium italic">"The Love of Liberty Brought Us Here"</div>
-                </motion.div>
 
-                <nav>
-                  <ul className="space-y-3">
-                    {navLinks.map((link, index) => (
-                      <motion.li
-                        key={link.name}
-                        className="border-b border-gray-50 pb-3"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 * index }}
-                      >
-                        {link.dropdown ? (
-                          <div>
-                            <motion.button
-                              onClick={() => toggleDropdown(link.name)}
-                              className="flex w-full items-center justify-between text-lg font-semibold text-gray-800 py-3"
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              {link.name}
-                              <motion.div
-                                animate={{ rotate: activeDropdown === link.name ? 180 : 0 }}
-                                transition={{ duration: 0.3 }}
+                  <nav>
+                    <ul className="space-y-2">
+                      {navLinks.map((link) => (
+                        <li key={link.name} className="border-b border-gray-50 pb-2">
+                          {link.dropdown ? (
+                            <div>
+                              <div
+                                className={cn(
+                                  "flex items-center rounded-lg px-3 py-2 text-xs font-medium transition-all duration-300",
+                                  "text-gray-700 hover:text-red-700 hover:bg-red-50",
+                                  activeDropdown === link.name ? "text-red-700 bg-red-50" : "",
+                                )}
+                                onClick={() => toggleDropdown(link.name)}
                               >
-                                <ChevronDown className="h-5 w-5 text-gray-400" />
-                              </motion.div>
-                            </motion.button>
-                            <AnimatePresence>
+                                <div className="flex items-center space-x-2">
+                                  {link.icon && <link.icon className="h-4 w-4" />}
+                                  <span>{link.name}</span>
+                                </div>
+                                <ChevronDown 
+                                  className={cn(
+                                    "ml-1 h-3 w-3 transition-transform duration-200",
+                                    activeDropdown === link.name ? "rotate-180" : ""
+                                  )}
+                                />
+                              </div>
                               {activeDropdown === link.name && (
-                                <motion.div
-                                  className="mt-3 pl-6 space-y-3"
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: "auto" }}
-                                  exit={{ opacity: 0, height: 0 }}
-                                  transition={{ duration: 0.3 }}
-                                >
-                                  {link.dropdown.map((item, itemIndex) => (
-                                    <motion.div
+                                <div className="mt-2 pl-4 space-y-2">
+                                  {link.dropdown.map((item) => (
+                                    <Link
                                       key={item.name}
-                                      initial={{ opacity: 0, x: -20 }}
-                                      animate={{ opacity: 1, x: 0 }}
-                                      transition={{ delay: itemIndex * 0.05 }}
+                                      href={item.href}
+                                      {...('external' in item && item.external && { target: "_blank", rel: "noopener noreferrer" })}
+                                      className="block py-1 text-gray-600 hover:text-red-700 transition-colors text-xs"
+                                      onClick={() => setMobileMenuOpen(false)}
                                     >
-                                      <Link
-                                        href={item.href}
-                                        {...(item.name === "Apply Now" && { target: "_blank", rel: "noopener noreferrer" })}
-                                        className="block py-2 text-gray-600 hover:text-blue-700 transition-colors"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                      >
-                                        {item.name}
-                                      </Link>
-                                    </motion.div>
+                                      <div className="flex items-center space-x-2">
+                                        {item.icon && <item.icon className="h-3 w-3" />}
+                                        <span>{item.name}</span>
+                                      </div>
+                                    </Link>
                                   ))}
-                                </motion.div>
+                                </div>
                               )}
-                            </AnimatePresence>
-                          </div>
-                        ) : (
-                          <motion.div whileTap={{ scale: 0.95 }}>
+                            </div>
+                          ) : (
                             <Link
                               href={link.href}
-                              className="block text-lg font-semibold text-gray-800 hover:text-blue-700 transition-colors py-3"
+                              className={cn(
+                                "block text-sm font-semibold text-gray-800 hover:text-red-700 transition-colors py-2",
+                                pathname.startsWith(link.href) ? "text-red-700" : ""
+                              )}
                               onClick={() => setMobileMenuOpen(false)}
                             >
-                              {link.name}
+                              <div className="flex items-center space-x-2">
+                                {link.icon && <link.icon className="h-4 w-4" />}
+                                <span>{link.name}</span>
+                              </div>
                             </Link>
-                          </motion.div>
-                        )}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </nav>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
 
-                <motion.div
-                  className="mt-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <div className="mt-6">
                     <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-lg py-4 text-lg font-bold">
+                      <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 shadow-md py-2 text-sm font-bold">
                         Apply Now - 2024 Admission
                       </Button>
                     </Link>
-                  </motion.div>
-                </motion.div>
-              </div>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      )}
     </>
   )
 }

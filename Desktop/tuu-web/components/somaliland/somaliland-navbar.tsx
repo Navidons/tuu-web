@@ -2,11 +2,13 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import { Menu, X, ChevronDown, Mail, Phone, MapPin } from "lucide-react"
+import { Menu, X, ChevronDown, Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Search, BookOpen, GraduationCap, Award, Info, Globe, Clock, Users, Network } from "lucide-react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence, Variants } from "framer-motion"
+import { useResponsive } from '@/hooks/use-mobile'
+import { useMobilePerformance } from '@/hooks/use-mobile-performance'
 
 // Enhanced waving Somaliland flag component (matches latest design)
 const SomalilandFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
@@ -19,20 +21,36 @@ const SomalilandFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
     >
       <div className="somaliland-flag-gradient w-full h-full" />
       <div className="absolute inset-0 flex items-center justify-center">
-        <svg viewBox="0 0 24 24" className="w-[6px] h-[6px] text-black fill-current">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Flag_of_Somaliland.svg/1200px-Flag_of_Somaliland.svg.png" alt="Somaliland Flag" className="h-4 w-6 object-cover rounded-sm shadow-sm border border-white/20" />
       </div>
     </div>
   )
 }
 
+type DropdownItem = {
+  name: string
+  href: string
+  external?: boolean
+  icon?: React.ComponentType<{ className?: string }>
+}
+
+type NavLink = {
+  name: string
+  href: string
+  icon?: React.ComponentType<{ className?: string }>
+  dropdown?: DropdownItem[]
+}
+
 export default function SomalilandNavbar() {
+  const { isMobile, screenWidth } = useResponsive()
+  const { shouldReduceMotion } = useMobilePerformance()
+
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isClient, setIsClient] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [searchOpen, setSearchOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -57,45 +75,34 @@ export default function SomalilandNavbar() {
 
   const base = "/somaliland"
 
-  const navLinks = [
-    { name: "Home", nameSo: "Guriga", href: `${base}` },
+  const navLinks: NavLink[] = [
+    { name: "Home", href: `${base}`, icon: MapPin },
     {
       name: "Academics",
-      nameSo: "Waxbarashada",
       href: `${base}/academics`,
+      icon: BookOpen,
       dropdown: [
-        { name: "Undergraduate Programs", nameSo: "Barnaamijyada Koowaad", href: `${base}/academics/undergraduate` },
-        { name: "Graduate Programs", nameSo: "Barnaamijyada Sare", href: `${base}/academics/graduate` },
-        { name: "Academic Calendar", nameSo: "Jadwalka Waxbarasho", href: `${base}/academics/calendar` },
+        { name: "All Programs", href: `${base}/academics`, icon: BookOpen },
+        { name: "Undergraduate Programs", href: `${base}/academics/undergraduate`, icon: GraduationCap },
+        { name: "Graduate Programs", href: `${base}/academics/graduate`, icon: Award },
       ],
     },
     {
       name: "Admissions",
-      nameSo: "Gelitaanka",
       href: `${base}/admissions`,
+      icon: Info,
       dropdown: [
-          { name: "Apply Now", nameSo: "Hadda Codso", href: "admissions/apply" },
-      ],
-    },
-    {
-      name: "Research",
-      nameSo: "Cilmi-baadhista",
-      href: `${base}/research`,
-      dropdown: [
-        { name: "Research Centers", nameSo: "Xarumaha Cilmi-baadhista", href: `${base}/research/centers` },
-        { name: "Publications", nameSo: "Daabacaadaha", href: `${base}/research/publications` },
-        { name: "Partnerships", nameSo: "Iskaashiga", href: `${base}/research/partnerships` },
-        { name: "Research Support", nameSo: "Taageerada Cilmi-baadhista", href: `${base}/research/support` },
+          { name: "Apply Now", href: "/admissions/apply", external: true, icon: Globe },
       ],
     },
     {
       name: "About",
-      nameSo: "Naga",
       href: `${base}/about`,
+      icon: Users,
       dropdown: [
-        { name: "Our History", nameSo: "Taariikheenna", href: `${base}/about/history` },
-        { name: "Leadership", nameSo: "Hogaamiyayaasha", href: `${base}/about/leadership` },
-        { name: "Contact Us", nameSo: "Nala Soo Xiriir", href: `${base}/about/contact` },
+        { name: "Our History", href: `${base}/about/history`, icon: Clock },
+        { name: "Leadership", href: `${base}/about/leadership`, icon: Users },
+        { name: "Contact Us", href: `${base}/about/contact`, icon: Mail },
       ],
     },
   ]
@@ -132,19 +139,168 @@ export default function SomalilandNavbar() {
   const mobileMenuVariants: Variants = {
     hidden: {
       x: "100%",
-      opacity: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
+      opacity: shouldReduceMotion ? 1 : 0,
+      transition: { 
+        duration: shouldReduceMotion ? 0 : 0.3, 
+        ease: "easeOut" 
+      },
     },
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.3, ease: "easeOut" },
+      transition: { 
+        duration: shouldReduceMotion ? 0 : 0.3, 
+        ease: "easeOut" 
+      },
     },
     exit: {
       x: "100%",
-      opacity: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
+      opacity: shouldReduceMotion ? 1 : 0,
+      transition: { 
+        duration: shouldReduceMotion ? 0 : 0.3, 
+        ease: "easeOut" 
+      },
     },
+  }
+
+  const renderMobileMenu = () => {
+    if (!isClient) return null
+
+    return (
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-50 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mobile-menu-title"
+          >
+            <motion.div
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div
+              className="absolute right-0 top-0 h-full w-64 bg-white shadow-xl"
+              variants={mobileMenuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <div className="p-4 h-full overflow-y-auto">
+                <h2 id="mobile-menu-title" className="sr-only">Mobile Navigation Menu</h2>
+                
+                <div className="mb-6 flex flex-col space-y-3 border-b border-gray-100 pb-4">
+                  <div className="flex items-center space-x-2 text-emerald-700 font-medium text-sm">
+                    <MapPin className="h-4 w-4" />
+                    <span>Hargeisa, Somaliland</span>
+                    <SomalilandFlag className="h-3 w-5" />
+                  </div>
+                  <a
+                    href="mailto:somaliland@tuu.university"
+                    className="flex items-center text-gray-600 hover:text-emerald-700 transition-colors text-xs"
+                  >
+                    <Mail className="mr-2 h-3 w-3" />
+                    somaliland@tuu.university
+                  </a>
+                  <a
+                    href="tel:+25263421013"
+                    className="flex items-center text-gray-600 hover:text-emerald-700 transition-colors text-xs"
+                  >
+                    <Phone className="mr-2 h-3 w-3" />
+                    +252 63 4210013
+                  </a>
+                </div>
+
+                <nav>
+                  <ul className="space-y-2">
+                    {navLinks.map((link, index) => (
+                      <li key={link.name} className="border-b border-gray-50 pb-2">
+                        {link.dropdown ? (
+                          <div
+                            onMouseEnter={() => toggleDropdown(link.name)}
+                            onMouseLeave={() => setActiveDropdown(null)}
+                          >
+                            <div
+                              className={cn(
+                                "flex items-center rounded-lg px-3 py-2 text-xs font-medium transition-all duration-300",
+                                "text-gray-700 hover:text-emerald-700 hover:bg-emerald-50",
+                                activeDropdown === link.name ? "text-emerald-700 bg-emerald-50" : "",
+                              )}
+                            >
+                              <div className="flex items-center space-x-2">
+                                {link.icon && <link.icon className="h-4 w-4" />}
+                                <span>{link.name}</span>
+                              </div>
+                              <ChevronDown className={cn(
+                                "ml-1 h-3 w-3 transition-transform duration-200",
+                                activeDropdown === link.name ? "rotate-180" : ""
+                              )} />
+                            </div>
+                            {activeDropdown === link.name && (
+                              <div className="mt-2 pl-4 space-y-2">
+                                {link.dropdown.map((item, itemIndex) => (
+                                  <div key={item.name}>
+                                    <Link
+                                      href={item.href}
+                                      {...('external' in item && item.external && { target: "_blank", rel: "noopener noreferrer" })}
+                                      className="block py-1 text-gray-600 hover:text-emerald-700 transition-colors text-xs"
+                                      onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                      <div className="font-medium flex items-center space-x-2">
+                                        {item.icon && <item.icon className="h-3 w-3" />}
+                                        <span>{item.name}</span>
+                                      </div>
+                                    </Link>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            className="block text-sm font-semibold text-gray-800 hover:text-emerald-700 transition-colors py-2"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <div className="flex items-center space-x-2">
+                              {link.icon && <link.icon className="h-4 w-4" />}
+                              <span>{link.name}</span>
+                            </div>
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                <div className="mt-6">
+                  <Link 
+                    href="/admissions/apply" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button 
+                      className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-md py-2 text-sm font-bold"
+                      aria-label="Apply Now"
+                    >
+                      Apply Now
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    )
   }
 
   return (
@@ -192,6 +348,35 @@ export default function SomalilandNavbar() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
+              <div className="flex items-center space-x-2">
+                <a
+                  href="https://www.facebook.com/theunityuniversity"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-100 transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-3 w-3" />
+                </a>
+                <a
+                  href="https://www.instagram.com/explore/locations/104837471861628/the-unity-university/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-100 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-3 w-3" />
+                </a>
+                <a
+                  href="https://so.linkedin.com/company/the-unity-university"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-100 transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-3 w-3" />
+                </a>
+              </div>
               <SomalilandFlag className="h-3 w-5" />
             </motion.div>
           </div>
@@ -225,35 +410,55 @@ export default function SomalilandNavbar() {
         )}
       >
         <div className="container mx-auto flex items-center justify-between px-4">
-          <div>
-            <Link href="/" className="flex items-center space-x-3">
-              <Image
-                src="/tuu-logo/tuu-logo.png"
-                alt="The Unity University Logo"
-                width={120}
-                height={120}
-                className="h-16 w-16 object-contain drop-shadow-lg"
-              />
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link href="/somaliland/" className="flex items-center space-x-3 group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Image
+                  src="/tuu-logo/tuu-logo.png"
+                  alt="The Unity University Logo"
+                  width={120}
+                  height={120}
+                  className="h-16 w-16 object-contain drop-shadow-lg"
+                />
+              </motion.div>
               <div>
-                <span className="text-base font-bold bg-gradient-to-r from-emerald-700 to-red-700 bg-clip-text text-transparent">
+                <span className="text-base font-bold bg-gradient-to-r from-emerald-700 to-red-700 bg-clip-text text-transparent group-hover:from-emerald-800 group-hover:to-red-800 transition-all duration-300">
                   The Unity University
                 </span>
                 <div className="text-xs text-gray-500 font-medium">Somaliland Campus</div>
               </div>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Compact Campus Indicator */}
-          <div className="hidden lg:flex items-center space-x-3 bg-gradient-to-r from-emerald-50 to-red-50 px-3 py-1 rounded-full border border-emerald-200 shadow-sm">
+          <motion.div 
+            className="hidden lg:flex items-center space-x-3 bg-gradient-to-r from-emerald-50 to-red-50 px-3 py-1 rounded-full border border-emerald-200 shadow-sm"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
             <MapPin className="h-3 w-3 text-emerald-600" />
             <span className="text-xs font-medium text-gray-700">Hargeisa</span>
             <SomalilandFlag className="h-3 w-5" />
-          </div>
+          </motion.div>
 
           <nav className="hidden lg:flex">
             <ul className="flex items-center space-x-1">
               {navLinks.map((link, index) => (
-                <li key={link.name} className="relative">
+                <motion.li 
+                  key={link.name} 
+                  className="relative"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * index, duration: 0.6 }}
+                >
                   {link.dropdown ? (
                     <div
                       onMouseEnter={() => toggleDropdown(link.name)}
@@ -266,11 +471,14 @@ export default function SomalilandNavbar() {
                           activeDropdown === link.name ? "text-emerald-700 bg-emerald-50" : "",
                         )}
                       >
-                        <div className="text-center">
-                          <div>{link.name}</div>
-                          <div className="text-xs text-emerald-600">{link.nameSo}</div>
+                        <div className="flex items-center space-x-1">
+                          {link.icon && <link.icon className="h-3 w-3" />}
+                          <span>{link.name}</span>
                         </div>
-                        <ChevronDown className="ml-1 h-3 w-3" />
+                        <ChevronDown className={cn(
+                          "ml-1 h-3 w-3 transition-transform duration-200",
+                          activeDropdown === link.name ? "rotate-180" : ""
+                        )} />
                       </div>
                       {isClient && (
                         <AnimatePresence>
@@ -288,11 +496,14 @@ export default function SomalilandNavbar() {
                                 <motion.div key={item.name} variants={dropdownItemVariants}>
                                   <Link
                                     href={item.href}
+                                    {...('external' in item && item.external && { target: "_blank", rel: "noopener noreferrer" })}
                                     className="block px-4 py-2 text-xs text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-red-50 hover:text-emerald-700 transition-all duration-300 rounded-lg mx-2"
                                     onClick={() => setActiveDropdown(null)}
                                   >
-                                    <div className="font-medium">{item.name}</div>
-                                    <div className="text-xs text-emerald-600">{item.nameSo}</div>
+                                    <div className="font-medium flex items-center space-x-2">
+                                      {item.icon && <item.icon className="h-3 w-3" />}
+                                      <span>{item.name}</span>
+                                    </div>
                                   </Link>
                                 </motion.div>
                               ))}
@@ -306,150 +517,51 @@ export default function SomalilandNavbar() {
                       href={link.href}
                       className="block rounded-lg px-3 py-2 text-xs font-medium text-gray-700 transition-all duration-300 hover:text-emerald-700 hover:bg-emerald-50"
                     >
-                      <div className="text-center">
-                        <div>{link.name}</div>
-                        <div className="text-xs text-emerald-600">{link.nameSo}</div>
+                      <div className="flex items-center space-x-1">
+                        {link.icon && <link.icon className="h-3 w-3" />}
+                        <span>{link.name}</span>
                       </div>
                     </Link>
                   )}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </nav>
 
-          <div className="hidden items-center space-x-3 lg:flex">
+          <motion.div 
+            className="hidden items-center space-x-3 lg:flex"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="p-2 hover:bg-emerald-50"
+            >
+              <Search className="h-4 w-4" />
+            </Button>
             <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-md transition-all duration-300 hover:shadow-lg px-3 py-1 font-semibold text-xs">
-                Hadda Codso
+                Apply Now
               </Button>
             </Link>
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
             className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
           >
             {mobileMenuOpen ? <X className="h-5 w-5 text-gray-700" /> : <Menu className="h-5 w-5 text-gray-700" />}
-          </button>
+          </motion.button>
         </div>
       </header>
 
-      {/* Compact Mobile Menu */}
-      {isClient && (
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              className="fixed inset-0 z-40 lg:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              suppressHydrationWarning
-            >
-              <motion.div
-                className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setMobileMenuOpen(false)}
-              />
-              <motion.div
-                className="absolute right-0 top-0 h-full w-64 bg-white shadow-xl"
-                variants={mobileMenuVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-              >
-                <div className="p-4 h-full overflow-y-auto">
-                  <div className="mb-6 flex flex-col space-y-3 border-b border-gray-100 pb-4">
-                    <div className="flex items-center space-x-2 text-emerald-700 font-medium text-sm">
-                      <MapPin className="h-4 w-4" />
-                      <span>Hargeisa, Somaliland</span>
-                      <SomalilandFlag className="h-3 w-5" />
-                    </div>
-                    <a
-                      href="mailto:somaliland@tuu.university"
-                      className="flex items-center text-gray-600 hover:text-emerald-700 transition-colors text-xs"
-                    >
-                      <Mail className="mr-2 h-3 w-3" />
-                      somaliland@tuu.university
-                    </a>
-                    <a
-                      href="tel:+25263421013"
-                      className="flex items-center text-gray-600 hover:text-emerald-700 transition-colors text-xs"
-                    >
-                      <Phone className="mr-2 h-3 w-3" />
-                      +252 63 4210013
-                    </a>
-                  </div>
-
-                  <nav>
-                    <ul className="space-y-2">
-                      {navLinks.map((link, index) => (
-                        <li key={link.name} className="border-b border-gray-50 pb-2">
-                          {link.dropdown ? (
-                            <div
-                              onMouseEnter={() => toggleDropdown(link.name)}
-                              onMouseLeave={() => setActiveDropdown(null)}
-                            >
-                              <div
-                                className={cn(
-                                  "flex items-center rounded-lg px-3 py-2 text-xs font-medium transition-all duration-300",
-                                  "text-gray-700 hover:text-emerald-700 hover:bg-emerald-50",
-                                  activeDropdown === link.name ? "text-emerald-700 bg-emerald-50" : "",
-                                )}
-                              >
-                                <div className="text-center">
-                                  <div>{link.name}</div>
-                                  <div className="text-xs text-emerald-600">{link.nameSo}</div>
-                                </div>
-                                <ChevronDown className="ml-1 h-3 w-3" />
-                              </div>
-                              {activeDropdown === link.name && (
-                                <div className="mt-2 pl-4 space-y-2">
-                                  {link.dropdown.map((item, itemIndex) => (
-                                    <div key={item.name}>
-                                      <Link
-                                        href={item.href}
-                                        className="block py-1 text-gray-600 hover:text-emerald-700 transition-colors text-xs"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                      >
-                                        <div className="font-medium">{item.name}</div>
-                                        <div className="text-xs text-emerald-600">{item.nameSo}</div>
-                                      </Link>
-                                    </div>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          ) : (
-                            <Link
-                              href={link.href}
-                              className="block text-sm font-semibold text-gray-800 hover:text-emerald-700 transition-colors py-2"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              <span>{link.name}</span>
-                              <div className="text-xs text-emerald-600 font-normal">{link.nameSo}</div>
-                            </Link>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-
-                  <div className="mt-6">
-                    <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-gradient-to-r from-emerald-600 to-red-600 text-white hover:from-emerald-700 hover:to-red-700 shadow-md py-2 text-sm font-bold">
-                        Hadda Codso - Apply Now
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      )}
+      {renderMobileMenu()}
     </>
   )
 }
