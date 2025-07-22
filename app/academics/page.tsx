@@ -92,7 +92,7 @@ export default function AcademicsPage() {
   const schools = [
     {
       name: "Faculty of Business & Management",
-      dean: "Mugabi Dainel",
+      dean: "Mugabi Ezira",
       programs: ["Business Administration", "Accounting & Finance", "Human Resource Management", "Banking & Finance", "Marketing", "Procurement & Supply Chain"],
       students: 280,
       faculty: 35,
@@ -297,6 +297,7 @@ export default function AcademicsPage() {
             <Image
               src="/hero-section/graduation-day.jpg"
               alt="Graduation Day"
+              fill
               className="w-full h-full object-cover object-center"
               style={{filter:'brightness(0.7)'}}
             />
@@ -304,14 +305,13 @@ export default function AcademicsPage() {
         </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-10 md:mb-16">
-              <Badge className="bg-emerald-700 text-white px-6 py-2 text-base font-semibold mb-6">Academics</Badge>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold text-gray-900 mb-6 md:mb-8 leading-tight">Academic Excellence</h1>
-              <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed mb-8 md:mb-12 font-serif">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold text-black mb-6 md:mb-8 leading-tight uppercase tracking-wide border-b-4 border-emerald-700 inline-block pb-2">Academic Excellence</h1>
+              <p className="text-base md:text-lg text-gray-800 max-w-2xl mx-auto leading-relaxed mb-8 md:mb-12 font-serif">
                 Discover world-class academic programs designed to prepare you for success in an interconnected global economy. Excellence in education, innovation in learning.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
                 <Link href="/academics/undergraduate">
-                  <Button size="lg" className="bg-emerald-700 text-white hover:bg-emerald-800 px-8 py-4 text-lg font-bold">
+                  <Button size="lg" className="bg-emerald-700 text-white hover:bg-emerald-800 px-8 py-4 text-lg font-bold font-serif rounded-full">
                     Explore Programs
                     <ArrowRight className="ml-3 h-6 w-6" />
                   </Button>
@@ -320,7 +320,7 @@ export default function AcademicsPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-emerald-700 text-emerald-700 hover:bg-emerald-50 px-8 py-4 text-lg font-bold"
+                    className="border-emerald-700 text-emerald-700 hover:bg-emerald-50 px-8 py-4 text-lg font-bold font-serif rounded-full"
                   >
                     Academic Calendar
                   </Button>
@@ -331,30 +331,30 @@ export default function AcademicsPage() {
       </section>
 
       {/* Academic Statistics */}
-        <section className="py-14 md:py-20 bg-[#faf9f7] border-b border-gray-200">
+        <section className="py-14 md:py-20 bg-white border-b-4 border-emerald-700 font-serif">
         <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Academic Excellence by Numbers</h2>
-              <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-black mb-6 uppercase tracking-wide border-b-4 border-pink-600 inline-block pb-2 font-serif">Academic Excellence by Numbers</h2>
+              <p className="text-base md:text-lg text-gray-800 max-w-2xl mx-auto font-serif mb-8">
                 Our commitment to quality education reflected in our achievements
               </p>
           </div>
             <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "Academic Programs", value: 37, suffix: "+", description: "Across all levels" },
-              { label: "Faculty Members", value: 153, suffix: "+", description: "Expert educators" },
-              { label: "Research Projects", value: 85, suffix: "+", description: "Active research" },
-              { label: "Graduate Success Rate", value: 95, suffix: "%", description: "Career placement" },
+                { label: "Academic Programs", value: 37, suffix: "+", description: "Across all levels", color: "green" },
+                { label: "Faculty Members", value: 153, suffix: "+", description: "Expert educators", color: "pink" },
+                { label: "Research Projects", value: 85, suffix: "+", description: "Active research", color: "green" },
+                { label: "Graduate Success Rate", value: 95, suffix: "%", description: "Career placement", color: "pink" },
             ].map((stat, index) => (
                 <div
                 key={stat.label}
-                  className="text-center p-8 rounded-md bg-white border border-gray-200 shadow-sm font-serif"
+                  className={`text-center p-8 rounded-md bg-white border-2 font-serif shadow-sm ${stat.color === 'green' ? 'border-emerald-700' : 'border-pink-600'}`}
                 >
-                  <div className="text-4xl font-bold text-purple-700 mb-2">
+                  <div className={`text-4xl font-extrabold mb-2 font-serif ${stat.color === 'green' ? 'text-emerald-700' : 'text-pink-600'}`}>
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
-                  <div className="text-gray-700 text-sm">{stat.description}</div>
+                  <div className="text-lg font-semibold text-black mb-2 font-serif uppercase tracking-wide">{stat.label}</div>
+                  <div className="text-gray-800 text-sm font-serif">{stat.description}</div>
                 </div>
             ))}
           </div>
@@ -362,67 +362,74 @@ export default function AcademicsPage() {
       </section>
 
         {/* Academic Programs Overview - Home Page Style */}
-        <section className="py-14 md:py-20 bg-white border-b border-gray-200">
+        <section className="py-14 md:py-20 bg-white border-b-4 border-pink-600 font-serif">
         <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Academic Programs</h2>
-              <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-black mb-6 uppercase tracking-wide border-b-4 border-emerald-700 inline-block pb-2 font-serif">Academic Programs</h2>
+              <p className="text-base md:text-lg text-gray-800 max-w-2xl mx-auto font-serif mb-8">
                 Comprehensive educational pathways from undergraduate to professional development
               </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
-              {academicPrograms.map((program) => (
+              {academicPrograms.map((program, idx) => {
+                const borderColor = idx % 2 === 0 ? 'border-emerald-700' : 'border-pink-600';
+                const iconColor = idx % 2 === 0 ? 'text-emerald-700' : 'text-pink-600';
+                const statColor = idx % 2 === 0 ? 'text-emerald-700' : 'text-pink-600';
+                // Subtle paper texture SVG
+                const paperTexture = "url('data:image/svg+xml;utf8,<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100\" height=\"100\" fill=\"%23fff\"/><circle cx=\"20\" cy=\"20\" r=\"1\" fill=\"%23e5e5e5\"/><circle cx=\"80\" cy=\"60\" r=\"1\" fill=\"%23e5e5e5\"/><circle cx=\"50\" cy=\"80\" r=\"0.7\" fill=\"%23e5e5e5\"/><circle cx=\"70\" cy=\"30\" r=\"0.5\" fill=\"%23e5e5e5\"/><circle cx=\"30\" cy=\"70\" r=\"0.5\" fill=\"%23e5e5e5\"/></svg>')";
+                return (
                 <Link key={program.level} href={program.href} className="block h-full">
-                  <div className="bg-white border-2 border-emerald-600 rounded-xl p-8 shadow-sm flex flex-col h-full">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mb-6 border-2 border-emerald-600">
-                      <program.icon className="h-8 w-8 text-emerald-700" />
+                    <div
+                      className={`relative bg-white border-2 ${borderColor} rounded-xl p-8 shadow-lg flex flex-col h-full font-serif`}
+                      style={{ backgroundImage: paperTexture, backgroundBlendMode: 'multiply' }}
+                    >
+                      {/* Thin header line */}
+                      <div className={`absolute top-0 left-0 w-full h-2 rounded-t-xl ${borderColor} bg-opacity-20`} />
+                      <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 border-2 ${borderColor} bg-white z-10`}>
+                        <program.icon className={`h-8 w-8 ${iconColor}`} />
                       </div>
-                    <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">{program.level}</h3>
-                    <p className="text-gray-700 mb-6 leading-relaxed font-serif">{program.description}</p>
-                      <div className="grid grid-cols-3 gap-4 mb-6">
+                      <h3 className="text-2xl font-serif font-bold text-black mb-4 uppercase tracking-wide z-10">{program.level}</h3>
+                      <p className="text-gray-800 mb-6 leading-relaxed font-serif z-10">{program.description}</p>
+                      <div className="grid grid-cols-2 gap-4 mb-6 z-10">
                         <div className="text-center">
-                        <div className="text-xl font-bold text-emerald-700">{program.programs}</div>
+                          <div className={`text-xl font-bold ${statColor}`}>{program.programs}</div>
                         <div className="text-xs text-gray-600">Programs</div>
                         </div>
                         <div className="text-center">
-                        <div className="text-xl font-bold text-blue-700">{program.students}</div>
-                        <div className="text-xs text-gray-600">Students</div>
+                          <div className="text-xl font-bold text-black">{program.duration}</div>
+                          <div className="text-xs text-gray-600">Duration</div>
+                        </div>
                       </div>
-                      <div className="text-center">
-                        <div className="text-xl font-bold text-gray-700">{program.duration}</div>
-                        <div className="text-xs text-gray-600">Duration</div>
+                      <div className="flex items-center justify-center mt-auto z-10">
+                        <span className={`inline-block ${borderColor === 'border-emerald-700' ? 'bg-emerald-700' : 'bg-pink-600'} text-white px-4 py-2 rounded font-semibold text-sm font-serif`}>Explore {program.level}</span>
+                        <ArrowRight className={`ml-2 h-4 w-4 ${iconColor}`} />
                       </div>
                     </div>
-                    <div className="flex items-center justify-center mt-auto">
-                      <span className="inline-block bg-emerald-700 text-white px-4 py-2 rounded font-semibold text-sm">Explore {program.level}</span>
-                      <ArrowRight className="ml-2 h-4 w-4 text-emerald-700" />
-                    </div>
-                  </div>
-                </Link>
-            ))}
+                  </Link>
+                );
+              })}
           </div>
         </div>
       </section>
 
       {/* Schools and Colleges */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-24 bg-white border-b-4 border-emerald-700 font-serif">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Schools & Colleges</h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-black mb-6 uppercase tracking-wide border-b-4 border-pink-600 inline-block pb-2 font-serif">Schools & Colleges</h2>
+            <p className="text-lg md:text-xl text-gray-800 max-w-3xl mx-auto font-serif">
                 Specialized schools offering focused education in diverse fields of study
               </p>
-            </motion.div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              {schools.map((school) => (
+          <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {schools.map((school, idx) => {
+              const borderColor = idx % 2 === 0 ? 'border-emerald-700' : 'border-pink-600';
+              const mastheadColor = idx % 2 === 0 ? 'bg-emerald-700' : 'bg-pink-600';
+              const titleUnderline = idx % 2 === 0 ? 'border-emerald-700' : 'border-pink-600';
+              const badgeColor = idx % 2 === 0 ? 'bg-emerald-700 text-white' : 'bg-pink-600 text-white';
+              const paperTextureFixed = "url('data:image/svg+xml;utf8,<svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' fill='%23fff'/><circle cx='20' cy='20' r='1' fill='%23e5e5e5'/><circle cx='80' cy='60' r='1' fill='%23e5e5e5'/><circle cx='50' cy='80' r='0.7' fill='%23e5e5e5'/><circle cx='70' cy='30' r='0.5' fill='%23e5e5e5'/><circle cx='30' cy='70' r='0.5' fill='%23e5e5e5'/></svg>')";
+              return (
                 <Link
                 key={school.name}
                   href="/admissions/apply"
@@ -430,97 +437,121 @@ export default function AcademicsPage() {
                   rel="noopener noreferrer"
                   className="block h-full"
                 >
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col h-full cursor-pointer hover:border-emerald-700 transition">
-                <div className="relative h-48">
+                  <div
+                    className={`relative bg-white border-2 ${borderColor} rounded-xl shadow-lg overflow-hidden flex flex-col h-full font-serif`}
+                    style={{ backgroundImage: paperTextureFixed, backgroundBlendMode: 'multiply' }}
+                  >
+                    {/* Masthead bar */}
+                    <div className={`absolute top-0 left-0 w-full h-4 ${mastheadColor} opacity-90 z-10`} />
+                    {/* School image with overlay */}
+                    <div className="relative h-48 w-full">
                   <Image
                     src={school.image || "/placeholder.svg"}
                         alt={`${school.name} campus`}
                     fill
                         className="object-cover"
-                  />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-lg font-serif font-bold text-white mb-1">{school.name}</h3>
-                        <p className="text-white/90 text-sm font-serif">Dean: {school.dean}</p>
+                        style={{ zIndex: 1 }}
+                      />
+                      <div className="absolute inset-0 bg-black/30 z-10" />
+                      {/* School name as masthead */}
+                      <div className={`absolute top-2 left-0 w-full text-center z-20 pointer-events-none`}>
+                        <span className="text-lg font-extrabold uppercase tracking-wide text-white drop-shadow font-serif" style={{letterSpacing:'0.08em'}}>{school.name}</span>
                 </div>
                     </div>
                     <div className="p-6 flex-1 flex flex-col">
-                  <div className="mb-6">
-                        <h4 className="font-semibold text-gray-900 mb-3 font-serif">Programs Offered:</h4>
-                    <div className="flex flex-wrap gap-2">
+                      {/* Byline for dean */}
+                      <div className="italic text-xs text-gray-500 mb-2 font-serif">By Dean: {school.dean}</div>
+                      <h4 className={`text-xl font-extrabold text-black mb-3 font-serif uppercase tracking-wide border-b-2 pb-1 ${titleUnderline}`}>Programs Offered</h4>
+                      <div className="flex flex-wrap gap-2 mb-6">
                       {school.programs.slice(0, 3).map((program, i) => (
-                        <Badge key={i} variant="outline" className="text-xs">
+                          <span
+                            key={i}
+                            className={`inline-block px-3 py-1 text-xs font-bold font-serif rounded-full shadow-sm ${badgeColor} rotate-[-2deg]`}
+                            style={{boxShadow:'2px 2px 0 rgba(0,0,0,0.04)'}}
+                          >
                           {program}
-                        </Badge>
-                      ))}
-                      {school.programs.length > 3 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{school.programs.length - 3} more
-                        </Badge>
-                      )}
+                          </span>
+                        ))}
+                        {school.programs.length > 3 ? (
+                          <span className={`inline-block px-3 py-1 text-xs font-bold font-serif rounded-full shadow-sm ${badgeColor} rotate-[-2deg]`} style={{boxShadow:'2px 2px 0 rgba(0,0,0,0.04)'}}>+{school.programs.length - 3} more</span>
+                        ) : null}
                     </div>
+                      <div className="mt-auto flex justify-end">
+                        <span className={`inline-block px-4 py-2 rounded font-semibold text-sm font-serif ${badgeColor} shadow-sm`}>Apply Now</span>
                   </div>
                     </div>
                 </div>
                 </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
         {/* Academic Features - Home Page Style */}
-        <section className="py-14 md:py-20 bg-[#faf9f7] border-b border-gray-200">
+        <section className="py-14 md:py-20 bg-white border-b-4 border-pink-600 font-serif">
         <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Why Choose The Unity University</h2>
-              <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-black mb-6 uppercase tracking-wide border-b-4 border-emerald-700 inline-block pb-2 font-serif">Why Choose The Unity University</h2>
+              <p className="text-base md:text-lg text-gray-800 max-w-2xl mx-auto font-serif mb-8">
                 Distinctive features that set our academic programs apart
               </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-              {features.map((feature) => (
-                <div key={feature.title} className="text-center p-8 rounded-xl bg-white border-2 border-emerald-600 shadow-sm font-serif flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6 border-2 border-emerald-600">
-                    <feature.icon className="h-8 w-8 text-emerald-700" />
+              {features.map((feature, idx) => {
+                const borderColor = idx % 2 === 0 ? 'border-emerald-700' : 'border-pink-600';
+                const iconColor = idx % 2 === 0 ? 'text-emerald-700' : 'text-pink-600';
+                const statColor = idx % 2 === 0 ? 'text-emerald-700' : 'text-pink-600';
+                const paperTexture = "url('data:image/svg+xml;utf8,<svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' fill='%23fff'/><circle cx='20' cy='20' r='1' fill='%23e5e5e5'/><circle cx='80' cy='60' r='1' fill='%23e5e5e5'/><circle cx='50' cy='80' r='0.7' fill='%23e5e5e5'/><circle cx='70' cy='30' r='0.5' fill='%23e5e5e5'/><circle cx='30' cy='70' r='0.5' fill='%23e5e5e5'/></svg>')";
+                return (
+                  <div key={feature.title} className={`text-center p-8 rounded-xl bg-white border-2 ${borderColor} shadow-lg font-serif flex flex-col items-center`} style={{ backgroundImage: paperTexture, backgroundBlendMode: 'multiply' }}>
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border-2 ${borderColor} bg-white`}>
+                      <feature.icon className={`h-8 w-8 ${iconColor}`} />
+                    </div>
+                    <h3 className="text-xl font-serif font-bold text-black mb-4 uppercase tracking-wide">{feature.title}</h3>
+                    <p className="text-gray-800 mb-4 leading-relaxed font-serif">{feature.description}</p>
+                    <div className={`text-lg font-bold ${statColor}`}>{feature.stat}</div>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-4">{feature.title}</h3>
-                  <p className="text-gray-700 mb-4 leading-relaxed font-serif">{feature.description}</p>
-                  <div className="text-lg font-bold text-emerald-700">{feature.stat}</div>
-                </div>
-            ))}
+                );
+              })}
           </div>
         </div>
       </section>
 
         {/* Research & Innovation Hub - Enhanced Newspaper Style */}
-        <section className="py-16 md:py-24 bg-[#faf9f7] border-b border-gray-200">
+        <section className="py-16 md:py-24 bg-white border-b-4 border-emerald-700 font-serif">
         <div className="container mx-auto px-4">
             <div className="text-center mb-14 md:mb-20">
-              <h2 className="text-4xl sm:text-5xl font-serif font-extrabold text-gray-900 mb-2">Research & Innovation Hub</h2>
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-black mb-2 uppercase tracking-wide border-b-4 border-pink-600 inline-block pb-2 font-serif">Research & Innovation Hub</h2>
               <div className="flex justify-center mb-4">
                 <hr className="w-24 border-t-2 border-emerald-700" />
               </div>
-              <p className="italic text-gray-600 max-w-xl mx-auto mb-4 font-serif text-base md:text-lg">“Advancing knowledge, fostering discovery, and driving innovation for Africa and the world.”</p>
-              <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">Our commitment to research excellence drives innovation and creates solutions for real-world challenges across Africa and beyond.</p>
+              <p className="italic text-black/70 max-w-xl mx-auto mb-4 font-serif text-base md:text-lg">“Advancing knowledge, fostering discovery, and driving innovation for Africa and the world.”</p>
+              <p className="text-base md:text-lg text-gray-800 max-w-2xl mx-auto font-serif mb-8">Our commitment to research excellence drives innovation and creates solutions for real-world challenges across Africa and beyond.</p>
             </div>
             <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-12">
               {[
-                { label: "Research Centers", value: 15, icon: <svg className='h-7 w-7 text-emerald-700' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10'/><path d='M8 12l2 2 4-4'/></svg> },
-                { label: "Active Projects", value: 150, icon: <svg className='h-7 w-7 text-emerald-700' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M9 9h6v6H9z'/></svg> },
-                { label: "Publications", value: 450, icon: <svg className='h-7 w-7 text-emerald-700' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M20 22V6a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 6.5V22'/></svg> },
-                { label: "Patents Filed", value: 28, icon: <svg className='h-7 w-7 text-emerald-700' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10'/><path d='M12 8v4l3 3'/></svg> },
-              ].map((stat) => (
-                <div key={stat.label} className="relative text-center p-8 rounded-xl bg-white border border-gray-200 border-b-4 border-b-emerald-700 shadow-md font-serif flex flex-col items-center" style={{backgroundImage:'repeating-linear-gradient(135deg,rgba(16,185,129,0.03)_0px,rgba(16,185,129,0.03)_2px,transparent_2px,transparent_8px)'}}>
+                { label: "Research Centers", value: 15, icon: <svg className='h-7 w-7 text-emerald-700' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10'/><path d='M8 12l2 2 4-4'/></svg>, color: 'emerald' },
+                { label: "Active Projects", value: 150, icon: <svg className='h-7 w-7 text-pink-600' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M9 9h6v6H9z'/></svg>, color: 'pink' },
+                { label: "Publications", value: 450, icon: <svg className='h-7 w-7 text-emerald-700' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M20 22V6a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 6.5V22'/></svg>, color: 'emerald' },
+                { label: "Patents Filed", value: 28, icon: <svg className='h-7 w-7 text-pink-600' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10'/><path d='M12 8v4l3 3'/></svg>, color: 'pink' },
+              ].map((stat, idx) => {
+                const borderColor = stat.color === 'emerald' ? 'border-emerald-700' : 'border-pink-600';
+                const statColor = stat.color === 'emerald' ? 'text-emerald-700' : 'text-pink-600';
+                const paperTexture = "url('data:image/svg+xml;utf8,<svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' fill='%23fff'/><circle cx='20' cy='20' r='1' fill='%23e5e5e5'/><circle cx='80' cy='60' r='1' fill='%23e5e5e5'/><circle cx='50' cy='80' r='0.7' fill='%23e5e5e5'/><circle cx='70' cy='30' r='0.5' fill='%23e5e5e5'/><circle cx='30' cy='70' r='0.5' fill='%23e5e5e5'/></svg>')";
+                return (
+                  <div key={stat.label} className={`relative text-center p-8 rounded-xl bg-white border-2 ${borderColor} shadow-lg font-serif flex flex-col items-center`} style={{ backgroundImage: paperTexture, backgroundBlendMode: 'multiply' }}>
                   <div className="mb-3">{stat.icon}</div>
-                  <div className="text-4xl font-extrabold text-emerald-700 mb-1" style={{fontFamily:'serif', fontVariant:'small-caps'}}>
+                    <div className={`text-4xl font-extrabold mb-1 font-serif ${statColor}`} style={{fontFamily:'serif', fontVariant:'small-caps'}}>
                     <span className="text-5xl align-top" style={{fontWeight:700}}><AnimatedCounter end={stat.value} suffix="+" /></span>
                       </div>
-                  <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
+                    <div className="text-lg font-semibold text-black mb-2 font-serif uppercase tracking-wide">{stat.label}</div>
                 </div>
-              ))}
+                );
+              })}
             </div>
             <div className="flex justify-center">
-              <Button className="bg-emerald-800 text-white hover:bg-emerald-700 px-10 py-4 text-lg font-bold border border-emerald-600 w-full sm:w-auto mx-auto text-center rounded-full flex items-center gap-2">
+              <Button className="bg-emerald-700 text-white hover:bg-emerald-800 px-10 py-4 text-lg font-bold border-2 border-emerald-700 w-full sm:w-auto mx-auto text-center rounded-full flex items-center gap-2 font-serif">
                 <svg className="h-5 w-5 text-white mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                 Explore Research Opportunities
                 <ArrowRight className="ml-3 h-6 w-6 text-white" />
@@ -530,11 +561,11 @@ export default function AcademicsPage() {
       </section>
 
         {/* Academic Resources - Editorial Style with Pink/Red & Green */}
-        <section className="py-14 md:py-20 bg-white border-b border-gray-200">
+        <section className="py-14 md:py-20 bg-white border-b-4 border-emerald-700 font-serif">
         <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Academic Resources</h2>
-              <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">Everything you need to succeed in your academic journey</p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-black mb-6 uppercase tracking-wide border-b-4 border-pink-600 inline-block pb-2 font-serif">Academic Resources</h2>
+              <p className="text-base md:text-lg text-gray-800 max-w-2xl mx-auto font-serif mb-8">Everything you need to succeed in your academic journey</p>
           </div>
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
@@ -542,54 +573,59 @@ export default function AcademicsPage() {
                 title: "Foundation Programs",
                 description: "Preparatory programs to build core academic skills",
                 href: "/academics/foundation",
-                  icon: <svg className="h-10 w-10 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M6 20V14"/><path d="M18 20V16"/><path d="M2 20h20"/><path d="M12 4v2"/><path d="M12 8v2"/></svg>,
-                  border: "border-emerald-600",
+                  icon: <svg className="h-10 w-10 text-emerald-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M6 20V14"/><path d="M18 20V16"/><path d="M2 20h20"/><path d="M12 4v2"/><path d="M12 8v2"/></svg>,
+                  color: "emerald",
               },
               {
                 title: "Undergraduate Programs",
                 description: "Bachelor's degree programs across multiple disciplines",
                 href: "/academics/undergraduate",
-                  icon: <svg className="h-10 w-10 text-red-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 3l9.5 7-9.5 7-9.5-7z"/><path d="M3 10v6a9 9 0 0 0 18 0v-6"/></svg>,
-                  border: "border-red-600",
+                  icon: <svg className="h-10 w-10 text-pink-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 3l9.5 7-9.5 7-9.5-7z"/><path d="M3 10v6a9 9 0 0 0 18 0v-6"/></svg>,
+                  color: "pink",
               },
               {
                 title: "Graduate Programs",
                 description: "Advanced master's and doctoral degree programs",
                 href: "/academics/graduate",
-                  icon: <svg className="h-10 w-10 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 3l9.5 7-9.5 7-9.5-7z"/><path d="M12 21v-4"/></svg>,
-                  border: "border-emerald-600",
+                  icon: <svg className="h-10 w-10 text-emerald-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 3l9.5 7-9.5 7-9.5-7z"/><path d="M12 21v-4"/></svg>,
+                  color: "emerald",
               },
               {
                 title: "Academic Calendar",
                 description: "Important dates, deadlines, and academic schedule",
                 href: "/academics/calendar",
-                  icon: <svg className="h-10 w-10 text-red-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>,
-                  border: "border-red-600",
+                  icon: <svg className="h-10 w-10 text-pink-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>,
+                  color: "pink",
                 },
-              ].map((item) => (
+              ].map((item, idx) => {
+                const borderColor = item.color === 'emerald' ? 'border-emerald-700' : 'border-pink-600';
+                const badgeColor = item.color === 'emerald' ? 'bg-emerald-700 text-white' : 'bg-pink-600 text-white';
+                const paperTexture = "url('data:image/svg+xml;utf8,<svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' fill='%23fff'/><circle cx='20' cy='20' r='1' fill='%23e5e5e5'/><circle cx='80' cy='60' r='1' fill='%23e5e5e5'/><circle cx='50' cy='80' r='0.7' fill='%23e5e5e5'/><circle cx='70' cy='30' r='0.5' fill='%23e5e5e5'/><circle cx='30' cy='70' r='0.5' fill='%23e5e5e5'/></svg>')";
+                return (
                 <Link key={item.title} href={item.href} className="block h-full">
-                  <div className={`bg-white border-2 ${item.border} rounded-xl p-8 shadow-sm flex flex-col items-center text-center h-full`}>
+                    <div className={`bg-white border-2 ${borderColor} rounded-xl p-8 shadow-lg flex flex-col items-center text-center h-full font-serif`} style={{ backgroundImage: paperTexture, backgroundBlendMode: 'multiply' }}>
                     <div className="mb-6">{item.icon}</div>
-                    <h3 className="text-xl font-serif font-bold text-gray-900 mb-4">{item.title}</h3>
-                    <p className="text-gray-700 mb-6 leading-relaxed font-serif">{item.description}</p>
-                    <span className={`inline-block px-4 py-2 rounded font-semibold text-sm ${item.border === 'border-emerald-600' ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'}`}>Learn More</span>
+                      <h3 className="text-xl font-serif font-bold text-black mb-4 uppercase tracking-wide">{item.title}</h3>
+                      <p className="text-gray-800 mb-6 leading-relaxed font-serif">{item.description}</p>
+                      <span className={`inline-block px-4 py-2 rounded font-semibold text-sm font-serif ${badgeColor}`}>Learn More</span>
                   </div>
                 </Link>
-            ))}
-          </div>
+                );
+              })}
+            </div>
         </div>
       </section>
 
         {/* Call to Action - Old Newspaper Style */}
-        <section className="py-20 bg-[#faf9f7] border-t border-b border-gray-200">
+        <section className="py-20 bg-white border-t-4 border-pink-600 border-b-4 border-emerald-700 font-serif">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl sm:text-5xl font-serif font-extrabold text-gray-900 mb-8">Ready to Begin Your Academic Journey?</h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-10 font-serif">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-black mb-8 uppercase tracking-wide border-b-4 border-emerald-700 inline-block pb-2 font-serif">Ready to Begin Your Academic Journey?</h2>
+            <p className="text-lg md:text-xl text-gray-800 max-w-2xl mx-auto mb-10 font-serif">
               Join thousands of students who have chosen The Unity University for their academic excellence and global perspective.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
               <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-emerald-700 text-white hover:bg-emerald-800 px-10 py-4 text-lg font-bold rounded-full flex items-center gap-2">
+                <Button size="lg" className="bg-emerald-700 text-white hover:bg-emerald-800 border-2 border-emerald-700 px-10 py-4 text-lg font-bold font-serif rounded-full flex items-center gap-2">
                   <svg className="h-5 w-5 text-white mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                   Apply Now
                   <ArrowRight className="ml-3 h-6 w-6 text-white" />
@@ -599,9 +635,9 @@ export default function AcademicsPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-emerald-700 text-emerald-700 bg-white hover:bg-emerald-700 hover:text-white px-10 py-4 text-lg font-bold rounded-full flex items-center gap-2"
+                  className="border-2 border-pink-600 text-pink-600 bg-white hover:bg-pink-600 hover:text-white px-10 py-4 text-lg font-bold font-serif rounded-full flex items-center gap-2"
                 >
-                  <svg className="h-5 w-5 text-emerald-700 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7"/><path d="M21 10.5l-9 5.5-9-5.5"/><path d="M17 17v5"/><path d="M17 22l2-2 2 2"/></svg>
+                  <svg className="h-5 w-5 text-pink-600 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7"/><path d="M21 10.5l-9 5.5-9-5.5"/><path d="M17 17v5"/><path d="M17 22l2-2 2 2"/></svg>
                   Contact Academic Affairs
                 </Button>
               </Link>

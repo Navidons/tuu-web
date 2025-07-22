@@ -203,7 +203,7 @@ export default function EnhancedNavbar() {
       {/* Enhanced Top bar with Global Network messaging */}
       <motion.div
         className={cn(
-          "hidden w-full bg-gradient-to-r from-purple-600 to-blue-600 py-2 transition-all duration-500 lg:block",
+          "hidden w-full bg-white border-b-4 border-green-700 py-2 transition-all duration-500 font-serif lg:block",
           isScrolled ? "lg:hidden" : "",
         )}
         initial={{ y: -100 }}
@@ -213,14 +213,14 @@ export default function EnhancedNavbar() {
       >
         <div className="container mx-auto flex items-center justify-between px-4">
           <motion.div 
-            className="flex items-center space-x-6 text-xs text-white"
+            className="flex items-center space-x-6 text-xs text-black font-serif"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             <motion.a
               href="mailto:theunityuniversity@gmail.com"
-              className="flex items-center hover:text-purple-100 transition-colors duration-300"
+              className="flex items-center hover:text-green-700 transition-colors duration-300"
               whileHover={{ scale: 1.02 }}
             >
               <Mail className="mr-1 h-3 w-3" />
@@ -228,7 +228,7 @@ export default function EnhancedNavbar() {
             </motion.a>
             <motion.a
               href="tel:+252634210013"
-              className="flex items-center hover:text-purple-100 transition-colors duration-300"
+              className="flex items-center hover:text-green-700 transition-colors duration-300"
               whileHover={{ scale: 1.02 }}
             >
               <Phone className="mr-1 h-3 w-3" />
@@ -236,7 +236,7 @@ export default function EnhancedNavbar() {
             </motion.a>
           </motion.div>
           <motion.div 
-            className="text-xs text-white font-bold flex items-center space-x-3"
+            className="text-xs text-black font-bold flex items-center space-x-3 font-serif"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -266,7 +266,7 @@ export default function EnhancedNavbar() {
                 href="https://www.facebook.com/theunityuniversity"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-100 transition-colors"
+                className="hover:text-green-700 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-3 w-3" />
@@ -275,7 +275,7 @@ export default function EnhancedNavbar() {
                 href="https://www.instagram.com/explore/locations/104837471861628/the-unity-university/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-100 transition-colors"
+                className="hover:text-green-700 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-3 w-3" />
@@ -284,7 +284,7 @@ export default function EnhancedNavbar() {
                 href="https://so.linkedin.com/company/the-unity-university"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-100 transition-colors"
+                className="hover:text-green-700 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-3 w-3" />
@@ -297,8 +297,8 @@ export default function EnhancedNavbar() {
 
       <header
         className={cn(
-          "sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-lg transition-all duration-500",
-          isScrolled ? "py-1 shadow-xl" : "py-3",
+          "sticky top-0 z-50 w-full bg-white border-b-4 border-green-700 shadow-md transition-all duration-500 font-serif",
+          isScrolled ? "py-1 shadow-lg" : "py-3",
         )}
       >
         <div className="container mx-auto flex items-center justify-between px-4">
@@ -315,23 +315,23 @@ export default function EnhancedNavbar() {
                 <Image src="/tuu-logo/tuu-logo.png" alt="The Unity University Logo" width={120} height={120} className="h-12 w-12 lg:h-16 lg:w-16 object-contain drop-shadow-lg" />
               </motion.div>
               <div>
-                <span className="text-sm sm:text-base font-bold bg-gradient-to-r from-purple-700 to-blue-700 bg-clip-text text-transparent group-hover:from-purple-800 group-hover:to-blue-800 transition-all duration-300">
+                <span className="text-lg sm:text-xl font-extrabold text-black font-serif uppercase tracking-wide group-hover:text-green-700 transition-all duration-300">
                   The Unity University
                 </span>
-                <div className="text-xs text-gray-500 font-medium">What begins here, Transforms Africa</div>
+                <div className="text-xs text-green-700 font-serif font-bold uppercase tracking-wide">What begins here, Transforms Africa</div>
               </div>
             </Link>
           </motion.div>
 
           {/* Enhanced Campus Indicator */}
           <motion.div 
-            className="hidden lg:flex items-center space-x-3 bg-gradient-to-r from-purple-50 to-blue-50 px-3 py-1 rounded-full border border-purple-200 shadow-sm"
+            className="hidden lg:flex items-center space-x-3 bg-white px-3 py-1 rounded-full border border-green-700 shadow-sm font-serif"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <Globe className="h-3 w-3 text-purple-600" />
-            <span className="text-xs font-medium text-gray-700">2 Campuses</span>
+            <Globe className="h-3 w-3 text-green-700" />
+            <span className="text-xs font-medium text-black font-serif">2 Campuses</span>
             <Link
               href="/liberia"
               target="_blank"
@@ -367,9 +367,9 @@ export default function EnhancedNavbar() {
                       <button
                         onClick={() => toggleDropdown(link.name)}
                         className={cn(
-                          "flex items-center rounded-lg px-3 py-2 text-xs font-medium transition-all duration-300",
-                          "text-gray-700 hover:text-purple-700 hover:bg-purple-50",
-                          activeDropdown === link.name ? "text-purple-700 bg-purple-50" : "",
+                          "flex items-center rounded-lg px-3 py-2 text-xs font-extrabold font-serif uppercase tracking-wide transition-all duration-300",
+                          "text-black hover:text-green-700 hover:bg-green-50 border-b-2 border-transparent hover:border-green-700",
+                          activeDropdown === link.name ? "text-green-700 bg-green-50 border-green-700" : "",
                         )}
                       >
                         {link.icon && <link.icon className="mr-1 h-3 w-3" />}
@@ -383,7 +383,7 @@ export default function EnhancedNavbar() {
                         {activeDropdown === link.name && mounted && (
                           <motion.div
                             className={cn(
-                              "absolute left-0 mt-1 rounded-xl bg-white py-2 shadow-xl ring-1 ring-black ring-opacity-5 border border-gray-100 backdrop-blur-md",
+                              "absolute left-0 mt-1 rounded-xl bg-white py-2 shadow-xl ring-1 ring-green-700 ring-opacity-10 border-2 border-green-700 font-serif",
                               link.name === "Campuses" ? "w-96" : "w-56",
                             )}
                             variants={dropdownVariants}
@@ -399,7 +399,7 @@ export default function EnhancedNavbar() {
                                     href={item.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block mx-2 mb-2 p-4 rounded-lg hover:bg-gradient-to-r hover:from-purple-50 hover:to-blue-50 transition-all duration-300 group"
+                                    className="block mx-2 mb-2 p-4 rounded-lg hover:bg-green-50 transition-all duration-300 group font-serif border-b-2 border-transparent hover:border-green-700"
                                     onClick={() => setActiveDropdown(null)}
                                   >
                                     <div className="flex items-start space-x-3">
@@ -408,16 +408,16 @@ export default function EnhancedNavbar() {
                                       </div>
                                       <div className="flex-1">
                                         <div className="flex items-center space-x-2 mb-1">
-                                          <h4 className="font-bold text-sm text-gray-900">{item.name}</h4>
+                                          <h4 className="font-extrabold text-sm text-black font-serif uppercase tracking-wide">{item.name}</h4>
                                           {item.external && (
-                                            <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                                            <ExternalLink className="h-3 w-3 text-green-700 group-hover:text-green-900 transition-colors" />
                                           )}
                                         </div>
-                                        {'description' in item && <p className="text-xs text-gray-600 mb-1">{item.description}</p>}
-                                        {'established' in item && <p className="text-xs text-purple-600 font-medium mb-1">
+                                        {'description' in item && <p className="text-xs text-gray-600 mb-1 font-serif">{item.description}</p>}
+                                        {'established' in item && <p className="text-xs text-green-700 font-medium mb-1 font-serif">
                                           Est. {item.established}
                                         </p>}
-                                        {'motto' in item && <p className="text-xs text-gray-500 italic leading-tight">{item.motto}</p>}
+                                        {'motto' in item && <p className="text-xs text-gray-500 italic leading-tight font-serif">{item.motto}</p>}
                                       </div>
                                     </div>
                                   </Link>
@@ -426,7 +426,7 @@ export default function EnhancedNavbar() {
                                   <Link
                                     href={item.href}
                                     {...(item.external && { target: "_blank", rel: "noopener noreferrer" })}
-                                    className="block px-4 py-2 text-xs text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-blue-50 hover:text-purple-700 transition-all duration-300 rounded-lg mx-2"
+                                    className="block px-4 py-2 text-xs text-black font-serif uppercase tracking-wide hover:bg-green-50 hover:text-green-700 transition-all duration-300 rounded-lg mx-2 border-b-2 border-transparent hover:border-green-700"
                                     onClick={() => setActiveDropdown(null)}
                                   >
                                     <div className="flex items-center space-x-2">
@@ -445,9 +445,9 @@ export default function EnhancedNavbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "block rounded-lg px-3 py-2 text-xs font-medium transition-all duration-300",
-                        "text-gray-700 hover:text-purple-700 hover:bg-purple-50",
-                        pathname.startsWith(link.href) ? "text-purple-700 bg-purple-50" : ""
+                        "block rounded-lg px-3 py-2 text-xs font-extrabold font-serif uppercase tracking-wide transition-all duration-300",
+                        "text-black hover:text-green-700 hover:bg-green-50 border-b-2 border-transparent hover:border-green-700",
+                        pathname.startsWith(link.href) ? "text-green-700 bg-green-50 border-green-700" : ""
                       )}
                     >
                       <div className="flex items-center space-x-1">
@@ -462,34 +462,26 @@ export default function EnhancedNavbar() {
           </nav>
 
           <motion.div 
-            className="hidden items-center space-x-3 lg:flex"
+            className="hidden items-center space-x-3 lg:flex font-serif"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="p-2 hover:bg-purple-50"
-            >
-              <Search className="h-4 w-4" />
-            </Button>
             <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-md transition-all duration-300 hover:shadow-lg px-3 py-1 font-semibold text-xs">
+              <Button className="bg-green-700 text-white hover:bg-green-800 shadow-md transition-all duration-300 hover:shadow-lg px-3 py-1 font-extrabold text-xs font-serif uppercase tracking-wide border-2 border-green-700 rounded-full">
                 Apply Now
               </Button>
             </Link>
           </motion.div>
 
           <motion.button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            className="lg:hidden p-3 rounded-lg hover:bg-green-50 transition-colors duration-300 text-green-700 focus:outline-none focus:ring-2 focus:ring-green-700"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            {mobileMenuOpen ? <X className="h-5 w-5 text-gray-700" /> : <Menu className="h-5 w-5 text-gray-700" />}
+            {mobileMenuOpen ? <X className="h-6 w-6 text-black" /> : <Menu className="h-6 w-6 text-black" />}
           </motion.button>
         </div>
       </header>
@@ -498,33 +490,33 @@ export default function EnhancedNavbar() {
       <AnimatePresence>
         {mobileMenuOpen && mounted && (
           <motion.div
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed inset-0 z-40 lg:hidden overflow-y-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/30 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
-              className="absolute right-0 top-0 h-full w-4/5 max-w-xs bg-white shadow-xl"
+              className="absolute right-0 top-0 h-full w-4/5 max-w-xs bg-white shadow-xl border-l-4 border-green-700 font-serif overflow-y-auto"
               variants={mobileMenuVariants}
               initial="hidden"
               animate="visible"
               exit="hidden"
             >
-              <div className="p-4 h-full overflow-y-auto">
-                <div className="mb-6 flex flex-col space-y-3 border-b border-gray-100 pb-4">
-                  <div className="flex items-center space-x-2 text-purple-700 font-medium text-sm">
+              <div className="p-4 h-full flex flex-col gap-4 overflow-y-auto">
+                <div className="mb-6 flex flex-col space-y-3 border-b border-green-700 pb-4">
+                  <div className="flex items-center space-x-2 text-green-700 font-extrabold text-sm font-serif uppercase tracking-wide">
                     <Globe className="h-4 w-4" />
                     <span>What Begins Here Transforms Africa</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-gray-600 text-xs">
+                  <div className="flex items-center space-x-2 text-black text-xs font-serif">
                     <span>2 Campuses:</span>
                     <Link
                       href="/liberia"
@@ -545,14 +537,14 @@ export default function EnhancedNavbar() {
                   </div>
                   <a
                     href="mailto:theunityuniversity@gmail.com"
-                    className="flex items-center text-gray-600 hover:text-purple-700 transition-colors text-xs"
+                    className="flex items-center text-black hover:text-green-700 transition-colors text-xs font-serif"
                   >
                     <Mail className="mr-2 h-3 w-3" />
                     theunityuniversity@gmail.com
                   </a>
                   <a
                     href="tel:+252634210013"
-                    className="flex items-center text-gray-600 hover:text-purple-700 transition-colors text-xs"
+                    className="flex items-center text-black hover:text-green-700 transition-colors text-xs font-serif"
                   >
                     <Phone className="mr-2 h-3 w-3" />
                     +252 634 210013
@@ -562,24 +554,24 @@ export default function EnhancedNavbar() {
                 <nav>
                   <ul className="space-y-2">
                     {navLinks.map((link) => (
-                      <li key={link.name} className="border-b border-gray-50 pb-3">
+                      <li key={link.name} className="border-b border-green-50 pb-3">
                         {link.dropdown ? (
                           <div>
                             <button
                               onClick={() => toggleDropdown(link.name)}
-                              className="flex w-full items-center justify-between text-sm font-semibold text-gray-800 py-2"
+                              className="flex w-full items-center justify-between text-base font-extrabold text-black font-serif uppercase tracking-wide py-3 focus:outline-none focus:ring-2 focus:ring-green-700"
                             >
                               <div className="flex items-center space-x-2">
-                                {link.icon && <link.icon className="h-4 w-4" />}
+                                {link.icon && <link.icon className="h-5 w-5" />}
                                 <span>{link.name}</span>
                               </div>
                               <ChevronDown className={cn(
-                                "h-4 w-4 text-gray-400 transition-transform duration-200",
+                                "h-5 w-5 text-green-700 transition-transform duration-200",
                                 activeDropdown === link.name ? "rotate-180" : ""
                               )} />
                             </button>
                             {activeDropdown === link.name && (
-                              <div className="mt-2 pl-2 space-y-2">
+                              <div className="mt-2 pl-2 space-y-3">
                                 {link.dropdown.map((item) => (
                                   <div key={item.name}>
                                     {link.name === "Campuses" ? (
@@ -588,7 +580,7 @@ export default function EnhancedNavbar() {
                                         href={item.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="block p-3 rounded-lg bg-gray-50 hover:bg-purple-50 transition-colors group"
+                                        className="block p-4 rounded-lg bg-white hover:bg-green-50 transition-colors group font-serif border-b-2 border-transparent hover:border-green-700 text-base"
                                         onClick={() => setMobileMenuOpen(false)}
                                       >
                                         <div className="flex items-start space-x-3">
@@ -597,13 +589,13 @@ export default function EnhancedNavbar() {
                                           </div>
                                           <div className="flex-1">
                                             <div className="flex items-center space-x-1 mb-1">
-                                              <h4 className="font-bold text-xs text-gray-900">{item.name}</h4>
+                                              <h4 className="font-extrabold text-base text-black font-serif uppercase tracking-wide">{item.name}</h4>
                                               {item.external && (
-                                                <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                                                <ExternalLink className="h-4 w-4 text-green-700 group-hover:text-green-900 transition-colors" />
                                               )}
                                             </div>
-                                            <p className="text-xs text-gray-600 mb-1">{item.description}</p>
-                                            <p className="text-xs text-purple-600 font-medium">
+                                            <p className="text-xs text-black mb-1 font-serif">{item.description}</p>
+                                            <p className="text-xs text-green-700 font-medium font-serif">
                                               Est. {item.established}
                                             </p>
                                           </div>
@@ -615,13 +607,13 @@ export default function EnhancedNavbar() {
                                         href={item.href}
                                         {...(item.external && { target: "_blank", rel: "noopener noreferrer" })}
                                         className={cn(
-                                          "block py-1 text-gray-600 hover:text-purple-700 transition-colors text-xs pl-2",
-                                          pathname.startsWith(item.href) ? "text-purple-700 font-semibold" : ""
+                                          "block py-3 text-black hover:text-green-700 transition-colors text-base pl-2 font-serif uppercase tracking-wide font-extrabold border-b-2 border-transparent hover:border-green-700",
+                                          pathname.startsWith(item.href) ? "text-green-700" : ""
                                         )}
                                         onClick={() => setMobileMenuOpen(false)}
                                       >
                                         <div className="flex items-center space-x-2">
-                                          {'icon' in item && item.icon && <item.icon className="h-3 w-3" />}
+                                          {'icon' in item && item.icon && <item.icon className="h-5 w-5" />}
                                           <span>{item.name}</span>
                                         </div>
                                       </Link>
@@ -635,13 +627,13 @@ export default function EnhancedNavbar() {
                           <Link
                             href={link.href}
                             className={cn(
-                              "block text-sm font-semibold text-gray-800 hover:text-purple-700 transition-colors py-2",
-                              pathname.startsWith(link.href) ? "text-purple-700" : ""
+                              "block text-base font-extrabold text-black font-serif uppercase tracking-wide hover:text-green-700 transition-colors py-3 border-b-2 border-transparent hover:border-green-700",
+                              pathname.startsWith(link.href) ? "text-green-700" : ""
                             )}
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             <div className="flex items-center space-x-2">
-                              {link.icon && <link.icon className="h-4 w-4" />}
+                              {link.icon && <link.icon className="h-5 w-5" />}
                               <span>{link.name}</span>
                             </div>
                           </Link>
@@ -653,7 +645,7 @@ export default function EnhancedNavbar() {
 
                 <div className="mt-6">
                   <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-md py-2 text-sm font-bold">
+                    <Button className="w-full bg-green-700 text-white hover:bg-green-800 border-2 border-green-700 shadow-md py-4 text-base font-extrabold font-serif uppercase tracking-wide rounded-full">
                       Apply Now
                     </Button>
                   </Link>

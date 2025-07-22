@@ -30,7 +30,7 @@ export default function RootLayout({
           style={{
             position: 'fixed',
             bottom: '24px',
-            right: '24px',
+            left: '24px',
             zIndex: 1000,
             backgroundColor: '#25D366',
             borderRadius: '50%',

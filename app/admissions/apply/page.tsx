@@ -12,6 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import EnhancedFooter from "@/components/enhanced-footer"
 import EnhancedNavbar from "@/components/enhanced-navbar"
 import Link from "next/link"
+import { useRef } from "react"
 
 export default function ApplyPage() {
   const [mounted, setMounted] = useState(false)
@@ -39,8 +40,13 @@ export default function ApplyPage() {
     personalStatement: "",
 
     // Additional
-    terms: false,
+    consent: false,
   })
+  const [transcriptFile, setTranscriptFile] = useState<File | null>(null)
+  const [recommendationFile, setRecommendationFile] = useState<File | null>(null)
+  const [submitting, setSubmitting] = useState(false)
+  const [notification, setNotification] = useState<{ type: 'success' | 'error', message: string } | null>(null)
+  const notificationRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -60,6 +66,17 @@ export default function ApplyPage() {
     setFormData((prev) => ({ ...prev, [field]: file }))
   }
 
+  const handleTranscriptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setTranscriptFile(e.target.files[0])
+    }
+  }
+  const handleRecommendationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setRecommendationFile(e.target.files[0])
+    }
+  }
+
   const nextStep = () => {
     if (currentStep < 4) setCurrentStep(currentStep + 1)
   }
@@ -68,10 +85,64 @@ export default function ApplyPage() {
     if (currentStep > 1) setCurrentStep(currentStep - 1)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Application submitted:", formData)
-    // Handle form submission
+    if (submitting) return
+    setSubmitting(true)
+    setNotification(null)
+    try {
+      const fd = new FormData()
+      fd.append('firstName', formData.firstName)
+      fd.append('lastName', formData.lastName)
+      fd.append('email', formData.email)
+      fd.append('phone', formData.phone)
+      fd.append('dateOfBirth', formData.dateOfBirth)
+      fd.append('nationality', formData.nationality)
+      fd.append('gender', formData.gender)
+      fd.append('previousEducation', formData.previousEducation)
+      fd.append('gpa', formData.gpa)
+      fd.append('graduationYear', formData.graduationYear)
+      fd.append('programChoice', formData.programChoice)
+      fd.append('campusChoice', formData.campusChoice)
+      fd.append('personalStatement', formData.personalStatement)
+      if (transcriptFile) fd.append('transcript', transcriptFile)
+      if (recommendationFile) fd.append('recommendation', recommendationFile)
+      const res = await fetch('/api/apply', {
+        method: 'POST',
+        body: fd,
+      })
+      if (res.ok) {
+        setNotification({ type: 'success', message: 'Your application has been submitted! Please check your email for confirmation.' })
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          dateOfBirth: "",
+          nationality: "",
+          gender: "",
+          previousEducation: "",
+          gpa: "",
+          graduationYear: "",
+          programChoice: "",
+          campusChoice: "",
+          transcript: null,
+          recommendation: null,
+          personalStatement: "",
+          consent: false,
+        })
+        setTranscriptFile(null)
+        setRecommendationFile(null)
+        setCurrentStep(1)
+      } else {
+        const data = await res.json()
+        setNotification({ type: 'error', message: data.error || 'Failed to submit application. Please try again.' })
+      }
+    } catch (err) {
+      setNotification({ type: 'error', message: 'Network error. Please try again.' })
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const steps = [
@@ -109,6 +180,25 @@ export default function ApplyPage() {
     },
   ]
 
+  // Focus notification when shown
+  useEffect(() => {
+    if (notification && notificationRef.current) {
+      notificationRef.current.focus()
+    }
+  }, [notification])
+
+  // Prevent navigation away while submitting
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (submitting) {
+        e.preventDefault()
+        e.returnValue = ''
+      }
+    }
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
+  }, [submitting])
+
   return (
     <div className="min-h-screen bg-white">
       <EnhancedNavbar />
@@ -120,7 +210,7 @@ export default function ApplyPage() {
             <motion.div
               className="absolute inset-0 opacity-20"
               style={{
-                backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
+                backgroundImage: `url('/strips/apply-now-at-the-unity-university.jpg?height=1200&width=1920')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -147,92 +237,52 @@ export default function ApplyPage() {
                 Take the first step towards your future at The Unity University. Our streamlined application process makes
                 it easy to apply.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-6">
-                <Button
-                  type="button"
-                  onClick={prevStep}
-                  disabled={currentStep === 1}
-                  className="px-6 py-2"
-                >
-                  Previous
-                </Button>
-
-                {currentStep < 4 ? (
-                  <Button
-                    type="button"
-                    onClick={nextStep}
-                    className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 py-2"
-                  >
-                    Next Step
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                ) : (
-                  <Button
-                    type="submit"
-                    disabled={!formData.terms}
-                    className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-2 font-bold"
-                  >
-                    Submit Application
-                    <CheckCircle className="ml-2 h-5 w-5" />
-                  </Button>
-                )}
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Application Requirements */}
-      <section className="py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-24 bg-white border-y-4 border-green-700 font-serif">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">Application Requirements</h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Make sure you have all the required documents before starting your application
-              </p>
-            </motion.div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black mb-2 tracking-wide uppercase border-b-4 border-pink-600 inline-block pb-2">Application Requirements</h2>
+            <div className="text-xs text-pink-600 mt-1 mb-2 font-semibold">Admissions Requirements</div>
+            <p className="text-base sm:text-lg md:text-xl text-gray-800 max-w-3xl mx-auto mt-4 italic">
+              Make sure you have all the required documents before starting your application
+            </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2">
               {requirements.map((req, index) => (
-                <motion.div
+                <div
                   key={req.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 md:p-6"
+                  className={`bg-white rounded-2xl shadow-lg border-2 p-4 md:p-6 ${req.required ? 'border-pink-600' : 'border-green-700'}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div
                       className={`w-6 h-6 rounded-full flex items-center justify-center mt-1 ${
-                        req.required ? "bg-red-100" : "bg-blue-100"
+                        req.required ? "bg-pink-100" : "bg-green-100"
                       }`}
                     >
                       {req.required ? (
-                        <AlertCircle className="h-4 w-4 text-red-600" />
+                        <AlertCircle className="h-4 w-4 text-pink-600" />
                       ) : (
-                        <CheckCircle className="h-4 w-4 text-blue-600" />
+                        <CheckCircle className="h-4 w-4 text-green-700" />
                       )}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">{req.title}</h3>
-                      <p className="text-gray-600">{req.description}</p>
+                      <h3 className="text-lg font-bold text-black mb-2 font-serif uppercase tracking-wide">{req.title}</h3>
+                      <p className="text-gray-800 font-serif">{req.description}</p>
                       <Badge
-                        className={`mt-2 ${req.required ? "bg-red-100 text-red-700" : "bg-blue-100 text-blue-700"}`}
+                        className={`mt-2 px-3 py-1 rounded-full font-bold text-xs border ${req.required ? "bg-pink-100 text-pink-700 border-pink-600" : "bg-green-100 text-green-700 border-green-700"}`}
                       >
                         {req.required ? "Required" : "Optional"}
                       </Badge>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -240,7 +290,7 @@ export default function ApplyPage() {
       </section>
 
       {/* Application Form */}
-      <section className="py-12 md:py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white border-y-4 border-green-700 font-serif">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Progress Steps */}
@@ -249,18 +299,20 @@ export default function ApplyPage() {
                 {steps.map((step, index) => (
                   <div key={step.number} className="flex items-center">
                     <div
-                      className={`w-8 md:w-12 h-8 md:h-12 rounded-full flex items-center justify-center font-bold ${
-                        currentStep >= step.number
-                          ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
-                          : "bg-gray-200 text-gray-600"
+                      className={`w-8 md:w-12 h-8 md:h-12 rounded-full flex items-center justify-center font-bold border-2 font-serif text-lg transition-colors duration-300 ${
+                        currentStep > step.number
+                          ? "bg-green-700 text-white border-green-700"
+                          : currentStep === step.number
+                          ? "bg-pink-600 text-white border-pink-600"
+                          : "bg-white text-black border-green-700"
                       }`}
                     >
                       {currentStep > step.number ? <CheckCircle className="h-4 md:h-6 w-4 md:w-6" /> : step.number}
                     </div>
                     {index < steps.length - 1 && (
                       <div
-                        className={`w-12 md:w-24 h-1 mx-2 md:mx-4 ${
-                          currentStep > step.number ? "bg-gradient-to-r from-purple-600 to-blue-600" : "bg-gray-200"
+                        className={`w-12 md:w-24 h-1 mx-2 md:mx-4 rounded-full transition-colors duration-300 ${
+                          currentStep > step.number ? "bg-green-700" : currentStep === step.number ? "bg-pink-600" : "bg-gray-200"
                         }`}
                       />
                     )}
@@ -268,31 +320,31 @@ export default function ApplyPage() {
                 ))}
               </div>
               <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
-                  Step {currentStep}: {steps[currentStep - 1].title}
-                </h3>
-                <p className="text-sm md:text-base text-gray-600">Complete all fields to continue</p>
+                <h3 className="text-xl md:text-2xl font-bold text-black mb-1 md:mb-2 font-serif uppercase tracking-wide border-b-2 border-pink-600 inline-block pb-1">Step {currentStep}: {steps[currentStep - 1].title}</h3>
+                <p className="text-sm md:text-base text-gray-800 font-serif">Complete all fields to continue</p>
               </div>
             </div>
 
             {/* Form Content */}
-            <motion.div
-              key={currentStep}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8"
-            >
-              <form onSubmit={handleSubmit}>
+            {notification && (
+              <div
+                ref={notificationRef}
+                tabIndex={-1}
+                className={`mb-6 p-4 rounded-md font-serif text-center text-lg font-bold shadow border-2 ${notification.type === 'success' ? 'bg-green-50 border-green-700 text-green-800' : 'bg-pink-50 border-pink-600 text-pink-700'}`}
+                role="alert"
+                aria-live="assertive"
+              >
+                {notification.message}
+              </div>
+            )}
+            <div className="bg-white rounded-3xl shadow-xl border-2 border-green-700 p-8 font-serif">
+              <form onSubmit={handleSubmit} aria-busy={submitting}>
                 {/* Step 1: Personal Information */}
                 {currentStep === 1 && (
                   <div className="space-y-6">
                     <div className="grid gap-6 md:grid-cols-2">
                       <div>
-                        <Label htmlFor="firstName" className="text-gray-700 font-medium">
-                          First Name
-                        </Label>
+                        <Label htmlFor="firstName" className="text-black font-medium font-serif uppercase tracking-wide">First Name</Label>
                         <Input
                           id="firstName"
                           name="firstName"
@@ -304,9 +356,7 @@ export default function ApplyPage() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="lastName" className="text-gray-700 font-medium">
-                          Last Name
-                        </Label>
+                        <Label htmlFor="lastName" className="text-black font-medium font-serif uppercase tracking-wide">Last Name</Label>
                         <Input
                           id="lastName"
                           name="lastName"
@@ -321,9 +371,7 @@ export default function ApplyPage() {
 
                     <div className="grid gap-6 md:grid-cols-2">
                       <div>
-                        <Label htmlFor="email" className="text-gray-700 font-medium">
-                          Email Address
-                        </Label>
+                        <Label htmlFor="email" className="text-black font-medium font-serif uppercase tracking-wide">Email Address</Label>
                         <Input
                           id="email"
                           name="email"
@@ -336,9 +384,7 @@ export default function ApplyPage() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="phone" className="text-gray-700 font-medium">
-                          Phone Number
-                        </Label>
+                        <Label htmlFor="phone" className="text-black font-medium font-serif uppercase tracking-wide">Phone Number</Label>
                         <Input
                           id="phone"
                           name="phone"
@@ -354,9 +400,7 @@ export default function ApplyPage() {
 
                     <div className="grid gap-6 md:grid-cols-3">
                       <div>
-                        <Label htmlFor="dateOfBirth" className="text-gray-700 font-medium">
-                          Date of Birth
-                        </Label>
+                        <Label htmlFor="dateOfBirth" className="text-black font-medium font-serif uppercase tracking-wide">Date of Birth</Label>
                         <Input
                           id="dateOfBirth"
                           name="dateOfBirth"
@@ -368,15 +412,13 @@ export default function ApplyPage() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="nationality" className="text-gray-700 font-medium">
-                          Nationality
-                        </Label>
+                        <Label htmlFor="nationality" className="text-black font-medium font-serif uppercase tracking-wide">Nationality</Label>
                         <select
                           id="nationality"
                           name="nationality"
                           value={formData.nationality}
                           onChange={handleInputChange}
-                          className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="mt-2 w-full px-3 py-2 border border-green-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-700 font-serif"
                           required
                         >
                           <option value="">Select nationality</option>
@@ -386,15 +428,13 @@ export default function ApplyPage() {
                         </select>
                       </div>
                       <div>
-                        <Label htmlFor="gender" className="text-gray-700 font-medium">
-                          Gender
-                        </Label>
+                        <Label htmlFor="gender" className="text-black font-medium font-serif uppercase tracking-wide">Gender</Label>
                         <select
                           id="gender"
                           name="gender"
                           value={formData.gender}
                           onChange={handleInputChange}
-                          className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="mt-2 w-full px-3 py-2 border border-green-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-700 font-serif"
                           required
                         >
                           <option value="">Select gender</option>
@@ -412,9 +452,7 @@ export default function ApplyPage() {
                 {currentStep === 2 && (
                   <div className="space-y-6">
                     <div>
-                      <Label htmlFor="previousEducation" className="text-gray-700 font-medium">
-                        Previous Education
-                      </Label>
+                      <Label htmlFor="previousEducation" className="text-black font-medium font-serif uppercase tracking-wide">Previous Education</Label>
                       <Input
                         id="previousEducation"
                         name="previousEducation"
@@ -428,9 +466,7 @@ export default function ApplyPage() {
 
                     <div className="grid gap-6 md:grid-cols-2">
                       <div>
-                        <Label htmlFor="gpa" className="text-gray-700 font-medium">
-                          GPA / Grade Average
-                        </Label>
+                        <Label htmlFor="gpa" className="text-black font-medium font-serif uppercase tracking-wide">GPA / Grade Average</Label>
                         <Input
                           id="gpa"
                           name="gpa"
@@ -442,9 +478,7 @@ export default function ApplyPage() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="graduationYear" className="text-gray-700 font-medium">
-                          Graduation Year
-                        </Label>
+                        <Label htmlFor="graduationYear" className="text-black font-medium font-serif uppercase tracking-wide">Graduation Year</Label>
                         <Input
                           id="graduationYear"
                           name="graduationYear"
@@ -460,15 +494,13 @@ export default function ApplyPage() {
 
                     <div className="grid gap-6 md:grid-cols-2">
                       <div>
-                        <Label htmlFor="programChoice" className="text-gray-700 font-medium">
-                          Program of Interest
-                        </Label>
+                        <Label htmlFor="programChoice" className="text-black font-medium font-serif uppercase tracking-wide">Program of Interest</Label>
                         <select
                           id="programChoice"
                           name="programChoice"
                           value={formData.programChoice}
                           onChange={handleInputChange}
-                          className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="mt-2 w-full px-3 py-2 border border-green-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-700 font-serif"
                           required
                         >
                           <option value="">Select a program</option>
@@ -480,15 +512,13 @@ export default function ApplyPage() {
                         </select>
                       </div>
                       <div>
-                        <Label htmlFor="campusChoice" className="text-gray-700 font-medium">
-                          Preferred Campus
-                        </Label>
+                        <Label htmlFor="campusChoice" className="text-black font-medium font-serif uppercase tracking-wide">Preferred Campus</Label>
                         <select
                           id="campusChoice"
                           name="campusChoice"
                           value={formData.campusChoice}
                           onChange={handleInputChange}
-                          className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="mt-2 w-full px-3 py-2 border border-green-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-700 font-serif"
                           required
                         >
                           <option value="">Select a campus</option>
@@ -504,42 +534,56 @@ export default function ApplyPage() {
                 {currentStep === 3 && (
                   <div className="space-y-6">
                     <div>
-                      <Label className="text-gray-700 font-medium">Academic Transcripts</Label>
-                      <div className="mt-2 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                      <Label className="text-black font-medium font-serif uppercase tracking-wide">Academic Transcripts</Label>
+                      <div className="mt-2 border-2 border-dashed border-green-700 rounded-lg p-6 text-center">
                         <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                        <p className="text-gray-600 mb-2">Upload your official transcripts</p>
-                        <Button variant="outline" type="button">
-                          Choose Files
-                        </Button>
+                        <p className="text-black font-serif mb-2">Upload your official transcripts</p>
+                        <input
+                          type="file"
+                          name="transcript"
+                          accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/*"
+                          onChange={handleTranscriptChange}
+                          disabled={submitting}
+                          className="block mx-auto my-2"
+                        />
+                        {transcriptFile && (
+                          <div className="text-green-700 text-sm mt-2">Selected: {transcriptFile.name}</div>
+                        )}
                       </div>
                     </div>
 
                     <div>
-                      <Label className="text-gray-700 font-medium">Letters of Recommendation</Label>
-                      <div className="mt-2 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                      <Label className="text-black font-medium font-serif uppercase tracking-wide">Letters of Recommendation</Label>
+                      <div className="mt-2 border-2 border-dashed border-green-700 rounded-lg p-6 text-center">
                         <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                        <p className="text-gray-600 mb-2">Upload recommendation letters</p>
-                        <Button variant="outline" type="button">
-                          Choose Files
-                        </Button>
+                        <p className="text-black font-serif mb-2">Upload recommendation letters</p>
+                        <input
+                          type="file"
+                          name="recommendation"
+                          accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/*"
+                          onChange={handleRecommendationChange}
+                          disabled={submitting}
+                          className="block mx-auto my-2"
+                        />
+                        {recommendationFile && (
+                          <div className="text-green-700 text-sm mt-2">Selected: {recommendationFile.name}</div>
+                        )}
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="personalStatement" className="text-gray-700 font-medium">
-                        Personal Statement
-                      </Label>
+                      <Label htmlFor="personalStatement" className="text-black font-medium font-serif uppercase tracking-wide">Personal Statement</Label>
                       <Textarea
                         id="personalStatement"
                         name="personalStatement"
                         value={formData.personalStatement}
                         onChange={handleInputChange}
-                        className="mt-2"
+                        className="mt-2 font-serif"
                         rows={8}
                         placeholder="Write a 500-word essay about your goals, motivations, and why you want to study at The Unity University..."
                         required
                       />
-                      <p className="text-sm text-gray-500 mt-2">{formData.personalStatement.length}/500 words</p>
+                      <p className="text-sm text-gray-500 mt-2 font-serif">{formData.personalStatement.length}/500 words</p>
                     </div>
                   </div>
                 )}
@@ -547,26 +591,26 @@ export default function ApplyPage() {
                 {/* Step 4: Review & Submit */}
                 {currentStep === 4 && (
                   <div className="space-y-6">
-                    <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">Application Summary</h3>
+                    <div className="bg-white border-2 border-green-700 rounded-2xl p-6">
+                      <h3 className="text-xl font-bold text-green-700 mb-4 font-serif uppercase tracking-wide">Application Summary</h3>
                       <div className="grid gap-4 md:grid-cols-2">
                         <div>
-                          <p className="text-sm text-gray-600">Name</p>
-                          <p className="font-semibold">
+                          <p className="text-sm text-black font-serif">Name</p>
+                          <p className="font-semibold font-serif">
                             {formData.firstName} {formData.lastName}
                           </p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-600">Email</p>
-                          <p className="font-semibold">{formData.email}</p>
+                          <p className="text-sm text-black font-serif">Email</p>
+                          <p className="font-semibold font-serif">{formData.email}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-600">Program</p>
-                          <p className="font-semibold">{formData.programChoice}</p>
+                          <p className="text-sm text-black font-serif">Program</p>
+                          <p className="font-semibold font-serif">{formData.programChoice}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-600">Campus</p>
-                          <p className="font-semibold">{formData.campusChoice}</p>
+                          <p className="text-sm text-black font-serif">Campus</p>
+                          <p className="font-semibold font-serif">{formData.campusChoice}</p>
                         </div>
                       </div>
                     </div>
@@ -574,30 +618,23 @@ export default function ApplyPage() {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-3">
                         <Checkbox
-                          id="terms"
-                          checked={formData.terms}
-                          onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, terms: checked as boolean }))}
+                          id="consent"
+                          checked={formData.consent}
+                          onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, consent: checked as boolean }))}
                           required
                         />
-                        <Label htmlFor="terms" className="text-gray-700">
-                          I agree to the{" "}
-                          <Link href="/terms" className="text-purple-600 hover:underline">
-                            Terms and Conditions
-                          </Link>{" "}
-                          and
-                          <Link href="/privacy" className="text-purple-600 hover:underline ml-1">
-                            Privacy Policy
-                          </Link>
+                        <Label htmlFor="consent" className="text-black font-serif">
+                          I consent that I have provided accurate information
                         </Label>
                       </div>
                     </div>
 
-                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                    <div className="bg-pink-50 border border-pink-200 rounded-lg p-4 font-serif">
                       <div className="flex items-start space-x-3">
-                        <AlertCircle className="h-5 w-5 text-yellow-600 mt-0.5" />
+                        <AlertCircle className="h-5 w-5 text-pink-600 mt-0.5" />
                         <div>
-                          <h4 className="font-semibold text-yellow-800">Before you submit</h4>
-                          <p className="text-yellow-700 text-sm">
+                          <h4 className="font-semibold text-pink-800 font-serif">Before you submit</h4>
+                          <p className="text-pink-700 text-sm font-serif">
                             Please review all information carefully. Once submitted, you cannot edit your application.
                             You will receive a confirmation email with your application ID.
                           </p>
@@ -613,8 +650,8 @@ export default function ApplyPage() {
                     type="button"
                     variant="outline"
                     onClick={prevStep}
-                    disabled={currentStep === 1}
-                    className="px-6 py-2"
+                    disabled={currentStep === 1 || submitting}
+                    className="px-6 py-2 border-green-700 text-green-700 font-serif"
                   >
                     Previous
                   </Button>
@@ -623,7 +660,8 @@ export default function ApplyPage() {
                     <Button
                       type="button"
                       onClick={nextStep}
-                      className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 py-2"
+                      className="bg-green-700 text-white hover:bg-green-800 px-6 py-2 font-serif"
+                      disabled={submitting}
                     >
                       Next Step
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -631,42 +669,45 @@ export default function ApplyPage() {
                   ) : (
                     <Button
                       type="submit"
-                      disabled={!formData.terms}
-                      className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-8 py-2 font-bold"
+                      disabled={!formData.consent || submitting}
+                      className="bg-pink-600 text-white hover:bg-pink-700 px-8 py-2 font-bold font-serif flex items-center justify-center"
                     >
+                      {submitting && (
+                        <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>
+                      )}
                       Submit Application
                       <CheckCircle className="ml-2 h-5 w-5" />
                     </Button>
                   )}
                 </div>
               </form>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Support Section */}
-      <section className="py-24 bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900">
+      <section className="py-24 bg-white border-y-4 border-green-700 font-serif">
         <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-5xl font-bold text-white mb-8">Need Help?</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-              Our admissions team is here to support you throughout the application process.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/about/contact">
-                <Button size="lg" className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
-                  Contact Admissions
-                  <Mail className="ml-3 h-6 w-6" />
-                </Button>
-              </Link>
+          <h2 className="text-5xl font-extrabold text-black mb-8 uppercase tracking-wide border-b-4 border-pink-600 inline-block pb-2">Need Help?</h2>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto mb-12 font-serif italic">
+            Our admissions team is here to support you throughout the application process.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <Link href="/about/contact">
+              <Button size="lg" className="bg-green-700 text-white hover:bg-green-800 border-2 border-green-700 px-8 py-4 text-lg font-bold font-serif rounded-full">
+                Contact Admissions
+                <Mail className="ml-3 h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+          <div className="mt-10 max-w-2xl mx-auto bg-pink-50 border-l-4 border-pink-600 p-6 rounded-md shadow font-serif text-left">
+            <div className="flex items-center mb-2">
+              <AlertCircle className="h-5 w-5 text-pink-600 mr-2" />
+              <span className="text-pink-700 font-bold uppercase tracking-wide">Quick Tip</span>
             </div>
-          </motion.div>
+            <p className="text-black">For the fastest response, email us or use the contact form. Our team replies within 24 hours on business days.</p>
+          </div>
         </div>
       </section>
 
