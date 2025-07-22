@@ -99,10 +99,10 @@ export default function LeadershipPage() {
       image: "/leadership/samson-kiggundu.jpg",
     },
     {
-      name: "Jackson Kisuule",
+      name: "Leo Wamala",
       title: "Dean, Faculty of Computing & Information Technology",
       description: "Driving technological innovation and digital transformation",
-      image: "/leadership/Jackson-Kisuule(Dean IT).jpg",
+      image: "/placeholder.svg",
     },
   ]
 
