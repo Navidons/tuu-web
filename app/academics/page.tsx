@@ -289,7 +289,7 @@ export default function AcademicsPage() {
         }` }} />
       </Head>
       <div className="min-h-screen bg-[#faf9f7]">
-        <EnhancedNavbar />
+      <EnhancedNavbar />
 
         {/* Hero Section - Old Newspaper Style with Background Image */}
         <section className="relative py-14 md:py-20 bg-white border-b border-gray-200 overflow-hidden">
@@ -301,7 +301,7 @@ export default function AcademicsPage() {
               style={{filter:'brightness(0.7)'}}
             />
             <div className="absolute inset-0 bg-white/70" />
-          </div>
+        </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-10 md:mb-16">
               <Badge className="bg-emerald-700 text-white px-6 py-2 text-base font-semibold mb-6">Academics</Badge>
@@ -326,65 +326,65 @@ export default function AcademicsPage() {
                   </Button>
                 </Link>
               </div>
-            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Academic Statistics */}
+      {/* Academic Statistics */}
         <section className="py-14 md:py-20 bg-[#faf9f7] border-b border-gray-200">
-          <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
               <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Academic Excellence by Numbers</h2>
               <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">
                 Our commitment to quality education reflected in our achievements
               </p>
-            </div>
+          </div>
             <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-              {[
-                { label: "Academic Programs", value: 37, suffix: "+", description: "Across all levels" },
-                { label: "Faculty Members", value: 153, suffix: "+", description: "Expert educators" },
-                { label: "Research Projects", value: 85, suffix: "+", description: "Active research" },
-                { label: "Graduate Success Rate", value: 95, suffix: "%", description: "Career placement" },
-              ].map((stat, index) => (
+            {[
+              { label: "Academic Programs", value: 37, suffix: "+", description: "Across all levels" },
+              { label: "Faculty Members", value: 153, suffix: "+", description: "Expert educators" },
+              { label: "Research Projects", value: 85, suffix: "+", description: "Active research" },
+              { label: "Graduate Success Rate", value: 95, suffix: "%", description: "Career placement" },
+            ].map((stat, index) => (
                 <div
-                  key={stat.label}
+                key={stat.label}
                   className="text-center p-8 rounded-md bg-white border border-gray-200 shadow-sm font-serif"
                 >
                   <div className="text-4xl font-bold text-purple-700 mb-2">
-                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                   </div>
                   <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
                   <div className="text-gray-700 text-sm">{stat.description}</div>
                 </div>
-              ))}
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Academic Programs Overview - Home Page Style */}
         <section className="py-14 md:py-20 bg-white border-b border-gray-200">
-          <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
               <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Academic Programs</h2>
               <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">
                 Comprehensive educational pathways from undergraduate to professional development
               </p>
-            </div>
-            <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
+          </div>
+          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
               {academicPrograms.map((program) => (
                 <Link key={program.level} href={program.href} className="block h-full">
                   <div className="bg-white border-2 border-emerald-600 rounded-xl p-8 shadow-sm flex flex-col h-full">
                     <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mb-6 border-2 border-emerald-600">
                       <program.icon className="h-8 w-8 text-emerald-700" />
-                    </div>
+                      </div>
                     <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">{program.level}</h3>
                     <p className="text-gray-700 mb-6 leading-relaxed font-serif">{program.description}</p>
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
+                      <div className="grid grid-cols-3 gap-4 mb-6">
+                        <div className="text-center">
                         <div className="text-xl font-bold text-emerald-700">{program.programs}</div>
                         <div className="text-xs text-gray-600">Programs</div>
-                      </div>
-                      <div className="text-center">
+                        </div>
+                        <div className="text-center">
                         <div className="text-xl font-bold text-blue-700">{program.students}</div>
                         <div className="text-xs text-gray-600">Students</div>
                       </div>
@@ -399,85 +399,85 @@ export default function AcademicsPage() {
                     </div>
                   </div>
                 </Link>
-              ))}
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Schools and Colleges */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12 md:mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Schools & Colleges</h2>
-                <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                  Specialized schools offering focused education in diverse fields of study
-                </p>
-              </motion.div>
-            </div>
+      {/* Schools and Colleges */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 md:mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Schools & Colleges</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Specialized schools offering focused education in diverse fields of study
+              </p>
+            </motion.div>
+          </div>
 
-            <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {schools.map((school) => (
                 <Link
-                  key={school.name}
+                key={school.name}
                   href="/admissions/apply"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block h-full"
                 >
                   <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col h-full cursor-pointer hover:border-emerald-700 transition">
-                    <div className="relative h-48">
-                      <Image
-                        src={school.image || "/placeholder.svg"}
+                <div className="relative h-48">
+                  <Image
+                    src={school.image || "/placeholder.svg"}
                         alt={`${school.name} campus`}
-                        fill
+                    fill
                         className="object-cover"
-                      />
+                  />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4">
+                  <div className="absolute bottom-4 left-4 right-4">
                         <h3 className="text-lg font-serif font-bold text-white mb-1">{school.name}</h3>
                         <p className="text-white/90 text-sm font-serif">Dean: {school.dean}</p>
-                      </div>
+                </div>
                     </div>
                     <div className="p-6 flex-1 flex flex-col">
-                      <div className="mb-6">
+                  <div className="mb-6">
                         <h4 className="font-semibold text-gray-900 mb-3 font-serif">Programs Offered:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {school.programs.slice(0, 3).map((program, i) => (
-                            <Badge key={i} variant="outline" className="text-xs">
-                              {program}
-                            </Badge>
-                          ))}
-                          {school.programs.length > 3 && (
-                            <Badge variant="outline" className="text-xs">
-                              +{school.programs.length - 3} more
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
+                    <div className="flex flex-wrap gap-2">
+                      {school.programs.slice(0, 3).map((program, i) => (
+                        <Badge key={i} variant="outline" className="text-xs">
+                          {program}
+                        </Badge>
+                      ))}
+                      {school.programs.length > 3 && (
+                        <Badge variant="outline" className="text-xs">
+                          +{school.programs.length - 3} more
+                        </Badge>
+                      )}
                     </div>
                   </div>
+                    </div>
+                </div>
                 </Link>
-              ))}
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Academic Features - Home Page Style */}
         <section className="py-14 md:py-20 bg-[#faf9f7] border-b border-gray-200">
-          <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
               <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Why Choose The Unity University</h2>
               <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">
                 Distinctive features that set our academic programs apart
               </p>
-            </div>
-            <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          </div>
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
               {features.map((feature) => (
                 <div key={feature.title} className="text-center p-8 rounded-xl bg-white border-2 border-emerald-600 shadow-sm font-serif flex flex-col items-center">
                   <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6 border-2 border-emerald-600">
@@ -487,14 +487,14 @@ export default function AcademicsPage() {
                   <p className="text-gray-700 mb-4 leading-relaxed font-serif">{feature.description}</p>
                   <div className="text-lg font-bold text-emerald-700">{feature.stat}</div>
                 </div>
-              ))}
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Research & Innovation Hub - Enhanced Newspaper Style */}
         <section className="py-16 md:py-24 bg-[#faf9f7] border-b border-gray-200">
-          <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center mb-14 md:mb-20">
               <h2 className="text-4xl sm:text-5xl font-serif font-extrabold text-gray-900 mb-2">Research & Innovation Hub</h2>
               <div className="flex justify-center mb-4">
@@ -514,7 +514,7 @@ export default function AcademicsPage() {
                   <div className="mb-3">{stat.icon}</div>
                   <div className="text-4xl font-extrabold text-emerald-700 mb-1" style={{fontFamily:'serif', fontVariant:'small-caps'}}>
                     <span className="text-5xl align-top" style={{fontWeight:700}}><AnimatedCounter end={stat.value} suffix="+" /></span>
-                  </div>
+                      </div>
                   <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
                 </div>
               ))}
@@ -525,44 +525,44 @@ export default function AcademicsPage() {
                 Explore Research Opportunities
                 <ArrowRight className="ml-3 h-6 w-6 text-white" />
               </Button>
-            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Academic Resources - Editorial Style with Pink/Red & Green */}
         <section className="py-14 md:py-20 bg-white border-b border-gray-200">
-          <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-16">
               <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-gray-900 mb-6">Academic Resources</h2>
               <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-serif mb-8">Everything you need to succeed in your academic journey</p>
-            </div>
-            <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-              {[
-                {
-                  title: "Foundation Programs",
-                  description: "Preparatory programs to build core academic skills",
-                  href: "/academics/foundation",
+          </div>
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Foundation Programs",
+                description: "Preparatory programs to build core academic skills",
+                href: "/academics/foundation",
                   icon: <svg className="h-10 w-10 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M6 20V14"/><path d="M18 20V16"/><path d="M2 20h20"/><path d="M12 4v2"/><path d="M12 8v2"/></svg>,
                   border: "border-emerald-600",
-                },
-                {
-                  title: "Undergraduate Programs",
-                  description: "Bachelor's degree programs across multiple disciplines",
-                  href: "/academics/undergraduate",
+              },
+              {
+                title: "Undergraduate Programs",
+                description: "Bachelor's degree programs across multiple disciplines",
+                href: "/academics/undergraduate",
                   icon: <svg className="h-10 w-10 text-red-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 3l9.5 7-9.5 7-9.5-7z"/><path d="M3 10v6a9 9 0 0 0 18 0v-6"/></svg>,
                   border: "border-red-600",
-                },
-                {
-                  title: "Graduate Programs",
-                  description: "Advanced master's and doctoral degree programs",
-                  href: "/academics/graduate",
+              },
+              {
+                title: "Graduate Programs",
+                description: "Advanced master's and doctoral degree programs",
+                href: "/academics/graduate",
                   icon: <svg className="h-10 w-10 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 3l9.5 7-9.5 7-9.5-7z"/><path d="M12 21v-4"/></svg>,
                   border: "border-emerald-600",
-                },
-                {
-                  title: "Academic Calendar",
-                  description: "Important dates, deadlines, and academic schedule",
-                  href: "/academics/calendar",
+              },
+              {
+                title: "Academic Calendar",
+                description: "Important dates, deadlines, and academic schedule",
+                href: "/academics/calendar",
                   icon: <svg className="h-10 w-10 text-red-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>,
                   border: "border-red-600",
                 },
@@ -575,14 +575,14 @@ export default function AcademicsPage() {
                     <span className={`inline-block px-4 py-2 rounded font-semibold text-sm ${item.border === 'border-emerald-600' ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'}`}>Learn More</span>
                   </div>
                 </Link>
-              ))}
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Call to Action - Old Newspaper Style */}
         <section className="py-20 bg-[#faf9f7] border-t border-b border-gray-200">
-          <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl sm:text-5xl font-serif font-extrabold text-gray-900 mb-8">Ready to Begin Your Academic Journey?</h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-10 font-serif">
               Join thousands of students who have chosen The Unity University for their academic excellence and global perspective.
@@ -606,12 +606,12 @@ export default function AcademicsPage() {
                 </Button>
               </Link>
             </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Site Footer */}
-        <EnhancedFooter />
-      </div>
+      {/* Site Footer */}
+      <EnhancedFooter />
+    </div>
     </>
   )
 }
