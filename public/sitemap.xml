@@ -1,124 +1,433 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Main pages -->
   <url>
     <loc>https://tuu.university/</loc>
     <priority>1.0</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/somaliland</loc>
-    <priority>0.9</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/liberia</loc>
-    <priority>0.9</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/academics</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/academics/undergraduate</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/academics/graduate</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/academics/calendar</loc>
-    <priority>0.6</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/admissions</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/admissions/apply</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/admissions/international</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/about</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/about/history</loc>
-    <priority>0.6</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/about/contact</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/about/network</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/about/leadership</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://tuu.university/student-life</loc>
-    <priority>0.7</priority>
-    <lastmod>2025-06-09</lastmod>
-  </url>
-  <!-- Images from public folder and subfolders -->
-  <url>
-    <loc>https://tuu.university/</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>daily</changefreq>
     <image:image>
       <image:loc>https://tuu.university/hero-section/hero.png</image:loc>
-      <image:title>hero.png</image:title>
+      <image:title>The Unity University - Excellence in Education</image:title>
+      <image:caption>Welcome to The Unity University, where excellence meets opportunity</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://tuu.university/hero-section/all-on-graduation-pic.jpg</image:loc>
-      <image:title>all-on-graduation-pic.jpg</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://tuu.university/hero-section/graduation-day.jpg</image:loc>
-      <image:title>graduation-day.jpg</image:title>
+      <image:title>Graduation Ceremony at TUU</image:title>
+      <image:caption>Celebrating academic achievements and student success</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://tuu.university/hero-section/global-perspective.jpg</image:loc>
-      <image:title>global-perspective.jpg</image:title>
+      <image:title>Global Perspective Education</image:title>
+      <image:caption>International education with a global perspective</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/about</loc>
+    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/hero-section/plof.PLO-lumumba.jpg</image:loc>
+      <image:title>Prof. PLO Lumumba - Founder and Chancellor</image:title>
+      <image:caption>Meet our visionary founder and chancellor</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://tuu.university/hero-section/master-of-education-and-planning.jpg</image:loc>
-      <image:title>master-of-education-and-planning.jpg</image:title>
+      <image:loc>https://tuu.university/leadership/dr.katerega-dvc-graduation.jpg</image:loc>
+      <image:title>Dr. Katerega - Vice Chancellor</image:title>
+      <image:caption>Our dedicated vice chancellor leading academic excellence</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/academics</loc>
+    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/computer-science.jpg</image:loc>
+      <image:title>Computer Science Programs</image:title>
+      <image:caption>Cutting-edge technology education</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://tuu.university/hero-section/male-graduation.jpg</image:loc>
-      <image:title>male-graduation.jpg</image:title>
+      <image:loc>https://tuu.university/courses/health-sciences.jpg</image:loc>
+      <image:title>Health Sciences Programs</image:title>
+      <image:caption>Excellence in healthcare education</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://tuu.university/hero-section/plo-africa.jpg</image:loc>
-      <image:title>plo-africa.jpg</image:title>
+      <image:loc>https://tuu.university/courses/business-class.jpg</image:loc>
+      <image:title>Business Administration</image:title>
+      <image:caption>Professional business education</image:caption>
     </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/admissions</loc>
+    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/hero-section/bachelor-of-software-enginnering.jpg</image:loc>
+      <image:title>Admissions Open - Join TUU</image:title>
+      <image:caption>Start your academic journey with us</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/university-campus.jpg</image:loc>
+      <image:title>Beautiful Campus Environment</image:title>
+      <image:caption>State-of-the-art facilities for learning</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/student-life</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/student-life/good-student-line-up.jpg</image:loc>
+      <image:title>Student Life at TUU</image:title>
+      <image:caption>Vibrant campus community and activities</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/sports/sports.png</image:loc>
+      <image:title>Sports and Recreation</image:title>
+      <image:caption>Stay active and healthy on campus</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About section -->
+  <url>
+    <loc>https://tuu.university/about/leadership</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/leadership/plof.PLO-lumumba.jpg</image:loc>
+      <image:title>Prof. PLO Lumumba - Chancellor</image:title>
+      <image:caption>Visionary leadership in education</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/leadership/dr.katerega-dvc-graduation.jpg</image:loc>
+      <image:title>Dr. Katerega - Vice Chancellor</image:title>
+      <image:caption>Academic leadership and excellence</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/leadership/kavuma-yusuf-musa-campas-director.png</image:loc>
+      <image:title>Kavuma Yusuf Musa - Campus Director</image:title>
+      <image:caption>Dedicated campus management</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/about/network</loc>
+    <priority>0.7</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/patternships/utamu-uganda-technology-and-management-university-logo-png_seeklogo-550348.png</image:loc>
+      <image:title>UTAMU Partnership</image:title>
+      <image:caption>Strategic partnerships for excellence</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/patternships/victoria_university_uganda_logo.jpeg</image:loc>
+      <image:title>Victoria University Partnership</image:title>
+      <image:caption>International collaboration opportunities</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/about/history</loc>
+    <priority>0.7</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://tuu.university/hero-section/Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU).jpg</image:loc>
-      <image:title>Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU).jpg</image:title>
+      <image:title>University Foundation</image:title>
+      <image:caption>Historic moment of university establishment</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/about/contact</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/university-campus.jpg</image:loc>
+      <image:title>Contact TUU</image:title>
+      <image:caption>Visit our beautiful campus</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Academics section -->
+  <url>
+    <loc>https://tuu.university/academics/undergraduate</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/software-engineering.jpg</image:loc>
+      <image:title>Software Engineering</image:title>
+      <image:caption>Modern software development education</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://tuu.university/hero-section/plo-lumumba-foundation-somaliland.jpg</image:loc>
-      <image:title>plo-lumumba-foundation-somaliland.jpg</image:title>
+      <image:loc>https://tuu.university/courses/business-class.jpg</image:loc>
+      <image:title>Business Administration</image:title>
+      <image:caption>Professional business education</image:caption>
     </image:image>
-    <!-- Add more <image:image> entries for all images in public and subfolders as needed -->
+    <image:image>
+      <image:loc>https://tuu.university/courses/health-sciences.jpg</image:loc>
+      <image:title>Health Sciences</image:title>
+      <image:caption>Healthcare and medical education</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/academics/graduate</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/hero-section/master-of-education-and-planning.jpg</image:loc>
+      <image:title>Graduate Programs</image:title>
+      <image:caption>Advanced degree programs</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/courses/artificial-intelligence.jpg</image:loc>
+      <image:title>AI and Technology</image:title>
+      <image:caption>Cutting-edge technology research</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/academics/calendar</loc>
+    <priority>0.7</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/library.jpg</image:loc>
+      <image:title>Academic Calendar</image:title>
+      <image:caption>Stay organized with our academic schedule</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Admissions section -->
+  <url>
+    <loc>https://tuu.university/admissions/apply</loc>
+    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>daily</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/strips/apply-now-at-the-unity-university.jpg</image:loc>
+      <image:title>Apply Now</image:title>
+      <image:caption>Start your application process today</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/university-class.jpg</image:loc>
+      <image:title>Modern Classrooms</image:title>
+      <image:caption>State-of-the-art learning environments</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/admissions/international</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/international.jpg</image:loc>
+      <image:title>International Students</image:title>
+      <image:caption>Welcome international students</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/hero-section/global-perspective.jpg</image:loc>
+      <image:title>Global Education</image:title>
+      <image:caption>International education opportunities</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Liberia section -->
+  <url>
+    <loc>https://tuu.university/liberia</loc>
+    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/hero-section/plo-lumumba-foundation-somaliland.jpg</image:loc>
+      <image:title>TUU Liberia Campus</image:title>
+      <image:caption>Excellence in Liberia</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/liberia/about/leadership</loc>
+    <priority>0.7</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/leadership/kirinya-robert.jpg</image:loc>
+      <image:title>Liberia Campus Leadership</image:title>
+      <image:caption>Dedicated leadership in Liberia</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/liberia/about/history</loc>
+    <priority>0.6</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/liberia/about/contact</loc>
+    <priority>0.7</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/liberia/academics</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/computer-science.jpg</image:loc>
+      <image:title>Liberia Academic Programs</image:title>
+      <image:caption>Quality education in Liberia</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/liberia/academics/undergraduate</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/business-class.jpg</image:loc>
+      <image:title>Undergraduate Programs - Liberia</image:title>
+      <image:caption>Bachelor's degree programs</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/liberia/academics/graduate</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/artificial-intelligence.jpg</image:loc>
+      <image:title>Graduate Programs - Liberia</image:title>
+      <image:caption>Master's degree programs</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Somaliland section -->
+  <url>
+    <loc>https://tuu.university/somaliland</loc>
+    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/hero-section/plo-lumumba-foundation-somaliland.jpg</image:loc>
+      <image:title>TUU Somaliland Campus</image:title>
+      <image:caption>Excellence in Somaliland</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/events/the-unity-university-indipendence-day-somaliland-01.jpg</image:loc>
+      <image:title>Somaliland Independence Day</image:title>
+      <image:caption>Celebrating with the community</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/somaliland/about/history</loc>
+    <priority>0.7</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/somaliland/about/leadership</loc>
+    <priority>0.7</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/leadership/Jackson-Kisuule(Dean IT).jpg</image:loc>
+      <image:title>Somaliland Campus Leadership</image:title>
+      <image:caption>Dedicated leadership in Somaliland</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/somaliland/about/contact</loc>
+    <priority>0.7</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/somaliland/academics</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/health-sciences.jpg</image:loc>
+      <image:title>Somaliland Academic Programs</image:title>
+      <image:caption>Quality education in Somaliland</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://tuu.university/labs/health-science-student-in-lab.jpg</image:loc>
+      <image:title>Modern Laboratories</image:title>
+      <image:caption>Hands-on learning experiences</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/somaliland/academics/undergraduate</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/software-engineering.jpg</image:loc>
+      <image:title>Undergraduate Programs - Somaliland</image:title>
+      <image:caption>Bachelor's degree programs</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/somaliland/academics/graduate</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/artificial-intelligence.jpg</image:loc>
+      <image:title>Graduate Programs - Somaliland</image:title>
+      <image:caption>Master's degree programs</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/somaliland/admissions/apply</loc>
+    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>daily</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/strips/apply-it.jpg</image:loc>
+      <image:title>Apply to Somaliland Campus</image:title>
+      <image:caption>Start your journey in Somaliland</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://tuu.university/somaliland/admissions/international</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://tuu.university/courses/international-relations.jpg</image:loc>
+      <image:title>International Admissions - Somaliland</image:title>
+      <image:caption>Welcome international students to Somaliland</image:caption>
+    </image:image>
   </url>
 </urlset> 

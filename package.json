@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start -p 4000"
+    "start": "next start -p 4000",
+    "indexnow": "tsx scripts/submit-to-indexnow.ts"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
@@ -69,6 +70,7 @@
     "@types/react-dom": "^19",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }
