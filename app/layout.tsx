@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: 'The Unity University',
   description: 'Official website of The Unity University',
   generator: 'UgProJectHub.com',
+  other: {
+    'msvalidate.01': 'BF5E648EDE1AFC3A1291E80B59555617',
+    'google-site-verification': '2iMPhHeTrWirFcbl7xWsFaEMHZwGBGg6JZ6K4XeSQzg',
+  },
 }
 
 export default function RootLayout({

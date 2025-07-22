@@ -187,8 +187,6 @@ export default function UnityUniversityHome() {
       <Head>
         <title>The Unity University | Tuition-Free Accredited University in Somaliland & Liberia</title>
         <meta name="description" content="The Unity University is Africa's pioneer, non-profit, tuition-free accredited university with campuses in Somaliland and Liberia. Offering world-class education, scholarships, and leadership development for East Africa and the Horn of Africa." />
-        <meta name="google-site-verification" content="2iMPhHeTrWirFcbl7xWsFaEMHZwGBGg6JZ6K4XeSQzg" />
-        <meta name="msvalidate.01" content="BF5E648EDE1AFC3A1291E80B59555617" />
         <meta property="og:title" content="The Unity University | Tuition-Free Accredited University in Somaliland & Liberia" />
         <meta property="og:description" content="Africa's leading non-profit, tuition-free university. Accredited, global, and dedicated to leadership in Somaliland, Liberia, and beyond." />
         <meta property="og:type" content="website" />
@@ -737,36 +735,54 @@ export default function UnityUniversityHome() {
                 <span className="hidden sm:inline-block w-24 h-1 bg-gray-700 rounded-full ml-4" />
               </div>
             </div>
-            <div className="grid gap-6 sm:gap-8 grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid gap-8 sm:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
               {/* Quality Guaranteed */}
-              <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
-                <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M16 24l6 6 10-12" strokeWidth="2.5"/></svg>
-                <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Quality Guaranteed</h3>
-                <p className="text-gray-700 text-sm sm:text-base">Highly Trained and Experienced faculty and State-of-the-Art Learning Facilities, Globally Recognised Qualifications, Chartered by Commission for University Education (CUE), Accredited by the Technical and Vocational Education and Training Authority (TVETA) and ISO 9001:2015 Certified</p>
-          </div>
+              <div className="bg-gradient-to-br from-emerald-50 to-white border-2 border-emerald-600 rounded-lg p-8 flex flex-col items-center text-center w-full max-w-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="bg-emerald-100 p-4 rounded-full mb-6">
+                  <svg className="h-12 w-12 text-emerald-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20" strokeWidth="2.5"/>
+                    <path d="M16 24l6 6 10-12" strokeWidth="2.5"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-emerald-800 mb-4">Quality Guaranteed</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">Highly Trained and Experienced faculty and State-of-the-Art Learning Facilities, Globally Recognised Qualifications, Chartered by Commission for University Education (CUE), Accredited by the Technical and Vocational Education and Training Authority (TVETA) and ISO 9001:2015 Certified</p>
+              </div>
+
               {/* Timely Completion */}
-              <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
-                <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M24 14v10l7 7" strokeWidth="2.5"/></svg>
-                <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Timely Completion</h3>
-                <p className="text-gray-700 text-sm sm:text-base">Trimester System, Unit Exemptions for Recognised Academic Qualifications, Timely Release of Exam Results, Blended Mode of Learning and ODeL Accredited Center.</p>
-                  </div>
-              {/* Students Finance */}
-              <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
-                <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M24 32c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8" strokeWidth="2.5"/><path d="M24 20v4h4" strokeWidth="2.5"/></svg>
-                <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Students Finance</h3>
-                <p className="text-gray-700 text-sm sm:text-base">Affordable, Flexible (instalment) Fee Payment Schedule, Access to HELB loans and University Scholarships.</p>
+              <div className="bg-gradient-to-br from-red-50 to-white border-2 border-red-600 rounded-lg p-8 flex flex-col items-center text-center w-full max-w-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="bg-red-100 p-4 rounded-full mb-6">
+                  <svg className="h-12 w-12 text-red-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20" strokeWidth="2.5"/>
+                    <path d="M24 14v10l7 7" strokeWidth="2.5"/>
+                  </svg>
                 </div>
+                <h3 className="text-xl font-bold text-red-800 mb-4">Timely Completion</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">Trimester System, Unit Exemptions for Recognised Academic Qualifications, Timely Release of Exam Results, Blended Mode of Learning and ODeL Accredited Center.</p>
+              </div>
+
               {/* Great Prospects */}
-              <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
-                <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M24 16v8l6 6" strokeWidth="2.5"/><path d="M24 8v8" strokeWidth="2.5"/></svg>
-                <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Great Prospects</h3>
-                <p className="text-gray-700 text-sm sm:text-base">Mandatory Training on Employability, Entrepreneurship and ICT. Exposure through Industry Visits and Immersion, Linkages and Collaboration</p>
+              <div className="bg-gradient-to-br from-emerald-50 to-white border-2 border-emerald-600 rounded-lg p-8 flex flex-col items-center text-center w-full max-w-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="bg-emerald-100 p-4 rounded-full mb-6">
+                  <svg className="h-12 w-12 text-emerald-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20" strokeWidth="2.5"/>
+                    <path d="M24 16v8l6 6" strokeWidth="2.5"/>
+                    <path d="M24 8v8" strokeWidth="2.5"/>
+                  </svg>
                 </div>
+                <h3 className="text-xl font-bold text-emerald-800 mb-4">Great Prospects</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">Mandatory Training on Employability, Entrepreneurship and ICT. Exposure through Industry Visits and Immersion, Linkages and Collaboration</p>
+              </div>
+
               {/* Vibrant Student Experience */}
-              <div className="bg-white border border-red-600 rounded-md p-6 sm:p-8 flex flex-col items-center text-center w-full max-w-full">
-                <svg className="h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" strokeWidth="2.5"/><path d="M24 16l4 8h-8l4 8" strokeWidth="2.5"/></svg>
-                <h3 className="text-lg sm:text-xl font-bold text-red-700 mb-2">Vibrant Student Experience</h3>
-                <p className="text-gray-700 text-sm sm:text-base">Sporting and Recreational Activities, Career Guidance, Student Welfare, International Academic Exchange Programs, and Industrial Placement.</p>
+              <div className="bg-gradient-to-br from-red-50 to-white border-2 border-red-600 rounded-lg p-8 flex flex-col items-center text-center w-full max-w-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="bg-red-100 p-4 rounded-full mb-6">
+                  <svg className="h-12 w-12 text-red-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20" strokeWidth="2.5"/>
+                    <path d="M24 16l4 8h-8l4 8" strokeWidth="2.5"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-red-800 mb-4">Vibrant Student Experience</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">Sporting and Recreational Activities, Career Guidance, Student Welfare, International Academic Exchange Programs, and Industrial Placement.</p>
               </div>
             </div>
         </div>
