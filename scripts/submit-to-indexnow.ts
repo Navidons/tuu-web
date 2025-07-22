@@ -2,7 +2,7 @@ import { IndexNowService } from '../lib/indexnow';
 
 // Configuration
 const DOMAIN = 'tuu.university';
-const API_KEY = '40a3b80eaf2842f2b9ca2e2d4a941404';
+const API_KEY = '88e3f866fd0c4ec9af63b5e8592f777a';
 
 // All pages to submit (based on app folder structure)
 const MAIN_PAGES = [

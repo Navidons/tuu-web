@@ -11,8 +11,8 @@ interface IndexNowResponse {
 }
 
 export class IndexNowService {
-  private readonly apiKey = '40a3b80eaf2842f2b9ca2e2d4a941404';
-  private readonly keyLocation = 'https://tuu.university/40a3b80eaf2842f2b9ca2e2d4a941404.txt';
+  private readonly apiKey = '88e3f866fd0c4ec9af63b5e8592f777a';
+  private readonly keyLocation = 'https://tuu.university/88e3f866fd0c4ec9af63b5e8592f777a.txt';
   private readonly host: string;
 
   constructor(host: string) {
