@@ -1,0 +1,12 @@
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Crawl-delay for non-Google bots
+User-agent: Bingbot
+Crawl-delay: 10
+User-agent: Yandex
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://tuu.university/sitemap.xml 

@@ -1,0 +1,82 @@
+/* Mobile-specific global styles */
+@media (max-width: 768px) {
+  /* Responsive Typography */
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* Touch-friendly tap targets */
+  button, 
+  a, 
+  input, 
+  select, 
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mobile-specific layout adjustments */
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  /* Scrolling and performance */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  /* Prevent text scaling */
+  input, 
+  select, 
+  textarea {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+  }
+}
+
+/* High-performance mobile animations */
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-animation {
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+/* Accessibility for mobile */
+@media (max-width: 768px) {
+  /* Increase tap target sizes for accessibility */
+  .mobile-tap-target {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 10px;
+  }
+
+  /* Improve readability */
+  .mobile-readable {
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Touch device specific styles */
+.touch-device {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+} 
