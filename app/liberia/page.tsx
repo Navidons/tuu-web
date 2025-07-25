@@ -29,6 +29,7 @@ import { cn } from "@/lib/utils"
 import LiberiaNavbar from "@/components/liberia/liberia-navbar"
 import LiberiaFooter from "@/components/liberia/liberia-footer"
 import Head from "next/head"
+import { Dialog, DialogContent, DialogTitle } from "@/components/liberia/ui/dialog";
 
 // Optimized floating particles component with better performance
 const FloatingParticles = () => {
@@ -170,6 +171,65 @@ const ParallaxSection = ({ children, offset = 30 }: { children: React.ReactNode;
 
 export default function LiberiaHome() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  // Modal state
+  const [modalOpen, setModalOpen] = useState(false);
+  const [adSlide, setAdSlide] = useState(0);
+
+  useEffect(() => {
+    setModalOpen(true);
+  }, []);
+
+  // Auto-slide for modal ads
+  useEffect(() => {
+    if (!modalOpen) return;
+    const interval = setInterval(() => {
+      setAdSlide((prev) => (prev + 1) % 3);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [modalOpen]);
+
+  // Modal ad slides data (Liberia colors)
+  const adSlides = [
+    {
+      image: "/strips/apply-now-at-the-unity-university.jpg",
+      imageClass: "w-full h-48 md:h-64 object-cover rounded-t-lg",
+      title: "𝗔𝗱𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗜𝘀 𝗡𝗼𝘄 𝗢𝗽𝗲𝗻",
+      text: (
+        <>
+          <div className="text-base md:text-lg font-semibold mb-2">Waxaa Socda diwaangalinta 𝐌𝐚𝐬𝐭𝐞𝐫 program 𝗛𝗮𝗹𝗳 𝗦𝗰𝗵𝗼𝗹𝗮𝗿𝘀𝗵𝗶𝗽 Xarunta jamacadda Naguso boqo Wll Saad Macluumad dheriya u hesho</div>
+          <div className="italic text-sm md:text-base mb-2">𝑯𝒂𝒍𝒌𝒂 𝑨𝒒𝒐𝒐𝒏𝒕𝒂, 𝑾𝒂𝒂𝒚𝒐-𝑨𝒓𝒂𝒈𝒏𝒊𝒎𝒂𝒅𝒂,𝒊𝒚𝒐 𝑴𝒖𝒔𝒕𝒂𝒒𝒃𝒂𝒍𝒌𝒖 𝒂𝒚 𝒌𝒖 𝒎𝒊𝒅𝒂𝒚𝒔𝒂𝒏 𝒚𝒊𝒉𝒊𝒊𝒏.</div>
+          <div className="font-bold text-blue-700 mb-2">𝑾𝒉𝒂𝒕 𝑩𝒆𝒈𝒊𝒏𝒔 𝑯𝒆𝒓𝒆 𝑻𝒓𝒂𝒏𝒔𝒇𝒐𝒓𝒎𝒔 𝑨𝒇𝒓𝒊𝒄𝒂.</div>
+          <div className="text-xs md:text-sm mb-1">Liberia Campus<br/>Monrovia, Montserrado County</div>
+        </>
+      ),
+    },
+    {
+      image: "/strips/the_unity_university_cover.jpeg",
+      imageClass: "w-full h-48 md:h-64 object-cover rounded-t-lg",
+      title: "𝗔𝗱𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗜𝘀 𝗡𝗼𝘄 𝗢𝗽𝗲𝗻",
+      text: (
+        <>
+          <div className="text-base md:text-lg font-semibold mb-2">Waxaa Socda diwaangalinta 𝐝𝐞𝐠𝐫𝐞𝐞 𝐢𝐲𝐨 𝐌𝐚𝐬𝐭𝐞𝐫 program 𝗛𝗮𝗹𝗳 𝗦𝗰𝗵𝗼𝗹𝗮𝗿𝘀𝗵𝗶𝗽 wixii faahfahin dheerada Nagusooboqo Xarunta Jamacadda naguso boqo wll saad macluumad dheriya u hesho</div>
+          <div className="font-semibold text-blue-800 mb-2">𝐖𝐚𝐚 𝐗𝐢𝐥𝐢𝐠𝐢𝐢 𝐚𝐚𝐝 𝐝𝐨𝐨𝐫𝐚𝐧 𝐥𝐚𝐡𝐚𝐲𝐝 𝐣𝐚𝐚𝐦𝐚𝐜𝐝𝐝𝐚 𝐭𝐡𝐞 𝐔𝐧𝐢𝐭𝐲 𝐔𝐧𝐢𝐯𝐞𝐫𝐬𝐢𝐭𝐲</div>
+          <div className="font-bold text-blue-700 mb-2">What Begins Here Transforms Africa.</div>
+          <div className="text-xs md:text-sm mb-1">Liberia Campus<br/>Monrovia, Montserrado County</div>
+        </>
+      ),
+    },
+    {
+      image: "/strips/bachelor-of-software-enginnering.jpg",
+      imageClass: "w-40 h-40 md:w-64 md:h-64 object-cover rounded-full mx-auto mt-4",
+      title: "Bachelor of Science in Software Engineering",
+      text: (
+        <>
+          <div className="text-base md:text-lg font-semibold mb-2">"HOME OF IT & ENGINEERING"</div>
+          <div className="font-bold text-blue-700 mb-2">What Begins Here Transforms Africa.</div>
+          <div className="text-xs md:text-sm mb-1">info@tuu.university | www.tuu.university</div>
+          <div className="text-xs md:text-sm mb-2">Liberia Campus<br/>Monrovia, Montserrado County</div>
+        </>
+      ),
+    },
+  ];
 
   // Hero section images pool
   const heroImages = [
@@ -424,7 +484,7 @@ export default function LiberiaHome() {
                   {
                     icon: GraduationCap,
                     title: "28 Programs",
-                    subtitle: "Across 4 Faculties",
+                    subtitle: "Across our Faculties",
                     keywords: "academic programs liberia",
                   },
                   {
@@ -432,12 +492,6 @@ export default function LiberiaHome() {
                     title: "1,500+ Students",
                     subtitle: "Thriving Community",
                     keywords: "student community liberia",
-                  },
-                  {
-                    icon: Award,
-                    title: "1+ Years Excellence",
-                    subtitle: "Proven Track Record",
-                    keywords: "educational excellence liberia",
                   },
                 ].map((feature, index) => (
                   <div
@@ -865,6 +919,87 @@ export default function LiberiaHome() {
           </motion.div>
         </div>
       </section>
+
+      {/* Modal Popup for Admissions Ads */}
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent className="max-w-xl w-full p-0 overflow-hidden border-2 border-blue-700">
+          <style jsx global>{`
+            .popup-x-close {
+              top: 1rem !important;
+              right: 1rem !important;
+              background: rgba(255,255,255,0.85) !important;
+              color: #1e40af !important;
+              border-radius: 9999px !important;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+              width: 2.5rem !important;
+              height: 2.5rem !important;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 10;
+              border: 2px solid #bfdbfe;
+              transition: background 0.2s, color 0.2s;
+            }
+            .popup-x-close:hover, .popup-x-close:focus {
+              background: #2563eb !important;
+              color: #fff !important;
+              border-color: #2563eb;
+            }
+            .popup-x-close svg {
+              width: 1.5rem !important;
+              height: 1.5rem !important;
+            }
+          `}</style>
+          <div className="flex flex-col items-center bg-white rounded-lg shadow-lg">
+            {/* X Close Button override (Radix UI Close) */}
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setModalOpen(false)}
+              className="popup-x-close absolute"
+              style={{ top: 16, right: 16 }}
+            >
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="6" y1="6" x2="14" y2="14" /><line x1="14" y1="6" x2="6" y2="14" /></svg>
+            </button>
+            {/* Image as link */}
+            <a href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+              <Image
+                src={adSlides[adSlide].image}
+                alt={adSlides[adSlide].title}
+                width={adSlide === 2 ? 256 : 600}
+                height={adSlide === 2 ? 256 : 192}
+                className={adSlides[adSlide].imageClass + " cursor-pointer"}
+                priority
+              />
+            </a>
+            {/* Content */}
+            <div className="p-4 md:p-6 w-full text-center">
+              <DialogTitle className="text-xl md:text-2xl font-bold text-blue-800 mb-2">{adSlides[adSlide].title}</DialogTitle>
+              <div className="mb-4 text-gray-700">{adSlides[adSlide].text}</div>
+              <Button
+                className="w-full bg-blue-700 text-white hover:bg-blue-800 font-bold text-lg py-3 rounded-md mb-2"
+                onClick={() => {
+                  setModalOpen(false);
+                  window.open("/admissions/apply", "_blank");
+                }}
+              >
+                Apply Now
+              </Button>
+              {/* Slide indicators */}
+              <div className="flex justify-center gap-2 mt-2">
+                {adSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`h-2 w-6 rounded-full transition-all duration-300 ${adSlide === idx ? "bg-blue-700" : "bg-blue-200"}`}
+                    onClick={() => setAdSlide(idx)}
+                    aria-label={`Go to ad slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <LiberiaFooter />
     </>
