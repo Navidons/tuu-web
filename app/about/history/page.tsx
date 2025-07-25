@@ -22,7 +22,7 @@ export default function HistoryPage() {
       title: "Foundation in Hargeisa",
       description:
         "The Unity University was established in Hargeisa, Somaliland, with the motto 'What begins here, transforms Africa' and a vision to become a world-class university in leadership development.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/hero-section/hero.png",
       milestone: "University Founded",
       students: 200,
     },
@@ -31,7 +31,7 @@ export default function HistoryPage() {
       title: "First Academic Programs",
       description:
         "Launched comprehensive academic programs across five faculties: Business & Management, Computing & IT, Allied Health Sciences, Social Sciences, and Education.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/graduation/all-on-graduation-pic.jpg",
       milestone: "Programs Established",
       students: 850,
     },
@@ -40,7 +40,7 @@ export default function HistoryPage() {
       title: "Research & Innovation",
       description:
         "Established research centers and began implementing innovative teaching methods, integrating theory with practice to produce graduates with relevant knowledge and skills.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/research/research-students.jpg",
       milestone: "Research Centers Opened",
       students: 1800,
     },
@@ -49,7 +49,7 @@ export default function HistoryPage() {
       title: "Liberia Campus Expansion",
       description:
         "Opened second campus in Monrovia, Liberia, extending The Unity University's reach across West Africa and establishing a truly Pan-African educational network.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/side-show/the-unity-university-glow.jpg",
       milestone: "Liberia Campus Opened",
       students: 3500,
     },
@@ -58,7 +58,7 @@ export default function HistoryPage() {
       title: "Continued Growth",
       description:
         "Today, The Unity University serves over 4,000 students across both campuses, offering undergraduate and graduate programs with a commitment to holistic human development and leadership.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/student-life/good-student-line-up.jpg",
       milestone: "Present Day",
       students: 4000,
     },
@@ -181,7 +181,7 @@ export default function HistoryPage() {
             <div className="relative">
               <div className="relative w-full max-w-lg mx-auto">
                 <Image
-                  src="/placeholder.svg?height=600&width=800"
+                  src="/hero-section/hero.png"
                   alt="Unity University campus historic photo"
                   width={800}
                   height={600}
@@ -205,10 +205,10 @@ export default function HistoryPage() {
 
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Users, label: "Graduates", value: "12,000+", description: "Alumni worldwide", color: "emerald" },
-              { icon: Globe, label: "Countries", value: "45", description: "Student representation", color: "red" },
-              { icon: Award, label: "Awards", value: "50+", description: "International recognition", color: "gray" },
-              { icon: BookOpen, label: "Research", value: "500+", description: "Published papers", color: "gray" },
+              { icon: Users, label: "Graduates", value: "12,000+", description: "Alumni worldwide", color: "emerald", image: "/alumni/alumni-09.jpg" },
+              { icon: Globe, label: "Countries", value: "45", description: "Student representation", color: "red", image: "/student-life/school-talk.jpg" },
+              { icon: Award, label: "Awards", value: "50+", description: "International recognition", color: "gray", image: "/events/the-unity-university-indipendence-day-somaliland-01.jpg" },
+              { icon: BookOpen, label: "Research", value: "500+", description: "Published papers", color: "gray", image: "/research/on-the-podium-05.jpg" },
             ].map((stat, index) => (
               <div
                 key={stat.label}

@@ -204,40 +204,40 @@ export default function ApplyPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900">
-          {mounted && (
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `url('/strips/apply-now-at-the-unity-university.jpg?height=1200&width=1920')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
-            />
-          )}
+      <section className="relative py-20 md:py-32 bg-[#faf9f7] border-b border-gray-200 font-serif overflow-hidden">
+        {/* Full-width background image with overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/hero-section/hero.png"
+            alt="Unity University campus"
+            className="object-cover w-full h-full absolute inset-0"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
-
-        <div className="container relative z-10 mx-auto px-4">
-          <div className="text-center text-white">
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-purple-600 text-white px-4 py-2 text-sm md:text-lg font-bold shadow-2xl mb-4 md:mb-8">Apply Now</Badge>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight">
-                Start Your
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-                  Application
-                </span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-12">
-                Take the first step towards your future at The Unity University. Our streamlined application process makes
-                it easy to apply.
-              </p>
-            </motion.div>
+        <div className="container relative z-10 mx-auto px-4 flex flex-col md:flex-row items-center md:items-stretch gap-10 md:gap-0">
+          {/* Left: Textual content */}
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-start text-left md:pr-12 bg-white/90 rounded-2xl p-8 md:p-12 shadow-lg">
+            <Badge className="bg-emerald-700 text-white px-6 py-2 text-base font-semibold shadow mb-4 font-serif">
+              Apply Now
+            </Badge>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4 font-serif">
+              Start Your Application
+            </h1>
+            <div className="w-12 h-1 bg-emerald-700 rounded-full mb-4" />
+            <p className="text-lg md:text-xl text-gray-700 mb-6 font-sans">
+              Take the first step towards your future at The Unity University. Our streamlined application process makes it easy to apply.
+            </p>
+          </div>
+          {/* Right: Application image or illustration */}
+          <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center">
+              <img
+                src="/strips/apply-now-at-the-unity-university.jpg"
+                alt="Apply Now Illustration"
+                className="object-cover w-full h-full"
+              />
+            </div>
           </div>
         </div>
       </section>

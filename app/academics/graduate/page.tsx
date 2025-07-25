@@ -48,6 +48,8 @@ const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; dura
 export default function GraduatePage() {
   const [mounted, setMounted] = useState(false)
   const [selectedDegree, setSelectedDegree] = useState("masters")
+  const [selectedSchool, setSelectedSchool] = useState("All")
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     setMounted(true)
@@ -243,106 +245,85 @@ export default function GraduatePage() {
     },
   ]
 
+  // Extract unique schools from all programs
+  const allPrograms = programs.masters
+  const schools = [
+    "All",
+    ...Array.from(new Set(allPrograms.map((p) => p.school)))
+  ]
+
+  // Filter programs by selected school and search term
+  const filteredPrograms = allPrograms.filter((program) => {
+    const matchesSchool = selectedSchool === "All" || program.school === selectedSchool
+    const search = searchTerm.toLowerCase()
+    const matchesSearch =
+      program.name.toLowerCase().includes(search) ||
+      program.description.toLowerCase().includes(search) ||
+      program.specializations.some((s) => s.toLowerCase().includes(search)) ||
+      program.careers.some((c) => c.toLowerCase().includes(search))
+    return matchesSchool && matchesSearch
+  })
+
   return (
     <div className="min-h-screen bg-white">
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900">
-          {mounted && (
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: `url('/placeholder.svg?height=1200&width=1920')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
-            />
-          )}
+      <section className="relative py-20 md:py-32 bg-[#faf9f7] border-b border-gray-200 font-serif overflow-hidden">
+        {/* Full-width background image with overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/university-banner.jpg"
+            alt="Unity University campus architecture"
+            fill
+            className="object-cover w-full h-full"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
-
-        <div className="container relative z-10 mx-auto px-4">
-          <div className="text-center text-white">
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-blue-600 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
-                Graduate Programs
-              </Badge>
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight">
-                Advanced
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                  Degrees
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
-                Pursue advanced study and research opportunities that will position you as a leader in your field.
-                Master's programs designed for academic and professional excellence.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-                <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg font-bold">
-                    Apply Now
-                    <ArrowRight className="ml-3 h-6 w-6" />
-                  </Button>
-                </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold"
-                >
-                  Download Brochure
+        <div className="container relative z-10 mx-auto px-4 flex flex-col md:flex-row items-center md:items-stretch gap-10 md:gap-0">
+          {/* Left: Textual content */}
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-start text-left md:pr-12 bg-white/90 rounded-2xl p-8 md:p-12 shadow-lg">
+            <Badge className="bg-emerald-700 text-white px-6 py-2 text-base font-semibold shadow mb-4 font-serif">
+              Graduate Programs
+            </Badge>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4 font-serif">
+              Advanced Graduate Degrees
+            </h1>
+            <div className="w-12 h-1 bg-emerald-700 rounded-full mb-4" />
+            <p className="text-lg md:text-xl text-gray-700 mb-6 font-sans">
+              Pursue advanced study and research opportunities that will position you as a leader in your field.
+            </p>
+            <p className="text-base text-gray-500 mb-8 font-sans italic">
+              "Shape the future with world-class research, innovation, and leadership."
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 text-lg font-bold font-serif shadow-md">
+                  Apply Now
+                  <ArrowRight className="ml-3 h-6 w-6" />
                 </Button>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Program Statistics */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Graduate Excellence</h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Our graduate programs prepare leaders and researchers for tomorrow's challenges
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              { label: "Master's Programs", value: 14, suffix: "", description: "Across 5 faculties" },
-              { label: "Graduate Students", value: 1800, suffix: "+", description: "Currently enrolled" },
-              { label: "Research Publications", value: 180, suffix: "+", description: "Annual output" },
-              { label: "Faculty-Student Ratio", value: 12, suffix: ":1", description: "Personalized attention" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="text-center p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100"
+              </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-400 text-gray-800 hover:bg-gray-100 px-8 py-4 text-lg font-bold font-serif"
               >
-                <div className="text-4xl font-bold text-blue-600 mb-2">
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-xl font-semibold text-gray-900 mb-2">{stat.label}</div>
-                <div className="text-gray-600">{stat.description}</div>
-              </motion.div>
-            ))}
+                Download Brochure
+              </Button>
+            </div>
+          </div>
+          {/* Right: Image */}
+          <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center">
+              <Image
+                src="/graduation/master-of-education-and-planning.jpg"
+                alt="Unity University graduate students at graduation"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -364,140 +345,141 @@ export default function GraduatePage() {
             </motion.div>
           </div>
 
-          {/* Degree Type Selector */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12 md:mb-16">
-            {degreeTypes.map((type) => (
+          {/* Search input */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              placeholder="Search master's programs..."
+              className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700 text-base"
+            />
+          </div>
+
+          {/* School/Faculty Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {schools.map((school) => (
               <button
-                key={type.id}
-                onClick={() => setSelectedDegree(type.id)}
-                className={`flex items-center space-x-3 px-6 py-3 rounded-2xl border-2 transition-all ${selectedDegree === type.id
-                    ? "border-blue-600 bg-blue-50 text-blue-700"
-                    : "border-gray-200 hover:border-blue-300 text-gray-700"
-                  }`}
+                key={school}
+                onClick={() => setSelectedSchool(school)}
+                className={`px-5 py-2 rounded-full border text-sm font-bold transition-all duration-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-700
+                  ${selectedSchool === school ? 'border-emerald-700 bg-emerald-50 text-emerald-800' : 'border-gray-200 bg-white text-gray-700 hover:border-emerald-300'}`}
               >
-                <type.icon className="h-7 w-7" />
-                <div className="text-left">
-                  <div className="font-bold text-base">{type.name}</div>
-                  <div className="text-xs text-gray-500">{type.count} programs</div>
-                </div>
+                {school}
               </button>
             ))}
           </div>
 
-          {/* Selected Programs */}
+          {/* Filtered Programs */}
           <motion.div
-            key={selectedDegree}
+            key={selectedDegree + selectedSchool + searchTerm}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="max-w-7xl mx-auto px-4"
           >
-            <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
-              {programs[selectedDegree as keyof typeof programs].map((program, index) => (
-                <motion.div
-                  key={program.name}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8"
-                >
-                  <div className="flex items-start justify-between mb-6">
-                    <div>
-                      <h4 className="text-2xl font-bold text-gray-900 mb-2">{program.name}</h4>
-                      <Badge className="bg-blue-100 text-blue-700">{program.school}</Badge>
+            <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
+              {filteredPrograms.length === 0 && (
+                <div className="col-span-2 text-center text-gray-500 py-12 text-lg">No programs found.</div>
+              )}
+              {filteredPrograms.map((program, index) => {
+                const isEmerald = index % 2 === 0;
+                const outlineColor = isEmerald ? 'border-emerald-700' : 'border-pink-600';
+                const hoverBg = isEmerald ? 'hover:bg-emerald-700' : 'hover:bg-pink-600';
+                const hoverText = 'hover:text-white';
+                return (
+                  <motion.div
+                    key={program.name}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.02, y: -5 }}
+                    className={`relative bg-white rounded-xl shadow-sm border border-gray-300 p-6 font-sans flex flex-col min-h-[320px]`}
+                  >
+                    {/* No accent bar */}
+                    <div className="flex items-center mb-2 mt-1">
+                      <h4 className="text-lg font-extrabold text-gray-900 font-serif mr-2">{program.name}</h4>
+                      <Badge className="border border-gray-300 bg-white text-gray-700 ml-auto text-xs font-bold px-3 py-1 rounded-full">{program.school}</Badge>
                     </div>
-                  </div>
-
-                  <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
-
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="text-center p-4 rounded-lg bg-gray-50">
-                      <Clock className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                      <div className="font-semibold text-gray-900">{program.duration}</div>
-                      <div className="text-sm text-gray-600">Duration</div>
+                    <p className="text-gray-700 text-sm leading-snug font-sans mb-3">{program.description}</p>
+                    <div className="flex gap-3 mb-3">
+                      <div className="flex items-center text-xs text-gray-700 bg-white border border-gray-200 rounded px-2 py-1">
+                        <Clock className="h-4 w-4 mr-1 text-gray-500" />{program.duration}
+                      </div>
+                      <div className="flex items-center text-xs text-gray-700 bg-white border border-gray-200 rounded px-2 py-1">
+                        <BookOpen className="h-4 w-4 mr-1 text-gray-500" />{program.credits} credits
+                      </div>
+                      <div className="flex items-center text-xs text-gray-700 bg-white border border-gray-200 rounded px-2 py-1">
+                        <Users className="h-4 w-4 mr-1 text-gray-500" />{program.format}
+                      </div>
                     </div>
-                    <div className="text-center p-4 rounded-lg bg-gray-50">
-                      <BookOpen className="h-6 w-6 text-purple-600 mx-auto mb-2" />
-                      <div className="font-semibold text-gray-900">{program.credits}</div>
-                      <div className="text-sm text-gray-600">Credits</div>
+                    <div className="mb-2">
+                      <div className="text-xs text-gray-500 font-semibold mb-1">Specializations:</div>
+                      <div className="flex flex-wrap gap-1">
+                        {program.specializations.map((spec, i) => (
+                          <Badge key={i} variant="outline" className="text-xs px-2 py-0.5 border border-gray-300 text-gray-700 bg-white font-sans">
+                            {spec}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
-                    <div className="text-center p-4 rounded-lg bg-gray-50">
-                      <Users className="h-6 w-6 text-emerald-600 mx-auto mb-2" />
-                      <div className="font-semibold text-gray-900">{program.format}</div>
-                      <div className="text-sm text-gray-600">Format</div>
+                    <div className="mb-2">
+                      <div className="text-xs text-gray-500 font-semibold mb-1">Careers:</div>
+                      <div className="flex flex-wrap gap-1">
+                        {program.careers.map((career, i) => (
+                          <Badge key={i} variant="secondary" className="text-xs px-2 py-0.5 border border-gray-300 text-gray-700 bg-white font-sans">
+                            {career}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h5 className="font-semibold text-gray-900 mb-3">Specializations:</h5>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {program.specializations.map((spec, i) => (
-                        <Badge key={i} variant="outline" className="text-xs">
-                          {spec}
-                        </Badge>
-                      ))}
+                    <div className="mb-4">
+                      <div className="text-xs text-gray-500 font-semibold mb-1">Requirements:</div>
+                      <div className="flex flex-wrap gap-1">
+                        {program.requirements.map((req, i) => (
+                          <Badge key={i} variant="outline" className="text-xs px-2 py-0.5 border border-gray-300 text-gray-700 bg-white font-sans">
+                            {req}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h5 className="font-semibold text-gray-900 mb-3">Career Opportunities:</h5>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {program.careers.map((career, i) => (
-                        <Badge key={i} variant="secondary" className="text-xs">
-                          {career}
-                        </Badge>
-                      ))}
+                    <div className="flex mt-auto">
+                      <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer" className="flex-1">
+                        <Button
+                          size="lg"
+                          variant="outline"
+                          className={`w-full ${outlineColor} text-gray-800 bg-white ${hoverBg} ${hoverText} font-serif transition-colors duration-200`}
+                        >
+                          Apply Now
+                        </Button>
+                      </Link>
                     </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h5 className="font-semibold text-gray-900 mb-3">Requirements:</h5>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      {program.requirements.map((req, i) => (
-                        <li key={i} className="flex items-center">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex space-x-4">
-                    <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer" className="flex-1">
-                      <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700">
-                        Apply Now
-                      </Button>
-                    </Link>
-                    <Button variant="outline" className="flex-1">
-                      Learn More
-                    </Button>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Program Features */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-20 bg-[#faf9f7] border-y border-gray-200 font-serif">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-8 md:mb-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Why Choose Our Graduate Programs</h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-1 font-serif">Why Choose Our Graduate Programs</h2>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-sans mb-1">
                 Distinctive features that set our graduate education apart
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -505,15 +487,14 @@ export default function GraduatePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="text-center p-8 rounded-3xl bg-white shadow-xl border border-gray-100"
+                whileHover={{ scale: 1.05, y: -6 }}
+                className="text-center p-6 rounded-xl bg-white shadow-sm border border-gray-300 font-sans"
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="h-8 w-8 text-white" />
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mx-auto mb-4 border border-gray-200">
+                  <feature.icon className="h-7 w-7 text-gray-500" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{feature.description}</p>
-                <div className="text-lg font-bold text-blue-600">{feature.stat}</div>
+                <h3 className="text-base font-bold text-gray-900 mb-2 font-serif">{feature.title}</h3>
+                <p className="text-gray-700 mb-2 text-sm leading-snug font-sans">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -521,108 +502,86 @@ export default function GraduatePage() {
       </section>
 
       {/* Research Opportunities */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900">
+      <section className="py-12 md:py-20 bg-[#faf9f7] border-y border-gray-200 font-serif">
         <div className="container mx-auto px-4">
-          <div className="grid gap-12 md:gap-16 lg:grid-cols-2 items-center">
-            <div className="text-white">
+          <div className="grid gap-10 md:gap-16 lg:grid-cols-2 items-center">
+            <div>
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl sm:text-5xl font-bold mb-6 md:mb-8 leading-tight">
-                  Research
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                    Opportunities
-                  </span>
-                </h2>
-                <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
-                  Join cutting-edge research projects that address real-world challenges and contribute to advancing
-                  knowledge in your field.
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 font-serif">Research Opportunities</h2>
+                <p className="text-base md:text-lg text-gray-700 mb-6 font-sans">
+                  Join cutting-edge research projects that address real-world challenges and contribute to advancing knowledge in your field.
                 </p>
 
-                <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 mb-8">
+                <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 mb-6">
                   {[
                     { label: "Active Research Projects", value: 85 },
                     { label: "Research Funding", value: 2.5, suffix: "M", prefix: "$" },
                     { label: "Graduate Researchers", value: 320 },
                     { label: "Publications per Year", value: 180 },
                   ].map((stat, index) => (
-                    <motion.div
+                    <div
                       key={stat.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-center p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20"
+                      className="text-center p-4 rounded-xl bg-white border border-gray-300 shadow-sm font-sans"
                     >
-                      <div className="text-3xl font-bold text-blue-300 mb-2">
+                      <div className="text-xl font-bold text-gray-900 mb-1 font-serif">
                         {stat.prefix}
-                        <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                        <span>{stat.value}{stat.suffix}</span>
                       </div>
-                      <div className="text-gray-300 font-medium">{stat.label}</div>
-                    </motion.div>
+                      <div className="text-gray-600 text-sm font-sans">{stat.label}</div>
+                    </div>
                   ))}
                 </div>
 
-                <Button className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
-                  Explore Research Areas
-                  <ArrowRight className="ml-3 h-6 w-6" />
-                </Button>
               </motion.div>
             </div>
 
             <div className="relative">
               {mounted && (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                   className="relative"
                 >
                   <div className="grid gap-4 grid-cols-2">
-                    <motion.div
-                      animate={{ y: [0, -20, 0] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 0 }}
-                      className="space-y-4"
-                    >
+                    <div className="space-y-4">
                       <Image
-                        src="/placeholder.svg?height=250&width=300"
+                        src="/research/research-students.jpg"
                         alt="Graduate Research"
                         width={300}
                         height={250}
-                        className="rounded-2xl shadow-lg"
+                        className="rounded-xl shadow border border-gray-200 w-full h-auto object-cover"
                       />
                       <Image
-                        src="/placeholder.svg?height=200&width=300"
+                        src="/labs/in-the-lab-01.jpg"
                         alt="Lab Work"
                         width={300}
                         height={200}
-                        className="rounded-2xl shadow-lg"
+                        className="rounded-xl shadow border border-gray-200 w-full h-auto object-cover"
                       />
-                    </motion.div>
-                    <motion.div
-                      animate={{ y: [0, 20, 0] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
-                      className="space-y-4 mt-8"
-                    >
+                    </div>
+                    <div className="space-y-4 mt-6">
                       <Image
-                        src="/placeholder.svg?height=200&width=300"
+                        src="/research/on-the-podium-05.jpg"
                         alt="Conference Presentation"
                         width={300}
                         height={200}
-                        className="rounded-2xl shadow-lg"
+                        className="rounded-xl shadow border border-gray-200 w-full h-auto object-cover"
                       />
                       <Image
-                        src="/placeholder.svg?height=250&width=300"
+                        src="/research/on-the-podium.jpg"
                         alt="Research Collaboration"
                         width={300}
                         height={250}
-                        className="rounded-2xl shadow-lg"
+                        className="rounded-xl shadow border border-gray-200 w-full h-auto object-cover"
                       />
-                    </motion.div>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -632,23 +591,27 @@ export default function GraduatePage() {
       </section>
 
       {/* Graduate Success Stories */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-20 bg-[#faf9f7] border-y border-gray-200 font-serif">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-8 md:mb-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Graduate Success Stories</h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-1 font-serif">Graduate Success Stories</h2>
+              <div className="mx-auto mb-3 flex w-12 h-1 rounded-full overflow-hidden">
+                <div className="w-1/2 h-full bg-emerald-700" />
+                <div className="w-1/2 h-full bg-pink-600" />
+              </div>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-sans mb-1">
                 Meet our alumni who are leading innovation and research in their fields
               </p>
             </motion.div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: "Amara Okafor",
@@ -656,7 +619,8 @@ export default function GraduatePage() {
                 achievement: "Lead AI Researcher at Microsoft",
                 story:
                   "The research opportunities and mentorship at The Unity University prepared me to lead groundbreaking AI projects.",
-                image: "/placeholder.svg?height=200&width=200",
+                image: "/alumni/alumni-09.jpg",
+                accent: "emerald",
               },
               {
                 name: "Maria Santos",
@@ -664,7 +628,8 @@ export default function GraduatePage() {
                 achievement: "CEO of Sustainable Energy Corp",
                 story:
                   "The MBA program's focus on sustainable business practices shaped my vision for renewable energy solutions.",
-                image: "/placeholder.svg?height=200&width=200",
+                image: "/alumni/alumni-02.jpg",
+                accent: "pink",
               },
               {
                 name: "James Kwame",
@@ -672,66 +637,79 @@ export default function GraduatePage() {
                 achievement: "WHO Regional Director",
                 story:
                   "The Unity University's global health perspective and research training prepared me for leadership in international health.",
-                image: "/placeholder.svg?height=200&width=200",
+                image: "/alumni/alumni-08.jpg",
+                accent: "emerald",
               },
-            ].map((story, index) => (
-              <motion.div
-                key={story.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6"
-              >
-                <div className="text-center mb-6">
-                  <div className="relative w-20 h-20 mx-auto mb-4">
+            ].map((story, index) => {
+              const dotColor = story.accent === 'emerald' ? 'bg-emerald-700' : 'bg-pink-600';
+              return (
+                <motion.div
+                  key={story.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative bg-white rounded-xl shadow border border-gray-200 p-4 font-sans flex flex-col items-center min-h-[220px]"
+                >
+                  {/* Accent dot */}
+                  <span className={`absolute top-3 left-3 w-3 h-3 rounded-full ${dotColor}`} />
+                  <div className="w-16 h-16 rounded-full overflow-hidden mb-2 border-2 border-gray-200 bg-gray-100 flex items-center justify-center" style={{ marginTop: '56px' }}>
                     <Image
                       src={story.image || "/placeholder.svg"}
                       alt={story.name}
                       fill
-                      className="rounded-full object-cover"
+                      className="object-cover"
+                      style={{ aspectRatio: '1 / 1', objectPosition: 'center 40%' }}
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{story.name}</h3>
-                  <p className="text-blue-600 font-medium">{story.program}</p>
-                  <Badge className="bg-blue-100 text-blue-700 mt-2">{story.achievement}</Badge>
-                </div>
-                <blockquote className="text-gray-600 italic text-center">"{story.story}"</blockquote>
-              </motion.div>
-            ))}
+                  <h3 className="text-lg font-extrabold text-gray-900 mb-1 font-serif text-center">{story.name}</h3>
+                  <div className="text-xs text-gray-500 font-sans mb-1 text-center">{story.program}</div>
+                  <div className="text-xs font-bold text-emerald-700 font-sans mb-2 text-center">{story.achievement}</div>
+                  <blockquote className="text-gray-700 italic text-xs text-center font-sans">"{story.story}"</blockquote>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-10 md:py-14 bg-[#faf9f7] border-y border-gray-200 font-serif overflow-hidden">
+        {/* Subtle watermark background */}
+        <div className="absolute inset-0 pointer-events-none opacity-5 flex justify-end items-end select-none z-0">
+          <img src="/tuu-logo/tuu-logo.png" alt="University Crest Watermark" className="w-1/3 max-w-xs mr-4 mb-4" />
+        </div>
+        <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold text-white mb-8">Ready to Advance Your Career?</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-              Join our community of graduate scholars and researchers. Take the next step in your academic and
-              professional journey.
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1 font-serif">Ready to Advance Your Career?</h2>
+            <div className="w-10 h-1 bg-emerald-700 mx-auto mb-4 rounded-full" />
+            <p className="text-base md:text-lg text-gray-600 max-w-xl mx-auto mb-6 font-sans">
+              Apply now or contact graduate admissions to take the next step.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
               <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold">
-                  Apply for Graduate School
-                  <ArrowRight className="ml-3 h-6 w-6" />
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full border-emerald-700 text-gray-800 bg-white hover:bg-emerald-700 hover:text-white font-serif transition-colors duration-200"
+                >
+                  Apply Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/about/contact">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold"
+                  className="w-full border-pink-600 text-gray-800 bg-white hover:bg-pink-600 hover:text-white font-serif transition-colors duration-200 flex items-center justify-center"
                 >
-                  Contact Graduate Admissions
+                  <span className="mr-2">Contact Graduate Admissions</span>
+                  <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 text-pink-600' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M21 10.5a8.38 8.38 0 01-1.9.82 3.48 3.48 0 00-6.6 1.18v.5A8.5 8.5 0 013 6.5v-.5a3.5 3.5 0 013.5-3.5h.5A8.5 8.5 0 0121 10.5z' /></svg>
                 </Button>
               </Link>
             </div>
