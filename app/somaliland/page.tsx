@@ -170,13 +170,19 @@ export default function HomePage() {
   useEffect(() => {
     if (!modalOpen) return;
     const interval = setInterval(() => {
-      setAdSlide((prev) => (prev + 1) % 3);
+      setAdSlide((prev) => (prev + 1) % 7);
     }, 6000);
     return () => clearInterval(interval);
   }, [modalOpen]);
 
   // Modal ad slides data (Somaliland colors)
   const adSlides = [
+    {
+      image: "/ads/admissions open.webp",
+      imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
+      title: "",
+      text: <></>,
+    },
     {
       image: "/strips/apply-now-at-the-unity-university.jpg",
       imageClass: "w-full h-48 md:h-64 object-cover rounded-t-lg",
@@ -227,6 +233,24 @@ export default function HomePage() {
           </div>
         </>
       ),
+    },
+    {
+      image: "/ads/public health.webp",
+      imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
+      title: "",
+      text: <></>,
+    },
+    {
+      image: "/ads/fbm-banking-banner.webp",
+      imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
+      title: "",
+      text: <></>,
+    },
+    {
+      image: "/ads/FBM-BBA-BANNER.webp",
+      imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
+      title: "",
+      text: <></>,
     },
   ];
 
@@ -1097,7 +1121,7 @@ export default function HomePage() {
 
         {/* Modal Popup for Admissions Ads */}
         <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-          <DialogContent className="max-w-xl w-full p-0 overflow-hidden border-2 border-emerald-700">
+          <DialogContent className="max-w-xl w-full p-0 overflow-x-hidden h-[100vh] max-h-[100vh] overflow-y-auto rounded-lg">
             <style jsx global>{`
               .popup-x-close {
                 top: 1rem !important;
@@ -1137,13 +1161,13 @@ export default function HomePage() {
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="6" y1="6" x2="14" y2="14" /><line x1="14" y1="6" x2="6" y2="14" /></svg>
               </button>
               {/* Image as link */}
-              <a href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+              <a href="/admissions/apply" target="_blank" rel="noopener noreferrer" className="w-full">
                 <Image
                   src={adSlides[adSlide].image}
                   alt={adSlides[adSlide].title}
                   width={adSlide === 2 ? 256 : 600}
                   height={adSlide === 2 ? 256 : 192}
-                  className={adSlides[adSlide].imageClass + " cursor-pointer"}
+                  className={adSlides[adSlide].imageClass + " cursor-pointer w-full object-contain"}
                   priority
                 />
               </a>
