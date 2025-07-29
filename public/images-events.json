@@ -1,0 +1,52 @@
+{
+  "category": "events",
+  "count": 2,
+  "images": [
+    {
+      "filename": "the-unity-university-indipendence-day-somaliland-01.jpg",
+      "altText": "The Unity University Indipendence Day Somaliland 01 - University Events at The Unity University",
+      "title": "The Unity University Indipendence Day Somaliland 01 | The Unity University",
+      "description": "Special events and celebrations featuring the unity university indipendence day somaliland 01 at The Unity University.",
+      "category": "events",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "The Unity University Indipendence Day Somaliland 01 | The Unity University",
+        "description": "Special events and celebrations featuring the unity university indipendence day somaliland 01 at The Unity University.",
+        "contentUrl": "https://tuu.university/events/the-unity-university-indipendence-day-somaliland-01.jpg",
+        "thumbnailUrl": "https://tuu.university/events/the-unity-university-indipendence-day-somaliland-01.jpg",
+        "uploadDate": "2025-07-29T09:58:41.216Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "The Unity University Indipendence Day Somaliland 01 - University Events at The Unity University"
+      }
+    },
+    {
+      "filename": "the-unity-university-indipendence-day-somaliland-02.jpg",
+      "altText": "The Unity University Indipendence Day Somaliland 02 - University Events at The Unity University",
+      "title": "The Unity University Indipendence Day Somaliland 02 | The Unity University",
+      "description": "Special events and celebrations featuring the unity university indipendence day somaliland 02 at The Unity University.",
+      "category": "events",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "The Unity University Indipendence Day Somaliland 02 | The Unity University",
+        "description": "Special events and celebrations featuring the unity university indipendence day somaliland 02 at The Unity University.",
+        "contentUrl": "https://tuu.university/events/the-unity-university-indipendence-day-somaliland-02.jpg",
+        "thumbnailUrl": "https://tuu.university/events/the-unity-university-indipendence-day-somaliland-02.jpg",
+        "uploadDate": "2025-07-29T09:58:41.216Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "The Unity University Indipendence Day Somaliland 02 - University Events at The Unity University"
+      }
+    }
+  ]
+}

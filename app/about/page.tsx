@@ -52,25 +52,36 @@ export default function AboutPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-white border-b border-gray-200">
+      <section className="relative py-24 md:py-32 overflow-hidden border-b border-gray-200">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/ads/viva-voice-Banner 4X2.webp"
+            alt="The Unity University - About Us"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
         <div className="container relative z-10 mx-auto px-4">
           <div className="text-center">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <Badge className="bg-gray-900 text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8">
+              <Badge className="bg-white/20 backdrop-blur-sm text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8 border border-white/30">
                 About The Unity University
               </Badge>
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight text-gray-900">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight text-white">
                 Transforming
-                <span className="block text-gray-700">
+                <span className="block text-emerald-200">
                   Africa's Future
                 </span>
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
+              <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
                 Since our founding in 2020, The Unity University has rapidly established itself as a leader in African higher education, with our motto "What begins here, transforms Africa" guiding our mission across our campuses in Somaliland and Liberia.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
                 <Link href="/about/history">
-                  <Button size="lg" className="bg-gray-900 hover:bg-gray-800 px-8 py-4 text-lg font-bold text-white">
+                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 px-8 py-4 text-lg font-bold text-white shadow-xl">
                     Our History
                     <ArrowRight className="ml-3 h-6 w-6" />
                   </Button>
@@ -79,7 +90,7 @@ export default function AboutPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-gray-900 text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-bold"
+                    className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-bold bg-transparent backdrop-blur-sm"
                   >
                     Meet Our Leaders
                   </Button>

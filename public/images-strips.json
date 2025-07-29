@@ -1,0 +1,121 @@
+{
+  "category": "strips",
+  "count": 5,
+  "images": [
+    {
+      "filename": "apply-it.jpg",
+      "altText": "Apply It - Promotional Strips at The Unity University",
+      "title": "Apply It | The Unity University",
+      "description": "Promotional strip images featuring apply it at The Unity University.",
+      "category": "strips",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Apply It | The Unity University",
+        "description": "Promotional strip images featuring apply it at The Unity University.",
+        "contentUrl": "https://tuu.university/strips/apply-it.jpg",
+        "thumbnailUrl": "https://tuu.university/strips/apply-it.jpg",
+        "uploadDate": "2025-07-29T09:58:41.233Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Apply It - Promotional Strips at The Unity University"
+      }
+    },
+    {
+      "filename": "apply-now-at-the-unity-university.jpg",
+      "altText": "Apply Now At The Unity University - Promotional Strips at The Unity University",
+      "title": "Apply Now At The Unity University | The Unity University",
+      "description": "Promotional strip images featuring apply now at the unity university at The Unity University.",
+      "category": "strips",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Apply Now At The Unity University | The Unity University",
+        "description": "Promotional strip images featuring apply now at the unity university at The Unity University.",
+        "contentUrl": "https://tuu.university/strips/apply-now-at-the-unity-university.jpg",
+        "thumbnailUrl": "https://tuu.university/strips/apply-now-at-the-unity-university.jpg",
+        "uploadDate": "2025-07-29T09:58:41.233Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Apply Now At The Unity University - Promotional Strips at The Unity University"
+      }
+    },
+    {
+      "filename": "bachelor-of-software-enginnering.jpg",
+      "altText": "Bachelor Of Software Enginnering - Promotional Strips at The Unity University",
+      "title": "Bachelor Of Software Enginnering | The Unity University",
+      "description": "Promotional strip images featuring bachelor of software enginnering at The Unity University.",
+      "category": "strips",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Software Enginnering | The Unity University",
+        "description": "Promotional strip images featuring bachelor of software enginnering at The Unity University.",
+        "contentUrl": "https://tuu.university/strips/bachelor-of-software-enginnering.jpg",
+        "thumbnailUrl": "https://tuu.university/strips/bachelor-of-software-enginnering.jpg",
+        "uploadDate": "2025-07-29T09:58:41.233Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Software Enginnering - Promotional Strips at The Unity University"
+      }
+    },
+    {
+      "filename": "plo-lumumba-foundation-somaliland.jpg",
+      "altText": "Plo Lumumba Foundation Somaliland - Promotional Strips at The Unity University",
+      "title": "Plo Lumumba Foundation Somaliland | The Unity University",
+      "description": "Promotional strip images featuring plo lumumba foundation somaliland at The Unity University.",
+      "category": "strips",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Plo Lumumba Foundation Somaliland | The Unity University",
+        "description": "Promotional strip images featuring plo lumumba foundation somaliland at The Unity University.",
+        "contentUrl": "https://tuu.university/strips/plo-lumumba-foundation-somaliland.jpg",
+        "thumbnailUrl": "https://tuu.university/strips/plo-lumumba-foundation-somaliland.jpg",
+        "uploadDate": "2025-07-29T09:58:41.234Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Plo Lumumba Foundation Somaliland - Promotional Strips at The Unity University"
+      }
+    },
+    {
+      "filename": "the_unity_university_cover.jpeg",
+      "altText": "The Unity University Cover - Promotional Strips at The Unity University",
+      "title": "The Unity University Cover | The Unity University",
+      "description": "Promotional strip images featuring the unity university cover at The Unity University.",
+      "category": "strips",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "The Unity University Cover | The Unity University",
+        "description": "Promotional strip images featuring the unity university cover at The Unity University.",
+        "contentUrl": "https://tuu.university/strips/the_unity_university_cover.jpeg",
+        "thumbnailUrl": "https://tuu.university/strips/the_unity_university_cover.jpeg",
+        "uploadDate": "2025-07-29T09:58:41.234Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "The Unity University Cover - Promotional Strips at The Unity University"
+      }
+    }
+  ]
+}

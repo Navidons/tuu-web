@@ -1,0 +1,466 @@
+{
+  "category": "courses",
+  "count": 20,
+  "images": [
+    {
+      "filename": "Bachelor Human Resource Management.webp",
+      "altText": "Bachelor Human Resource Management - Academic Programs at The Unity University",
+      "title": "Bachelor Human Resource Management | The Unity University",
+      "description": "Course and program-related images featuring Bachelor Human Resource Management at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Human Resource Management | The Unity University",
+        "description": "Course and program-related images featuring Bachelor Human Resource Management at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor Human Resource Management.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor Human Resource Management.webp",
+        "uploadDate": "2025-07-29T09:58:41.213Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Human Resource Management - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Bachelor of Accounting.webp",
+      "altText": "Bachelor Of Accounting - Academic Programs at The Unity University",
+      "title": "Bachelor Of Accounting | The Unity University",
+      "description": "Course and program-related images featuring Bachelor of Accounting at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Accounting | The Unity University",
+        "description": "Course and program-related images featuring Bachelor of Accounting at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor of Accounting.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor of Accounting.webp",
+        "uploadDate": "2025-07-29T09:58:41.213Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Accounting - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Bachelor of International Relations and Diplomatic Studies.webp",
+      "altText": "Bachelor Of International Relations And Diplomatic Studies - Academic Programs at The Unity University",
+      "title": "Bachelor Of International Relations And Diplomatic Studies | The Unity University",
+      "description": "Course and program-related images featuring Bachelor of International Relations and Diplomatic Studies at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of International Relations And Diplomatic Studies | The Unity University",
+        "description": "Course and program-related images featuring Bachelor of International Relations and Diplomatic Studies at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor of International Relations and Diplomatic Studies.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor of International Relations and Diplomatic Studies.webp",
+        "uploadDate": "2025-07-29T09:58:41.213Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of International Relations And Diplomatic Studies - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Bachelor of Procurement Logistics and Supply Chain Management.webp",
+      "altText": "Bachelor Of Procurement Logistics And Supply Chain Management - Academic Programs at The Unity University",
+      "title": "Bachelor Of Procurement Logistics And Supply Chain Management | The Unity University",
+      "description": "Course and program-related images featuring Bachelor of Procurement Logistics and Supply Chain Management at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Procurement Logistics And Supply Chain Management | The Unity University",
+        "description": "Course and program-related images featuring Bachelor of Procurement Logistics and Supply Chain Management at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor of Procurement Logistics and Supply Chain Management.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor of Procurement Logistics and Supply Chain Management.webp",
+        "uploadDate": "2025-07-29T09:58:41.213Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Procurement Logistics And Supply Chain Management - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Bachelor of Science in Computing and Information Technology.webp",
+      "altText": "Bachelor Of Science In Computing And Information Technology - Academic Programs at The Unity University",
+      "title": "Bachelor Of Science In Computing And Information Technology | The Unity University",
+      "description": "Course and program-related images featuring Bachelor of Science in Computing and Information Technology at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Science In Computing And Information Technology | The Unity University",
+        "description": "Course and program-related images featuring Bachelor of Science in Computing and Information Technology at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor of Science in Computing and Information Technology.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor of Science in Computing and Information Technology.webp",
+        "uploadDate": "2025-07-29T09:58:41.213Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Science In Computing And Information Technology - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Bachelor of Science in Food and Nutrition.webp",
+      "altText": "Bachelor Of Science In Food And Nutrition - Academic Programs at The Unity University",
+      "title": "Bachelor Of Science In Food And Nutrition | The Unity University",
+      "description": "Course and program-related images featuring Bachelor of Science in Food and Nutrition at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Science In Food And Nutrition | The Unity University",
+        "description": "Course and program-related images featuring Bachelor of Science in Food and Nutrition at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor of Science in Food and Nutrition.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor of Science in Food and Nutrition.webp",
+        "uploadDate": "2025-07-29T09:58:41.213Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Science In Food And Nutrition - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Bachelor of Science in Information Technology.webp",
+      "altText": "Bachelor Of Science In Information Technology - Academic Programs at The Unity University",
+      "title": "Bachelor Of Science In Information Technology | The Unity University",
+      "description": "Course and program-related images featuring Bachelor of Science in Information Technology at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Science In Information Technology | The Unity University",
+        "description": "Course and program-related images featuring Bachelor of Science in Information Technology at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor of Science in Information Technology.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor of Science in Information Technology.webp",
+        "uploadDate": "2025-07-29T09:58:41.213Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Science In Information Technology - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Bachelor of Science in Public Health.webp",
+      "altText": "Bachelor Of Science In Public Health - Academic Programs at The Unity University",
+      "title": "Bachelor Of Science In Public Health | The Unity University",
+      "description": "Course and program-related images featuring Bachelor of Science in Public Health at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Science In Public Health | The Unity University",
+        "description": "Course and program-related images featuring Bachelor of Science in Public Health at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor of Science in Public Health.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor of Science in Public Health.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Science In Public Health - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Bachelor of Social Work and Social Administration.webp",
+      "altText": "Bachelor Of Social Work And Social Administration - Academic Programs at The Unity University",
+      "title": "Bachelor Of Social Work And Social Administration | The Unity University",
+      "description": "Course and program-related images featuring Bachelor of Social Work and Social Administration at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Social Work And Social Administration | The Unity University",
+        "description": "Course and program-related images featuring Bachelor of Social Work and Social Administration at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/bachelors/Bachelor of Social Work and Social Administration.webp",
+        "thumbnailUrl": "https://tuu.university/courses/bachelors/Bachelor of Social Work and Social Administration.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Social Work And Social Administration - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Accounting.webp",
+      "altText": "Master Of Accounting - Academic Programs at The Unity University",
+      "title": "Master Of Accounting | The Unity University",
+      "description": "Course and program-related images featuring Master of Accounting at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Accounting | The Unity University",
+        "description": "Course and program-related images featuring Master of Accounting at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Accounting.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Accounting.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Accounting - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Business Administration (Generic).webp",
+      "altText": "Master Of Business Administration (Generic) - Academic Programs at The Unity University",
+      "title": "Master Of Business Administration (Generic) | The Unity University",
+      "description": "Course and program-related images featuring Master of Business Administration (Generic) at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Business Administration (Generic) | The Unity University",
+        "description": "Course and program-related images featuring Master of Business Administration (Generic) at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Business Administration (Generic).webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Business Administration (Generic).webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Business Administration (Generic) - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Development Studies.webp",
+      "altText": "Master Of Development Studies - Academic Programs at The Unity University",
+      "title": "Master Of Development Studies | The Unity University",
+      "description": "Course and program-related images featuring Master of Development Studies at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Development Studies | The Unity University",
+        "description": "Course and program-related images featuring Master of Development Studies at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Development Studies.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Development Studies.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Development Studies - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Education Leadership and Management.webp",
+      "altText": "Master Of Education Leadership And Management - Academic Programs at The Unity University",
+      "title": "Master Of Education Leadership And Management | The Unity University",
+      "description": "Course and program-related images featuring Master of Education Leadership and Management at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Education Leadership And Management | The Unity University",
+        "description": "Course and program-related images featuring Master of Education Leadership and Management at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Education Leadership and Management.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Education Leadership and Management.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Education Leadership And Management - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Education Policy Planning and Management.webp",
+      "altText": "Master Of Education Policy Planning And Management - Academic Programs at The Unity University",
+      "title": "Master Of Education Policy Planning And Management | The Unity University",
+      "description": "Course and program-related images featuring Master of Education Policy Planning and Management at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Education Policy Planning And Management | The Unity University",
+        "description": "Course and program-related images featuring Master of Education Policy Planning and Management at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Education Policy Planning and Management.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Education Policy Planning and Management.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Education Policy Planning And Management - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Human Resource Management.webp",
+      "altText": "Master Of Human Resource Management - Academic Programs at The Unity University",
+      "title": "Master Of Human Resource Management | The Unity University",
+      "description": "Course and program-related images featuring Master of Human Resource Management at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Human Resource Management | The Unity University",
+        "description": "Course and program-related images featuring Master of Human Resource Management at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Human Resource Management.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Human Resource Management.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Human Resource Management - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of International Relations and Diplomatic Studies.webp",
+      "altText": "Master Of International Relations And Diplomatic Studies - Academic Programs at The Unity University",
+      "title": "Master Of International Relations And Diplomatic Studies | The Unity University",
+      "description": "Course and program-related images featuring Master of International Relations and Diplomatic Studies at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of International Relations And Diplomatic Studies | The Unity University",
+        "description": "Course and program-related images featuring Master of International Relations and Diplomatic Studies at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of International Relations and Diplomatic Studies.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of International Relations and Diplomatic Studies.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of International Relations And Diplomatic Studies - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Procurement Logistics and Supply Chain Management.webp",
+      "altText": "Master Of Procurement Logistics And Supply Chain Management - Academic Programs at The Unity University",
+      "title": "Master Of Procurement Logistics And Supply Chain Management | The Unity University",
+      "description": "Course and program-related images featuring Master of Procurement Logistics and Supply Chain Management at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Procurement Logistics And Supply Chain Management | The Unity University",
+        "description": "Course and program-related images featuring Master of Procurement Logistics and Supply Chain Management at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Procurement Logistics and Supply Chain Management.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Procurement Logistics and Supply Chain Management.webp",
+        "uploadDate": "2025-07-29T09:58:41.214Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Procurement Logistics And Supply Chain Management - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Project Planning and Management.webp",
+      "altText": "Master Of Project Planning And Management - Academic Programs at The Unity University",
+      "title": "Master Of Project Planning And Management | The Unity University",
+      "description": "Course and program-related images featuring Master of Project Planning and Management at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Project Planning And Management | The Unity University",
+        "description": "Course and program-related images featuring Master of Project Planning and Management at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Project Planning and Management.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Project Planning and Management.webp",
+        "uploadDate": "2025-07-29T09:58:41.216Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Project Planning And Management - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Public Administration and Management.webp",
+      "altText": "Master Of Public Administration And Management - Academic Programs at The Unity University",
+      "title": "Master Of Public Administration And Management | The Unity University",
+      "description": "Course and program-related images featuring Master of Public Administration and Management at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Public Administration And Management | The Unity University",
+        "description": "Course and program-related images featuring Master of Public Administration and Management at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Public Administration and Management.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Public Administration and Management.webp",
+        "uploadDate": "2025-07-29T09:58:41.216Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Public Administration And Management - Academic Programs at The Unity University"
+      }
+    },
+    {
+      "filename": "Master of Science in Public Health.webp",
+      "altText": "Master Of Science In Public Health - Academic Programs at The Unity University",
+      "title": "Master Of Science In Public Health | The Unity University",
+      "description": "Course and program-related images featuring Master of Science in Public Health at The Unity University.",
+      "category": "courses",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Science In Public Health | The Unity University",
+        "description": "Course and program-related images featuring Master of Science in Public Health at The Unity University.",
+        "contentUrl": "https://tuu.university/courses/masters/Master of Science in Public Health.webp",
+        "thumbnailUrl": "https://tuu.university/courses/masters/Master of Science in Public Health.webp",
+        "uploadDate": "2025-07-29T09:58:41.216Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Science In Public Health - Academic Programs at The Unity University"
+      }
+    }
+  ]
+}

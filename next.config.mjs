@@ -1,3 +1,6 @@
+import { execSync } from 'child_process'
+import path from 'path'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {

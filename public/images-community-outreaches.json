@@ -1,0 +1,75 @@
+{
+  "category": "community-outreaches",
+  "count": 3,
+  "images": [
+    {
+      "filename": "health-science-faculty-community-out-reach-1.JPG",
+      "altText": "Health Science Faculty Community Out Reach 1 - Community Outreach at The Unity University",
+      "title": "Health Science Faculty Community Out Reach 1 | The Unity University",
+      "description": "Community service and outreach activities featuring health science faculty community out reach 1 at The Unity University.",
+      "category": "community-outreaches",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Health Science Faculty Community Out Reach 1 | The Unity University",
+        "description": "Community service and outreach activities featuring health science faculty community out reach 1 at The Unity University.",
+        "contentUrl": "https://tuu.university/community-outreaches/health-science-faculty-community-out-reach-1.JPG",
+        "thumbnailUrl": "https://tuu.university/community-outreaches/health-science-faculty-community-out-reach-1.JPG",
+        "uploadDate": "2025-07-29T09:58:41.212Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Health Science Faculty Community Out Reach 1 - Community Outreach at The Unity University"
+      }
+    },
+    {
+      "filename": "health-science-faculty-community-out-reach.JPG",
+      "altText": "Health Science Faculty Community Out Reach - Community Outreach at The Unity University",
+      "title": "Health Science Faculty Community Out Reach | The Unity University",
+      "description": "Community service and outreach activities featuring health science faculty community out reach at The Unity University.",
+      "category": "community-outreaches",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Health Science Faculty Community Out Reach | The Unity University",
+        "description": "Community service and outreach activities featuring health science faculty community out reach at The Unity University.",
+        "contentUrl": "https://tuu.university/community-outreaches/health-science-faculty-community-out-reach.JPG",
+        "thumbnailUrl": "https://tuu.university/community-outreaches/health-science-faculty-community-out-reach.JPG",
+        "uploadDate": "2025-07-29T09:58:41.212Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Health Science Faculty Community Out Reach - Community Outreach at The Unity University"
+      }
+    },
+    {
+      "filename": "health-science-out.JPG",
+      "altText": "Health Science Out - Community Outreach at The Unity University",
+      "title": "Health Science Out | The Unity University",
+      "description": "Community service and outreach activities featuring health science out at The Unity University.",
+      "category": "community-outreaches",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Health Science Out | The Unity University",
+        "description": "Community service and outreach activities featuring health science out at The Unity University.",
+        "contentUrl": "https://tuu.university/community-outreaches/health-science-out.JPG",
+        "thumbnailUrl": "https://tuu.university/community-outreaches/health-science-out.JPG",
+        "uploadDate": "2025-07-29T09:58:41.212Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Health Science Out - Community Outreach at The Unity University"
+      }
+    }
+  ]
+}

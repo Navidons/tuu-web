@@ -432,6 +432,31 @@ export default function UndergraduatePage() {
                   selectedSchool === 'social' ? '🌍' :
                   selectedSchool === 'health' ? '🏥' :
                   '💻';
+                
+                // Map program names to course images
+                const getCourseImage = (programName: string) => {
+                  const imageMap: { [key: string]: string } = {
+                    'Accounting and Finance': '/courses/bachelors/Bachelor of Accounting.webp',
+                    'Human Resource Management': '/courses/bachelors/Bachelor Human Resource Management.webp',
+                    'Business Administration': '/tuu-logo/tuu-logo.png', // Using accounting as business admin
+                    'Banking and Finance': '/tuu-logo/tuu-logo.png',
+                    'Procurement, Logistics and Supply Chain Management': '/courses/bachelors/Bachelor of Procurement Logistics and Supply Chain Management.webp',
+                    'Marketing': '/tuu-logo/tuu-logo.png', // Using business banner for marketing
+                    'International Relations and Diplomatic Studies': '/courses/bachelors/Bachelor of International Relations and Diplomatic Studies.webp',
+                    'Public Administration and Management': '/tuu-logo/tuu-logo.png', // Using business banner
+                    'Social Work and Social Administration': '/courses/bachelors/Bachelor of Social Work and Social Administration.webp',
+                    'Project Planning and Management': '/tuu-logo/tuu-logo.png', // Using business banner
+                    'Public Relations and Media Management': '/tuu-logo/tuu-logo.png', // Using business banner
+                    'Public Health': '/courses/bachelors/Bachelor of Science in Public Health.webp',
+                    'Nutrition and Food Science': '/courses/bachelors/Bachelor of Science in Food and Nutrition.webp',
+                    'Health Service & Management': '/tuu-logo/tuu-logo.png',
+                    'Software Engineering': '/tuu-logo/tuu-logo.png',
+                    'Computer Science': '/tuu-logo/tuu-logo.png',
+                    'Information Technology': '/courses/bachelors/Bachelor of Science in Information Technology.webp',
+                  };
+                  return imageMap[programName] || '/placeholder.svg';
+                };
+
                 return (
                   <motion.div
                     key={program.name}
@@ -439,11 +464,23 @@ export default function UndergraduatePage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="relative bg-white rounded-2xl shadow-lg border border-gray-200 p-8 font-sans flex flex-col min-h-[340px]"
+                    className="relative bg-white rounded-2xl shadow-lg border border-gray-200 p-8 font-sans flex flex-col min-h-[400px]"
                   >
                     {/* Accent bar */}
                     <div className={`absolute top-0 left-0 w-full h-2 rounded-t-2xl ${accentBar}`} />
-                    <div className="flex items-center mb-4 mt-2">
+                    
+                    {/* Course Image */}
+                    <div className="relative w-full h-32 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src={getCourseImage(program.name)}
+                        alt={program.name}
+                        fill
+                        className="object-contain"
+                        priority
+                      />
+                    </div>
+                    
+                    <div className="flex items-center mb-4">
                       <span className="text-2xl mr-3">{icon}</span>
                       <h4 className="text-xl font-extrabold text-gray-900 font-serif">{program.name}</h4>
                     </div>

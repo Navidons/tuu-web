@@ -126,19 +126,30 @@ export default function NetworkPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-white border-b border-gray-200 overflow-hidden">
+      <section className="relative py-20 md:py-28 border-b border-gray-200 overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img src="/strips/apply-now-at-the-unity-university.jpg" alt="Apply Now at The Unity University" className="w-full h-full object-cover object-center" style={{filter:'brightness(0.7)'}} />
-          <div className="absolute inset-0 bg-white/70" />
+          <Image
+            src="/ads/viva-voice-Banner 4X2.webp"
+            alt="The Unity University - Global Network"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="container relative z-10 mx-auto px-4">
           <div className="text-center">
-            <Badge className="bg-emerald-700 text-white px-8 py-3 text-lg font-extrabold shadow-lg mb-8 tracking-wide uppercase">Global Network</Badge>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-extrabold text-gray-900 mb-4 md:mb-6 leading-tight drop-shadow-lg">Connected Worldwide</h1>
+            <Badge className="bg-white/20 backdrop-blur-sm text-white px-8 py-3 text-lg font-extrabold shadow-2xl mb-8 tracking-wide uppercase border border-white/30">
+              Global Network
+            </Badge>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-extrabold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
+              Connected Worldwide
+            </h1>
             <div className="flex justify-center mb-4">
-              <hr className="w-24 border-t-2 border-emerald-700" />
+              <hr className="w-24 border-t-2 border-emerald-400" />
             </div>
-            <p className="text-lg md:text-xl italic text-emerald-800 max-w-2xl mx-auto leading-relaxed mb-6 md:mb-10 font-serif font-medium">
+            <p className="text-lg md:text-xl italic text-white/90 max-w-2xl mx-auto leading-relaxed mb-6 md:mb-10 font-serif font-medium">
               Our global network spans continents, connecting students, faculty, and institutions in a shared mission of educational excellence and innovation.
             </p>
           </div>

@@ -1,0 +1,374 @@
+{
+  "category": "hero-section",
+  "count": 16,
+  "images": [
+    {
+      "filename": "ads.png",
+      "altText": "Ads - Hero Images at The Unity University",
+      "title": "Ads | The Unity University",
+      "description": "Main hero section images for university website featuring ads at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Ads | The Unity University",
+        "description": "Main hero section images for university website featuring ads at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/ads.png",
+        "thumbnailUrl": "https://tuu.university/hero-section/ads.png",
+        "uploadDate": "2025-07-29T09:58:41.217Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Ads - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "all-on-graduation-pic.jpg",
+      "altText": "All On Graduation Pic - Hero Images at The Unity University",
+      "title": "All On Graduation Pic | The Unity University",
+      "description": "Main hero section images for university website featuring all on graduation pic at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "All On Graduation Pic | The Unity University",
+        "description": "Main hero section images for university website featuring all on graduation pic at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/all-on-graduation-pic.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/all-on-graduation-pic.jpg",
+        "uploadDate": "2025-07-29T09:58:41.217Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "All On Graduation Pic - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "bachelor-of-software-enginnering.jpg",
+      "altText": "Bachelor Of Software Enginnering - Hero Images at The Unity University",
+      "title": "Bachelor Of Software Enginnering | The Unity University",
+      "description": "Main hero section images for university website featuring bachelor of software enginnering at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Bachelor Of Software Enginnering | The Unity University",
+        "description": "Main hero section images for university website featuring bachelor of software enginnering at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/bachelor-of-software-enginnering.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/bachelor-of-software-enginnering.jpg",
+        "uploadDate": "2025-07-29T09:58:41.217Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Bachelor Of Software Enginnering - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "dr.katerega-vice-chancellor.jpg",
+      "altText": "Dr.Katerega Vice Chancellor - Hero Images at The Unity University",
+      "title": "Dr.Katerega Vice Chancellor | The Unity University",
+      "description": "Main hero section images for university website featuring dr.katerega vice chancellor at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Dr.Katerega Vice Chancellor | The Unity University",
+        "description": "Main hero section images for university website featuring dr.katerega vice chancellor at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/circle/dr.katerega-vice-chancellor.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/circle/dr.katerega-vice-chancellor.jpg",
+        "uploadDate": "2025-07-29T09:58:41.218Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Dr.Katerega Vice Chancellor - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "kavuma-yusuf-musa-campas-director.png",
+      "altText": "Kavuma Yusuf Musa Campas Director - Hero Images at The Unity University",
+      "title": "Kavuma Yusuf Musa Campas Director | The Unity University",
+      "description": "Main hero section images for university website featuring kavuma yusuf musa campas director at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Kavuma Yusuf Musa Campas Director | The Unity University",
+        "description": "Main hero section images for university website featuring kavuma yusuf musa campas director at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/circle/kavuma-yusuf-musa-campas-director.png",
+        "thumbnailUrl": "https://tuu.university/hero-section/circle/kavuma-yusuf-musa-campas-director.png",
+        "uploadDate": "2025-07-29T09:58:41.218Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Kavuma Yusuf Musa Campas Director - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "plof.PLO-lumumba-founder-and-chancellor-tuu.jpg",
+      "altText": "Plof.PLO Lumumba Founder And Chancellor Tuu - Hero Images at The Unity University",
+      "title": "Plof.PLO Lumumba Founder And Chancellor Tuu | The Unity University",
+      "description": "Main hero section images for university website featuring plof.PLO lumumba founder and chancellor tuu at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Plof.PLO Lumumba Founder And Chancellor Tuu | The Unity University",
+        "description": "Main hero section images for university website featuring plof.PLO lumumba founder and chancellor tuu at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/circle/plof.PLO-lumumba-founder-and-chancellor-tuu.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/circle/plof.PLO-lumumba-founder-and-chancellor-tuu.jpg",
+        "uploadDate": "2025-07-29T09:58:41.218Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Plof.PLO Lumumba Founder And Chancellor Tuu - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "global-perspective.jpg",
+      "altText": "Global Perspective - Hero Images at The Unity University",
+      "title": "Global Perspective | The Unity University",
+      "description": "Main hero section images for university website featuring global perspective at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Global Perspective | The Unity University",
+        "description": "Main hero section images for university website featuring global perspective at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/global-perspective.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/global-perspective.jpg",
+        "uploadDate": "2025-07-29T09:58:41.218Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Global Perspective - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "graduation-day.jpg",
+      "altText": "Graduation Day - Hero Images at The Unity University",
+      "title": "Graduation Day | The Unity University",
+      "description": "Main hero section images for university website featuring graduation day at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Graduation Day | The Unity University",
+        "description": "Main hero section images for university website featuring graduation day at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/graduation-day.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/graduation-day.jpg",
+        "uploadDate": "2025-07-29T09:58:41.218Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Graduation Day - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "health-science-family.JPG",
+      "altText": "Health Science Family - Hero Images at The Unity University",
+      "title": "Health Science Family | The Unity University",
+      "description": "Main hero section images for university website featuring health science family at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Health Science Family | The Unity University",
+        "description": "Main hero section images for university website featuring health science family at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/health-science-family.JPG",
+        "thumbnailUrl": "https://tuu.university/hero-section/health-science-family.JPG",
+        "uploadDate": "2025-07-29T09:58:41.218Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Health Science Family - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "hero.png",
+      "altText": "Hero - Hero Images at The Unity University",
+      "title": "Hero | The Unity University",
+      "description": "Main hero section images for university website featuring hero at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Hero | The Unity University",
+        "description": "Main hero section images for university website featuring hero at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/hero.png",
+        "thumbnailUrl": "https://tuu.university/hero-section/hero.png",
+        "uploadDate": "2025-07-29T09:58:41.219Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Hero - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "male-graduation.jpg",
+      "altText": "Male Graduation - Hero Images at The Unity University",
+      "title": "Male Graduation | The Unity University",
+      "description": "Main hero section images for university website featuring male graduation at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Male Graduation | The Unity University",
+        "description": "Main hero section images for university website featuring male graduation at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/male-graduation.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/male-graduation.jpg",
+        "uploadDate": "2025-07-29T09:58:41.219Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Male Graduation - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "master-of-education-and-planning.jpg",
+      "altText": "Master Of Education And Planning - Hero Images at The Unity University",
+      "title": "Master Of Education And Planning | The Unity University",
+      "description": "Main hero section images for university website featuring master of education and planning at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Education And Planning | The Unity University",
+        "description": "Main hero section images for university website featuring master of education and planning at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/master-of-education-and-planning.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/master-of-education-and-planning.jpg",
+        "uploadDate": "2025-07-29T09:58:41.219Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Education And Planning - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "plo-africa.jpg",
+      "altText": "Plo Africa - Hero Images at The Unity University",
+      "title": "Plo Africa | The Unity University",
+      "description": "Main hero section images for university website featuring plo africa at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Plo Africa | The Unity University",
+        "description": "Main hero section images for university website featuring plo africa at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/plo-africa.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/plo-africa.jpg",
+        "uploadDate": "2025-07-29T09:58:41.219Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Plo Africa - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "plo-lumumba-foundation-somaliland.jpg",
+      "altText": "Plo Lumumba Foundation Somaliland - Hero Images at The Unity University",
+      "title": "Plo Lumumba Foundation Somaliland | The Unity University",
+      "description": "Main hero section images for university website featuring plo lumumba foundation somaliland at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Plo Lumumba Foundation Somaliland | The Unity University",
+        "description": "Main hero section images for university website featuring plo lumumba foundation somaliland at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/plo-lumumba-foundation-somaliland.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/plo-lumumba-foundation-somaliland.jpg",
+        "uploadDate": "2025-07-29T09:58:41.219Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Plo Lumumba Foundation Somaliland - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU) - Copy.jpg",
+      "altText": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) Copy - Hero Images at The Unity University",
+      "title": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) Copy | The Unity University",
+      "description": "Main hero section images for university website featuring Prof.PLO Lumumba officially opens The Unity University (TUU)   Copy at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) Copy | The Unity University",
+        "description": "Main hero section images for university website featuring Prof.PLO Lumumba officially opens The Unity University (TUU)   Copy at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU) - Copy.jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU) - Copy.jpg",
+        "uploadDate": "2025-07-29T09:58:41.220Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) Copy - Hero Images at The Unity University"
+      }
+    },
+    {
+      "filename": "Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU).jpg",
+      "altText": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) - Hero Images at The Unity University",
+      "title": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) | The Unity University",
+      "description": "Main hero section images for university website featuring Prof.PLO Lumumba officially opens The Unity University (TUU) at The Unity University.",
+      "category": "hero-section",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) | The Unity University",
+        "description": "Main hero section images for university website featuring Prof.PLO Lumumba officially opens The Unity University (TUU) at The Unity University.",
+        "contentUrl": "https://tuu.university/hero-section/Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU).jpg",
+        "thumbnailUrl": "https://tuu.university/hero-section/Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU).jpg",
+        "uploadDate": "2025-07-29T09:58:41.220Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) - Hero Images at The Unity University"
+      }
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "category": "lecturers",
+  "count": 9,
+  "images": [
+    {
+      "filename": "dr.ndimbo-micheal-balonzi-head-of-research.jpg",
+      "altText": "Dr.Ndimbo Micheal Balonzi Head Of Research - Faculty at The Unity University",
+      "title": "Dr.Ndimbo Micheal Balonzi Head Of Research | The Unity University",
+      "description": "Faculty and lecturer portraits featuring dr.ndimbo micheal balonzi head of research at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Dr.Ndimbo Micheal Balonzi Head Of Research | The Unity University",
+        "description": "Faculty and lecturer portraits featuring dr.ndimbo micheal balonzi head of research at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/dr.ndimbo-micheal-balonzi-head-of-research.jpg",
+        "thumbnailUrl": "https://tuu.university/lecturers/dr.ndimbo-micheal-balonzi-head-of-research.jpg",
+        "uploadDate": "2025-07-29T09:58:41.227Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Dr.Ndimbo Micheal Balonzi Head Of Research - Faculty at The Unity University"
+      }
+    },
+    {
+      "filename": "Ampiire-Wilberd.jpg",
+      "altText": "Ampiire Wilberd - Faculty at The Unity University",
+      "title": "Ampiire Wilberd | The Unity University",
+      "description": "Faculty and lecturer portraits featuring Ampiire Wilberd at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Ampiire Wilberd | The Unity University",
+        "description": "Faculty and lecturer portraits featuring Ampiire Wilberd at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/IT/Ampiire-Wilberd.jpg",
+        "thumbnailUrl": "https://tuu.university/lecturers/IT/Ampiire-Wilberd.jpg",
+        "uploadDate": "2025-07-29T09:58:41.227Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Ampiire Wilberd - Faculty at The Unity University"
+      }
+    },
+    {
+      "filename": "Jackson-Kisuule(Dean IT).jpg",
+      "altText": "Jackson Kisuule(Dean IT) - Faculty at The Unity University",
+      "title": "Jackson Kisuule(Dean IT) | The Unity University",
+      "description": "Faculty and lecturer portraits featuring Jackson Kisuule(Dean IT) at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Jackson Kisuule(Dean IT) | The Unity University",
+        "description": "Faculty and lecturer portraits featuring Jackson Kisuule(Dean IT) at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/IT/Jackson-Kisuule(Dean IT).jpg",
+        "thumbnailUrl": "https://tuu.university/lecturers/IT/Jackson-Kisuule(Dean IT).jpg",
+        "uploadDate": "2025-07-29T09:58:41.227Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Jackson Kisuule(Dean IT) - Faculty at The Unity University"
+      }
+    },
+    {
+      "filename": "ssebbowa-richard-kintu.jpg",
+      "altText": "Ssebbowa Richard Kintu - Faculty at The Unity University",
+      "title": "Ssebbowa Richard Kintu | The Unity University",
+      "description": "Faculty and lecturer portraits featuring ssebbowa richard kintu at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Ssebbowa Richard Kintu | The Unity University",
+        "description": "Faculty and lecturer portraits featuring ssebbowa richard kintu at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/IT/ssebbowa-richard-kintu.jpg",
+        "thumbnailUrl": "https://tuu.university/lecturers/IT/ssebbowa-richard-kintu.jpg",
+        "uploadDate": "2025-07-29T09:58:41.228Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Ssebbowa Richard Kintu - Faculty at The Unity University"
+      }
+    },
+    {
+      "filename": "Zungu-Richard-Norbert.jpg",
+      "altText": "Zungu Richard Norbert - Faculty at The Unity University",
+      "title": "Zungu Richard Norbert | The Unity University",
+      "description": "Faculty and lecturer portraits featuring Zungu Richard Norbert at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Zungu Richard Norbert | The Unity University",
+        "description": "Faculty and lecturer portraits featuring Zungu Richard Norbert at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/IT/Zungu-Richard-Norbert.jpg",
+        "thumbnailUrl": "https://tuu.university/lecturers/IT/Zungu-Richard-Norbert.jpg",
+        "uploadDate": "2025-07-29T09:58:41.228Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Zungu Richard Norbert - Faculty at The Unity University"
+      }
+    },
+    {
+      "filename": "kavuma-yusuf-musa-campas-director.png",
+      "altText": "Kavuma Yusuf Musa Campas Director - Faculty at The Unity University",
+      "title": "Kavuma Yusuf Musa Campas Director | The Unity University",
+      "description": "Faculty and lecturer portraits featuring kavuma yusuf musa campas director at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Kavuma Yusuf Musa Campas Director | The Unity University",
+        "description": "Faculty and lecturer portraits featuring kavuma yusuf musa campas director at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/kavuma-yusuf-musa-campas-director.png",
+        "thumbnailUrl": "https://tuu.university/lecturers/kavuma-yusuf-musa-campas-director.png",
+        "uploadDate": "2025-07-29T09:58:41.228Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Kavuma Yusuf Musa Campas Director - Faculty at The Unity University"
+      }
+    },
+    {
+      "filename": "Mr.Kaggwa-Robert-Dean-of-Students.jpg",
+      "altText": "Mr.Kaggwa Robert Dean Of Students - Faculty at The Unity University",
+      "title": "Mr.Kaggwa Robert Dean Of Students | The Unity University",
+      "description": "Faculty and lecturer portraits featuring Mr.Kaggwa Robert Dean of Students at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Mr.Kaggwa Robert Dean Of Students | The Unity University",
+        "description": "Faculty and lecturer portraits featuring Mr.Kaggwa Robert Dean of Students at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/Mr.Kaggwa-Robert-Dean-of-Students.jpg",
+        "thumbnailUrl": "https://tuu.university/lecturers/Mr.Kaggwa-Robert-Dean-of-Students.jpg",
+        "uploadDate": "2025-07-29T09:58:41.228Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Mr.Kaggwa Robert Dean Of Students - Faculty at The Unity University"
+      }
+    },
+    {
+      "filename": "plo-lumumba.jpeg",
+      "altText": "Plo Lumumba - Faculty at The Unity University",
+      "title": "Plo Lumumba | The Unity University",
+      "description": "Faculty and lecturer portraits featuring plo lumumba at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Plo Lumumba | The Unity University",
+        "description": "Faculty and lecturer portraits featuring plo lumumba at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/plo-lumumba.jpeg",
+        "thumbnailUrl": "https://tuu.university/lecturers/plo-lumumba.jpeg",
+        "uploadDate": "2025-07-29T09:58:41.228Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Plo Lumumba - Faculty at The Unity University"
+      }
+    },
+    {
+      "filename": "Mr.Lutaaya-Daniel-Dean-Social-Sciences.jpg",
+      "altText": "Mr.Lutaaya Daniel Dean Social Sciences - Faculty at The Unity University",
+      "title": "Mr.Lutaaya Daniel Dean Social Sciences | The Unity University",
+      "description": "Faculty and lecturer portraits featuring Mr.Lutaaya Daniel Dean Social Sciences at The Unity University.",
+      "category": "lecturers",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Mr.Lutaaya Daniel Dean Social Sciences | The Unity University",
+        "description": "Faculty and lecturer portraits featuring Mr.Lutaaya Daniel Dean Social Sciences at The Unity University.",
+        "contentUrl": "https://tuu.university/lecturers/social-sciences/Mr.Lutaaya-Daniel-Dean-Social-Sciences.jpg",
+        "thumbnailUrl": "https://tuu.university/lecturers/social-sciences/Mr.Lutaaya-Daniel-Dean-Social-Sciences.jpg",
+        "uploadDate": "2025-07-29T09:58:41.229Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Mr.Lutaaya Daniel Dean Social Sciences - Faculty at The Unity University"
+      }
+    }
+  ]
+}

@@ -75,6 +75,21 @@ const Breadcrumb = () => {
 
 // Program Card component for reusability
 const ProgramCard = ({ program, onClick }: { program: any; onClick: () => void }) => {
+  const getIconColor = (category: string) => {
+    switch (category) {
+      case "social":
+        return "text-purple-600"
+      case "business":
+        return "text-emerald-600"
+      case "health":
+        return "text-red-600"
+      case "computing":
+        return "text-blue-600"
+      default:
+        return "text-gray-600"
+    }
+  }
+
   return (
     <motion.div
       whileHover={{ y: -10, scale: 1.02 }}
@@ -87,14 +102,13 @@ const ProgramCard = ({ program, onClick }: { program: any; onClick: () => void }
             src={program.image || "/placeholder.svg"}
             alt={program.title}
             fill
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
+            className="object-contain group-hover:scale-110 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute top-4 right-4">
-            <Badge className="bg-white/90 text-gray-900 font-bold">{program.duration}</Badge>
+            <Badge className="bg-blue-600 text-white font-bold px-3 py-1 rounded-md shadow-lg">{program.duration}</Badge>
           </div>
           <div className="absolute bottom-4 left-4">
-            <program.icon className="h-8 w-8 text-white" />
+            <program.icon className={`h-8 w-8 ${getIconColor(program.category)}`} />
           </div>
         </div>
 
@@ -130,10 +144,12 @@ const ProgramCard = ({ program, onClick }: { program: any; onClick: () => void }
         </CardContent>
 
         <div className="px-6 pb-6">
-          <Button className="w-full group-hover:bg-blue-600 transition-colors">
-            Learn More
-            <ChevronRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+            <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold group-hover:bg-emerald-700 transition-colors">
+              Apply Now
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </Card>
     </motion.div>
@@ -162,7 +178,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/courses/international-relations.jpg",
+      image: "/courses/bachelors/Bachelor of International Relations and Diplomatic Studies.webp",
       description: "Comprehensive program focusing on global politics, international diplomacy, and diplomatic studies. Students develop understanding of international law, foreign policy, and global governance structures.",
       highlights: ["International Law & Diplomacy", "Foreign Policy Analysis", "Global Governance", "Diplomatic Protocol", "International Organizations"],
       curriculum: ["Introduction to International Relations", "International Law", "Foreign Policy Analysis", "Diplomatic Protocol", "Comparative Politics", "International Organizations", "Global Security Studies", "Research Methods"],
@@ -177,7 +193,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/courses/leadership-skills.jpg",
+      image: "/tuu-logo/tuu-logo.png",
       description: "Designed to prepare students for leadership roles in public sector organizations, focusing on governance, public policy development, and administrative management.",
       highlights: ["Public Policy Development", "Government Administration", "Leadership Skills", "Organizational Management", "Policy Analysis"],
       curriculum: ["Principles of Public Administration", "Public Policy Analysis", "Government Finance", "Organizational Behavior", "Administrative Law", "Leadership and Management", "Public Sector Economics", "Research Methods"],
@@ -192,7 +208,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/community-outreaches/health-community-outreach-01.jpg",
+      image: "/courses/bachelors/Bachelor of Social Work and Social Administration.webp",
       description: "Comprehensive program preparing students for professional social work practice, community development, and social service administration in various settings.",
       highlights: ["Community Development", "Social Service Delivery", "Counseling Skills", "Advocacy and Social Justice", "Case Management"],
       curriculum: ["Introduction to Social Sciences", "Community Development", "Guidance and Counselling", "Human Growth and Development", "Social Service Ethics", "Community Organization", "Research Methods", "Field Practice"],
@@ -207,7 +223,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/courses/business-class.jpg",
+      image: "/courses/bachelors/Bachelor of Procurement Logistics and Supply Chain Management.webp",
       description: "Specialized program focusing on project lifecycle management, monitoring and evaluation, and strategic planning for development projects.",
       highlights: ["Project Lifecycle Management", "Monitoring & Evaluation", "Resource Mobilization", "Strategic Planning", "Risk Management"],
       curriculum: ["Project Planning Fundamentals", "Resource Mobilization", "Monitoring and Evaluation", "Risk Management", "Grant Writing", "Development Finance", "Research Methods", "Capstone Project"],
@@ -222,7 +238,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Globe,
-      image: "/courses/public-speaking.jpg",
+      image: "/tuu-logo/tuu-logo.png",
       description: "Comprehensive program combining public relations theory with practical media management skills for modern communication challenges.",
       highlights: ["Strategic Communication", "Media Production", "Digital Media Management", "Crisis Communication", "Brand Management"],
       curriculum: ["Introduction to Public Relations", "Media Writing", "Digital Media Management", "Crisis Communication", "Media Production", "Public Relations Campaigns", "Media Law and Ethics", "Research Project"],
@@ -239,7 +255,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Calculator,
-      image: "/courses/accounts.jpg",
+      image: "/courses/bachelors/Bachelor of Accounting.webp",
       description: "Comprehensive program covering financial accounting, management accounting, auditing, and financial management principles for professional accounting practice.",
       highlights: ["Financial Accounting", "Management Accounting", "Auditing", "Taxation", "Financial Analysis"],
       curriculum: ["Fundamentals of Accounting", "Intermediate Accounting", "Cost Accounting", "Financial Management", "Auditing I & II", "Taxation I & II", "Investment Analysis", "Computerized Accounting"],
@@ -254,7 +270,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Users,
-      image: "/courses/human-resources.jpg",
+      image: "/courses/bachelors/Bachelor Human Resource Management.webp",
       description: "Specialized program focusing on human resource development, organizational behavior, and strategic human resource management in modern organizations.",
       highlights: ["Talent Management", "Organizational Behavior", "HR Strategy", "Training & Development", "Employment Law"],
       curriculum: ["Principles of Management", "Organizational Behavior", "Human Resource Strategy", "Training and Development", "Employment Law", "Performance Management", "Compensation Management", "Research Methods"],
@@ -269,7 +285,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Briefcase,
-      image: "/courses/business-class.jpg",
+      image: "/tuu-logo/tuu-logo.png",
       description: "Broad-based business program covering all major business functions including management, marketing, finance, and entrepreneurship for versatile business leadership.",
       highlights: ["Strategic Management", "Entrepreneurship", "Business Ethics", "International Business", "Leadership Development"],
       curriculum: ["Principles of Management", "Marketing Principles", "Entrepreneurship Development", "Strategic Management", "Business Ethics", "International Business", "Operations Management", "Business Research"],
@@ -284,7 +300,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Calculator,
-      image: "/courses/finance.jpg",
+      image: "/tuu-logo/tuu-logo.png",
       description: "Specialized program focusing on banking operations, financial markets, and financial institution management for careers in the financial services sector.",
       highlights: ["Banking Operations", "Financial Markets", "Risk Management", "Investment Banking", "Financial Regulation"],
       curriculum: ["Principles of Banking", "Financial Markets", "Monetary Economics", "Bank Management", "Risk Management", "Investment Analysis", "Banking Law", "Financial Research"],
@@ -299,7 +315,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Building,
-      image: "/courses/business-class.jpg",
+      image: "/courses/bachelors/Bachelor of Procurement Logistics and Supply Chain Management.webp",
       description: "Comprehensive program covering procurement processes, logistics management, and supply chain optimization for modern business operations.",
       highlights: ["Supply Chain Management", "Procurement Processes", "Logistics Planning", "Inventory Management", "Vendor Management"],
       curriculum: ["Procurement Fundamentals", "Supply Chain Management", "Logistics Planning", "Inventory Management", "Purchasing Management", "Transportation Management", "Quality Management", "Research Project"],
@@ -314,7 +330,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: TrendingUp,
-      image: "/courses/business-class.jpg",
+      image: "/tuu-logo/tuu-logo.png",
       description: "Specialized marketing program focusing on consumer behavior, digital marketing, brand management, and strategic marketing for modern markets.",
       highlights: ["Digital Marketing", "Brand Management", "Consumer Psychology", "Market Research", "Strategic Marketing"],
       curriculum: ["Principles of Marketing", "Consumer Behavior", "Digital Marketing", "Brand Management", "Market Research", "Advertising and Promotion", "Strategic Marketing", "Marketing Analytics"],
@@ -331,7 +347,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Stethoscope,
-      image: "/courses/health-sciences.jpg",
+      image: "/courses/bachelors/Bachelor of Science in Public Health.webp",
       description: "Comprehensive public health program focusing on disease prevention, health promotion, epidemiology, and community health management.",
       highlights: ["Epidemiology", "Health Promotion", "Community Health", "Health Policy", "Disease Prevention"],
       curriculum: ["Understanding Public Health", "Epidemiology", "Environmental Health", "Health Education", "Health Policy Planning", "Maternal and Child Health", "Community Health Ethics", "Research Methods"],
@@ -346,7 +362,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Heart,
-      image: "/courses/food-nutrition.png",
+      image: "/courses/bachelors/Bachelor of Science in Food and Nutrition.webp",
       description: "Specialized program focusing on human nutrition, food science, dietetics, and food safety for improving community health and nutrition.",
       highlights: ["Clinical Nutrition", "Food Science", "Dietetics", "Food Safety", "Nutritional Assessment"],
       curriculum: ["Food, Nutrition, and Health", "Clinical Nutrition", "Food Microbiology", "Food Service Management", "Nutrition Education", "Community Nutrition", "Food Quality Control", "Research Methods"],
@@ -361,7 +377,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "120 Credits",
       icon: Building,
-      image: "/labs/health-science-student-in-lab.jpg",
+      image: "/tuu-logo/tuu-logo.png",
       description: "Healthcare management program focusing on health systems administration, healthcare policy, and management of health service organizations.",
       highlights: ["Health Systems Management", "Healthcare Policy", "Hospital Administration", "Health Economics", "Quality Management"],
       curriculum: ["Health Service Management", "Health Policy Planning", "Health Economics", "Hospital Management", "Quality Systems", "Health Informatics", "Healthcare Leadership", "Research Methods"],
@@ -378,7 +394,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "128 Credits",
       icon: Code,
-      image: "/courses/software-engineering.jpg",
+      image: "/courses/bachelors/Bachelor of Science in Information Technology.webp",
       description: "Comprehensive software engineering program focusing on software development lifecycle, programming methodologies, and modern software engineering practices.",
       highlights: ["Software Development", "Programming Languages", "Software Architecture", "Mobile App Development", "Project Management"],
       curriculum: ["Programming in C", "Object-Oriented Programming (Java)", "Web Programming", "Software Engineering Principles", "Mobile App Development", "Software Project Management", "Human Computer Interaction", "Research Project"],
@@ -393,7 +409,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "128 Credits",
       icon: Code,
-      image: "/courses/computer-science.jpg",
+      image: "/courses/bachelors/Bachelor of Science in Computing and Information Technology.webp",
       description: "Comprehensive computer science program covering algorithms, data structures, artificial intelligence, and advanced computing concepts.",
       highlights: ["Data Structures & Algorithms", "Artificial Intelligence", "Computer Architecture", "Software Simulation", "Cybersecurity"],
       curriculum: ["Computer Fundamentals", "Programming Methodology", "Data Structures & Algorithms", "Operating Systems", "Artificial Intelligence", "Information Security", "Software Simulation", "Research Project"],
@@ -408,7 +424,7 @@ export default function UndergraduatePage() {
       duration: "3 Years",
       credits: "128 Credits",
       icon: Globe,
-      image: "/courses/technology.jpg",
+      image: "/courses/bachelors/Bachelor of Science in Information Technology.webp",
       description: "Practical IT program focusing on network administration, system management, cybersecurity, and enterprise technology solutions.",
       highlights: ["Network Administration", "Cybersecurity", "Cloud Computing", "IT Project Management", "System Administration"],
       curriculum: ["Computer Applications", "Database Applications", "Data Communication & Networking", "Information Systems", "Cloud Computing", "Information Security", "IT Project Management", "Research Project"],
@@ -465,7 +481,7 @@ export default function UndergraduatePage() {
       <section className="relative bg-gradient-to-r from-red-800 to-blue-800 py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/in-class/masters/in-class-04.jpg"
+            src="/ads/viva-voice-Banner 4X2.webp"
             alt="Undergraduate Excellence at Unity University Liberia"
             fill
             className="object-cover"
@@ -697,20 +713,19 @@ export default function UndergraduatePage() {
                         src={program.image || "/placeholder.svg"}
                         alt={program.title}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <button
                         onClick={() => setSelectedProgram(null)}
-                        className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 text-white hover:bg-white/30 transition-colors"
+                        className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 text-gray-800 hover:bg-gray-100 transition-colors"
                       >
                         ×
                       </button>
-                      <div className="absolute bottom-6 left-6 text-white">
-                        <h2 className="text-3xl font-bold mb-2">{program.title}</h2>
+                      <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                        <h2 className="text-3xl font-bold mb-2 text-gray-900">{program.title}</h2>
                         <div className="flex items-center space-x-4">
-                          <Badge className="bg-white/20 backdrop-blur-sm text-white">{program.duration}</Badge>
-                          <Badge className="bg-white/20 backdrop-blur-sm text-white">{program.credits}</Badge>
+                          <Badge className="bg-blue-600 text-white">{program.duration}</Badge>
+                          <Badge className="bg-emerald-600 text-white">{program.credits}</Badge>
                         </div>
                       </div>
                     </div>

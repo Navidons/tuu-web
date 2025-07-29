@@ -1,0 +1,121 @@
+{
+  "category": "graduation",
+  "count": 5,
+  "images": [
+    {
+      "filename": "all-on-graduation-pic.jpg",
+      "altText": "All On Graduation Pic - Graduation Ceremonies at The Unity University",
+      "title": "All On Graduation Pic | The Unity University",
+      "description": "Graduation ceremony and celebration images featuring all on graduation pic at The Unity University.",
+      "category": "graduation",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "All On Graduation Pic | The Unity University",
+        "description": "Graduation ceremony and celebration images featuring all on graduation pic at The Unity University.",
+        "contentUrl": "https://tuu.university/graduation/all-on-graduation-pic.jpg",
+        "thumbnailUrl": "https://tuu.university/graduation/all-on-graduation-pic.jpg",
+        "uploadDate": "2025-07-29T09:58:41.217Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "All On Graduation Pic - Graduation Ceremonies at The Unity University"
+      }
+    },
+    {
+      "filename": "graduation-day.jpg",
+      "altText": "Graduation Day - Graduation Ceremonies at The Unity University",
+      "title": "Graduation Day | The Unity University",
+      "description": "Graduation ceremony and celebration images featuring graduation day at The Unity University.",
+      "category": "graduation",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Graduation Day | The Unity University",
+        "description": "Graduation ceremony and celebration images featuring graduation day at The Unity University.",
+        "contentUrl": "https://tuu.university/graduation/graduation-day.jpg",
+        "thumbnailUrl": "https://tuu.university/graduation/graduation-day.jpg",
+        "uploadDate": "2025-07-29T09:58:41.217Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Graduation Day - Graduation Ceremonies at The Unity University"
+      }
+    },
+    {
+      "filename": "male-graduation.jpg",
+      "altText": "Male Graduation - Graduation Ceremonies at The Unity University",
+      "title": "Male Graduation | The Unity University",
+      "description": "Graduation ceremony and celebration images featuring male graduation at The Unity University.",
+      "category": "graduation",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Male Graduation | The Unity University",
+        "description": "Graduation ceremony and celebration images featuring male graduation at The Unity University.",
+        "contentUrl": "https://tuu.university/graduation/male-graduation.jpg",
+        "thumbnailUrl": "https://tuu.university/graduation/male-graduation.jpg",
+        "uploadDate": "2025-07-29T09:58:41.217Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Male Graduation - Graduation Ceremonies at The Unity University"
+      }
+    },
+    {
+      "filename": "master-of-education-and-planning.jpg",
+      "altText": "Master Of Education And Planning - Graduation Ceremonies at The Unity University",
+      "title": "Master Of Education And Planning | The Unity University",
+      "description": "Graduation ceremony and celebration images featuring master of education and planning at The Unity University.",
+      "category": "graduation",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Education And Planning | The Unity University",
+        "description": "Graduation ceremony and celebration images featuring master of education and planning at The Unity University.",
+        "contentUrl": "https://tuu.university/graduation/master-of-education-and-planning.jpg",
+        "thumbnailUrl": "https://tuu.university/graduation/master-of-education-and-planning.jpg",
+        "uploadDate": "2025-07-29T09:58:41.217Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Education And Planning - Graduation Ceremonies at The Unity University"
+      }
+    },
+    {
+      "filename": "master-of-education.jpg",
+      "altText": "Master Of Education - Graduation Ceremonies at The Unity University",
+      "title": "Master Of Education | The Unity University",
+      "description": "Graduation ceremony and celebration images featuring master of education at The Unity University.",
+      "category": "graduation",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Master Of Education | The Unity University",
+        "description": "Graduation ceremony and celebration images featuring master of education at The Unity University.",
+        "contentUrl": "https://tuu.university/graduation/master-of-education.jpg",
+        "thumbnailUrl": "https://tuu.university/graduation/master-of-education.jpg",
+        "uploadDate": "2025-07-29T09:58:41.217Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Master Of Education - Graduation Ceremonies at The Unity University"
+      }
+    }
+  ]
+}

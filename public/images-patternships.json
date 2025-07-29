@@ -1,0 +1,98 @@
+{
+  "category": "patternships",
+  "count": 4,
+  "images": [
+    {
+      "filename": "kiu-kesmonds-international-university.jpeg",
+      "altText": "Kiu Kesmonds International University - Partnerships at The Unity University",
+      "title": "Kiu Kesmonds International University | The Unity University",
+      "description": "University partnership and collaboration images featuring kiu kesmonds international university at The Unity University.",
+      "category": "patternships",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Kiu Kesmonds International University | The Unity University",
+        "description": "University partnership and collaboration images featuring kiu kesmonds international university at The Unity University.",
+        "contentUrl": "https://tuu.university/patternships/kiu-kesmonds-international-university.jpeg",
+        "thumbnailUrl": "https://tuu.university/patternships/kiu-kesmonds-international-university.jpeg",
+        "uploadDate": "2025-07-29T09:58:41.229Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Kiu Kesmonds International University - Partnerships at The Unity University"
+      }
+    },
+    {
+      "filename": "university-of-burao.png",
+      "altText": "University Of Burao - Partnerships at The Unity University",
+      "title": "University Of Burao | The Unity University",
+      "description": "University partnership and collaboration images featuring university of burao at The Unity University.",
+      "category": "patternships",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "University Of Burao | The Unity University",
+        "description": "University partnership and collaboration images featuring university of burao at The Unity University.",
+        "contentUrl": "https://tuu.university/patternships/university-of-burao.png",
+        "thumbnailUrl": "https://tuu.university/patternships/university-of-burao.png",
+        "uploadDate": "2025-07-29T09:58:41.229Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "University Of Burao - Partnerships at The Unity University"
+      }
+    },
+    {
+      "filename": "utamu-uganda-technology-and-management-university-logo-png_seeklogo-550348.png",
+      "altText": "Utamu Uganda Technology And Management University Logo Png Seeklogo 550348 - Partnerships at The Unity University",
+      "title": "Utamu Uganda Technology And Management University Logo Png Seeklogo 550348 | The Unity University",
+      "description": "University partnership and collaboration images featuring utamu uganda technology and management university logo png seeklogo 550348 at The Unity University.",
+      "category": "patternships",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Utamu Uganda Technology And Management University Logo Png Seeklogo 550348 | The Unity University",
+        "description": "University partnership and collaboration images featuring utamu uganda technology and management university logo png seeklogo 550348 at The Unity University.",
+        "contentUrl": "https://tuu.university/patternships/utamu-uganda-technology-and-management-university-logo-png_seeklogo-550348.png",
+        "thumbnailUrl": "https://tuu.university/patternships/utamu-uganda-technology-and-management-university-logo-png_seeklogo-550348.png",
+        "uploadDate": "2025-07-29T09:58:41.230Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Utamu Uganda Technology And Management University Logo Png Seeklogo 550348 - Partnerships at The Unity University"
+      }
+    },
+    {
+      "filename": "victoria_university_uganda_logo.jpeg",
+      "altText": "Victoria University Uganda Logo - Partnerships at The Unity University",
+      "title": "Victoria University Uganda Logo | The Unity University",
+      "description": "University partnership and collaboration images featuring victoria university uganda logo at The Unity University.",
+      "category": "patternships",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Victoria University Uganda Logo | The Unity University",
+        "description": "University partnership and collaboration images featuring victoria university uganda logo at The Unity University.",
+        "contentUrl": "https://tuu.university/patternships/victoria_university_uganda_logo.jpeg",
+        "thumbnailUrl": "https://tuu.university/patternships/victoria_university_uganda_logo.jpeg",
+        "uploadDate": "2025-07-29T09:58:41.230Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Victoria University Uganda Logo - Partnerships at The Unity University"
+      }
+    }
+  ]
+}

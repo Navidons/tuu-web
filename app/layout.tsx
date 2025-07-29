@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Script from 'next/script'
+import RichSearchResults from '../components/rich-search-results'
 
 export const metadata: Metadata = {
   title: 'The Unity University',
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-white" suppressHydrationWarning>
+        <RichSearchResults />
         {children}
         {/* WhatsApp Floating Button */}
         <a

@@ -1,0 +1,98 @@
+{
+  "category": "alumni",
+  "count": 4,
+  "images": [
+    {
+      "filename": "alumni-01.jpg",
+      "altText": "Alumni 01 - Alumni at The Unity University",
+      "title": "Alumni 01 | The Unity University",
+      "description": "Alumni and graduate images featuring alumni 01 at The Unity University.",
+      "category": "alumni",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Alumni 01 | The Unity University",
+        "description": "Alumni and graduate images featuring alumni 01 at The Unity University.",
+        "contentUrl": "https://tuu.university/alumni/alumni-01.jpg",
+        "thumbnailUrl": "https://tuu.university/alumni/alumni-01.jpg",
+        "uploadDate": "2025-07-29T09:58:41.212Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Alumni 01 - Alumni at The Unity University"
+      }
+    },
+    {
+      "filename": "alumni-02.jpg",
+      "altText": "Alumni 02 - Alumni at The Unity University",
+      "title": "Alumni 02 | The Unity University",
+      "description": "Alumni and graduate images featuring alumni 02 at The Unity University.",
+      "category": "alumni",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Alumni 02 | The Unity University",
+        "description": "Alumni and graduate images featuring alumni 02 at The Unity University.",
+        "contentUrl": "https://tuu.university/alumni/alumni-02.jpg",
+        "thumbnailUrl": "https://tuu.university/alumni/alumni-02.jpg",
+        "uploadDate": "2025-07-29T09:58:41.212Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Alumni 02 - Alumni at The Unity University"
+      }
+    },
+    {
+      "filename": "alumni-08.jpg",
+      "altText": "Alumni 08 - Alumni at The Unity University",
+      "title": "Alumni 08 | The Unity University",
+      "description": "Alumni and graduate images featuring alumni 08 at The Unity University.",
+      "category": "alumni",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Alumni 08 | The Unity University",
+        "description": "Alumni and graduate images featuring alumni 08 at The Unity University.",
+        "contentUrl": "https://tuu.university/alumni/alumni-08.jpg",
+        "thumbnailUrl": "https://tuu.university/alumni/alumni-08.jpg",
+        "uploadDate": "2025-07-29T09:58:41.212Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Alumni 08 - Alumni at The Unity University"
+      }
+    },
+    {
+      "filename": "alumni-09.jpg",
+      "altText": "Alumni 09 - Alumni at The Unity University",
+      "title": "Alumni 09 | The Unity University",
+      "description": "Alumni and graduate images featuring alumni 09 at The Unity University.",
+      "category": "alumni",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Alumni 09 | The Unity University",
+        "description": "Alumni and graduate images featuring alumni 09 at The Unity University.",
+        "contentUrl": "https://tuu.university/alumni/alumni-09.jpg",
+        "thumbnailUrl": "https://tuu.university/alumni/alumni-09.jpg",
+        "uploadDate": "2025-07-29T09:58:41.212Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Alumni 09 - Alumni at The Unity University"
+      }
+    }
+  ]
+}

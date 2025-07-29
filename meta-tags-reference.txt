@@ -1,0 +1,240 @@
+
+<!-- / -->
+<meta name="title" content="The Unity University | Academic Excellence - World-Class Education in Liberia and Somaliland" />
+<meta name="description" content="The Unity University offers world-class education with campuses in Liberia and Somaliland. Study Medicine, IT, Business, and more with globally recognized programs. Apply now for undergraduate and graduate degrees." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Unity University | Academic Excellence - World-Class Education in Liberia and Somaliland" />
+<meta property="og:description" content="The Unity University offers world-class education with campuses in Liberia and Somaliland. Study Medicine, IT, Business, and more with globally recognized programs. Apply now for undergraduate and graduate degrees." />
+<meta property="og:url" content="https://tuu.university/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Unity University | Academic Excellence - World-Class Education in Liberia and Somaliland" />
+<meta name="twitter:description" content="The Unity University offers world-class education with campuses in Liberia and Somaliland. Study Medicine, IT, Business, and more with globally recognized programs. Apply now for undergraduate and graduate degrees." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/" />
+
+
+<!-- /admissions -->
+<meta name="title" content="Admissions at The Unity University | Apply for Undergraduate and Graduate Programs" />
+<meta name="description" content="Start your journey at The Unity University. Learn about admission requirements, application process, deadlines, and how to apply for our undergraduate and graduate programs in Liberia and Somaliland." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Admissions at The Unity University | Apply for Undergraduate and Graduate Programs" />
+<meta property="og:description" content="Start your journey at The Unity University. Learn about admission requirements, application process, deadlines, and how to apply for our undergraduate and graduate programs in Liberia and Somaliland." />
+<meta property="og:url" content="https://tuu.university/admissions" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Admissions at The Unity University | Apply for Undergraduate and Graduate Programs" />
+<meta name="twitter:description" content="Start your journey at The Unity University. Learn about admission requirements, application process, deadlines, and how to apply for our undergraduate and graduate programs in Liberia and Somaliland." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/admissions" />
+
+
+<!-- /academics -->
+<meta name="title" content="Academic Programs at The Unity University | Undergraduate and Graduate Degrees" />
+<meta name="description" content="Explore our comprehensive range of undergraduate and graduate programs in Medicine, Information Technology, Business Administration, Education, and more at The Unity University." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Academic Programs at The Unity University | Undergraduate and Graduate Degrees" />
+<meta property="og:description" content="Explore our comprehensive range of undergraduate and graduate programs in Medicine, Information Technology, Business Administration, Education, and more at The Unity University." />
+<meta property="og:url" content="https://tuu.university/academics" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Academic Programs at The Unity University | Undergraduate and Graduate Degrees" />
+<meta name="twitter:description" content="Explore our comprehensive range of undergraduate and graduate programs in Medicine, Information Technology, Business Administration, Education, and more at The Unity University." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/academics" />
+
+
+<!-- /about -->
+<meta name="title" content="About The Unity University | Mission, Vision, and Academic Excellence" />
+<meta name="description" content="Learn about The Unity University's mission, vision, and commitment to academic excellence across our campuses in Liberia and Somaliland. Discover our rich history and global network." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="About The Unity University | Mission, Vision, and Academic Excellence" />
+<meta property="og:description" content="Learn about The Unity University's mission, vision, and commitment to academic excellence across our campuses in Liberia and Somaliland. Discover our rich history and global network." />
+<meta property="og:url" content="https://tuu.university/about" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About The Unity University | Mission, Vision, and Academic Excellence" />
+<meta name="twitter:description" content="Learn about The Unity University's mission, vision, and commitment to academic excellence across our campuses in Liberia and Somaliland. Discover our rich history and global network." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/about" />
+
+
+<!-- /liberia -->
+<meta name="title" content="The Unity University - Liberia Campus | World-Class Education in Monrovia" />
+<meta name="description" content="Experience world-class education at The Unity University Liberia campus. Offering programs in Medicine, IT, Business, and more. Apply now for undergraduate and graduate degrees." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Unity University - Liberia Campus | World-Class Education in Monrovia" />
+<meta property="og:description" content="Experience world-class education at The Unity University Liberia campus. Offering programs in Medicine, IT, Business, and more. Apply now for undergraduate and graduate degrees." />
+<meta property="og:url" content="https://tuu.university/liberia" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Unity University - Liberia Campus | World-Class Education in Monrovia" />
+<meta name="twitter:description" content="Experience world-class education at The Unity University Liberia campus. Offering programs in Medicine, IT, Business, and more. Apply now for undergraduate and graduate degrees." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/liberia" />
+
+
+<!-- /somaliland -->
+<meta name="title" content="The Unity University - Somaliland Campus | Academic Excellence in Hargeisa" />
+<meta name="description" content="Join The Unity University Somaliland campus for exceptional education in Medicine, Technology, and Business programs. Apply for undergraduate and graduate degrees in Hargeisa." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Unity University - Somaliland Campus | Academic Excellence in Hargeisa" />
+<meta property="og:description" content="Join The Unity University Somaliland campus for exceptional education in Medicine, Technology, and Business programs. Apply for undergraduate and graduate degrees in Hargeisa." />
+<meta property="og:url" content="https://tuu.university/somaliland" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Unity University - Somaliland Campus | Academic Excellence in Hargeisa" />
+<meta name="twitter:description" content="Join The Unity University Somaliland campus for exceptional education in Medicine, Technology, and Business programs. Apply for undergraduate and graduate degrees in Hargeisa." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/somaliland" />
+
+
+<!-- /student-life -->
+<meta name="title" content="Student Life at The Unity University | Campus Activities and Opportunities" />
+<meta name="description" content="Discover campus life, activities, and opportunities at The Unity University. Experience vibrant student community, extracurricular activities, and personal development programs." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Student Life at The Unity University | Campus Activities and Opportunities" />
+<meta property="og:description" content="Discover campus life, activities, and opportunities at The Unity University. Experience vibrant student community, extracurricular activities, and personal development programs." />
+<meta property="og:url" content="https://tuu.university/student-life" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Student Life at The Unity University | Campus Activities and Opportunities" />
+<meta name="twitter:description" content="Discover campus life, activities, and opportunities at The Unity University. Experience vibrant student community, extracurricular activities, and personal development programs." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/student-life" />
+
+
+<!-- /admissions/apply -->
+<meta name="title" content="Apply Now to The Unity University | Online Application Process" />
+<meta name="description" content="Submit your application to join The Unity University community. Complete our online application form with all required documents for undergraduate and graduate programs." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Apply Now to The Unity University | Online Application Process" />
+<meta property="og:description" content="Submit your application to join The Unity University community. Complete our online application form with all required documents for undergraduate and graduate programs." />
+<meta property="og:url" content="https://tuu.university/admissions/apply" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Apply Now to The Unity University | Online Application Process" />
+<meta name="twitter:description" content="Submit your application to join The Unity University community. Complete our online application form with all required documents for undergraduate and graduate programs." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/admissions/apply" />
+
+
+<!-- /academics/undergraduate -->
+<meta name="title" content="Undergraduate Programs at The Unity University | Bachelor's Degrees" />
+<meta name="description" content="Discover our bachelor's degree programs designed for your future success. Explore undergraduate programs in Medicine, IT, Business, Education, and more at The Unity University." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Undergraduate Programs at The Unity University | Bachelor's Degrees" />
+<meta property="og:description" content="Discover our bachelor's degree programs designed for your future success. Explore undergraduate programs in Medicine, IT, Business, Education, and more at The Unity University." />
+<meta property="og:url" content="https://tuu.university/academics/undergraduate" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Undergraduate Programs at The Unity University | Bachelor's Degrees" />
+<meta name="twitter:description" content="Discover our bachelor's degree programs designed for your future success. Explore undergraduate programs in Medicine, IT, Business, Education, and more at The Unity University." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/academics/undergraduate" />
+
+
+<!-- /academics/graduate -->
+<meta name="title" content="Graduate Programs at The Unity University | Master's and Doctoral Degrees" />
+<meta name="description" content="Advance your career with our master's degree programs and specialized courses. Explore graduate programs in Business, IT, Education, and more at The Unity University." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Graduate Programs at The Unity University | Master's and Doctoral Degrees" />
+<meta property="og:description" content="Advance your career with our master's degree programs and specialized courses. Explore graduate programs in Business, IT, Education, and more at The Unity University." />
+<meta property="og:url" content="https://tuu.university/academics/graduate" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Graduate Programs at The Unity University | Master's and Doctoral Degrees" />
+<meta name="twitter:description" content="Advance your career with our master's degree programs and specialized courses. Explore graduate programs in Business, IT, Education, and more at The Unity University." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://tuu.university/academics/graduate" />
+

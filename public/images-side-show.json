@@ -1,0 +1,29 @@
+{
+  "category": "side-show",
+  "count": 1,
+  "images": [
+    {
+      "filename": "the-unity-university-glow.jpg",
+      "altText": "The Unity University Glow - Slideshow Images at The Unity University",
+      "title": "The Unity University Glow | The Unity University",
+      "description": "Slideshow and presentation images featuring the unity university glow at The Unity University.",
+      "category": "side-show",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "The Unity University Glow | The Unity University",
+        "description": "Slideshow and presentation images featuring the unity university glow at The Unity University.",
+        "contentUrl": "https://tuu.university/side-show/the-unity-university-glow.jpg",
+        "thumbnailUrl": "https://tuu.university/side-show/the-unity-university-glow.jpg",
+        "uploadDate": "2025-07-29T09:58:41.232Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "The Unity University Glow - Slideshow Images at The Unity University"
+      }
+    }
+  ]
+}

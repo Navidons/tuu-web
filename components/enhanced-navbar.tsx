@@ -37,7 +37,7 @@ const SomalilandFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Flag_of_Somaliland.svg/1200px-Flag_of_Somaliland.svg.png"
       alt="Somaliland Flag"
-      className={cn(className, "object-cover rounded-sm shadow-sm border border-white/20")}
+      className={cn(className, "object-cover rounded-sm shadow-sm border border-white/20 w-6")}
     />
   )
 }
@@ -211,7 +211,7 @@ export default function EnhancedNavbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         suppressHydrationWarning
       >
-        <div className="container mx-auto flex items-center justify-between px-4">
+        <div className="w-full flex items-center justify-between px-6 lg:px-8">
           <motion.div 
             className="flex items-center space-x-6 text-xs text-black font-serif"
             initial={{ opacity: 0, x: -30 }}
@@ -236,61 +236,81 @@ export default function EnhancedNavbar() {
             </motion.a>
           </motion.div>
           <motion.div 
-            className="text-xs text-black font-bold flex items-center space-x-3 font-serif"
+            className="text-xs text-black font-bold flex items-center space-x-4 font-serif"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <span>What Begins Here Transforms Africa</span>
-            <div className="flex items-center space-x-1">
-              <span className="text-xs">2 Campuses</span>
-              <Link
-                href="/liberia"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Liberia Campus"
-              >
-                <LiberiaFlag className="h-4 w-6" />
-              </Link>
-              <Link
-                href="/somaliland"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Somaliland Campus"
-              >
-                <SomalilandFlag className="h-4 w-6" />
-              </Link>
+            <span className="text-green-700 font-extrabold text-xs">What Begins Here Transforms Africa</span>
+            
+            {/* Compact Campus Section */}
+            <div className="flex items-center space-x-2 bg-gradient-to-r from-green-50 to-emerald-50 px-2 py-1 rounded-full border border-green-600 shadow-md hover:shadow-lg transition-all duration-300 group">
+              <div className="flex items-center space-x-1">
+                <Globe className="h-3 w-3 text-green-700 group-hover:scale-110 transition-transform duration-200" />
+                <span className="text-[10px] font-extrabold text-green-700 uppercase tracking-wide">2 Campuses</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <Link
+                  href="/liberia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Liberia Campus"
+                  className="group/flag hover:scale-110 transition-all duration-300 transform"
+                >
+                  <div className="relative">
+                    <LiberiaFlag className="h-3 w-4 shadow-sm" />
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-green-700 text-white text-[6px] px-1 py-0.5 rounded opacity-0 group-hover/flag:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                      Liberia
+                    </div>
+                  </div>
+                </Link>
+                <Link
+                  href="/somaliland"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Somaliland Campus"
+                  className="group/flag hover:scale-110 transition-all duration-300 transform"
+                >
+                  <div className="relative">
+                    <SomalilandFlag className="h-3 w-4 shadow-sm" />
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-green-700 text-white text-[6px] px-1 py-0.5 rounded opacity-0 group-hover/flag:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                      Somaliland
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center space-x-2">
+
+            {/* Compact Social Media Section */}
+            <div className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-full border border-green-200">
               <a
                 href="https://www.facebook.com/theunityuniversity"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-green-700 transition-colors"
+                className="hover:text-green-700 transition-all duration-300 hover:scale-110 transform p-0.5 rounded-full hover:bg-green-50"
                 aria-label="Facebook"
               >
-                <Facebook className="h-3 w-3" />
+                <Facebook className="h-2.5 w-2.5" />
               </a>
               <a
                 href="https://www.instagram.com/explore/locations/104837471861628/the-unity-university/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-green-700 transition-colors"
+                className="hover:text-green-700 transition-all duration-300 hover:scale-110 transform p-0.5 rounded-full hover:bg-green-50"
                 aria-label="Instagram"
               >
-                <Instagram className="h-3 w-3" />
+                <Instagram className="h-2.5 w-2.5" />
               </a>
               <a
                 href="https://so.linkedin.com/company/the-unity-university"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-green-700 transition-colors"
+                className="hover:text-green-700 transition-all duration-300 hover:scale-110 transform p-0.5 rounded-full hover:bg-green-50"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-3 w-3" />
+                <Linkedin className="h-2.5 w-2.5" />
               </a>
             </div>
-            <Globe className="h-3 w-3" />
           </motion.div>
         </div>
       </motion.div>
@@ -301,7 +321,7 @@ export default function EnhancedNavbar() {
           isScrolled ? "py-1 shadow-lg" : "py-3",
         )}
       >
-        <div className="container mx-auto flex items-center justify-between px-4">
+        <div className="w-full flex items-center justify-between px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -323,31 +343,48 @@ export default function EnhancedNavbar() {
             </Link>
           </motion.div>
 
-          {/* Enhanced Campus Indicator */}
+          {/* Compact Campus Indicator */}
           <motion.div 
-            className="hidden lg:flex items-center space-x-3 bg-white px-3 py-1 rounded-full border border-green-700 shadow-sm font-serif"
+            className="hidden lg:flex items-center space-x-3 bg-gradient-to-r from-green-50 to-emerald-50 px-3 py-2 rounded-full border border-green-700 shadow-lg font-serif hover:shadow-xl transition-all duration-300 group"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
+            whileHover={{ scale: 1.02 }}
           >
-            <Globe className="h-3 w-3 text-green-700" />
-            <span className="text-xs font-medium text-black font-serif">2 Campuses</span>
-            <Link
-              href="/liberia"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Liberia Campus"
-            >
-              <LiberiaFlag className="h-4 w-6" />
-            </Link>
-            <Link
-              href="/somaliland"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Somaliland Campus"
-            >
-              <SomalilandFlag className="h-4 w-6" />
-            </Link>
+            <div className="flex items-center space-x-1">
+              <Globe className="h-3 w-3 text-green-700 group-hover:scale-110 transition-transform duration-200" />
+              <span className="text-xs font-extrabold text-green-700 font-serif uppercase tracking-wide">2 Campuses</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Link
+                href="/liberia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Liberia Campus"
+                className="group/flag hover:scale-110 transition-all duration-300 transform"
+              >
+                <div className="relative">
+                  <LiberiaFlag className="h-4 w-5 shadow-md" />
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-green-700 text-white text-[8px] px-1 py-0.5 rounded opacity-0 group-hover/flag:opacity-100 transition-opacity duration-200 whitespace-nowrap font-bold">
+                    Liberia
+                  </div>
+                </div>
+              </Link>
+              <Link
+                href="/somaliland"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Somaliland Campus"
+                className="group/flag hover:scale-110 transition-all duration-300 transform"
+              >
+                <div className="relative">
+                  <SomalilandFlag className="h-4 w-5 shadow-md" />
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-green-700 text-white text-[8px] px-1 py-0.5 rounded opacity-0 group-hover/flag:opacity-100 transition-opacity duration-200 whitespace-nowrap font-bold">
+                    Somaliland
+                  </div>
+                </div>
+              </Link>
+            </div>
           </motion.div>
 
           <nav className="hidden lg:flex">

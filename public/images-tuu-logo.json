@@ -1,0 +1,29 @@
+{
+  "category": "tuu-logo",
+  "count": 1,
+  "images": [
+    {
+      "filename": "tuu-logo.png",
+      "altText": "Tuu Logo - The Unity University",
+      "title": "Tuu Logo | The Unity University",
+      "description": "Image of tuu logo at The Unity University.",
+      "category": "tuu-logo",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Tuu Logo | The Unity University",
+        "description": "Image of tuu logo at The Unity University.",
+        "contentUrl": "https://tuu.university/tuu-logo/tuu-logo.png",
+        "thumbnailUrl": "https://tuu.university/tuu-logo/tuu-logo.png",
+        "uploadDate": "2025-07-29T09:58:41.235Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Tuu Logo - The Unity University"
+      }
+    }
+  ]
+}

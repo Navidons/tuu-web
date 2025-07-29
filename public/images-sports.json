@@ -1,0 +1,52 @@
+{
+  "category": "sports",
+  "count": 2,
+  "images": [
+    {
+      "filename": "football-tuu-in-the-pitch.jpg",
+      "altText": "Football Tuu In The Pitch - Sports Activities at The Unity University",
+      "title": "Football Tuu In The Pitch | The Unity University",
+      "description": "Sports and athletic activities featuring football tuu in the pitch at The Unity University.",
+      "category": "sports",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Football Tuu In The Pitch | The Unity University",
+        "description": "Sports and athletic activities featuring football tuu in the pitch at The Unity University.",
+        "contentUrl": "https://tuu.university/sports/football-tuu-in-the-pitch.jpg",
+        "thumbnailUrl": "https://tuu.university/sports/football-tuu-in-the-pitch.jpg",
+        "uploadDate": "2025-07-29T09:58:41.233Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Football Tuu In The Pitch - Sports Activities at The Unity University"
+      }
+    },
+    {
+      "filename": "football-tuu.jpg",
+      "altText": "Football Tuu - Sports Activities at The Unity University",
+      "title": "Football Tuu | The Unity University",
+      "description": "Sports and athletic activities featuring football tuu at The Unity University.",
+      "category": "sports",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Football Tuu | The Unity University",
+        "description": "Sports and athletic activities featuring football tuu at The Unity University.",
+        "contentUrl": "https://tuu.university/sports/football-tuu.jpg",
+        "thumbnailUrl": "https://tuu.university/sports/football-tuu.jpg",
+        "uploadDate": "2025-07-29T09:58:41.233Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Football Tuu - Sports Activities at The Unity University"
+      }
+    }
+  ]
+}

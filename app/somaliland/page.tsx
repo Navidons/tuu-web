@@ -178,6 +178,26 @@ export default function HomePage() {
   // Modal ad slides data (Somaliland colors)
   const adSlides = [
     {
+      image: "/ads/viva-voice-Banner 4X2.webp",
+      imageClass: "w-full h-auto max-h-[90vh] object-contain rounded-t-lg max-w-full shadow-2xl",
+      title: "🎓 VIVA VOCE - Class of 2025 🎓",
+      text: (
+        <>
+          <div className="text-xl md:text-2xl font-bold text-emerald-800 mb-3 text-center">GRADUATION CELEBRATION</div>
+          <div className="text-lg md:text-xl font-semibold mb-2 text-center text-gray-800">The Unity University proudly presents</div>
+          <div className="text-2xl md:text-3xl font-bold text-emerald-700 mb-3 text-center">VIVA VOCE</div>
+          <div className="text-xl md:text-2xl font-bold text-red-600 mb-2 text-center">Class of 2025</div>
+          <div className="text-base md:text-lg text-gray-700 mb-3 text-center">Join us in celebrating the achievements of our graduating class</div>
+          <div className="font-bold text-emerald-700 mb-2 text-center">What Begins Here Transforms Africa</div>
+          <div className="flex items-center justify-center gap-2 text-xs md:text-sm mb-1 text-gray-600">
+            <span>Somaliland Campus, Hargeisa, Somaliland</span>
+            <span className="mx-2">|</span>
+            <span>Liberia Campus, Monrovia, Montserrado County</span>
+          </div>
+        </>
+      ),
+    },
+    {
       image: "/ads/admissions open.webp",
       imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
       title: "",
@@ -402,7 +422,7 @@ export default function HomePage() {
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: `url(${heroSlides[currentSlide].image})` }}
+                    style={{ backgroundImage: `url('/ads/viva-voice-Banner 4X2.webp')` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/90 via-black/60 to-red-900/90" />
                 </motion.div>
@@ -412,7 +432,7 @@ export default function HomePage() {
             <div className="absolute inset-0">
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${heroSlides[0].image})` }}
+                style={{ backgroundImage: `url('/ads/viva-voice-Banner 4X2.webp')` }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/90 via-black/60 to-red-900/90" />
             </div>
@@ -609,7 +629,7 @@ export default function HomePage() {
                   location: "Modern Tech Learning Center, Hargeisa",
                   description:
                     "Cutting-edge coding programs for students to develop advanced programming skills. State-of-the-art computer labs, expert instructors, and hands-on projects in various programming languages and technologies.",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: "/in-class/coding-class-IT-Student-01.jpg",
                   stats: { students: "500+", programs: "10+", facilities: "15+" },
                   color: "emerald",
                   textColor: "text-emerald-900",
@@ -623,7 +643,7 @@ export default function HomePage() {
                   location: "University Sports Complex, Hargeisa",
                   description:
                     "Vibrant football program with regular tournaments, professional coaching, and inter-university competitions. Developing teamwork, leadership, and athletic skills for students across different programs.",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: "/sports/football-tuu.jpg",
                   stats: { teams: "20+", tournaments: "8+", participants: "300+" },
                   color: "orange",
                   textColor: "text-orange-900",
@@ -637,7 +657,7 @@ export default function HomePage() {
                   location: "Advanced Science Research Center, Hargeisa",
                   description:
                     "Comprehensive science laboratory program offering cutting-edge research facilities for students. Professional-grade equipment, expert guidance, and interdisciplinary research opportunities across multiple scientific domains.",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: "/labs/in-the-lab-02.jpg",
                   stats: { students: "100+", labs: "12+", projects: "50+" },
                   color: "blue",
                   textColor: "text-blue-900",
@@ -664,11 +684,10 @@ export default function HomePage() {
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-t from-${campus.color}-900/80 to-transparent`} />
                       <div className="absolute top-4 right-4">
                         <SomalilandFlag className="h-6 w-8" />
                       </div>
-                      <div className="absolute bottom-4 left-4 text-white">
+                      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-lg">
                         <h4 className={`text-xl font-bold mb-1 ${campus.titleColor}`}>{campus.title}</h4>
                         <Badge className={`mt-2 ${campus.locationBadgeColor} text-white text-xs`}>{campus.location}</Badge>
                       </div>
@@ -708,7 +727,7 @@ export default function HomePage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Excellence in Numbers - Proven Success</h2>
-              <h3 className="text-2xl font-semibold text-emerald-200 mb-6">Tirooyinka Fiicanta - Guul La Hubay</h3>
+              <h3 className="text-2xl font-semibold text-emerald-200 mb-6">Excellence in Numbers - Proven Success</h3>
               <p className="text-lg text-white/90 max-w-3xl mx-auto">
                 Our achievements demonstrate The Unity University Somaliland's commitment to academic excellence, student
                 success, and community impact across the Horn of Africa. These numbers reflect our position as the leading
@@ -826,7 +845,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <h3 className="text-2xl font-semibold text-gray-700 mb-6">
-                Barnaamijyada Waxbarasho ee Ugu Fiican Somaliland
+                Top Academic Programs in Somaliland
               </h3>
               <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 Choose from The Unity University Somaliland's comprehensive range of internationally accredited academic
@@ -853,7 +872,7 @@ export default function HomePage() {
                   level: "Undergraduate & Graduate Programs",
                   description:
                     "Premier business education program in Somaliland preparing future entrepreneurs and business leaders. Comprehensive curriculum covering entrepreneurship, finance, marketing, and management with focus on Somaliland's growing economy and regional business opportunities.",
-                  image: "/placeholder.svg?height=300&width=400",
+                  image: "/courses/bachelors/Bachelor of Accounting.webp",
                   features: [
                     "Entrepreneurship Development",
                     "Industry Partnerships",
@@ -869,7 +888,7 @@ export default function HomePage() {
                   level: "Undergraduate & Graduate Programs",
                   description:
                     "Cutting-edge Information Technology programs covering software development, cybersecurity, data science, and digital innovation. State-of-the-art computer labs, industry certifications, and partnerships with leading tech companies prepare students for the digital economy.",
-                  image: "/placeholder.svg?height=300&width=400",
+                  image: "/courses/bachelors/Bachelor of Science in Information Technology.webp",
                   features: ["Modern Curriculum", "Industry Certifications", "Innovation Labs", "Tech Partnerships"],
                   gradient: "from-blue-600 to-blue-800",
                   duration: "3 Years Bachelor / 2 Years Master",
@@ -880,49 +899,49 @@ export default function HomePage() {
                   level: "Undergraduate & Graduate Programs",
                   description:
                     "Comprehensive public health education addressing community health challenges in Somaliland and the Horn of Africa. Focus on preventive care, health promotion, epidemiology, and health systems management with clinical training opportunities.",
-                  image: "/placeholder.svg?height=300&width=400",
+                  image: "/courses/bachelors/Bachelor of Science in Public Health.webp",
                   features: ["Community Focus", "Clinical Training", "Research Opportunities", "Health Policy"],
                   gradient: "from-red-600 to-red-800",
                   duration: "3 Years Bachelor / 2 Years Master",
                   keywords: "public health somaliland, healthcare education hargeisa, medical programs",
                 },
                 {
-                  title: "Engineering - Infrastructure Development Excellence",
-                  level: "Undergraduate Programs",
-                  description:
-                    "Comprehensive engineering education in civil, electrical, and mechanical engineering supporting Somaliland's infrastructure development. Hands-on learning with modern equipment, industry projects, and sustainable design principles.",
-                  image: "/placeholder.svg?height=300&width=400",
-                  features: ["Hands-on Learning", "Modern Equipment", "Industry Projects", "Sustainable Design"],
-                  gradient: "from-teal-600 to-teal-800",
-                  duration: "3 Years Bachelor",
-                  keywords: "engineering programs somaliland, civil engineering hargeisa, infrastructure development",
-                },
-                {
-                  title: "Education - Teacher Training Excellence in Somaliland",
+                  title: "International Relations - Diplomatic Studies Excellence",
                   level: "Undergraduate & Graduate Programs",
                   description:
-                    "Premier teacher training programs preparing qualified educators to transform Somaliland's education sector. Modern teaching methodologies, educational technology integration, and practical classroom experience.",
-                  image: "/placeholder.svg?height=300&width=400",
+                    "Comprehensive international relations and diplomatic studies program preparing students for global leadership roles. Focus on diplomacy, international law, foreign policy, and cross-cultural communication for careers in government and international organizations.",
+                  image: "/courses/bachelors/Bachelor of International Relations and Diplomatic Studies.webp",
+                  features: ["Diplomatic Training", "International Law", "Foreign Policy", "Global Leadership"],
+                  gradient: "from-indigo-600 to-indigo-800",
+                  duration: "3 Years Bachelor / 2 Years Master",
+                  keywords: "international relations somaliland, diplomatic studies hargeisa, foreign policy",
+                },
+                {
+                  title: "Human Resource Management - People Leadership",
+                  level: "Undergraduate & Graduate Programs",
+                  description:
+                    "Strategic human resource management programs developing leaders in people management and organizational development. Modern HR practices, talent management, and workplace psychology with practical industry experience.",
+                  image: "/courses/bachelors/Bachelor Human Resource Management.webp",
                   features: [
-                    "Teaching Practice",
-                    "Educational Technology",
-                    "Curriculum Development",
-                    "Leadership Training",
+                    "Talent Management",
+                    "Organizational Development",
+                    "Workplace Psychology",
+                    "Strategic HR",
                   ],
                   gradient: "from-purple-600 to-purple-800",
                   duration: "3 Years Bachelor / 2 Years Master",
-                  keywords: "teacher training somaliland, education degree hargeisa, teaching programs",
+                  keywords: "human resource management somaliland, HR degree hargeisa, people management",
                 },
                 {
-                  title: "Agriculture & Environment - Sustainable Development Focus",
-                  level: "Undergraduate Programs",
+                  title: "Social Work - Community Development Excellence",
+                  level: "Undergraduate & Graduate Programs",
                   description:
-                    "Innovative agriculture and environmental management programs addressing food security and climate challenges in Somaliland. Sustainable farming practices, environmental conservation, and modern agricultural techniques.",
-                  image: "/placeholder.svg?height=300&width=400",
-                  features: ["Sustainable Practices", "Field Research", "Climate Adaptation", "Modern Farming"],
-                  gradient: "from-green-600 to-green-800",
-                  duration: "3 Years Bachelor",
-                  keywords: "agriculture programs somaliland, environmental studies hargeisa, sustainable farming",
+                    "Comprehensive social work and social administration programs addressing community development challenges in Somaliland. Focus on social justice, community organizing, and social policy with practical field experience.",
+                  image: "/courses/bachelors/Bachelor of Social Work and Social Administration.webp",
+                  features: ["Community Development", "Social Justice", "Field Practice", "Social Policy"],
+                  gradient: "from-orange-600 to-orange-800",
+                  duration: "3 Years Bachelor / 2 Years Master",
+                  keywords: "social work somaliland, community development hargeisa, social administration",
                 },
               ].map((program, index) => (
                 <motion.div
@@ -940,15 +959,10 @@ export default function HomePage() {
                         src={program.image || "/placeholder.svg"}
                         alt={`${program.title} - The Unity University Somaliland`}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="object-contain group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${program.gradient}/90 to-transparent`} />
-                      <div className="absolute top-4 right-4">
-                        <Badge className="bg-white/20 backdrop-blur-sm text-white text-xs">{program.duration}</Badge>
-                      </div>
-                      <div className="absolute bottom-4 left-4 text-white">
-                        <h4 className="text-lg font-bold mb-1">{program.title}</h4>
-                        <p className="text-white/90 text-sm">{program.level}</p>
+                      <div className="absolute top-2 left-1/2 transform -translate-x-1/2">
+                        <Badge className="bg-blue-500/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-md shadow-lg">{program.duration}</Badge>
                       </div>
                     </div>
 
@@ -969,13 +983,12 @@ export default function HomePage() {
                     </CardContent>
 
                     <CardFooter className="p-6 pt-0">
-                      <Link href="/somaliland/academics" className="w-full">
+                      <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer" className="w-full">
                         <Button
-                          variant="outline"
-                          className="w-full group-hover:bg-gray-50 transition-colors duration-300 bg-transparent"
+                          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold"
                         >
-                          Learn More
-                          <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          Apply Now
+                          <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
                     </CardFooter>
@@ -1030,7 +1043,7 @@ export default function HomePage() {
                 Ready to Shape Your Future at Somaliland's #1 University?
               </h2>
               <h3 className="text-2xl font-semibold text-emerald-200 mb-8">
-                Diyaar ma u tahay inaad Mustaqbalkaaga Qurxiso Jaamacadda Ugu Fiican Somaliland?
+                Ready to Shape Your Future at Somaliland's #1 University?
               </h3>
 
               <p className="text-xl leading-relaxed mb-12 opacity-95">

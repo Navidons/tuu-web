@@ -1,0 +1,190 @@
+{
+  "category": "general",
+  "count": 8,
+  "images": [
+    {
+      "filename": "placeholder-logo.png",
+      "altText": "Placeholder Logo - The Unity University",
+      "title": "Placeholder Logo | The Unity University",
+      "description": "Image of placeholder logo at The Unity University.",
+      "category": "general",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Placeholder Logo | The Unity University",
+        "description": "Image of placeholder logo at The Unity University.",
+        "contentUrl": "https://tuu.university/placeholder-logo.png",
+        "thumbnailUrl": "https://tuu.university/placeholder-logo.png",
+        "uploadDate": "2025-07-29T09:58:41.230Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Placeholder Logo - The Unity University"
+      }
+    },
+    {
+      "filename": "placeholder-logo.svg",
+      "altText": "Placeholder Logo.Svg - The Unity University",
+      "title": "Placeholder Logo.Svg | The Unity University",
+      "description": "Image of placeholder logo.svg at The Unity University.",
+      "category": "general",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Placeholder Logo.Svg | The Unity University",
+        "description": "Image of placeholder logo.svg at The Unity University.",
+        "contentUrl": "https://tuu.university/placeholder-logo.svg",
+        "thumbnailUrl": "https://tuu.university/placeholder-logo.svg",
+        "uploadDate": "2025-07-29T09:58:41.230Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Placeholder Logo.Svg - The Unity University"
+      }
+    },
+    {
+      "filename": "placeholder-user.jpg",
+      "altText": "Placeholder User - The Unity University",
+      "title": "Placeholder User | The Unity University",
+      "description": "Image of placeholder user at The Unity University.",
+      "category": "general",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Placeholder User | The Unity University",
+        "description": "Image of placeholder user at The Unity University.",
+        "contentUrl": "https://tuu.university/placeholder-user.jpg",
+        "thumbnailUrl": "https://tuu.university/placeholder-user.jpg",
+        "uploadDate": "2025-07-29T09:58:41.230Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Placeholder User - The Unity University"
+      }
+    },
+    {
+      "filename": "placeholder.jpg",
+      "altText": "Placeholder - The Unity University",
+      "title": "Placeholder | The Unity University",
+      "description": "Image of placeholder at The Unity University.",
+      "category": "general",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Placeholder | The Unity University",
+        "description": "Image of placeholder at The Unity University.",
+        "contentUrl": "https://tuu.university/placeholder.jpg",
+        "thumbnailUrl": "https://tuu.university/placeholder.jpg",
+        "uploadDate": "2025-07-29T09:58:41.230Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Placeholder - The Unity University"
+      }
+    },
+    {
+      "filename": "placeholder.svg",
+      "altText": "Placeholder.Svg - The Unity University",
+      "title": "Placeholder.Svg | The Unity University",
+      "description": "Image of placeholder.svg at The Unity University.",
+      "category": "general",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Placeholder.Svg | The Unity University",
+        "description": "Image of placeholder.svg at The Unity University.",
+        "contentUrl": "https://tuu.university/placeholder.svg",
+        "thumbnailUrl": "https://tuu.university/placeholder.svg",
+        "uploadDate": "2025-07-29T09:58:41.230Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Placeholder.Svg - The Unity University"
+      }
+    },
+    {
+      "filename": "university-banner.jpg",
+      "altText": "University Banner - The Unity University",
+      "title": "University Banner | The Unity University",
+      "description": "Image of university banner at The Unity University.",
+      "category": "general",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "University Banner | The Unity University",
+        "description": "Image of university banner at The Unity University.",
+        "contentUrl": "https://tuu.university/university-banner.jpg",
+        "thumbnailUrl": "https://tuu.university/university-banner.jpg",
+        "uploadDate": "2025-07-29T09:58:41.235Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "University Banner - The Unity University"
+      }
+    },
+    {
+      "filename": "university-campus.jpg",
+      "altText": "University Campus - The Unity University",
+      "title": "University Campus | The Unity University",
+      "description": "Image of university campus at The Unity University.",
+      "category": "general",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "University Campus | The Unity University",
+        "description": "Image of university campus at The Unity University.",
+        "contentUrl": "https://tuu.university/university-campus.jpg",
+        "thumbnailUrl": "https://tuu.university/university-campus.jpg",
+        "uploadDate": "2025-07-29T09:58:41.235Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "University Campus - The Unity University"
+      }
+    },
+    {
+      "filename": "university-class.jpg",
+      "altText": "University Class - The Unity University",
+      "title": "University Class | The Unity University",
+      "description": "Image of university class at The Unity University.",
+      "category": "general",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "University Class | The Unity University",
+        "description": "Image of university class at The Unity University.",
+        "contentUrl": "https://tuu.university/university-class.jpg",
+        "thumbnailUrl": "https://tuu.university/university-class.jpg",
+        "uploadDate": "2025-07-29T09:58:41.236Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "University Class - The Unity University"
+      }
+    }
+  ]
+}

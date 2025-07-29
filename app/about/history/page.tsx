@@ -69,16 +69,27 @@ export default function HistoryPage() {
       <EnhancedNavbar />
 
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 border-b-4 border-emerald-600 bg-white">
+      <section className="relative py-24 md:py-32 border-b-4 border-emerald-600">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/ads/viva-voice-Banner 4X2.webp"
+            alt="The Unity University - Our History"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
         <div className="container relative z-10 mx-auto px-4">
           <div className="text-center">
-            <Badge className="bg-emerald-700 text-white px-6 py-3 text-lg font-bold shadow mb-8 uppercase tracking-widest">
+            <Badge className="bg-white/20 backdrop-blur-sm text-white px-6 py-3 text-lg font-bold shadow-2xl mb-8 uppercase tracking-widest border border-white/30">
               Our History
             </Badge>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-extrabold text-gray-900 mb-6 md:mb-8 leading-tight uppercase tracking-wide border-b-4 border-emerald-600 inline-block pb-2">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-extrabold text-white mb-6 md:mb-8 leading-tight uppercase tracking-wide border-b-4 border-emerald-400 inline-block pb-2">
               The Unity University
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8 md:mb-12">
               Founded in 2020 in Hargeisa, Somaliland, The Unity University has quickly established itself as a leading educational institution committed to transforming African higher education.
             </p>
           </div>

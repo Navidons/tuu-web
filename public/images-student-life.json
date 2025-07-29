@@ -1,0 +1,75 @@
+{
+  "category": "student-life",
+  "count": 3,
+  "images": [
+    {
+      "filename": "good-student-line-up.jpg",
+      "altText": "Good Student Line Up - Student Life at The Unity University",
+      "title": "Good Student Line Up | The Unity University",
+      "description": "Student activities and campus life images featuring good student line up at The Unity University.",
+      "category": "student-life",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Good Student Line Up | The Unity University",
+        "description": "Student activities and campus life images featuring good student line up at The Unity University.",
+        "contentUrl": "https://tuu.university/student-life/good-student-line-up.jpg",
+        "thumbnailUrl": "https://tuu.university/student-life/good-student-line-up.jpg",
+        "uploadDate": "2025-07-29T09:58:41.234Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Good Student Line Up - Student Life at The Unity University"
+      }
+    },
+    {
+      "filename": "school-talk.jpg",
+      "altText": "School Talk - Student Life at The Unity University",
+      "title": "School Talk | The Unity University",
+      "description": "Student activities and campus life images featuring school talk at The Unity University.",
+      "category": "student-life",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "School Talk | The Unity University",
+        "description": "Student activities and campus life images featuring school talk at The Unity University.",
+        "contentUrl": "https://tuu.university/student-life/school-talk.jpg",
+        "thumbnailUrl": "https://tuu.university/student-life/school-talk.jpg",
+        "uploadDate": "2025-07-29T09:58:41.234Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "School Talk - Student Life at The Unity University"
+      }
+    },
+    {
+      "filename": "school-talk01.jpg",
+      "altText": "School Talk01 - Student Life at The Unity University",
+      "title": "School Talk01 | The Unity University",
+      "description": "Student activities and campus life images featuring school talk01 at The Unity University.",
+      "category": "student-life",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "School Talk01 | The Unity University",
+        "description": "Student activities and campus life images featuring school talk01 at The Unity University.",
+        "contentUrl": "https://tuu.university/student-life/school-talk01.jpg",
+        "thumbnailUrl": "https://tuu.university/student-life/school-talk01.jpg",
+        "uploadDate": "2025-07-29T09:58:41.234Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "School Talk01 - Student Life at The Unity University"
+      }
+    }
+  ]
+}

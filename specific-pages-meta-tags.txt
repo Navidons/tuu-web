@@ -1,0 +1,225 @@
+
+<!-- /student-life/housing - UNIQUE META TAGS -->
+<meta name="title" content="Student Housing at The Unity University | On-Campus Accommodation and Living" />
+<meta name="description" content="Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, student housing, accommodation, dormitory" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph - /student-life/housing -->
+<meta property="og:title" content="Student Housing at The Unity University | On-Campus Accommodation and Living" />
+<meta property="og:description" content="Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland." />
+<meta property="og:url" content="https://tuu.university/student-life/housing" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card - /student-life/housing -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Student Housing at The Unity University | On-Campus Accommodation and Living" />
+<meta name="twitter:description" content="Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland." />
+
+<!-- Canonical - /student-life/housing -->
+<link rel="canonical" href="https://tuu.university/student-life/housing" />
+
+<!-- Structured Data for /student-life/housing -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Student Housing at The Unity University | On-Campus Accommodation and Living",
+  "description": "Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland.",
+  "url": "https://tuu.university/student-life/housing",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  }
+}
+</script>
+
+
+<!-- /admission-list - UNIQUE META TAGS -->
+<meta name="title" content="Admission Requirements at The Unity University | Complete Application Checklist" />
+<meta name="description" content="View the complete admission requirements and application checklist for The Unity University. Learn about required documents, academic qualifications, and application deadlines for undergraduate and graduate programs." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, application, requirements" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph - /admission-list -->
+<meta property="og:title" content="Admission Requirements at The Unity University | Complete Application Checklist" />
+<meta property="og:description" content="View the complete admission requirements and application checklist for The Unity University. Learn about required documents, academic qualifications, and application deadlines for undergraduate and graduate programs." />
+<meta property="og:url" content="https://tuu.university/admission-list" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card - /admission-list -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Admission Requirements at The Unity University | Complete Application Checklist" />
+<meta name="twitter:description" content="View the complete admission requirements and application checklist for The Unity University. Learn about required documents, academic qualifications, and application deadlines for undergraduate and graduate programs." />
+
+<!-- Canonical - /admission-list -->
+<link rel="canonical" href="https://tuu.university/admission-list" />
+
+<!-- Structured Data for /admission-list -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Admission Requirements at The Unity University | Complete Application Checklist",
+  "description": "View the complete admission requirements and application checklist for The Unity University. Learn about required documents, academic qualifications, and application deadlines for undergraduate and graduate programs.",
+  "url": "https://tuu.university/admission-list",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  }
+}
+</script>
+
+
+<!-- /contact-us - UNIQUE META TAGS -->
+<meta name="title" content="Contact The Unity University | Get in Touch with Admissions and Support" />
+<meta name="description" content="Contact The Unity University for admissions inquiries, academic support, and general information. Reach our admissions team, faculty, and student services across our campuses in Liberia and Somaliland." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, contact, support, information" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph - /contact-us -->
+<meta property="og:title" content="Contact The Unity University | Get in Touch with Admissions and Support" />
+<meta property="og:description" content="Contact The Unity University for admissions inquiries, academic support, and general information. Reach our admissions team, faculty, and student services across our campuses in Liberia and Somaliland." />
+<meta property="og:url" content="https://tuu.university/contact-us" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card - /contact-us -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact The Unity University | Get in Touch with Admissions and Support" />
+<meta name="twitter:description" content="Contact The Unity University for admissions inquiries, academic support, and general information. Reach our admissions team, faculty, and student services across our campuses in Liberia and Somaliland." />
+
+<!-- Canonical - /contact-us -->
+<link rel="canonical" href="https://tuu.university/contact-us" />
+
+<!-- Structured Data for /contact-us -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Contact The Unity University | Get in Touch with Admissions and Support",
+  "description": "Contact The Unity University for admissions inquiries, academic support, and general information. Reach our admissions team, faculty, and student services across our campuses in Liberia and Somaliland.",
+  "url": "https://tuu.university/contact-us",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  }
+}
+</script>
+
+
+<!-- / - UNIQUE META TAGS -->
+<meta name="title" content="The Unity University | Academic Excellence - World-Class Education in Liberia and Somaliland" />
+<meta name="description" content="The Unity University offers world-class education with campuses in Liberia and Somaliland. Study Medicine, IT, Business, and more with globally recognized programs. Apply now for undergraduate and graduate degrees." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, contact, support, information" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph - / -->
+<meta property="og:title" content="The Unity University | Academic Excellence - World-Class Education in Liberia and Somaliland" />
+<meta property="og:description" content="The Unity University offers world-class education with campuses in Liberia and Somaliland. Study Medicine, IT, Business, and more with globally recognized programs. Apply now for undergraduate and graduate degrees." />
+<meta property="og:url" content="https://tuu.university/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card - / -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Unity University | Academic Excellence - World-Class Education in Liberia and Somaliland" />
+<meta name="twitter:description" content="The Unity University offers world-class education with campuses in Liberia and Somaliland. Study Medicine, IT, Business, and more with globally recognized programs. Apply now for undergraduate and graduate degrees." />
+
+<!-- Canonical - / -->
+<link rel="canonical" href="https://tuu.university/" />
+
+<!-- Structured Data for / -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The Unity University | Academic Excellence - World-Class Education in Liberia and Somaliland",
+  "description": "The Unity University offers world-class education with campuses in Liberia and Somaliland. Study Medicine, IT, Business, and more with globally recognized programs. Apply now for undergraduate and graduate degrees.",
+  "url": "https://tuu.university/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  }
+}
+</script>
+
+
+<!-- /admissions - UNIQUE META TAGS -->
+<meta name="title" content="Admissions at The Unity University | Apply for Undergraduate and Graduate Programs" />
+<meta name="description" content="Start your journey at The Unity University. Learn about admission requirements, application process, deadlines, and how to apply for our undergraduate and graduate programs in Liberia and Somaliland." />
+<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, application, requirements" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<!-- Open Graph - /admissions -->
+<meta property="og:title" content="Admissions at The Unity University | Apply for Undergraduate and Graduate Programs" />
+<meta property="og:description" content="Start your journey at The Unity University. Learn about admission requirements, application process, deadlines, and how to apply for our undergraduate and graduate programs in Liberia and Somaliland." />
+<meta property="og:url" content="https://tuu.university/admissions" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Unity University" />
+
+<!-- Twitter Card - /admissions -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Admissions at The Unity University | Apply for Undergraduate and Graduate Programs" />
+<meta name="twitter:description" content="Start your journey at The Unity University. Learn about admission requirements, application process, deadlines, and how to apply for our undergraduate and graduate programs in Liberia and Somaliland." />
+
+<!-- Canonical - /admissions -->
+<link rel="canonical" href="https://tuu.university/admissions" />
+
+<!-- Structured Data for /admissions -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Admissions at The Unity University | Apply for Undergraduate and Graduate Programs",
+  "description": "Start your journey at The Unity University. Learn about admission requirements, application process, deadlines, and how to apply for our undergraduate and graduate programs in Liberia and Somaliland.",
+  "url": "https://tuu.university/admissions",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "The Unity University",
+    "url": "https://tuu.university"
+  }
+}
+</script>
+

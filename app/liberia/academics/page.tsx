@@ -85,50 +85,50 @@ export default function AcademicsPage() {
   const academicPrograms = {
     undergraduate: [
       // Faculty of Social Sciences
-      { title: "Bachelor of International Relations and Diplomatic Studies", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/international-relations.jpg", features: ["Diplomacy", "Global Politics", "Conflict Resolution"], description: "Comprehensive study of international relations, diplomacy, and global governance for Liberia's role in West Africa and beyond." },
-      { title: "Bachelor of Arts in Public Administration and Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/leadership-skills.jpg", features: ["Governance", "Policy Analysis", "Public Service"], description: "Training future public servants and administrators to serve Liberian communities with excellence and integrity." },
-      { title: "Bachelor of Arts in Social Work and Social Administration", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/community-outreaches/health-community-outreach-01.jpg", features: ["Community Development", "Social Welfare", "Advocacy"], description: "Empowering graduates to address social challenges and promote community development across Liberia." },
-      { title: "Bachelor of Project Planning and Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/business-class.jpg", features: ["Project Lifecycle", "Risk Management", "Stakeholder Engagement"], description: "Developing project management experts for Liberia's development initiatives and infrastructure projects." },
-      { title: "Bachelor of Arts in Public Relations and Media Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/public-speaking.jpg", features: ["Strategic Communication", "Brand Management", "Digital Media"], description: "Training communication professionals for Liberia's growing media and corporate sectors." },
+      { title: "Bachelor of International Relations and Diplomatic Studies", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of International Relations and Diplomatic Studies.webp", features: ["Diplomacy", "Global Politics", "Conflict Resolution"], description: "Comprehensive study of international relations, diplomacy, and global governance for Liberia's role in West Africa and beyond." },
+      { title: "Bachelor of Arts in Public Administration and Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/tuu-logo/tuu-logo.png", features: ["Governance", "Policy Analysis", "Public Service"], description: "Training future public servants and administrators to serve Liberian communities with excellence and integrity." },
+      { title: "Bachelor of Arts in Social Work and Social Administration", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Social Work and Social Administration.webp", features: ["Community Development", "Social Welfare", "Advocacy"], description: "Empowering graduates to address social challenges and promote community development across Liberia." },
+      { title: "Bachelor of Project Planning and Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/tuu-logo/tuu-logo.png", features: ["Project Lifecycle", "Risk Management", "Stakeholder Engagement"], description: "Developing project management experts for Liberia's development initiatives and infrastructure projects." },
+      { title: "Bachelor of Arts in Public Relations and Media Management", faculty: "Social Sciences", duration: "3 Years", credits: "120 Credits", image: "/tuu-logo/tuu-logo.png", features: ["Strategic Communication", "Brand Management", "Digital Media"], description: "Training communication professionals for Liberia's growing media and corporate sectors." },
 
       // Faculty of Business and Management
-      { title: "Bachelor of Accounting and Finance", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/accounts.jpg", features: ["Financial Reporting", "Auditing", "Investment Analysis"], description: "Comprehensive accounting and finance education aligned with international standards and Liberian business practices." },
-      { title: "Bachelor of Human Resource Management", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/human-resources.jpg", features: ["Talent Acquisition", "Employee Relations", "Organizational Development"], description: "Developing HR professionals to support Liberia's growing business sector and public institutions." },
-      { title: "Bachelor of Business Administration", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/business-class.jpg", features: ["Management", "Entrepreneurship", "Strategic Planning"], description: "Comprehensive business education preparing entrepreneurs and business leaders for Liberia's economy." },
-      { title: "Bachelor of Banking and Finance", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/finance.jpg", features: ["Banking Operations", "Risk Management", "Financial Markets"], description: "Specialized banking education for Liberia's financial sector development and regional integration." },
-      { title: "Bachelor of Procurement, Logistics and Supply Chain Management", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/business-class.jpg", features: ["Supply Chain Optimization", "Logistics Strategy", "Vendor Management"], description: "Training supply chain professionals for Liberia's import-dependent economy and regional trade." },
-      { title: "Bachelor of Marketing", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/business-class.jpg", features: ["Consumer Behavior", "Brand Management", "Digital Marketing"], description: "Modern marketing education focusing on Liberian consumer markets and regional business opportunities." },
+      { title: "Bachelor of Accounting and Finance", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Accounting.webp", features: ["Financial Reporting", "Auditing", "Investment Analysis"], description: "Comprehensive accounting and finance education aligned with international standards and Liberian business practices." },
+      { title: "Bachelor of Human Resource Management", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor Human Resource Management.webp", features: ["Talent Acquisition", "Employee Relations", "Organizational Development"], description: "Developing HR professionals to support Liberia's growing business sector and public institutions." },
+      { title: "Bachelor of Business Administration", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Accounting.webp", features: ["Management", "Entrepreneurship", "Strategic Planning"], description: "Comprehensive business education preparing entrepreneurs and business leaders for Liberia's economy." },
+      { title: "Bachelor of Banking and Finance", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Accounting.webp", features: ["Banking Operations", "Risk Management", "Financial Markets"], description: "Specialized banking education for Liberia's financial sector development and regional integration." },
+      { title: "Bachelor of Procurement, Logistics and Supply Chain Management", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Procurement Logistics and Supply Chain Management.webp", features: ["Supply Chain Optimization", "Logistics Strategy", "Vendor Management"], description: "Training supply chain professionals for Liberia's import-dependent economy and regional trade." },
+      { title: "Bachelor of Marketing", faculty: "Business and Management", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Accounting.webp", features: ["Consumer Behavior", "Brand Management", "Digital Marketing"], description: "Modern marketing education focusing on Liberian consumer markets and regional business opportunities." },
 
       // Faculty of Allied Health Sciences
-      { title: "Bachelor of Public Health", faculty: "Allied Health Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/health-sciences.jpg", features: ["Epidemiology", "Health Promotion", "Community Health"], description: "Addressing Liberia's public health challenges through evidence-based prevention and health promotion strategies." },
-      { title: "Bachelor of Nutrition and Food Science", faculty: "Allied Health Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/food-nutrition.png", features: ["Clinical Nutrition", "Food Safety", "Dietetics"], description: "Combating malnutrition and promoting food security in Liberian communities through nutrition science." },
-      { title: "Bachelor of Science in Health Service and Management", faculty: "Allied Health Sciences", duration: "3 Years", credits: "120 Credits", image: "/labs/health-science-student-in-lab.jpg", features: ["Health Systems", "Healthcare Administration", "Policy"], description: "Strengthening Liberia's healthcare system through effective management and administration." },
+      { title: "Bachelor of Public Health", faculty: "Allied Health Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Science in Public Health.webp", features: ["Epidemiology", "Health Promotion", "Community Health"], description: "Addressing Liberia's public health challenges through evidence-based prevention and health promotion strategies." },
+      { title: "Bachelor of Nutrition and Food Science", faculty: "Allied Health Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Science in Food and Nutrition.webp", features: ["Clinical Nutrition", "Food Safety", "Dietetics"], description: "Combating malnutrition and promoting food security in Liberian communities through nutrition science." },
+      { title: "Bachelor of Science in Health Service and Management", faculty: "Allied Health Sciences", duration: "3 Years", credits: "120 Credits", image: "/courses/bachelors/Bachelor of Science in Public Health.webp", features: ["Health Systems", "Healthcare Administration", "Policy"], description: "Strengthening Liberia's healthcare system through effective management and administration." },
 
       // Faculty of Computing & IT
-      { title: "Bachelor of Science in Software Engineering", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/courses/software-engineering.jpg", features: ["Software Development", "DevOps", "Agile Methodologies"], description: "Building software engineering capacity for Liberia's digital transformation and technology sector growth." },
-      { title: "Bachelor of Science in Computer Science", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/courses/computer-science.jpg", features: ["Algorithms", "Data Structures", "AI/ML"], description: "Comprehensive computer science education preparing graduates for the global technology economy." },
-      { title: "Bachelor of Science in Information Technology", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/courses/technology.jpg", features: ["Network Administration", "Cybersecurity", "IT Support"], description: "Practical IT education supporting Liberia's digital infrastructure development and cybersecurity needs." },
+      { title: "Bachelor of Science in Software Engineering", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/courses/bachelors/Bachelor of Science in Information Technology.webp", features: ["Software Development", "DevOps", "Agile Methodologies"], description: "Building software engineering capacity for Liberia's digital transformation and technology sector growth." },
+      { title: "Bachelor of Science in Computer Science", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/courses/bachelors/Bachelor of Science in Computing and Information Technology.webp", features: ["Algorithms", "Data Structures", "AI/ML"], description: "Comprehensive computer science education preparing graduates for the global technology economy." },
+      { title: "Bachelor of Science in Information Technology", faculty: "Computing & IT", duration: "3 Years", credits: "128 Credits", image: "/courses/bachelors/Bachelor of Science in Information Technology.webp", features: ["Network Administration", "Cybersecurity", "IT Support"], description: "Practical IT education supporting Liberia's digital infrastructure development and cybersecurity needs." },
     ],
     graduate: [
       // Faculty of Social Sciences
-      { title: "Master of Arts in International Relations and Diplomatic Studies", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/international-relations.jpg", features: ["Advanced Diplomacy", "Regional Integration", "Conflict Resolution"], description: "Advanced study preparing diplomatic corps and international relations experts for Liberia's global engagement." },
-      { title: "Master of Arts in Public Administration and Management", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/leadership-skills.jpg", features: ["Policy Analysis", "Public Leadership", "Governance"], description: "Advanced public administration training for senior government positions and public sector leadership." },
-      { title: "Master of Arts in Development Studies", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/research/research-students.jpg", features: ["Development Theory", "Research Methods", "Policy Design"], description: "Comprehensive development studies focusing on sustainable development strategies for Liberia and West Africa." },
+      { title: "Master of Arts in International Relations and Diplomatic Studies", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/masters/Master of International Relations and Diplomatic Studies.webp", features: ["Advanced Diplomacy", "Regional Integration", "Conflict Resolution"], description: "Advanced study preparing diplomatic corps and international relations experts for Liberia's global engagement." },
+      { title: "Master of Arts in Public Administration and Management", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/masters/Master of Public Administration and Management.webp", features: ["Policy Analysis", "Public Leadership", "Governance"], description: "Advanced public administration training for senior government positions and public sector leadership." },
+      { title: "Master of Arts in Development Studies", faculty: "Social Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/masters/Master of Development Studies.webp", features: ["Development Theory", "Research Methods", "Policy Design"], description: "Comprehensive development studies focusing on sustainable development strategies for Liberia and West Africa." },
 
       // Faculty of Business and Management
-      { title: "Master of Human Resources Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/human-resources.jpg", features: ["HR Strategy", "Organizational Leadership", "Talent Management"], description: "Advanced HR management for senior leadership positions in Liberian businesses and organizations." },
-      { title: "Master of Accounting and Finance", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/accounts.jpg", features: ["Advanced Accounting", "Financial Strategy", "Auditing"], description: "Advanced accounting and finance education for senior financial management and consulting roles." },
-      { title: "Master of Business Administration", faculty: "Business and Management", duration: "2 Years", credits: "60 Credits", image: "/courses/business-class.jpg", features: ["Executive Leadership", "Strategic Management", "Innovation"], description: "Executive business education preparing senior leaders for Liberia's private and public sectors." },
-      { title: "Master of Project Planning and Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/business-class.jpg", features: ["Advanced Project Management", "Program Management", "Portfolio Management"], description: "Advanced project management for leading major development and infrastructure projects in Liberia." },
-      { title: "Master of Marketing Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/business-class.jpg", features: ["Strategic Marketing", "Brand Strategy", "Market Research"], description: "Advanced marketing for senior marketing roles in Liberian businesses and regional markets." },
-      { title: "Master of Procurement, Logistics and Supply Chain Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/business-class.jpg", features: ["Supply Chain Strategy", "Global Logistics", "Procurement Management"], description: "Advanced supply chain management for senior logistics and procurement positions in Liberian economy." },
+      { title: "Master of Human Resources Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/masters/Master of Human Resource Management.webp", features: ["HR Strategy", "Organizational Leadership", "Talent Management"], description: "Advanced HR management for senior leadership positions in Liberian businesses and organizations." },
+      { title: "Master of Accounting and Finance", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/masters/Master of Accounting.webp", features: ["Advanced Accounting", "Financial Strategy", "Auditing"], description: "Advanced accounting and finance education for senior financial management and consulting roles." },
+      { title: "Master of Business Administration", faculty: "Business and Management", duration: "2 Years", credits: "60 Credits", image: "/courses/masters/Master of Business Administration (Generic).webp", features: ["Executive Leadership", "Strategic Management", "Innovation"], description: "Executive business education preparing senior leaders for Liberia's private and public sectors." },
+      { title: "Master of Project Planning and Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/masters/Master of Project Planning and Management.webp", features: ["Advanced Project Management", "Program Management", "Portfolio Management"], description: "Advanced project management for leading major development and infrastructure projects in Liberia." },
+      { title: "Master of Marketing Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/tuu-logo/tuu-logo.png", features: ["Strategic Marketing", "Brand Strategy", "Market Research"], description: "Advanced marketing for senior marketing roles in Liberian businesses and regional markets." },
+      { title: "Master of Procurement, Logistics and Supply Chain Management", faculty: "Business and Management", duration: "2 Years", credits: "48 Credits", image: "/courses/masters/Master of Procurement Logistics and Supply Chain Management.webp", features: ["Supply Chain Strategy", "Global Logistics", "Procurement Management"], description: "Advanced supply chain management for senior logistics and procurement positions in Liberian economy." },
 
       // Faculty of Allied Health Sciences
-      { title: "Master of Public Health", faculty: "Allied Health Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/health-sciences.jpg", features: ["Advanced Epidemiology", "Health Policy", "Global Health"], description: "Advanced public health training for senior health leadership and policy positions in Liberia." },
-      { title: "Master of Nutrition and Food Science", faculty: "Allied Health Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/food-nutrition.png", features: ["Advanced Nutrition", "Food Policy", "Research"], description: "Advanced nutrition science for addressing food security and nutrition challenges in Liberia." },
+      { title: "Master of Public Health", faculty: "Allied Health Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/masters/Master of Science in Public Health.webp", features: ["Advanced Epidemiology", "Health Policy", "Global Health"], description: "Advanced public health training for senior health leadership and policy positions in Liberia." },
+      { title: "Master of Nutrition and Food Science", faculty: "Allied Health Sciences", duration: "2 Years", credits: "48 Credits", image: "/courses/bachelors/Bachelor of Science in Food and Nutrition.webp", features: ["Advanced Nutrition", "Food Policy", "Research"], description: "Advanced nutrition science for addressing food security and nutrition challenges in Liberia." },
 
       // Faculty of Computing and Information Technology
-      { title: "Master of Science in Information Technology", faculty: "Computing & IT", duration: "2 Years", credits: "54 Credits", image: "/courses/technology.jpg", features: ["IT Strategy", "Cybersecurity", "Digital Transformation"], description: "Advanced IT education for senior technology leadership in Liberia's digital transformation initiatives." },
+      { title: "Master of Science in Information Technology", faculty: "Computing & IT", duration: "2 Years", credits: "54 Credits", image: "/courses/bachelors/Bachelor of Science in Information Technology.webp", features: ["IT Strategy", "Cybersecurity", "Digital Transformation"], description: "Advanced IT education for senior technology leadership in Liberia's digital transformation initiatives." },
     ],
   }
 
@@ -401,17 +401,20 @@ export default function AcademicsPage() {
                             src={program.image || "/placeholder.svg"}
                             alt={program.title}
                             fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            className="object-contain group-hover:scale-110 transition-transform duration-700"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                           <div className="absolute top-4 right-4 flex space-x-2">
                             <Badge className="bg-blue-600/90 text-white text-xs">{program.duration}</Badge>
                             <Badge className="bg-red-600/90 text-white text-xs">{program.credits}</Badge>
                           </div>
-                          <div className="absolute bottom-4 left-4 text-white">
-                            <h4 className="text-lg font-bold mb-1">{program.title}</h4>
-                            <p className="text-white/90 text-sm">{program.faculty}</p>
-                          </div>
+                          {program.title === "Master of Marketing Management" && (
+                            <div className="absolute bottom-4 left-4">
+                              <div className="bg-gradient-to-r from-blue-600 to-red-600 text-white px-4 py-2 rounded-lg shadow-lg">
+                                <h4 className="text-lg font-bold mb-1">{program.title}</h4>
+                                <p className="text-white/90 text-sm">{program.faculty}</p>
+                              </div>
+                            </div>
+                          )}
                         </div>
 
                         <CardContent className="p-6">
@@ -460,7 +463,7 @@ export default function AcademicsPage() {
         </div>
       </section>
 
-      {/* Academic Facilities */}
+      {/* Marketing Ads Section */}
       <section className="py-20 bg-gradient-to-br from-red-50 to-blue-50">
         <div className="container mx-auto px-4">
           <motion.div
@@ -471,50 +474,80 @@ export default function AcademicsPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              World-Class{" "}
+              Ready to{" "}
               <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent">
-                Facilities
+                Transform Your Future?
               </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our state-of-the-art facilities provide the perfect environment for learning, research, and innovation 
-              in the heart of Monrovia.
+              Join The Unity University Liberia and take the first step towards your academic and career success.
             </p>
           </motion.div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {facilities.map((facility, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="h-full overflow-hidden bg-white shadow-lg border-0 rounded-2xl hover:shadow-xl transition-all duration-500">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={facility.image || "/placeholder.svg"}
-                      alt={facility.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h4 className="text-lg font-bold mb-1">{facility.title}</h4>
-                    </div>
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-blue-600/90 text-white text-xs">{facility.capacity}</Badge>
+          <div className="grid gap-8 md:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-all duration-500">
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src="/strips/apply-now-at-the-unity-university.jpg"
+                    alt="Apply Now at The Unity University"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Apply Now</h3>
+                      <p className="text-gray-700 text-sm mb-3">Start your journey with The Unity University Liberia</p>
+                      <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+                        <Button className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white hover:from-red-700 hover:to-blue-700 font-bold">
+                          Apply Now
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
                     </div>
                   </div>
+                </div>
+              </Card>
+            </motion.div>
 
-                  <CardContent className="p-6">
-                    <p className="text-gray-600 leading-relaxed text-sm">{facility.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="h-full overflow-hidden bg-white shadow-xl border-0 rounded-2xl hover:shadow-2xl transition-all duration-500">
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src="/strips/the_unity_university_cover.jpeg"
+                    alt="The Unity University Cover"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Discover More</h3>
+                      <p className="text-gray-700 text-sm mb-3">Explore our programs and campus life</p>
+                      <Link href="/liberia/about/contact">
+                        <Button variant="outline" className="w-full border-2 border-gray-300 text-gray-800 hover:bg-gray-100 font-bold">
+                          Contact Us
+                          <MapPin className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>

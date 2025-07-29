@@ -1,0 +1,880 @@
+{
+  "version": "1.0",
+  "generated": "2025-07-29T09:58:41.239Z",
+  "totalImages": 122,
+  "categories": [
+    "hero-section",
+    "ads",
+    "courses",
+    "leadership",
+    "graduation",
+    "student-life",
+    "research",
+    "events",
+    "labs",
+    "alumni",
+    "community-outreaches",
+    "lecturers",
+    "sports",
+    "in-class",
+    "strips",
+    "side-show",
+    "patternships"
+  ],
+  "images": [
+    {
+      "filename": "4 Stand Banner.webp",
+      "altText": "4 Stand Banner - Advertisement Banners at The Unity University",
+      "title": "4 Stand Banner | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/4 Stand Banner.webp"
+    },
+    {
+      "filename": "admissions open.webp",
+      "altText": "Admissions Open - Advertisement Banners at The Unity University",
+      "title": "Admissions Open | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/admissions open.webp"
+    },
+    {
+      "filename": "ads-banner-tuu.webp",
+      "altText": "Ads Banner Tuu - Advertisement Banners at The Unity University",
+      "title": "Ads Banner Tuu | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/ads-banner-tuu.webp"
+    },
+    {
+      "filename": "fbm-banking-banner.webp",
+      "altText": "Fbm Banking Banner - Advertisement Banners at The Unity University",
+      "title": "Fbm Banking Banner | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/fbm-banking-banner.webp"
+    },
+    {
+      "filename": "FBM-BBA-BANNER.webp",
+      "altText": "FBM BBA BANNER - Advertisement Banners at The Unity University",
+      "title": "FBM BBA BANNER | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/FBM-BBA-BANNER.webp"
+    },
+    {
+      "filename": "mission-vision-motto-banner-potrait.webp",
+      "altText": "Mission Vision Motto Banner Potrait - Advertisement Banners at The Unity University",
+      "title": "Mission Vision Motto Banner Potrait | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/mission-vision-motto-banner-potrait.webp"
+    },
+    {
+      "filename": "pink-mission-vision-motto-banner-potrait.webp",
+      "altText": "Pink Mission Vision Motto Banner Potrait - Advertisement Banners at The Unity University",
+      "title": "Pink Mission Vision Motto Banner Potrait | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/pink-mission-vision-motto-banner-potrait.webp"
+    },
+    {
+      "filename": "public health.webp",
+      "altText": "Public Health - Advertisement Banners at The Unity University",
+      "title": "Public Health | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/public health.webp"
+    },
+    {
+      "filename": "Stand Banner 175x80-tuu.webp",
+      "altText": "Stand Banner 175x80 Tuu - Advertisement Banners at The Unity University",
+      "title": "Stand Banner 175x80 Tuu | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/Stand Banner 175x80-tuu.webp"
+    },
+    {
+      "filename": "tuu-Stage Banner Grand opening 350x235.webp",
+      "altText": "Tuu Stage Banner Grand Opening 350x235 - Advertisement Banners at The Unity University",
+      "title": "Tuu Stage Banner Grand Opening 350x235 | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/tuu-Stage Banner Grand opening 350x235.webp"
+    },
+    {
+      "filename": "viva-voice-Banner 4X2.webp",
+      "altText": "Viva Voice Banner 4X2 - Advertisement Banners at The Unity University",
+      "title": "Viva Voice Banner 4X2 | The Unity University",
+      "category": "ads",
+      "url": "https://tuu.university/ads/viva-voice-Banner 4X2.webp"
+    },
+    {
+      "filename": "alumni-01.jpg",
+      "altText": "Alumni 01 - Alumni at The Unity University",
+      "title": "Alumni 01 | The Unity University",
+      "category": "alumni",
+      "url": "https://tuu.university/alumni/alumni-01.jpg"
+    },
+    {
+      "filename": "alumni-02.jpg",
+      "altText": "Alumni 02 - Alumni at The Unity University",
+      "title": "Alumni 02 | The Unity University",
+      "category": "alumni",
+      "url": "https://tuu.university/alumni/alumni-02.jpg"
+    },
+    {
+      "filename": "alumni-08.jpg",
+      "altText": "Alumni 08 - Alumni at The Unity University",
+      "title": "Alumni 08 | The Unity University",
+      "category": "alumni",
+      "url": "https://tuu.university/alumni/alumni-08.jpg"
+    },
+    {
+      "filename": "alumni-09.jpg",
+      "altText": "Alumni 09 - Alumni at The Unity University",
+      "title": "Alumni 09 | The Unity University",
+      "category": "alumni",
+      "url": "https://tuu.university/alumni/alumni-09.jpg"
+    },
+    {
+      "filename": "health-science-faculty-community-out-reach-1.JPG",
+      "altText": "Health Science Faculty Community Out Reach 1 - Community Outreach at The Unity University",
+      "title": "Health Science Faculty Community Out Reach 1 | The Unity University",
+      "category": "community-outreaches",
+      "url": "https://tuu.university/community-outreaches/health-science-faculty-community-out-reach-1.JPG"
+    },
+    {
+      "filename": "health-science-faculty-community-out-reach.JPG",
+      "altText": "Health Science Faculty Community Out Reach - Community Outreach at The Unity University",
+      "title": "Health Science Faculty Community Out Reach | The Unity University",
+      "category": "community-outreaches",
+      "url": "https://tuu.university/community-outreaches/health-science-faculty-community-out-reach.JPG"
+    },
+    {
+      "filename": "health-science-out.JPG",
+      "altText": "Health Science Out - Community Outreach at The Unity University",
+      "title": "Health Science Out | The Unity University",
+      "category": "community-outreaches",
+      "url": "https://tuu.university/community-outreaches/health-science-out.JPG"
+    },
+    {
+      "filename": "Bachelor Human Resource Management.webp",
+      "altText": "Bachelor Human Resource Management - Academic Programs at The Unity University",
+      "title": "Bachelor Human Resource Management | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor Human Resource Management.webp"
+    },
+    {
+      "filename": "Bachelor of Accounting.webp",
+      "altText": "Bachelor Of Accounting - Academic Programs at The Unity University",
+      "title": "Bachelor Of Accounting | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor of Accounting.webp"
+    },
+    {
+      "filename": "Bachelor of International Relations and Diplomatic Studies.webp",
+      "altText": "Bachelor Of International Relations And Diplomatic Studies - Academic Programs at The Unity University",
+      "title": "Bachelor Of International Relations And Diplomatic Studies | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor of International Relations and Diplomatic Studies.webp"
+    },
+    {
+      "filename": "Bachelor of Procurement Logistics and Supply Chain Management.webp",
+      "altText": "Bachelor Of Procurement Logistics And Supply Chain Management - Academic Programs at The Unity University",
+      "title": "Bachelor Of Procurement Logistics And Supply Chain Management | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor of Procurement Logistics and Supply Chain Management.webp"
+    },
+    {
+      "filename": "Bachelor of Science in Computing and Information Technology.webp",
+      "altText": "Bachelor Of Science In Computing And Information Technology - Academic Programs at The Unity University",
+      "title": "Bachelor Of Science In Computing And Information Technology | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor of Science in Computing and Information Technology.webp"
+    },
+    {
+      "filename": "Bachelor of Science in Food and Nutrition.webp",
+      "altText": "Bachelor Of Science In Food And Nutrition - Academic Programs at The Unity University",
+      "title": "Bachelor Of Science In Food And Nutrition | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor of Science in Food and Nutrition.webp"
+    },
+    {
+      "filename": "Bachelor of Science in Information Technology.webp",
+      "altText": "Bachelor Of Science In Information Technology - Academic Programs at The Unity University",
+      "title": "Bachelor Of Science In Information Technology | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor of Science in Information Technology.webp"
+    },
+    {
+      "filename": "Bachelor of Science in Public Health.webp",
+      "altText": "Bachelor Of Science In Public Health - Academic Programs at The Unity University",
+      "title": "Bachelor Of Science In Public Health | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor of Science in Public Health.webp"
+    },
+    {
+      "filename": "Bachelor of Social Work and Social Administration.webp",
+      "altText": "Bachelor Of Social Work And Social Administration - Academic Programs at The Unity University",
+      "title": "Bachelor Of Social Work And Social Administration | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/bachelors/Bachelor of Social Work and Social Administration.webp"
+    },
+    {
+      "filename": "Master of Accounting.webp",
+      "altText": "Master Of Accounting - Academic Programs at The Unity University",
+      "title": "Master Of Accounting | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Accounting.webp"
+    },
+    {
+      "filename": "Master of Business Administration (Generic).webp",
+      "altText": "Master Of Business Administration (Generic) - Academic Programs at The Unity University",
+      "title": "Master Of Business Administration (Generic) | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Business Administration (Generic).webp"
+    },
+    {
+      "filename": "Master of Development Studies.webp",
+      "altText": "Master Of Development Studies - Academic Programs at The Unity University",
+      "title": "Master Of Development Studies | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Development Studies.webp"
+    },
+    {
+      "filename": "Master of Education Leadership and Management.webp",
+      "altText": "Master Of Education Leadership And Management - Academic Programs at The Unity University",
+      "title": "Master Of Education Leadership And Management | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Education Leadership and Management.webp"
+    },
+    {
+      "filename": "Master of Education Policy Planning and Management.webp",
+      "altText": "Master Of Education Policy Planning And Management - Academic Programs at The Unity University",
+      "title": "Master Of Education Policy Planning And Management | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Education Policy Planning and Management.webp"
+    },
+    {
+      "filename": "Master of Human Resource Management.webp",
+      "altText": "Master Of Human Resource Management - Academic Programs at The Unity University",
+      "title": "Master Of Human Resource Management | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Human Resource Management.webp"
+    },
+    {
+      "filename": "Master of International Relations and Diplomatic Studies.webp",
+      "altText": "Master Of International Relations And Diplomatic Studies - Academic Programs at The Unity University",
+      "title": "Master Of International Relations And Diplomatic Studies | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of International Relations and Diplomatic Studies.webp"
+    },
+    {
+      "filename": "Master of Procurement Logistics and Supply Chain Management.webp",
+      "altText": "Master Of Procurement Logistics And Supply Chain Management - Academic Programs at The Unity University",
+      "title": "Master Of Procurement Logistics And Supply Chain Management | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Procurement Logistics and Supply Chain Management.webp"
+    },
+    {
+      "filename": "Master of Project Planning and Management.webp",
+      "altText": "Master Of Project Planning And Management - Academic Programs at The Unity University",
+      "title": "Master Of Project Planning And Management | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Project Planning and Management.webp"
+    },
+    {
+      "filename": "Master of Public Administration and Management.webp",
+      "altText": "Master Of Public Administration And Management - Academic Programs at The Unity University",
+      "title": "Master Of Public Administration And Management | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Public Administration and Management.webp"
+    },
+    {
+      "filename": "Master of Science in Public Health.webp",
+      "altText": "Master Of Science In Public Health - Academic Programs at The Unity University",
+      "title": "Master Of Science In Public Health | The Unity University",
+      "category": "courses",
+      "url": "https://tuu.university/courses/masters/Master of Science in Public Health.webp"
+    },
+    {
+      "filename": "the-unity-university-indipendence-day-somaliland-01.jpg",
+      "altText": "The Unity University Indipendence Day Somaliland 01 - University Events at The Unity University",
+      "title": "The Unity University Indipendence Day Somaliland 01 | The Unity University",
+      "category": "events",
+      "url": "https://tuu.university/events/the-unity-university-indipendence-day-somaliland-01.jpg"
+    },
+    {
+      "filename": "the-unity-university-indipendence-day-somaliland-02.jpg",
+      "altText": "The Unity University Indipendence Day Somaliland 02 - University Events at The Unity University",
+      "title": "The Unity University Indipendence Day Somaliland 02 | The Unity University",
+      "category": "events",
+      "url": "https://tuu.university/events/the-unity-university-indipendence-day-somaliland-02.jpg"
+    },
+    {
+      "filename": "all-on-graduation-pic.jpg",
+      "altText": "All On Graduation Pic - Graduation Ceremonies at The Unity University",
+      "title": "All On Graduation Pic | The Unity University",
+      "category": "graduation",
+      "url": "https://tuu.university/graduation/all-on-graduation-pic.jpg"
+    },
+    {
+      "filename": "graduation-day.jpg",
+      "altText": "Graduation Day - Graduation Ceremonies at The Unity University",
+      "title": "Graduation Day | The Unity University",
+      "category": "graduation",
+      "url": "https://tuu.university/graduation/graduation-day.jpg"
+    },
+    {
+      "filename": "male-graduation.jpg",
+      "altText": "Male Graduation - Graduation Ceremonies at The Unity University",
+      "title": "Male Graduation | The Unity University",
+      "category": "graduation",
+      "url": "https://tuu.university/graduation/male-graduation.jpg"
+    },
+    {
+      "filename": "master-of-education-and-planning.jpg",
+      "altText": "Master Of Education And Planning - Graduation Ceremonies at The Unity University",
+      "title": "Master Of Education And Planning | The Unity University",
+      "category": "graduation",
+      "url": "https://tuu.university/graduation/master-of-education-and-planning.jpg"
+    },
+    {
+      "filename": "master-of-education.jpg",
+      "altText": "Master Of Education - Graduation Ceremonies at The Unity University",
+      "title": "Master Of Education | The Unity University",
+      "category": "graduation",
+      "url": "https://tuu.university/graduation/master-of-education.jpg"
+    },
+    {
+      "filename": "ads.png",
+      "altText": "Ads - Hero Images at The Unity University",
+      "title": "Ads | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/ads.png"
+    },
+    {
+      "filename": "all-on-graduation-pic.jpg",
+      "altText": "All On Graduation Pic - Hero Images at The Unity University",
+      "title": "All On Graduation Pic | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/all-on-graduation-pic.jpg"
+    },
+    {
+      "filename": "bachelor-of-software-enginnering.jpg",
+      "altText": "Bachelor Of Software Enginnering - Hero Images at The Unity University",
+      "title": "Bachelor Of Software Enginnering | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/bachelor-of-software-enginnering.jpg"
+    },
+    {
+      "filename": "dr.katerega-vice-chancellor.jpg",
+      "altText": "Dr.Katerega Vice Chancellor - Hero Images at The Unity University",
+      "title": "Dr.Katerega Vice Chancellor | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/circle/dr.katerega-vice-chancellor.jpg"
+    },
+    {
+      "filename": "kavuma-yusuf-musa-campas-director.png",
+      "altText": "Kavuma Yusuf Musa Campas Director - Hero Images at The Unity University",
+      "title": "Kavuma Yusuf Musa Campas Director | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/circle/kavuma-yusuf-musa-campas-director.png"
+    },
+    {
+      "filename": "plof.PLO-lumumba-founder-and-chancellor-tuu.jpg",
+      "altText": "Plof.PLO Lumumba Founder And Chancellor Tuu - Hero Images at The Unity University",
+      "title": "Plof.PLO Lumumba Founder And Chancellor Tuu | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/circle/plof.PLO-lumumba-founder-and-chancellor-tuu.jpg"
+    },
+    {
+      "filename": "global-perspective.jpg",
+      "altText": "Global Perspective - Hero Images at The Unity University",
+      "title": "Global Perspective | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/global-perspective.jpg"
+    },
+    {
+      "filename": "graduation-day.jpg",
+      "altText": "Graduation Day - Hero Images at The Unity University",
+      "title": "Graduation Day | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/graduation-day.jpg"
+    },
+    {
+      "filename": "health-science-family.JPG",
+      "altText": "Health Science Family - Hero Images at The Unity University",
+      "title": "Health Science Family | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/health-science-family.JPG"
+    },
+    {
+      "filename": "hero.png",
+      "altText": "Hero - Hero Images at The Unity University",
+      "title": "Hero | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/hero.png"
+    },
+    {
+      "filename": "male-graduation.jpg",
+      "altText": "Male Graduation - Hero Images at The Unity University",
+      "title": "Male Graduation | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/male-graduation.jpg"
+    },
+    {
+      "filename": "master-of-education-and-planning.jpg",
+      "altText": "Master Of Education And Planning - Hero Images at The Unity University",
+      "title": "Master Of Education And Planning | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/master-of-education-and-planning.jpg"
+    },
+    {
+      "filename": "plo-africa.jpg",
+      "altText": "Plo Africa - Hero Images at The Unity University",
+      "title": "Plo Africa | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/plo-africa.jpg"
+    },
+    {
+      "filename": "plo-lumumba-foundation-somaliland.jpg",
+      "altText": "Plo Lumumba Foundation Somaliland - Hero Images at The Unity University",
+      "title": "Plo Lumumba Foundation Somaliland | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/plo-lumumba-foundation-somaliland.jpg"
+    },
+    {
+      "filename": "Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU) - Copy.jpg",
+      "altText": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) Copy - Hero Images at The Unity University",
+      "title": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) Copy | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU) - Copy.jpg"
+    },
+    {
+      "filename": "Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU).jpg",
+      "altText": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) - Hero Images at The Unity University",
+      "title": "Prof.PLO Lumumba Officially Opens The Unity University (TUU) | The Unity University",
+      "category": "hero-section",
+      "url": "https://tuu.university/hero-section/Prof.PLO-Lumumba-officially-opens-The-Unity-University-(TUU).jpg"
+    },
+    {
+      "filename": "coding-class-IT-Student-01.jpg",
+      "altText": "Coding Class IT Student 01 - Classroom Activities at The Unity University",
+      "title": "Coding Class IT Student 01 | The Unity University",
+      "category": "in-class",
+      "url": "https://tuu.university/in-class/coding-class-IT-Student-01.jpg"
+    },
+    {
+      "filename": "coding-class-IT-Student-02.jpg",
+      "altText": "Coding Class IT Student 02 - Classroom Activities at The Unity University",
+      "title": "Coding Class IT Student 02 | The Unity University",
+      "category": "in-class",
+      "url": "https://tuu.university/in-class/coding-class-IT-Student-02.jpg"
+    },
+    {
+      "filename": "coding-class-IT-Student-03.jpg",
+      "altText": "Coding Class IT Student 03 - Classroom Activities at The Unity University",
+      "title": "Coding Class IT Student 03 | The Unity University",
+      "category": "in-class",
+      "url": "https://tuu.university/in-class/coding-class-IT-Student-03.jpg"
+    },
+    {
+      "filename": "coding-class-IT-Student-04.jpg",
+      "altText": "Coding Class IT Student 04 - Classroom Activities at The Unity University",
+      "title": "Coding Class IT Student 04 | The Unity University",
+      "category": "in-class",
+      "url": "https://tuu.university/in-class/coding-class-IT-Student-04.jpg"
+    },
+    {
+      "filename": "in-class-03.jpg",
+      "altText": "In Class 03 - Classroom Activities at The Unity University",
+      "title": "In Class 03 | The Unity University",
+      "category": "in-class",
+      "url": "https://tuu.university/in-class/masters/in-class-03.jpg"
+    },
+    {
+      "filename": "in-class.jpg",
+      "altText": "In Class - Classroom Activities at The Unity University",
+      "title": "In Class | The Unity University",
+      "category": "in-class",
+      "url": "https://tuu.university/in-class/masters/in-class.jpg"
+    },
+    {
+      "filename": "health-science-student-in-lab-0.jpg",
+      "altText": "Health Science Student In Lab 0 - Laboratory Facilities at The Unity University",
+      "title": "Health Science Student In Lab 0 | The Unity University",
+      "category": "labs",
+      "url": "https://tuu.university/labs/health-science-student-in-lab-0.jpg"
+    },
+    {
+      "filename": "health-science-student-in-lab.jpg",
+      "altText": "Health Science Student In Lab - Laboratory Facilities at The Unity University",
+      "title": "Health Science Student In Lab | The Unity University",
+      "category": "labs",
+      "url": "https://tuu.university/labs/health-science-student-in-lab.jpg"
+    },
+    {
+      "filename": "in-the-lab-0.jpg",
+      "altText": "In The Lab 0 - Laboratory Facilities at The Unity University",
+      "title": "In The Lab 0 | The Unity University",
+      "category": "labs",
+      "url": "https://tuu.university/labs/in-the-lab-0.jpg"
+    },
+    {
+      "filename": "in-the-lab-01.jpg",
+      "altText": "In The Lab 01 - Laboratory Facilities at The Unity University",
+      "title": "In The Lab 01 | The Unity University",
+      "category": "labs",
+      "url": "https://tuu.university/labs/in-the-lab-01.jpg"
+    },
+    {
+      "filename": "in-the-lab-02.jpg",
+      "altText": "In The Lab 02 - Laboratory Facilities at The Unity University",
+      "title": "In The Lab 02 | The Unity University",
+      "category": "labs",
+      "url": "https://tuu.university/labs/in-the-lab-02.jpg"
+    },
+    {
+      "filename": "in-the-lab.jpg",
+      "altText": "In The Lab - Laboratory Facilities at The Unity University",
+      "title": "In The Lab | The Unity University",
+      "category": "labs",
+      "url": "https://tuu.university/labs/in-the-lab.jpg"
+    },
+    {
+      "filename": "dr.katerega-dvc-graduation.jpg",
+      "altText": "Dr.Katerega Dvc Graduation - Leadership Team at The Unity University",
+      "title": "Dr.Katerega Dvc Graduation | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/dr.katerega-dvc-graduation.jpg"
+    },
+    {
+      "filename": "dr.ndimbo-micheal-balonzi-head-of-research.jpg",
+      "altText": "Dr.Ndimbo Micheal Balonzi Head Of Research - Leadership Team at The Unity University",
+      "title": "Dr.Ndimbo Micheal Balonzi Head Of Research | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/dr.ndimbo-micheal-balonzi-head-of-research.jpg"
+    },
+    {
+      "filename": "Jackson-Kisuule(Dean IT).jpg",
+      "altText": "Jackson Kisuule(Dean IT) - Leadership Team at The Unity University",
+      "title": "Jackson Kisuule(Dean IT) | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/Jackson-Kisuule(Dean IT).jpg"
+    },
+    {
+      "filename": "kavuma-yusuf-musa-campas-director.png",
+      "altText": "Kavuma Yusuf Musa Campas Director - Leadership Team at The Unity University",
+      "title": "Kavuma Yusuf Musa Campas Director | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/kavuma-yusuf-musa-campas-director.png"
+    },
+    {
+      "filename": "kirinya-robert.jpg",
+      "altText": "Kirinya Robert - Leadership Team at The Unity University",
+      "title": "Kirinya Robert | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/kirinya-robert.jpg"
+    },
+    {
+      "filename": "Mr.Kaggwa-Robert-Dean-of-Students.jpg",
+      "altText": "Mr.Kaggwa Robert Dean Of Students - Leadership Team at The Unity University",
+      "title": "Mr.Kaggwa Robert Dean Of Students | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/Mr.Kaggwa-Robert-Dean-of-Students.jpg"
+    },
+    {
+      "filename": "Mr.Lutaaya-Daniel-Dean-Social-Sciences.jpg",
+      "altText": "Mr.Lutaaya Daniel Dean Social Sciences - Leadership Team at The Unity University",
+      "title": "Mr.Lutaaya Daniel Dean Social Sciences | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/Mr.Lutaaya-Daniel-Dean-Social-Sciences.jpg"
+    },
+    {
+      "filename": "plof.PLO-lumumba.jpg",
+      "altText": "Plof.PLO Lumumba - Leadership Team at The Unity University",
+      "title": "Plof.PLO Lumumba | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/plof.PLO-lumumba.jpg"
+    },
+    {
+      "filename": "ssebbowa-richard-kintu.jpg",
+      "altText": "Ssebbowa Richard Kintu - Leadership Team at The Unity University",
+      "title": "Ssebbowa Richard Kintu | The Unity University",
+      "category": "leadership",
+      "url": "https://tuu.university/leadership/ssebbowa-richard-kintu.jpg"
+    },
+    {
+      "filename": "dr.ndimbo-micheal-balonzi-head-of-research.jpg",
+      "altText": "Dr.Ndimbo Micheal Balonzi Head Of Research - Faculty at The Unity University",
+      "title": "Dr.Ndimbo Micheal Balonzi Head Of Research | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/dr.ndimbo-micheal-balonzi-head-of-research.jpg"
+    },
+    {
+      "filename": "Ampiire-Wilberd.jpg",
+      "altText": "Ampiire Wilberd - Faculty at The Unity University",
+      "title": "Ampiire Wilberd | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/IT/Ampiire-Wilberd.jpg"
+    },
+    {
+      "filename": "Jackson-Kisuule(Dean IT).jpg",
+      "altText": "Jackson Kisuule(Dean IT) - Faculty at The Unity University",
+      "title": "Jackson Kisuule(Dean IT) | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/IT/Jackson-Kisuule(Dean IT).jpg"
+    },
+    {
+      "filename": "ssebbowa-richard-kintu.jpg",
+      "altText": "Ssebbowa Richard Kintu - Faculty at The Unity University",
+      "title": "Ssebbowa Richard Kintu | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/IT/ssebbowa-richard-kintu.jpg"
+    },
+    {
+      "filename": "Zungu-Richard-Norbert.jpg",
+      "altText": "Zungu Richard Norbert - Faculty at The Unity University",
+      "title": "Zungu Richard Norbert | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/IT/Zungu-Richard-Norbert.jpg"
+    },
+    {
+      "filename": "kavuma-yusuf-musa-campas-director.png",
+      "altText": "Kavuma Yusuf Musa Campas Director - Faculty at The Unity University",
+      "title": "Kavuma Yusuf Musa Campas Director | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/kavuma-yusuf-musa-campas-director.png"
+    },
+    {
+      "filename": "Mr.Kaggwa-Robert-Dean-of-Students.jpg",
+      "altText": "Mr.Kaggwa Robert Dean Of Students - Faculty at The Unity University",
+      "title": "Mr.Kaggwa Robert Dean Of Students | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/Mr.Kaggwa-Robert-Dean-of-Students.jpg"
+    },
+    {
+      "filename": "plo-lumumba.jpeg",
+      "altText": "Plo Lumumba - Faculty at The Unity University",
+      "title": "Plo Lumumba | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/plo-lumumba.jpeg"
+    },
+    {
+      "filename": "Mr.Lutaaya-Daniel-Dean-Social-Sciences.jpg",
+      "altText": "Mr.Lutaaya Daniel Dean Social Sciences - Faculty at The Unity University",
+      "title": "Mr.Lutaaya Daniel Dean Social Sciences | The Unity University",
+      "category": "lecturers",
+      "url": "https://tuu.university/lecturers/social-sciences/Mr.Lutaaya-Daniel-Dean-Social-Sciences.jpg"
+    },
+    {
+      "filename": "kiu-kesmonds-international-university.jpeg",
+      "altText": "Kiu Kesmonds International University - Partnerships at The Unity University",
+      "title": "Kiu Kesmonds International University | The Unity University",
+      "category": "patternships",
+      "url": "https://tuu.university/patternships/kiu-kesmonds-international-university.jpeg"
+    },
+    {
+      "filename": "university-of-burao.png",
+      "altText": "University Of Burao - Partnerships at The Unity University",
+      "title": "University Of Burao | The Unity University",
+      "category": "patternships",
+      "url": "https://tuu.university/patternships/university-of-burao.png"
+    },
+    {
+      "filename": "utamu-uganda-technology-and-management-university-logo-png_seeklogo-550348.png",
+      "altText": "Utamu Uganda Technology And Management University Logo Png Seeklogo 550348 - Partnerships at The Unity University",
+      "title": "Utamu Uganda Technology And Management University Logo Png Seeklogo 550348 | The Unity University",
+      "category": "patternships",
+      "url": "https://tuu.university/patternships/utamu-uganda-technology-and-management-university-logo-png_seeklogo-550348.png"
+    },
+    {
+      "filename": "victoria_university_uganda_logo.jpeg",
+      "altText": "Victoria University Uganda Logo - Partnerships at The Unity University",
+      "title": "Victoria University Uganda Logo | The Unity University",
+      "category": "patternships",
+      "url": "https://tuu.university/patternships/victoria_university_uganda_logo.jpeg"
+    },
+    {
+      "filename": "placeholder-logo.png",
+      "altText": "Placeholder Logo - The Unity University",
+      "title": "Placeholder Logo | The Unity University",
+      "category": "general",
+      "url": "https://tuu.university/placeholder-logo.png"
+    },
+    {
+      "filename": "placeholder-logo.svg",
+      "altText": "Placeholder Logo.Svg - The Unity University",
+      "title": "Placeholder Logo.Svg | The Unity University",
+      "category": "general",
+      "url": "https://tuu.university/placeholder-logo.svg"
+    },
+    {
+      "filename": "placeholder-user.jpg",
+      "altText": "Placeholder User - The Unity University",
+      "title": "Placeholder User | The Unity University",
+      "category": "general",
+      "url": "https://tuu.university/placeholder-user.jpg"
+    },
+    {
+      "filename": "placeholder.jpg",
+      "altText": "Placeholder - The Unity University",
+      "title": "Placeholder | The Unity University",
+      "category": "general",
+      "url": "https://tuu.university/placeholder.jpg"
+    },
+    {
+      "filename": "placeholder.svg",
+      "altText": "Placeholder.Svg - The Unity University",
+      "title": "Placeholder.Svg | The Unity University",
+      "category": "general",
+      "url": "https://tuu.university/placeholder.svg"
+    },
+    {
+      "filename": "on-the-podium-0.jpg",
+      "altText": "On The Podium 0 - Research Activities at The Unity University",
+      "title": "On The Podium 0 | The Unity University",
+      "category": "research",
+      "url": "https://tuu.university/research/on-the-podium-0.jpg"
+    },
+    {
+      "filename": "on-the-podium-01.jpg",
+      "altText": "On The Podium 01 - Research Activities at The Unity University",
+      "title": "On The Podium 01 | The Unity University",
+      "category": "research",
+      "url": "https://tuu.university/research/on-the-podium-01.jpg"
+    },
+    {
+      "filename": "on-the-podium-02.jpg",
+      "altText": "On The Podium 02 - Research Activities at The Unity University",
+      "title": "On The Podium 02 | The Unity University",
+      "category": "research",
+      "url": "https://tuu.university/research/on-the-podium-02.jpg"
+    },
+    {
+      "filename": "on-the-podium-04.jpg",
+      "altText": "On The Podium 04 - Research Activities at The Unity University",
+      "title": "On The Podium 04 | The Unity University",
+      "category": "research",
+      "url": "https://tuu.university/research/on-the-podium-04.jpg"
+    },
+    {
+      "filename": "on-the-podium-05.jpg",
+      "altText": "On The Podium 05 - Research Activities at The Unity University",
+      "title": "On The Podium 05 | The Unity University",
+      "category": "research",
+      "url": "https://tuu.university/research/on-the-podium-05.jpg"
+    },
+    {
+      "filename": "on-the-podium.jpg",
+      "altText": "On The Podium - Research Activities at The Unity University",
+      "title": "On The Podium | The Unity University",
+      "category": "research",
+      "url": "https://tuu.university/research/on-the-podium.jpg"
+    },
+    {
+      "filename": "research-students.jpg",
+      "altText": "Research Students - Research Activities at The Unity University",
+      "title": "Research Students | The Unity University",
+      "category": "research",
+      "url": "https://tuu.university/research/research-students.jpg"
+    },
+    {
+      "filename": "the-unity-university-glow.jpg",
+      "altText": "The Unity University Glow - Slideshow Images at The Unity University",
+      "title": "The Unity University Glow | The Unity University",
+      "category": "side-show",
+      "url": "https://tuu.university/side-show/the-unity-university-glow.jpg"
+    },
+    {
+      "filename": "football-tuu-in-the-pitch.jpg",
+      "altText": "Football Tuu In The Pitch - Sports Activities at The Unity University",
+      "title": "Football Tuu In The Pitch | The Unity University",
+      "category": "sports",
+      "url": "https://tuu.university/sports/football-tuu-in-the-pitch.jpg"
+    },
+    {
+      "filename": "football-tuu.jpg",
+      "altText": "Football Tuu - Sports Activities at The Unity University",
+      "title": "Football Tuu | The Unity University",
+      "category": "sports",
+      "url": "https://tuu.university/sports/football-tuu.jpg"
+    },
+    {
+      "filename": "apply-it.jpg",
+      "altText": "Apply It - Promotional Strips at The Unity University",
+      "title": "Apply It | The Unity University",
+      "category": "strips",
+      "url": "https://tuu.university/strips/apply-it.jpg"
+    },
+    {
+      "filename": "apply-now-at-the-unity-university.jpg",
+      "altText": "Apply Now At The Unity University - Promotional Strips at The Unity University",
+      "title": "Apply Now At The Unity University | The Unity University",
+      "category": "strips",
+      "url": "https://tuu.university/strips/apply-now-at-the-unity-university.jpg"
+    },
+    {
+      "filename": "bachelor-of-software-enginnering.jpg",
+      "altText": "Bachelor Of Software Enginnering - Promotional Strips at The Unity University",
+      "title": "Bachelor Of Software Enginnering | The Unity University",
+      "category": "strips",
+      "url": "https://tuu.university/strips/bachelor-of-software-enginnering.jpg"
+    },
+    {
+      "filename": "plo-lumumba-foundation-somaliland.jpg",
+      "altText": "Plo Lumumba Foundation Somaliland - Promotional Strips at The Unity University",
+      "title": "Plo Lumumba Foundation Somaliland | The Unity University",
+      "category": "strips",
+      "url": "https://tuu.university/strips/plo-lumumba-foundation-somaliland.jpg"
+    },
+    {
+      "filename": "the_unity_university_cover.jpeg",
+      "altText": "The Unity University Cover - Promotional Strips at The Unity University",
+      "title": "The Unity University Cover | The Unity University",
+      "category": "strips",
+      "url": "https://tuu.university/strips/the_unity_university_cover.jpeg"
+    },
+    {
+      "filename": "good-student-line-up.jpg",
+      "altText": "Good Student Line Up - Student Life at The Unity University",
+      "title": "Good Student Line Up | The Unity University",
+      "category": "student-life",
+      "url": "https://tuu.university/student-life/good-student-line-up.jpg"
+    },
+    {
+      "filename": "school-talk.jpg",
+      "altText": "School Talk - Student Life at The Unity University",
+      "title": "School Talk | The Unity University",
+      "category": "student-life",
+      "url": "https://tuu.university/student-life/school-talk.jpg"
+    },
+    {
+      "filename": "school-talk01.jpg",
+      "altText": "School Talk01 - Student Life at The Unity University",
+      "title": "School Talk01 | The Unity University",
+      "category": "student-life",
+      "url": "https://tuu.university/student-life/school-talk01.jpg"
+    },
+    {
+      "filename": "tuu-logo.png",
+      "altText": "Tuu Logo - The Unity University",
+      "title": "Tuu Logo | The Unity University",
+      "category": "tuu-logo",
+      "url": "https://tuu.university/tuu-logo/tuu-logo.png"
+    },
+    {
+      "filename": "university-banner.jpg",
+      "altText": "University Banner - The Unity University",
+      "title": "University Banner | The Unity University",
+      "category": "general",
+      "url": "https://tuu.university/university-banner.jpg"
+    },
+    {
+      "filename": "university-campus.jpg",
+      "altText": "University Campus - The Unity University",
+      "title": "University Campus | The Unity University",
+      "category": "general",
+      "url": "https://tuu.university/university-campus.jpg"
+    },
+    {
+      "filename": "university-class.jpg",
+      "altText": "University Class - The Unity University",
+      "title": "University Class | The Unity University",
+      "category": "general",
+      "url": "https://tuu.university/university-class.jpg"
+    }
+  ]
+}

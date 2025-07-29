@@ -167,6 +167,26 @@ export default function UnityUniversityHome() {
   // Modal ad slides data
   const adSlides = [
     {
+      image: "/ads/viva-voice-Banner 4X2.webp",
+      imageClass: "w-full h-auto max-h-[90vh] object-contain rounded-t-lg max-w-full shadow-2xl",
+      title: "🎓 VIVA VOCE - Class of 2025 🎓",
+      text: (
+        <>
+          <div className="text-xl md:text-2xl font-bold text-emerald-800 mb-3 text-center">GRADUATION CELEBRATION</div>
+          <div className="text-lg md:text-xl font-semibold mb-2 text-center text-gray-800">The Unity University proudly presents</div>
+          <div className="text-2xl md:text-3xl font-bold text-emerald-700 mb-3 text-center">VIVA VOCE</div>
+          <div className="text-xl md:text-2xl font-bold text-red-600 mb-2 text-center">Class of 2025</div>
+          <div className="text-base md:text-lg text-gray-700 mb-3 text-center">Join us in celebrating the achievements of our graduating class</div>
+          <div className="font-bold text-emerald-700 mb-2 text-center">What Begins Here Transforms Africa</div>
+          <div className="flex items-center justify-center gap-2 text-xs md:text-sm mb-1 text-gray-600">
+            <span>Somaliland Campus, Hargeisa, Somaliland</span>
+            <span className="mx-2">|</span>
+            <span>Liberia Campus, Monrovia, Montserrado County</span>
+          </div>
+        </>
+      ),
+    },
+    {
       image: "/ads/admissions open.webp",
       imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
       title: "",
@@ -335,24 +355,14 @@ export default function UnityUniversityHome() {
         <section className="relative min-h-[60vh] md:h-[80vh] flex items-center bg-emerald-900 overflow-hidden max-w-full">
         {/* Hero Image with overlay */}
         <div className="absolute inset-0">
-          {heroSlides.map((slide, index) => (
-            <Image
-              key={slide.image} // Use image path as a stable key
-              src={slide.image}
-                alt={
-                  index === 0
-                    ? 'Graduation ceremony at The Unity University'
-                    : index === 1
-                    ? 'Global perspective and international students at The Unity University'
-                    : 'Graduation day celebration at The Unity University'
-                }
-              fill
-              className="object-cover transition-opacity duration-1000 ease-in-out"
-              style={{ opacity: currentSlide === index ? 1 : 0 }}
-              priority={index === 0} // Only prioritize the first image
-            />
-          ))}
-            <div className="absolute inset-0 bg-black/60" />
+          <Image
+            src="/ads/viva-voice-Banner 4X2.webp"
+            alt="The Unity University - Excellence in Education"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
         {/* Content */}

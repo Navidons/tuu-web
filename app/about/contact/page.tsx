@@ -92,23 +92,35 @@ export default function ContactPage() {
       <EnhancedNavbar />
 
       {/* Hero Section - Editorial Style with Background Image */}
-      <section className="relative py-24 md:py-36 bg-white border-b border-gray-200 overflow-hidden">
+      <section className="relative py-24 md:py-36 border-b border-gray-200 overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img src="/strips/apply-now-at-the-unity-university.jpg" alt="Apply Now at The Unity University" className="w-full h-full object-cover object-center" style={{filter:'brightness(0.6)'}} />
-          <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-emerald-50/80 to-white/90" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-100/40 via-transparent to-transparent" />
+          <Image
+            src="/ads/viva-voice-Banner 4X2.webp"
+            alt="The Unity University - Contact Us"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="container relative z-10 mx-auto px-4">
           <div className="text-center flex flex-col items-center">
-            <Badge className="bg-emerald-700 text-white px-10 py-4 text-xl font-extrabold shadow-xl mb-8 tracking-wide uppercase rounded-full">Contact Us</Badge>
+            <Badge className="bg-white/20 backdrop-blur-sm text-white px-10 py-4 text-xl font-extrabold shadow-2xl mb-8 tracking-wide uppercase rounded-full border border-white/30">
+              Contact Us
+            </Badge>
             <div className="flex items-center justify-center gap-4 mb-4">
-              <Mail className="h-10 w-10 text-emerald-700 drop-shadow-lg" />
-              <h1 className="text-6xl sm:text-7xl md:text-8xl font-serif font-extrabold text-gray-900 leading-tight drop-shadow-xl">Get in Touch</h1>
+              <Mail className="h-10 w-10 text-white drop-shadow-lg" />
+              <h1 className="text-6xl sm:text-7xl md:text-8xl font-serif font-extrabold text-white leading-tight drop-shadow-xl">
+                Get in Touch
+              </h1>
             </div>
             <div className="flex justify-center mb-6">
-              <hr className="w-32 border-t-2 border-emerald-700" />
+              <hr className="w-32 border-t-2 border-emerald-400" />
             </div>
-            <p className="text-xl md:text-2xl italic text-emerald-800 max-w-2xl mx-auto leading-relaxed mb-10 font-serif font-medium drop-shadow">We're here to help you on your educational journey. Reach out to us with any questions or to learn more about The Unity University.</p>
+            <p className="text-xl md:text-2xl italic text-white/90 max-w-2xl mx-auto leading-relaxed mb-10 font-serif font-medium drop-shadow">
+              We're here to help you on your educational journey. Reach out to us with any questions or to learn more about The Unity University.
+            </p>
           </div>
         </div>
       </section>

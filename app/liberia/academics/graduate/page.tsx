@@ -115,6 +115,15 @@ const AnimatedCounter = ({ end, duration = 2, suffix = "" }: { end: number; dura
 
 // Program Card component for reusability
 const ProgramCard = ({ program, onClick }: { program: any; onClick: () => void }) => {
+  // Programs that should keep their titles
+  const programsWithTitles = [
+    "Master of Nutrition and Food Science",
+    "Master of Arts in Development Studies", 
+    "Master of Marketing Management"
+  ]
+  
+  const shouldShowTitle = programsWithTitles.includes(program.name)
+  
   return (
     <motion.div
       whileHover={{ y: -10, scale: 1.02 }}
@@ -127,35 +136,36 @@ const ProgramCard = ({ program, onClick }: { program: any; onClick: () => void }
             src={program.image || "/placeholder.svg"}
             alt={program.name}
             fill
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
+            className="object-contain group-hover:scale-110 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute top-4 right-4">
-            <Badge className="bg-white/90 text-gray-900 font-bold">{program.duration}</Badge>
+            <Badge className="bg-blue-600 text-white font-bold px-3 py-1 rounded-md shadow-lg">{program.duration}</Badge>
           </div>
           <div className="absolute top-4 left-4">
             <Badge className="bg-red-600/90 text-white font-bold">Graduate</Badge>
           </div>
           <div className="absolute bottom-4 left-4">
             {program.icon ? (
-              <program.icon className="h-8 w-8 text-white" />
+              <program.icon className="h-8 w-8 text-blue-600" />
             ) : (
-              <GraduationCap className="h-8 w-8 text-white" />
+              <GraduationCap className="h-8 w-8 text-blue-600" />
             )}
           </div>
         </div>
 
-        <CardHeader className="pb-4">
-          <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-            {program.name}
-          </CardTitle>
-          <div className="flex items-center space-x-4 text-sm text-gray-600">
-            <span className="flex items-center">
-              <Clock className="h-4 w-4 mr-1" />
-              {program.credits}
-            </span>
-          </div>
-        </CardHeader>
+        {shouldShowTitle && (
+          <CardHeader className="pb-4">
+            <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+              {program.name}
+            </CardTitle>
+            <div className="flex items-center space-x-4 text-sm text-gray-600">
+              <span className="flex items-center">
+                <Clock className="h-4 w-4 mr-1" />
+                {program.credits}
+              </span>
+            </div>
+          </CardHeader>
+        )}
 
         <CardContent className="pb-6">
           <p className="text-gray-600 mb-4 line-clamp-3">{program.description}</p>
@@ -177,10 +187,12 @@ const ProgramCard = ({ program, onClick }: { program: any; onClick: () => void }
         </CardContent>
 
         <div className="px-6 pb-6">
-          <Button className="w-full group-hover:bg-blue-600 transition-colors">
-            Learn More
-            <ChevronRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link href="/admissions/apply" target="_blank" rel="noopener noreferrer">
+            <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold group-hover:bg-emerald-700 transition-colors">
+              Apply Now
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </Card>
     </motion.div>
@@ -211,7 +223,7 @@ export default function GraduatePage() {
       specializations: ["Strategic Management", "Finance", "Marketing", "Operations", "International Business"],
       careers: ["CEO", "VP Operations", "Management Consultant", "Investment Manager"],
       requirements: ["Bachelor's degree", "3+ years work experience", "Letters of recommendation"],
-      image: "/courses/business-class.jpg",
+      image: "/courses/masters/Master of Business Administration (Generic).webp",
       accreditation: "AACSB International Accredited",
       curriculum: ["Strategic Management", "Financial Management", "Marketing Strategy", "Operations Management", "Leadership Development", "International Business"],
       researchAreas: ["Strategic Management", "Organizational Leadership", "Financial Markets", "Marketing Innovation"],
@@ -227,7 +239,7 @@ export default function GraduatePage() {
       specializations: ["HR Strategy", "Talent Management", "Organizational Development", "Employment Law"],
       careers: ["HR Director", "Talent Manager", "Organizational Consultant", "Training Manager"],
       requirements: ["Bachelor's degree", "HR experience preferred", "Letters of recommendation"],
-      image: "/courses/human-resources.jpg",
+      image: "/courses/masters/Master of Human Resource Management.webp",
       accreditation: "CIPD Recognized",
       curriculum: ["HR Strategy", "Talent Management", "Organizational Development", "Employment Law", "Performance Management", "Leadership Development"],
       researchAreas: ["HR Strategy", "Talent Management", "Organizational Behavior", "Employment Relations"],
@@ -243,7 +255,7 @@ export default function GraduatePage() {
       specializations: ["Financial Accounting", "Management Accounting", "Auditing", "Tax Planning"],
       careers: ["Finance Director", "Chief Financial Officer", "Senior Accountant", "Financial Analyst"],
       requirements: ["Bachelor's degree in related field", "Accounting experience preferred", "Letters of recommendation"],
-      image: "/courses/accounts.jpg",
+      image: "/courses/masters/Master of Accounting.webp",
       accreditation: "ACCA Recognized",
       curriculum: ["Financial Accounting", "Management Accounting", "Auditing", "Tax Planning", "Financial Analysis", "Corporate Finance"],
       researchAreas: ["Financial Accounting", "Management Accounting", "Auditing", "Financial Analysis"],
@@ -259,7 +271,7 @@ export default function GraduatePage() {
       specializations: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Market Research"],
       careers: ["Marketing Director", "Brand Manager", "Digital Marketing Manager", "Market Research Analyst"],
       requirements: ["Bachelor's degree", "Marketing experience preferred", "Letters of recommendation"],
-      image: "/courses/business-class.jpg",
+      image: "/tuu-logo/tuu-logo.png",
       accreditation: "CIM Recognized",
       curriculum: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Market Research", "Marketing Strategy", "Marketing Analytics"],
       researchAreas: ["Digital Marketing", "Brand Management", "Consumer Behavior", "Marketing Innovation"],
@@ -275,7 +287,7 @@ export default function GraduatePage() {
       specializations: ["Project Management", "Program Management", "Risk Management", "Quality Management"],
       careers: ["Project Director", "Program Manager", "PMO Lead", "Operations Manager"],
       requirements: ["Bachelor's degree", "Project management experience", "Letters of recommendation"],
-      image: "/courses/business-class.jpg",
+      image: "/courses/masters/Master of Project Planning and Management.webp",
       accreditation: "PMI Recognized",
       curriculum: ["Project Management", "Program Management", "Risk Management", "Quality Management", "Project Leadership", "Project Finance"],
       researchAreas: ["Project Management", "Program Management", "Risk Management", "Quality Management"],
@@ -291,7 +303,7 @@ export default function GraduatePage() {
       specializations: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management"],
       careers: ["Supply Chain Director", "Procurement Manager", "Logistics Manager", "Operations Director"],
       requirements: ["Bachelor's degree", "Supply chain experience preferred", "Letters of recommendation"],
-      image: "/courses/business-class.jpg",
+      image: "/courses/masters/Master of Procurement Logistics and Supply Chain Management.webp",
       accreditation: "CIPS Recognized",
       curriculum: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management", "Supply Chain Finance", "Global Sourcing"],
       researchAreas: ["Supply Chain Strategy", "Procurement", "Logistics", "Operations Management"],
@@ -307,7 +319,7 @@ export default function GraduatePage() {
       specializations: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health"],
       careers: ["Public Health Director", "Epidemiologist", "Health Policy Analyst", "WHO Officer"],
       requirements: ["Bachelor's degree", "Healthcare experience preferred", "Statement of purpose"],
-      image: "/courses/health-sciences.jpg",
+      image: "/courses/masters/Master of Science in Public Health.webp",
       accreditation: "CEPH Accredited",
       curriculum: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health", "Biostatistics", "Health Economics"],
       researchAreas: ["Epidemiology", "Health Policy", "Global Health", "Environmental Health"],
@@ -323,7 +335,7 @@ export default function GraduatePage() {
       specializations: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science"],
       careers: ["Clinical Nutritionist", "Public Health Nutritionist", "Food Safety Manager", "Research Scientist"],
       requirements: ["Bachelor's degree in related field", "Nutrition background preferred", "Statement of purpose"],
-      image: "/courses/food-nutrition.png",
+      image: "/tuu-logo/tuu-logo.png",
       accreditation: "CDR Recognized",
       curriculum: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science", "Nutrition Research", "Food Policy"],
       researchAreas: ["Clinical Nutrition", "Community Nutrition", "Food Safety", "Nutritional Science"],
@@ -339,7 +351,7 @@ export default function GraduatePage() {
       specializations: ["Diplomacy", "International Security", "Development Studies", "Regional Studies"],
       careers: ["Diplomat", "International Analyst", "NGO Director", "Policy Advisor"],
       requirements: ["Bachelor's degree", "Language proficiency", "Research proposal"],
-      image: "/courses/international-relations.jpg",
+      image: "/courses/masters/Master of International Relations and Diplomatic Studies.webp",
       accreditation: "Diplomatically Recognized",
       curriculum: ["Diplomacy", "International Security", "Development Studies", "Regional Studies", "International Law", "Global Governance"],
       researchAreas: ["Diplomacy", "International Security", "Development Studies", "Regional Studies"],
@@ -355,7 +367,7 @@ export default function GraduatePage() {
       specializations: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership"],
       careers: ["Government Official", "Public Policy Analyst", "Civil Service Manager", "NGO Administrator"],
       requirements: ["Bachelor's degree", "Public sector experience preferred", "Statement of purpose"],
-      image: "/courses/leadership-skills.jpg",
+      image: "/courses/masters/Master of Public Administration and Management.webp",
       accreditation: "NASPAA Recognized",
       curriculum: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership", "Public Ethics", "Policy Analysis"],
       researchAreas: ["Public Policy", "Governance", "Public Finance", "Administrative Leadership"],
@@ -371,7 +383,7 @@ export default function GraduatePage() {
       specializations: ["International Development", "Community Development", "Development Policy", "Social Research"],
       careers: ["Development Officer", "Program Manager", "Research Analyst", "Policy Consultant"],
       requirements: ["Bachelor's degree", "Development experience preferred", "Research proposal"],
-      image: "/research/research-students.jpg",
+      image: "/tuu-logo/tuu-logo.png",
       accreditation: "DSA Recognized",
       curriculum: ["International Development", "Community Development", "Development Policy", "Social Research", "Development Economics", "Sustainable Development"],
       researchAreas: ["International Development", "Community Development", "Development Policy", "Social Research"],
@@ -387,7 +399,7 @@ export default function GraduatePage() {
       specializations: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management"],
       careers: ["IT Director", "Cybersecurity Specialist", "Data Scientist", "Systems Architect"],
       requirements: ["Bachelor's degree in IT/related field", "Programming experience", "Technical portfolio"],
-      image: "/courses/technology.jpg",
+      image: "/courses/bachelors/Bachelor of Science in Information Technology.webp",
       accreditation: "ABET Accredited",
       curriculum: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management", "Software Engineering", "Database Management"],
       researchAreas: ["Cybersecurity", "Data Science", "Cloud Computing", "IT Management"],

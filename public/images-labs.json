@@ -1,0 +1,144 @@
+{
+  "category": "labs",
+  "count": 6,
+  "images": [
+    {
+      "filename": "health-science-student-in-lab-0.jpg",
+      "altText": "Health Science Student In Lab 0 - Laboratory Facilities at The Unity University",
+      "title": "Health Science Student In Lab 0 | The Unity University",
+      "description": "Laboratory and facility images featuring health science student in lab 0 at The Unity University.",
+      "category": "labs",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Health Science Student In Lab 0 | The Unity University",
+        "description": "Laboratory and facility images featuring health science student in lab 0 at The Unity University.",
+        "contentUrl": "https://tuu.university/labs/health-science-student-in-lab-0.jpg",
+        "thumbnailUrl": "https://tuu.university/labs/health-science-student-in-lab-0.jpg",
+        "uploadDate": "2025-07-29T09:58:41.224Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Health Science Student In Lab 0 - Laboratory Facilities at The Unity University"
+      }
+    },
+    {
+      "filename": "health-science-student-in-lab.jpg",
+      "altText": "Health Science Student In Lab - Laboratory Facilities at The Unity University",
+      "title": "Health Science Student In Lab | The Unity University",
+      "description": "Laboratory and facility images featuring health science student in lab at The Unity University.",
+      "category": "labs",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "Health Science Student In Lab | The Unity University",
+        "description": "Laboratory and facility images featuring health science student in lab at The Unity University.",
+        "contentUrl": "https://tuu.university/labs/health-science-student-in-lab.jpg",
+        "thumbnailUrl": "https://tuu.university/labs/health-science-student-in-lab.jpg",
+        "uploadDate": "2025-07-29T09:58:41.224Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "Health Science Student In Lab - Laboratory Facilities at The Unity University"
+      }
+    },
+    {
+      "filename": "in-the-lab-0.jpg",
+      "altText": "In The Lab 0 - Laboratory Facilities at The Unity University",
+      "title": "In The Lab 0 | The Unity University",
+      "description": "Laboratory and facility images featuring in the lab 0 at The Unity University.",
+      "category": "labs",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "In The Lab 0 | The Unity University",
+        "description": "Laboratory and facility images featuring in the lab 0 at The Unity University.",
+        "contentUrl": "https://tuu.university/labs/in-the-lab-0.jpg",
+        "thumbnailUrl": "https://tuu.university/labs/in-the-lab-0.jpg",
+        "uploadDate": "2025-07-29T09:58:41.224Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "In The Lab 0 - Laboratory Facilities at The Unity University"
+      }
+    },
+    {
+      "filename": "in-the-lab-01.jpg",
+      "altText": "In The Lab 01 - Laboratory Facilities at The Unity University",
+      "title": "In The Lab 01 | The Unity University",
+      "description": "Laboratory and facility images featuring in the lab 01 at The Unity University.",
+      "category": "labs",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "In The Lab 01 | The Unity University",
+        "description": "Laboratory and facility images featuring in the lab 01 at The Unity University.",
+        "contentUrl": "https://tuu.university/labs/in-the-lab-01.jpg",
+        "thumbnailUrl": "https://tuu.university/labs/in-the-lab-01.jpg",
+        "uploadDate": "2025-07-29T09:58:41.224Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "In The Lab 01 - Laboratory Facilities at The Unity University"
+      }
+    },
+    {
+      "filename": "in-the-lab-02.jpg",
+      "altText": "In The Lab 02 - Laboratory Facilities at The Unity University",
+      "title": "In The Lab 02 | The Unity University",
+      "description": "Laboratory and facility images featuring in the lab 02 at The Unity University.",
+      "category": "labs",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "In The Lab 02 | The Unity University",
+        "description": "Laboratory and facility images featuring in the lab 02 at The Unity University.",
+        "contentUrl": "https://tuu.university/labs/in-the-lab-02.jpg",
+        "thumbnailUrl": "https://tuu.university/labs/in-the-lab-02.jpg",
+        "uploadDate": "2025-07-29T09:58:41.224Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "In The Lab 02 - Laboratory Facilities at The Unity University"
+      }
+    },
+    {
+      "filename": "in-the-lab.jpg",
+      "altText": "In The Lab - Laboratory Facilities at The Unity University",
+      "title": "In The Lab | The Unity University",
+      "description": "Laboratory and facility images featuring in the lab at The Unity University.",
+      "category": "labs",
+      "structuredData": {
+        "@type": "ImageObject",
+        "name": "In The Lab | The Unity University",
+        "description": "Laboratory and facility images featuring in the lab at The Unity University.",
+        "contentUrl": "https://tuu.university/labs/in-the-lab.jpg",
+        "thumbnailUrl": "https://tuu.university/labs/in-the-lab.jpg",
+        "uploadDate": "2025-07-29T09:58:41.225Z",
+        "creator": {
+          "@type": "Organization",
+          "name": "The Unity University"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "acquireLicensePage": "https://tuu.university/contact",
+        "creditText": "The Unity University",
+        "caption": "In The Lab - Laboratory Facilities at The Unity University"
+      }
+    }
+  ]
+}
