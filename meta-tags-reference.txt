@@ -143,9 +143,6 @@
 <link rel="canonical" href="https://tuu.university/somaliland" />
 
 
-
-
-
 <!-- /admissions/apply -->
 <meta name="title" content="Apply Now to The Unity University | Online Application Process" />
 <meta name="description" content="Submit your application to join The Unity University community. Complete our online application form with all required documents for undergraduate and graduate programs." />

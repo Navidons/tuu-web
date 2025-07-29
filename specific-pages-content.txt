@@ -1,6 +1,4 @@
 
-
-
 ## /admission-list
 
 ### Page Title

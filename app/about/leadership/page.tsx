@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge"
 import EnhancedNavbar from "@/components/enhanced-navbar"
 import EnhancedFooter from "@/components/enhanced-footer"
 import Link from "next/link"
-import Head from "next/head"
 
 export default function LeadershipPage() {
   const [mounted, setMounted] = useState(false)
@@ -156,51 +155,7 @@ export default function LeadershipPage() {
   ]
 
   return (
-    <>
-      <Head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Person",
-              "name": "Prof. PLO Lumumba",
-              "jobTitle": "Founder & Chancellor",
-              "image": "https://tuu.university/leadership/plof.PLO-lumumba.jpg",
-              "affiliation": {
-                "@type": "CollegeOrUniversity",
-                "name": "The Unity University",
-                "url": "https://tuu.university/"
-              },
-              "description": "Prof. PLO Lumumba is the distinguished Founder and Chancellor of The Unity University, renowned Pan-African thought leader and anti-corruption advocate."
-            },
-            {
-              "@type": "Person",
-              "name": "Dr. Katerega",
-              "jobTitle": "Vice Chancellor",
-              "image": "https://tuu.university/leadership/dr.katerega-dvc-graduation.jpg",
-              "affiliation": {
-                "@type": "CollegeOrUniversity",
-                "name": "The Unity University",
-                "url": "https://tuu.university/"
-              },
-              "description": "Dr. Katerega is the Vice Chancellor of The Unity University, providing visionary leadership and academic excellence."
-            },
-            {
-              "@type": "Person",
-              "name": "Kavuma Yusuf Musa",
-              "jobTitle": "Campus Director",
-              "image": "https://tuu.university/leadership/kavuma-yusuf-musa-campas-director.png",
-              "affiliation": {
-                "@type": "CollegeOrUniversity",
-                "name": "The Unity University",
-                "url": "https://tuu.university/"
-              },
-              "description": "Kavuma Yusuf Musa is the Campus Director, leading campus operations and student engagement at The Unity University."
-            }
-          ]
-        }` }} />
-      </Head>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         <EnhancedNavbar />
 
         {/* Hero Section */}
@@ -482,6 +437,5 @@ export default function LeadershipPage() {
         </section>
         <EnhancedFooter />
       </div>
-    </>
   )
 }

@@ -1,7 +1,4 @@
 
-
-
-
 <!-- /admission-list - UNIQUE META TAGS -->
 <meta name="title" content="Admission Requirements at The Unity University | Complete Application Checklist" />
 <meta name="description" content="View the complete admission requirements and application checklist for The Unity University. Learn about required documents, academic qualifications, and application deadlines for undergraduate and graduate programs." />
