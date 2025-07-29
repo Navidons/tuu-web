@@ -63,11 +63,7 @@ export default function RichSearchResults({
       description: "Learn about our admission requirements, application process, and deadlines.",
       url: "/admissions"
     },
-    {
-      title: "Student Life",
-      description: "Discover campus life, activities, and opportunities at The Unity University.",
-      url: "/student-life"
-    }
+
   ],
   actions = [
     { title: "Apply Now", url: "/admissions/apply" },
@@ -257,8 +253,7 @@ export default function RichSearchResults({
               `${url}/about`,
               `${url}/academics`,
               `${url}/admissions`,
-              `${url}/about/contact`,
-              `${url}/student-life`
+              `${url}/about/contact`
             ]
           })
         }}

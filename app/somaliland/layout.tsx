@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     "Somaliland education",
     "Horn of Africa university",
     "East Africa higher education",
-    "Berbera campus",
 
     // Program-specific keywords
     "business administration Somaliland",

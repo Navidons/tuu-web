@@ -55,7 +55,7 @@ const departments = [
   },
   {
     name: "Student Affairs",
-    description: "Academic support, counseling, and student life activities",
+    description: "Academic support, counseling, and student welfare activities",
     contact: {
       email: "students@tuu.university",
       phone: "+252 637 235142",

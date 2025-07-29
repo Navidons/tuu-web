@@ -1,22 +1,5 @@
 
-## /student-life/housing
 
-### Page Title
-Student Housing at The Unity University | On-Campus Accommodation and Living
-
-### Meta Description
-Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland.
-
-### Content Summary
-The Unity University provides excellent student housing options for both local and international students. Our on-campus accommodation facilities offer comfortable living spaces, modern amenities, and a supportive community environment. Students can choose from various housing options including dormitories, shared apartments, and family housing units.
-
-### SEO Priority
-0.7
-
-### Update Frequency
-monthly
-
----
 
 ## /admission-list
 

@@ -6,12 +6,7 @@ Based on the Bing Webmaster Tools error details showing "Too many pages with ide
 
 ### **🔴 Problematic Pages - FIXED:**
 
-#### **1. `/student-life/housing`**
-- **Issue**: Identical meta description with other pages
-- **Status**: ✅ **FIXED**
-- **New Title**: "Student Housing at The Unity University | On-Campus Accommodation and Living"
-- **New Description**: "Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland."
-- **Length**: 199 characters (optimal)
+
 
 #### **2. `/admission-list`**
 - **Issue**: Identical meta description with other pages
@@ -45,27 +40,7 @@ Based on the Bing Webmaster Tools error details showing "Too many pages with ide
 
 ### **Unique Meta Tags for Each Page**
 
-#### **Student Housing Page (`/student-life/housing`)**
-```html
-<!-- /student-life/housing - UNIQUE META TAGS -->
-<meta name="title" content="Student Housing at The Unity University | On-Campus Accommodation and Living" />
-<meta name="description" content="Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland." />
-<meta name="keywords" content="university, education, Liberia, Somaliland, student housing, accommodation, dormitory" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="Student Housing at The Unity University | On-Campus Accommodation and Living" />
-<meta property="og:description" content="Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland." />
-<meta property="og:url" content="https://tuu.university/student-life/housing" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Student Housing at The Unity University | On-Campus Accommodation and Living" />
-<meta name="twitter:description" content="Discover comfortable student housing options at The Unity University. Learn about on-campus accommodation, dormitory facilities, meal plans, and student living arrangements in Liberia and Somaliland." />
-
-<!-- Canonical -->
-<link rel="canonical" href="https://tuu.university/student-life/housing" />
-```
 
 #### **Admission List Page (`/admission-list`)**
 ```html

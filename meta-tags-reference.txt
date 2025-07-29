@@ -143,28 +143,7 @@
 <link rel="canonical" href="https://tuu.university/somaliland" />
 
 
-<!-- /student-life -->
-<meta name="title" content="Student Life at The Unity University | Campus Activities and Opportunities" />
-<meta name="description" content="Discover campus life, activities, and opportunities at The Unity University. Experience vibrant student community, extracurricular activities, and personal development programs." />
-<meta name="keywords" content="university, education, Liberia, Somaliland, admissions, programs, apply" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="googlebot" content="index, follow" />
-<meta name="bingbot" content="index, follow" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="Student Life at The Unity University | Campus Activities and Opportunities" />
-<meta property="og:description" content="Discover campus life, activities, and opportunities at The Unity University. Experience vibrant student community, extracurricular activities, and personal development programs." />
-<meta property="og:url" content="https://tuu.university/student-life" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="The Unity University" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Student Life at The Unity University | Campus Activities and Opportunities" />
-<meta name="twitter:description" content="Discover campus life, activities, and opportunities at The Unity University. Experience vibrant student community, extracurricular activities, and personal development programs." />
-
-<!-- Canonical -->
-<link rel="canonical" href="https://tuu.university/student-life" />
 
 
 <!-- /admissions/apply -->

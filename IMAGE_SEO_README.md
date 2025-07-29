@@ -96,7 +96,7 @@ The system recognizes and optimizes images in the following categories:
 | `courses` | Academic program images | `/courses/` |
 | `leadership` | Leadership team portraits | `/leadership/` |
 | `graduation` | Graduation ceremonies | `/graduation/` |
-| `student-life` | Student activities | `/student-life/` |
+
 | `research` | Research activities | `/research/` |
 | `events` | University events | `/events/` |
 | `labs` | Laboratory facilities | `/labs/` |

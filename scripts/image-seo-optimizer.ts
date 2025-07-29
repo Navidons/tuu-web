@@ -36,11 +36,7 @@ const imageCategories = {
     category: 'Graduation Ceremonies',
     description: 'Graduation ceremony and celebration images'
   },
-  'student-life': {
-    prefix: 'student',
-    category: 'Student Life',
-    description: 'Student activities and campus life images'
-  },
+
   'research': {
     prefix: 'research',
     category: 'Research Activities',

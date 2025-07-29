@@ -11,7 +11,7 @@ const MAIN_PAGES = [
   'https://tuu.university/about',
   'https://tuu.university/academics',
   'https://tuu.university/admissions',
-  'https://tuu.university/student-life',
+
   
   // About section
   'https://tuu.university/about/leadership',

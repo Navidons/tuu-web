@@ -176,7 +176,11 @@ export default function LiberiaHome() {
   const [adSlide, setAdSlide] = useState(0);
 
   useEffect(() => {
-    setModalOpen(true);
+    // Open modal on load only on desktop devices
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) {
+      setModalOpen(true);
+    }
   }, []);
 
   // Auto-slide for modal ads
@@ -380,50 +384,6 @@ export default function LiberiaHome() {
 
   return (
     <>
-      <Head>
-        <title>The Unity University Liberia | Accredited University in Monrovia, West Africa</title>
-        <meta name="description" content="The Unity University Liberia campus in Monrovia offers world-class, tuition-free, accredited education for West Africa. Join a leading Pan-African university dedicated to leadership and innovation." />
-        <meta property="og:title" content="The Unity University Liberia | Accredited University in Monrovia, West Africa" />
-        <meta property="og:description" content="Tuition-free, accredited university in Monrovia, Liberia. Empowering leaders for West Africa and the African continent." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tuu.university/liberia" />
-        <meta property="og:image" content="https://tuu.university/hero-section/hero.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="The Unity University Liberia | Accredited University in Monrovia, West Africa" />
-        <meta name="twitter:description" content="Tuition-free, accredited university in Monrovia, Liberia. Empowering leaders for West Africa and the African continent." />
-        <meta name="twitter:image" content="https://tuu.university/hero-section/hero.png" />
-        <link rel="canonical" href="https://tuu.university/liberia" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <meta name="geo.region" content="LR" />
-        <meta name="geo.placename" content="Monrovia, Liberia, West Africa" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
-          "@context": "https://schema.org",
-          "@type": "CollegeOrUniversity",
-          "name": "The Unity University Liberia",
-          "url": "https://tuu.university/liberia",
-          "logo": "https://tuu.university/hero-section/hero.png",
-          "description": "The Unity University Liberia campus in Monrovia offers world-class, tuition-free, accredited education for West Africa. Join a leading Pan-African university dedicated to leadership and innovation.",
-          "foundingDate": "2020",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Monrovia Campus, Main Road",
-            "addressLocality": "Monrovia",
-            "addressRegion": "Montserrado",
-            "addressCountry": "LR"
-          },
-          "contactPoint": [{
-            "@type": "ContactPoint",
-            "telephone": "+231 77 1234567",
-            "contactType": "admissions",
-            "areaServed": ["LR", "West Africa"]
-          }],
-          "sameAs": [
-            "https://www.facebook.com/theunityuniversity",
-            "https://twitter.com/theunityuniv",
-            "https://www.linkedin.com/company/the-unity-university/"
-          ]
-        }` }} />
-      </Head>
       <LiberiaNavbar />
 
       {/* Optimized Hero Section */}
@@ -964,8 +924,14 @@ export default function LiberiaHome() {
         </div>
       </section>
 
-      {/* Modal Popup for Admissions Ads */}
-      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+      {/* Modal Popup for Admissions Ads - Desktop Only */}
+      <Dialog open={modalOpen && typeof window !== 'undefined' && window.innerWidth >= 768} onOpenChange={(open) => {
+        // Only allow opening on desktop devices
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        if (!isMobile) {
+          setModalOpen(open);
+        }
+      }}>
         <DialogContent className="max-w-xl w-full p-0 overflow-x-hidden h-[100vh] max-h-[100vh] overflow-y-auto rounded-lg">
           <style jsx global>{`
             .popup-x-close {

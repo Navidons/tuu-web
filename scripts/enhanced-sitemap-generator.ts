@@ -62,13 +62,7 @@ const pages: PageData[] = [
         priority: 0.9,
         changefreq: 'weekly'
       },
-      {
-        title: 'Student Life',
-        description: 'Discover campus life, activities, and opportunities at The Unity University.',
-        url: '/student-life',
-        priority: 0.6,
-        changefreq: 'monthly'
-      }
+
     ],
     images: [
       '/hero-section/hero.png',

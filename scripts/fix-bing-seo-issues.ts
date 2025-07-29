@@ -59,14 +59,7 @@ const pages: PageSEO[] = [
     priority: 0.8,
     changefreq: 'weekly'
   },
-  {
-    url: '/student-life',
-    title: 'Student Life at The Unity University | Campus Activities and Opportunities',
-    description: 'Discover campus life, activities, and opportunities at The Unity University. Experience vibrant student community, extracurricular activities, and personal development programs.',
-    content: 'Student life at The Unity University offers a vibrant and engaging experience. Our campuses provide numerous opportunities for personal growth, leadership development, and community engagement.',
-    priority: 0.6,
-    changefreq: 'monthly'
-  },
+
   {
     url: '/admissions/apply',
     title: 'Apply Now to The Unity University | Online Application Process',

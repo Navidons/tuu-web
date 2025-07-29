@@ -100,7 +100,7 @@ export function generateImageAltText(filename: string, category?: string): strin
       'courses': 'Academic Programs',
       'leadership': 'Leadership Team',
       'graduation': 'Graduation Ceremonies',
-      'student-life': 'Student Life',
+
       'research': 'Research Activities',
       'events': 'University Events',
       'labs': 'Laboratory Facilities',
@@ -144,7 +144,7 @@ export function generateImageDescription(filename: string, category?: string): s
       'courses': 'Course and program-related images',
       'leadership': 'University leadership and faculty portraits',
       'graduation': 'Graduation ceremony and celebration images',
-      'student-life': 'Student activities and campus life images',
+
       'research': 'Research and academic activities images',
       'events': 'Special events and celebrations',
       'labs': 'Laboratory and facility images',

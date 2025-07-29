@@ -59,7 +59,7 @@ const leadership = [
     name: "Kaggwa Robert Abubaker",
     title: "Dean of Student Affairs",
     image: "/leadership/Mr.Kaggwa-Robert-Dean-of-Students.jpg",
-    bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across The Unity University's campuses.",
+    bio: "Kaggwa Robert Abubaker oversees student welfare and development programs across The Unity University's campuses.",
     education: "Master's in Student Affairs Administration",
     achievements: [
       "Champion of student welfare and development",

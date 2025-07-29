@@ -62,8 +62,7 @@ Get in touch with The Unity University for admissions, inquiries, and support.
 Admissions
 Learn about our admission requirements, application process, and deadlines.
 
-Student Life
-Discover campus life, activities, and opportunities at The Unity University.
+
 ```
 
 #### **Images in Search Results**

@@ -39,7 +39,7 @@ export default function LeadershipPage() {
       title: "Vice-Chancellor",
       image: "/leadership/dr.katerega-dvc-graduation.jpg",
       bio: "Dr. Katerega David serves as the Vice-Chancellor, overseeing academic operations and strategic development across both campuses.",
-      education: "PhD in Educational Administration",
+      education: "PhD in Educational Administration, MBA in Business Administration, Master's in Project Management",
       achievements: [
         "20+ years in higher education leadership",
         "Expert in academic quality assurance",
@@ -53,7 +53,7 @@ export default function LeadershipPage() {
       title: "Campus Director",
       image: "/leadership/kavuma-yusuf-musa-campas-director.png",
       bio: "Kavuma Yusuf Musa has been an integral part of The Unity University since its founding, overseeing campus operations, strategic development, and supporting every major milestone in the university's journey. His leadership and dedication have been instrumental in the university's growth and success.",
-      education: "MBA in Management, BSc in Administration",
+      education: "MBA in Business Administration, Master's in Project Management, BSc in Administration",
       achievements: [
         "Founding team member of The Unity University",
         "Instrumental in campus growth and infrastructure development",
@@ -67,8 +67,8 @@ export default function LeadershipPage() {
       name: "Kaggwa Robert Abubaker",
       title: "Dean of Student Affairs",
       image: "/leadership/Mr.Kaggwa-Robert-Dean-of-Students.jpg",
-      bio: "Kaggwa Robert Abubaker oversees student life, welfare, and development programs across The Unity University's campuses.",
-      education: "Master's in Student Affairs Administration",
+      bio: "Kaggwa Robert Abubaker oversees student welfare and development programs across The Unity University's campuses.",
+      education: "MBA in Business Administration, Master's in Project Management, Bachelor's in Education Management",
       achievements: [
         "Champion of student welfare and development",
         "Expert in student leadership programs",

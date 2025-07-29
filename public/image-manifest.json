@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated": "2025-07-29T10:00:04.143Z",
+  "generated": "2025-07-29T20:34:47.704Z",
   "totalImages": 122,
   "categories": [
     "hero-section",
@@ -8,7 +8,6 @@
     "courses",
     "leadership",
     "graduation",
-    "student-life",
     "research",
     "events",
     "labs",
@@ -829,21 +828,21 @@
     },
     {
       "filename": "good-student-line-up.jpg",
-      "altText": "Good Student Line Up - Student Life at The Unity University",
+      "altText": "Good Student Line Up - The Unity University",
       "title": "Good Student Line Up | The Unity University",
       "category": "student-life",
       "url": "https://tuu.university/student-life/good-student-line-up.jpg"
     },
     {
       "filename": "school-talk.jpg",
-      "altText": "School Talk - Student Life at The Unity University",
+      "altText": "School Talk - The Unity University",
       "title": "School Talk | The Unity University",
       "category": "student-life",
       "url": "https://tuu.university/student-life/school-talk.jpg"
     },
     {
       "filename": "school-talk01.jpg",
-      "altText": "School Talk01 - Student Life at The Unity University",
+      "altText": "School Talk01 - The Unity University",
       "title": "School Talk01 | The Unity University",
       "category": "student-life",
       "url": "https://tuu.university/student-life/school-talk01.jpg"

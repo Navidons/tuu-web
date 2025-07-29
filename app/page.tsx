@@ -142,8 +142,11 @@ export default function UnityUniversityHome() {
 
   useEffect(() => {
     setMounted(true)
-    // Open modal on load
-    setModalOpen(true);
+    // Open modal on load only on desktop devices
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) {
+      setModalOpen(true);
+    }
   }, [])
 
   // Auto-slide functionality for hero section
@@ -294,60 +297,6 @@ export default function UnityUniversityHome() {
   ]
 
   return (
-    <>
-      <Head>
-        <title>The Unity University | Tuition-Free Accredited University in Somaliland & Liberia</title>
-        <meta name="description" content="The Unity University is Africa's pioneer, non-profit, tuition-free accredited university with campuses in Somaliland and Liberia. Offering world-class education, scholarships, and leadership development for East Africa and the Horn of Africa." />
-        <meta property="og:title" content="The Unity University | Tuition-Free Accredited University in Somaliland & Liberia" />
-        <meta property="og:description" content="Africa's leading non-profit, tuition-free university. Accredited, global, and dedicated to leadership in Somaliland, Liberia, and beyond." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tuu.university/" />
-        <meta property="og:image" content="https://tuu.university/hero-section/hero.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="The Unity University | Tuition-Free Accredited University in Somaliland & Liberia" />
-        <meta name="twitter:description" content="Africa's leading non-profit, tuition-free university. Accredited, global, and dedicated to leadership in Somaliland, Liberia, and beyond." />
-        <meta name="twitter:image" content="https://tuu.university/hero-section/hero.png" />
-        <link rel="canonical" href="https://tuu.university/" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <meta name="geo.region" content="AF" />
-        <meta name="geo.placename" content="Somaliland, Liberia, East Africa, Horn of Africa" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
-          "@context": "https://schema.org",
-          "@type": "CollegeOrUniversity",
-          "name": "The Unity University",
-          "url": "https://tuu.university/",
-          "logo": "https://tuu.university/hero-section/hero.png",
-          "description": "Africa's pioneer, non-profit, tuition-free accredited university with campuses in Somaliland and Liberia. Offering world-class education, scholarships, and leadership development for East Africa and the Horn of Africa.",
-          "foundingDate": "2020",
-          "address": [
-            {
-              "@type": "PostalAddress",
-              "streetAddress": "Hargeisa Campus, Main Road",
-              "addressLocality": "Hargeisa",
-              "addressRegion": "Somaliland",
-              "addressCountry": "SO"
-            },
-            {
-              "@type": "PostalAddress",
-              "streetAddress": "Monrovia Campus, Main Road",
-              "addressLocality": "Monrovia",
-              "addressRegion": "Montserrado",
-              "addressCountry": "LR"
-            }
-          ],
-          "contactPoint": [{
-            "@type": "ContactPoint",
-            "telephone": "+252 63 1234567",
-            "contactType": "admissions",
-            "areaServed": ["SO", "LR", "KE", "ET", "East Africa", "Horn of Africa"]
-          }],
-          "sameAs": [
-            "https://www.facebook.com/theunityuniversity",
-            "https://twitter.com/theunityuniv",
-            "https://www.linkedin.com/company/the-unity-university/"
-          ]
-        }` }} />
-      </Head>
     <div className="min-h-screen bg-white overflow-hidden overflow-x-hidden">
       <EnhancedNavbar />
 
@@ -666,89 +615,7 @@ export default function UnityUniversityHome() {
         </div>
       </section>
 
-      {/* Student Life Section */}
-      <section className="py-16 md:py-24 bg-[#faf9f7] border-y border-gray-300 font-serif">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-wide uppercase border-b-2 border-black inline-block pb-2">Vibrant Student Life</h2>
-            <div className="text-xs text-gray-500 mt-1 mb-2">Campus Life Highlights</div>
-            <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mt-4 italic">
-              Experience a rich campus culture that celebrates diversity, fosters growth, and creates lifelong connections.
-            </p>
-          </div>
 
-          <div className="grid gap-x-10 gap-y-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-gray-200 divide-y md:divide-y-0 md:divide-x divide-gray-200 bg-transparent">
-            {/* Community Outreaches */}
-            <div className="flex flex-col h-full p-6">
-              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
-                  <Image
-                    src="/community-outreaches/health-science-faculty-community-out-reach-1.JPG"
-                    alt="Unity University students conducting a health science community outreach program"
-                    fill
-                  className="object-cover"
-                  />
-                  </div>
-              <div className="flex items-center mb-2">
-                <Users className="h-5 w-5 text-gray-700 mr-2" />
-                <span className="text-lg font-bold text-gray-900">Community Outreaches</span>
-                </div>
-              <p className="text-gray-700 text-sm mb-1">Impactful service and outreach programs</p>
-              <div className="text-xs text-gray-500">50+ programs</div>
-            </div>
-            {/* Research Projects */}
-            <div className="flex flex-col h-full p-6">
-              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
-                <Image
-                  src="/research/research-students.jpg"
-                    alt="Unity University students engaged in research projects"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-center mb-2">
-                <BookOpen className="h-5 w-5 text-gray-700 mr-2" />
-                <span className="text-lg font-bold text-gray-900">Research Projects</span>
-              </div>
-              <p className="text-gray-700 text-sm mb-1">Student-led research and innovation initiatives</p>
-              <div className="text-xs text-gray-500">200+ projects</div>
-            </div>
-            {/* Events */}
-            <div className="flex flex-col h-full p-6">
-              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
-                <Image
-                    src="/events/the-unity-university-indipendence-day-somaliland-01.jpg"
-                    alt="Unity University Independence Day event in Somaliland"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-center mb-2">
-                <Calendar className="h-5 w-5 text-gray-700 mr-2" />
-                <span className="text-lg font-bold text-gray-900">Events</span>
-              </div>
-              <p className="text-gray-700 text-sm mb-1">Annual celebrations, independence day, and campus events</p>
-              <div className="text-xs text-gray-500">30+ events</div>
-            </div>
-            {/* Labs */}
-            <div className="flex flex-col h-full p-6">
-              <div className="relative h-40 w-full mb-4 border border-gray-200 shadow-sm bg-white">
-                <Image
-                  src="/labs/health-science-student-in-lab.jpg"
-                    alt="Students working in health science laboratory at The Unity University"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-center mb-2">
-                <FlaskConical className="h-5 w-5 text-gray-700 mr-2" />
-                <span className="text-lg font-bold text-gray-900">Labs</span>
-              </div>
-              <p className="text-gray-700 text-sm mb-1">Modern science and technology labs for hands-on learning</p>
-              <div className="text-xs text-gray-500">10+ labs</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Research & Innovation Section */}
       <section className="py-16 md:py-24 bg-[#faf9f7] border-y-4 border-emerald-600 font-serif">
@@ -942,8 +809,14 @@ export default function UnityUniversityHome() {
       {/* Site Footer */}
       <EnhancedFooter />
 
-      {/* Modal Popup for Admissions Ads */}
-      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+      {/* Modal Popup for Admissions Ads - Desktop Only */}
+      <Dialog open={modalOpen && typeof window !== 'undefined' && window.innerWidth >= 768} onOpenChange={(open) => {
+        // Only allow opening on desktop devices
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        if (!isMobile) {
+          setModalOpen(open);
+        }
+      }}>
         <DialogContent className="max-w-xl w-full p-0 overflow-x-hidden h-[100vh] max-h-[100vh] overflow-y-auto rounded-lg">
           <style jsx global>{`
             .popup-x-close {
@@ -1023,6 +896,5 @@ export default function UnityUniversityHome() {
         </DialogContent>
       </Dialog>
     </div>
-    </>
   )
 }

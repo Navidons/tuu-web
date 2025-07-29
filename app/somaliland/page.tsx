@@ -163,7 +163,11 @@ export default function HomePage() {
 
   useEffect(() => {
     setIsClient(true)
-    setModalOpen(true);
+    // Open modal on load only on desktop devices
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) {
+      setModalOpen(true);
+    }
   }, [])
 
   // Auto-slide for modal ads
@@ -340,52 +344,7 @@ export default function HomePage() {
   }
 
   return (
-    <>
-      <Head>
-        <title>The Unity University Somaliland | Accredited University in Hargeisa, East Africa</title>
-        <meta name="description" content="The Unity University Somaliland campus in Hargeisa offers world-class, tuition-free, accredited education for East Africa and the Horn of Africa. Join a leading Pan-African university dedicated to leadership and innovation." />
-        <meta property="og:title" content="The Unity University Somaliland | Accredited University in Hargeisa, East Africa" />
-        <meta property="og:description" content="Tuition-free, accredited university in Hargeisa, Somaliland. Empowering leaders for East Africa and the Horn of Africa." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tuu.university/somaliland" />
-        <meta property="og:image" content="https://tuu.university/hero-section/hero.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="The Unity University Somaliland | Accredited University in Hargeisa, East Africa" />
-        <meta name="twitter:description" content="Tuition-free, accredited university in Hargeisa, Somaliland. Empowering leaders for East Africa and the Horn of Africa." />
-        <meta name="twitter:image" content="https://tuu.university/hero-section/hero.png" />
-        <link rel="canonical" href="https://tuu.university/somaliland" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <meta name="geo.region" content="SO" />
-        <meta name="geo.placename" content="Hargeisa, Somaliland, East Africa, Horn of Africa" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
-          "@context": "https://schema.org",
-          "@type": "CollegeOrUniversity",
-          "name": "The Unity University Somaliland",
-          "url": "https://tuu.university/somaliland",
-          "logo": "https://tuu.university/hero-section/hero.png",
-          "description": "The Unity University Somaliland campus in Hargeisa offers world-class, tuition-free, accredited education for East Africa and the Horn of Africa. Join a leading Pan-African university dedicated to leadership and innovation.",
-          "foundingDate": "2020",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Hargeisa Campus, Main Road",
-            "addressLocality": "Hargeisa",
-            "addressRegion": "Somaliland",
-            "addressCountry": "SO"
-          },
-          "contactPoint": [{
-            "@type": "ContactPoint",
-            "telephone": "+252 63 1234567",
-            "contactType": "admissions",
-            "areaServed": ["SO", "KE", "ET", "East Africa", "Horn of Africa"]
-          }],
-          "sameAs": [
-            "https://www.facebook.com/theunityuniversity",
-            "https://twitter.com/theunityuniv",
-            "https://www.linkedin.com/company/the-unity-university/"
-          ]
-        }` }} />
-      </Head>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         {/* SEO-optimized hidden content for search engines */}
         <div className="sr-only">
           <h1>The Unity University Somaliland - Leading Higher Education Institution in Hargeisa</h1>
@@ -1132,8 +1091,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Modal Popup for Admissions Ads */}
-        <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        {/* Modal Popup for Admissions Ads - Desktop Only */}
+        <Dialog open={modalOpen && typeof window !== 'undefined' && window.innerWidth >= 768} onOpenChange={(open) => {
+          // Only allow opening on desktop devices
+          const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+          if (!isMobile) {
+            setModalOpen(open);
+          }
+        }}>
           <DialogContent className="max-w-xl w-full p-0 overflow-x-hidden h-[100vh] max-h-[100vh] overflow-y-auto rounded-lg">
             <style jsx global>{`
               .popup-x-close {
@@ -1215,6 +1180,5 @@ export default function HomePage() {
 
         <SomalilandFooter />
       </div>
-    </>
   )
 }

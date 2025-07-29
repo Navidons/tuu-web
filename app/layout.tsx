@@ -4,13 +4,106 @@ import Script from 'next/script'
 import RichSearchResults from '../components/rich-search-results'
 
 export const metadata: Metadata = {
-  title: 'The Unity University',
-  description: 'Official website of The Unity University',
-  generator: 'UgProJectHub.com',
+  title: {
+    default: 'The Unity University | Tuition-Free Accredited University in Somaliland & Liberia',
+    template: '%s | The Unity University - Academic Excellence'
+  },
+  description: 'The Unity University is Africa\'s pioneer, non-profit, tuition-free accredited university with campuses in Somaliland and Liberia. Offering world-class education, scholarships, and leadership development for East Africa and the Horn of Africa.',
+  keywords: [
+    'The Unity University',
+    'tuition-free university',
+    'accredited university',
+    'Somaliland university',
+    'Liberia university',
+    'African education',
+    'higher education',
+    'scholarships',
+    'leadership development',
+    'East Africa university',
+    'Horn of Africa education',
+    'Pan-African university',
+    'world-class education',
+    'academic excellence',
+    'undergraduate programs',
+    'graduate programs',
+    'business administration',
+    'information technology',
+    'health sciences',
+    'social sciences',
+    'education programs'
+  ],
+  authors: [{ name: 'The Unity University', url: 'https://tuu.university' }],
+  creator: 'The Unity University',
+  publisher: 'The Unity University',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://tuu.university'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://tuu.university',
+    title: 'The Unity University | Tuition-Free Accredited University in Somaliland & Liberia',
+    description: 'Africa\'s leading non-profit, tuition-free university. Accredited, global, and dedicated to leadership in Somaliland, Liberia, and beyond.',
+    siteName: 'The Unity University',
+    images: [
+      {
+        url: '/hero-section/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'The Unity University - Excellence in Education',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Unity University | Tuition-Free Accredited University in Somaliland & Liberia',
+    description: 'Africa\'s leading non-profit, tuition-free university. Accredited, global, and dedicated to leadership in Somaliland, Liberia, and beyond.',
+    images: ['/hero-section/hero.png'],
+    creator: '@TheUnityUniversity',
+    site: '@TheUnityUniversity',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: '2iMPhHeTrWirFcbl7xWsFaEMHZwGBGg6JZ6K4XeSQzg',
+  },
+  category: 'Education',
+  classification: 'Higher Education Institution',
   other: {
     'msvalidate.01': 'BF5E648EDE1AFC3A1291E80B59555617',
     'google-site-verification': '2iMPhHeTrWirFcbl7xWsFaEMHZwGBGg6JZ6K4XeSQzg',
+    'geo.region': 'AF',
+    'geo.placename': 'Somaliland, Liberia, East Africa, Horn of Africa',
+    'DC.title': 'The Unity University - Academic Excellence',
+    'DC.creator': 'The Unity University',
+    'DC.subject': 'Higher Education, University, Somaliland, Liberia',
+    'DC.description': 'Premier university offering world-class education across Africa',
+    'DC.publisher': 'The Unity University',
+    'DC.contributor': 'The Unity University Faculty and Staff',
+    'DC.date': '2024',
+    'DC.type': 'Text',
+    'DC.format': 'text/html',
+    'DC.identifier': 'https://tuu.university',
+    'DC.language': 'en',
+    'DC.coverage': 'Somaliland, Liberia, Africa',
+    'DC.rights': 'Copyright The Unity University',
   },
+  generator: 'UgProJectHub.com'
 }
 
 export default function RootLayout({

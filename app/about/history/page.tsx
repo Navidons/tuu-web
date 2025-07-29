@@ -58,7 +58,7 @@ export default function HistoryPage() {
       title: "Continued Growth",
       description:
         "Today, The Unity University serves over 4,000 students across both campuses, offering undergraduate and graduate programs with a commitment to holistic human development and leadership.",
-      image: "/student-life/good-student-line-up.jpg",
+      image: "/events/the-unity-university-indipendence-day-somaliland-01.jpg",
       milestone: "Present Day",
       students: 4000,
     },
@@ -217,7 +217,7 @@ export default function HistoryPage() {
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Users, label: "Graduates", value: "12,000+", description: "Alumni worldwide", color: "emerald", image: "/alumni/alumni-09.jpg" },
-              { icon: Globe, label: "Countries", value: "45", description: "Student representation", color: "red", image: "/student-life/school-talk.jpg" },
+              { icon: Globe, label: "Countries", value: "45", description: "Student representation", color: "red", image: "/events/the-unity-university-indipendence-day-somaliland-01.jpg" },
               { icon: Award, label: "Awards", value: "50+", description: "International recognition", color: "gray", image: "/events/the-unity-university-indipendence-day-somaliland-01.jpg" },
               { icon: BookOpen, label: "Research", value: "500+", description: "Published papers", color: "gray", image: "/research/on-the-podium-05.jpg" },
             ].map((stat, index) => (

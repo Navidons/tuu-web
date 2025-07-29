@@ -90,7 +90,7 @@ export class IndexNowService {
       'https://tuu.university/about',
       'https://tuu.university/academics',
       'https://tuu.university/admissions',
-      'https://tuu.university/student-life',
+
       'https://tuu.university/liberia',
       'https://tuu.university/somaliland',
       // Add more pages as needed
