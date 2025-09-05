@@ -11,7 +11,6 @@ import { useInView } from "react-intersection-observer"
 import EnhancedFooter from "@/components/enhanced-footer"
 import { cn } from "@/lib/utils"
 import Head from "next/head"
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 // Liberia Flag component (copied from navbar)
 const LiberiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => {
@@ -137,16 +136,10 @@ const AnimatedCounter = ({ end, duration = 2 }: { end: number; duration?: number
 export default function UnityUniversityHome() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [mounted, setMounted] = useState(false)
-  const [modalOpen, setModalOpen] = useState(false);
-  const [adSlide, setAdSlide] = useState(0);
 
   useEffect(() => {
     setMounted(true)
     // Open modal on load only on desktop devices
-    const isMobile = window.innerWidth < 768;
-    if (!isMobile) {
-      setModalOpen(true);
-    }
   }, [])
 
   // Auto-slide functionality for hero section
@@ -157,114 +150,6 @@ export default function UnityUniversityHome() {
     }, 8000)
     return () => clearInterval(interval)
   }, [mounted])
-
-  // Auto-slide for modal ads
-  useEffect(() => {
-    if (!modalOpen) return;
-    const interval = setInterval(() => {
-      setAdSlide((prev) => (prev + 1) % 7);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [modalOpen]);
-
-  // Modal ad slides data
-  const adSlides = [
-    {
-      image: "/ads/viva-voice-Banner 4X2.webp",
-      imageClass: "w-full h-auto max-h-[90vh] object-contain rounded-t-lg max-w-full shadow-2xl",
-      title: "🎓 VIVA VOCE - Class of 2025 🎓",
-      text: (
-        <>
-          <div className="text-xl md:text-2xl font-bold text-emerald-800 mb-3 text-center">GRADUATION CELEBRATION</div>
-          <div className="text-lg md:text-xl font-semibold mb-2 text-center text-gray-800">The Unity University proudly presents</div>
-          <div className="text-2xl md:text-3xl font-bold text-emerald-700 mb-3 text-center">VIVA VOCE</div>
-          <div className="text-xl md:text-2xl font-bold text-red-600 mb-2 text-center">Class of 2025</div>
-          <div className="text-base md:text-lg text-gray-700 mb-3 text-center">Join us in celebrating the achievements of our graduating class</div>
-          <div className="font-bold text-emerald-700 mb-2 text-center">What Begins Here Transforms Africa</div>
-          <div className="flex items-center justify-center gap-2 text-xs md:text-sm mb-1 text-gray-600">
-            <span>Somaliland Campus, Hargeisa, Somaliland</span>
-            <span className="mx-2">|</span>
-            <span>Liberia Campus, Monrovia, Montserrado County</span>
-          </div>
-        </>
-      ),
-    },
-    {
-      image: "/ads/admissions open.webp",
-      imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
-      title: "",
-      text: <></>,
-    },
-    {
-      image: "/strips/apply-now-at-the-unity-university.jpg",
-      imageClass: "w-full h-48 md:h-64 object-cover rounded-t-lg",
-      title: "𝗔𝗱𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗜𝘀 𝗡𝗼𝘄 𝗢𝗽𝗲𝗻",
-      text: (
-        <>
-          <div className="text-base md:text-lg font-semibold mb-2">Waxaa Socda diwaangalinta 𝐌𝐚𝐬𝐭𝐞𝐫 program 𝗛𝗮𝗹𝗳 𝗦𝗰𝗵𝗼𝗹𝗮𝗿𝘀𝗵𝗶𝗽 Xarunta jamacadda Naguso boqo Wll Saad Macluumad dheriya u hesho</div>
-          <div className="italic text-sm md:text-base mb-2">𝑯𝒂𝒍𝒌𝒂 𝑨𝒒𝒐𝒐𝒏𝒕𝒂, 𝑾𝒂𝒂𝒚𝒐-𝑨𝒓𝒂𝒈𝒏𝒊𝒎𝒂𝒅𝒂,𝒊𝒚𝒐 𝑴𝒖𝒔𝒕𝒂𝒒𝒃𝒂𝒍𝒌𝒖 𝒂𝒚 𝒌𝒖 𝒎𝒊𝒅𝒂𝒚𝒔𝒂𝒏 𝒚𝒊𝒉𝒊𝒊𝒏.</div>
-          <div className="font-bold text-emerald-700 mb-2">𝑾𝒉𝒂𝒕 𝑩𝒆𝒈𝒊𝒏𝒔 𝑯𝒆𝒓𝒆 𝑻𝒓𝒂𝒏𝒔𝒇𝒐𝒓𝒎𝒔 𝑨𝒇𝒓𝒊𝒄𝒂.</div>
-          <div className="flex items-center justify-center gap-2 text-xs md:text-sm mb-1 text-gray-600">
-            <span>Somaliland Campus, Hargeisa, Somaliland</span>
-            <span className="mx-2">|</span>
-            <span>Liberia Campus, Monrovia, Montserrado County</span>
-          </div>
-        </>
-      ),
-    },
-    {
-      image: "/strips/the_unity_university_cover.jpeg",
-      imageClass: "w-full h-48 md:h-64 object-cover rounded-t-lg",
-      title: "𝗔𝗱𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗜𝘀 𝗡𝗼𝘄 𝗢𝗽𝗲𝗻",
-      text: (
-        <>
-          <div className="text-base md:text-lg font-semibold mb-2">Waxaa Socda diwaangalinta 𝐝𝐞𝐠𝐫𝐞𝐞 𝐢𝐲𝐨 𝐌𝐚𝐬𝐭𝐞𝐫 program 𝗛𝗮𝗹𝗳 𝗦𝗰𝗵𝗼𝗹𝗮𝗿𝘀𝗵𝗶𝗽 wixii faahfahin dheerada Nagusooboqo Xarunta Jamacadda naguso boqo wll saad macluumad dheriya u hesho</div>
-          <div className="font-semibold text-emerald-800 mb-2">𝐖𝐚𝐚 𝐗𝐢𝐥𝐢𝐠𝐢𝐢 𝐚𝐚𝐝 𝐝𝐨𝐨𝐫𝐚𝐧 𝐥𝐚𝐡𝐚𝐲𝐝 𝐣𝐚𝐚𝐦𝐚𝐜𝐝𝐝𝐚 𝐭𝐡𝐞 𝐔𝐧𝐢𝐭𝐲 𝐔𝐧𝐢𝐯𝐞𝐫𝐬𝐢𝐭𝐲</div>
-          <div className="font-bold text-emerald-700 mb-2">What Begins Here Transforms Africa.</div>
-          <div className="flex items-center justify-center gap-2 text-xs md:text-sm mb-1 text-gray-600">
-            <span>Somaliland Campus, Hargeisa, Somaliland</span>
-            <span className="mx-2">|</span>
-            <span>Liberia Campus, Monrovia, Montserrado County</span>
-          </div>
-        </>
-      ),
-    },
-    {
-      image: "/strips/bachelor-of-software-enginnering.jpg",
-      imageClass: "w-40 h-40 md:w-64 md:h-64 object-cover rounded-full mx-auto mt-4",
-      title: "Bachelor of Science in Software Engineering",
-      text: (
-        <>
-          <div className="text-base md:text-lg font-semibold mb-2">"HOME OF IT & ENGINEERING"</div>
-          <div className="font-bold text-emerald-700 mb-2">What Begins Here Transforms Africa.</div>
-          <div className="text-xs md:text-sm mb-1">info@tuu.university | www.tuu.university</div>
-          <div className="flex items-center justify-center gap-2 text-xs md:text-sm mb-2 text-gray-600">
-            <span>Somaliland Campus, Hargeisa, Somaliland</span>
-            <span className="mx-2">|</span>
-            <span>Liberia Campus, Monrovia, Montserrado County</span>
-          </div>
-        </>
-      ),
-    },
-    {
-      image: "/ads/public health.webp",
-      imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
-      title: "",
-      text: <></>,
-    },
-    {
-      image: "/ads/fbm-banking-banner.webp",
-      imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
-      title: "",
-      text: <></>,
-    },
-    {
-      image: "/ads/FBM-BBA-BANNER.webp",
-      imageClass: "w-full h-auto max-h-[85vh] object-contain rounded-t-lg max-w-full",
-      title: "",
-      text: <></>,
-    },
-  ];
 
   const heroSlides = [
     {
@@ -808,93 +693,6 @@ export default function UnityUniversityHome() {
 
       {/* Site Footer */}
       <EnhancedFooter />
-
-      {/* Modal Popup for Admissions Ads - Desktop Only */}
-      <Dialog open={modalOpen && typeof window !== 'undefined' && window.innerWidth >= 768} onOpenChange={(open) => {
-        // Only allow opening on desktop devices
-        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-        if (!isMobile) {
-          setModalOpen(open);
-        }
-      }}>
-        <DialogContent className="max-w-xl w-full p-0 overflow-x-hidden h-[100vh] max-h-[100vh] overflow-y-auto rounded-lg">
-          <style jsx global>{`
-            .popup-x-close {
-              top: 1rem !important;
-              right: 1rem !important;
-              background: rgba(255,255,255,0.85) !important;
-              color: #1e293b !important;
-              border-radius: 9999px !important;
-              box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-              width: 2.5rem !important;
-              height: 2.5rem !important;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              z-index: 10;
-              border: 2px solid #e2e8f0;
-              transition: background 0.2s, color 0.2s;
-            }
-            .popup-x-close:hover, .popup-x-close:focus {
-              background: #f87171 !important;
-              color: #fff !important;
-              border-color: #f87171;
-            }
-            .popup-x-close svg {
-              width: 1.5rem !important;
-              height: 1.5rem !important;
-            }
-          `}</style>
-          <div className="flex flex-col items-center bg-white rounded-lg shadow-lg w-full overflow-x-hidden">
-            {/* X Close Button override (Radix UI Close) */}
-            <button
-              type="button"
-              aria-label="Close"
-              onClick={() => setModalOpen(false)}
-              className="popup-x-close absolute"
-              style={{ top: 16, right: 16 }}
-            >
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="6" y1="6" x2="14" y2="14" /><line x1="14" y1="6" x2="6" y2="14" /></svg>
-            </button>
-            {/* Image as link */}
-            <a href="/admissions/apply" target="_blank" rel="noopener noreferrer" className="w-full">
-              <Image
-                src={adSlides[adSlide].image}
-                alt={adSlides[adSlide].title}
-                width={adSlide === 2 ? 256 : 600}
-                height={adSlide === 2 ? 256 : 192}
-                className={adSlides[adSlide].imageClass + " cursor-pointer w-full object-contain"}
-                priority
-              />
-            </a>
-            {/* Content */}
-            <div className="p-3 md:p-6 w-full text-center">
-              <DialogTitle className="text-xl md:text-2xl font-bold text-emerald-800 mb-2">{adSlides[adSlide].title}</DialogTitle>
-              <div className="mb-4 text-gray-700">{adSlides[adSlide].text}</div>
-              <Button
-                className="w-full bg-emerald-700 text-white hover:bg-emerald-800 font-bold text-base md:text-lg py-2 md:py-3 rounded-md mb-2"
-                onClick={() => {
-                  setModalOpen(false);
-                  window.open("/admissions/apply", "_blank");
-                }}
-              >
-                Apply Now
-              </Button>
-              {/* Slide indicators */}
-              <div className="flex justify-center gap-2 mt-2">
-                {adSlides.map((_, idx) => (
-                  <button
-                    key={idx}
-                    className={`h-2 w-4 md:w-6 rounded-full transition-all duration-300 ${adSlide === idx ? "bg-emerald-700" : "bg-emerald-200"}`}
-                    onClick={() => setAdSlide(idx)}
-                    aria-label={`Go to ad slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   )
 }
